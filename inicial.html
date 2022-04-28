@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Site</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel="stylesheet" href="inicial.css">
+
+
+  </head>
+  <body>
+    <div id="sidebar" class="d-flex flex-column flex-shrink-0 ">
+      <a href="#" id="logo" class="d-block link-dark text-decoration-none " title="Icon-only" data-bs-toggle="tooltip" data-bs-placement="right">
+        <img src="logo.svg">
+      </a>
+      <ul id="icons" class="nav nav-pills nav-flush flex-column mb-auto text-center">
+        <li class="nav-item">
+          <a href="#" id="home" class="nav-link active py-3 " aria-current="page" title="Home" data-bs-toggle="tooltip" data-bs-placement="right">
+            <i class="fi fi-rr-home"></i>        
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link py-3 " title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+            <i class="fi fi-rr-book-alt"></i>       
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link py-3 " title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+            <i class="fi fi-rr-graduation-cap"></i>        
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link py-3 " title="Orders" data-bs-toggle="tooltip" data-bs-placement="right">
+            <i class="fi fi-rr-shopping-bag"></i>        
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link py-3 " title="Products" data-bs-toggle="tooltip" data-bs-placement="right">
+            <i class="fi fi-rr-interrogation"></i>        
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link py-3 " title="Products" data-bs-toggle="tooltip" data-bs-placement="right">
+            <i class="fi fi-rr-info"></i>        
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link py-3 " title="Customers" data-bs-toggle="tooltip" data-bs-placement="right">
+            <svg class="bi" width="24" height="24" role="img" aria-label="Customers"><use xlink:href="#people-circle"/></svg>
+          </a>
+        </li>
+      </ul>
+      <div class="btn-group dropup">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fi fi-rr-sign-in-alt"></i>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Entrar</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Registar</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="login">
+      <img src="imagem.svg">
+      <div class="buttons">
+        <button type="button" id="entrar" class="btn btn-outline">Entrar</button>
+        <button type="button" id="registar" class="btn btn">Registar</button>
+      </div>
+    </div>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="6690006.svg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>First slide label</h5>
+            <p>Some representative placeholder content for the first slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="6690006.svg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Second slide label</h5>
+            <p>Some representative placeholder content for the second slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="6690006.svg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Third slide label</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    
+    <div class="leaderboard">
+      <ul class="list-group">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+      </ul>
+    </div>
+    <footer>
+
+    </footer>
+    <script src="inicial.js"></script>
+    <script src="../popper/bootstrap.bundle.min.js"></script>
+
+  </body>
+</html>
