@@ -6,70 +6,42 @@ body{
     margin-bottom: 70px;
   }
   
-  #sidebar{
-    height: 100%;
-    position:fixed;
-    display: flex;
-  }
-
-  #logo{
-      padding: 15px;
-      padding-top: 20px;
-      padding-bottom: 40px;
-      align-items: center;
-  }
-  
-  #home{
-    background-color:#488baf;
-  }
-  
-  ul#icons>li>a{
-    color:#2D2F44;
-  }
-  
-  ul#icons>li>a:hover{
-    color: #488baf;
-  }
-  
-  i{
-    font-size: 20px;
-  }
-  
-  
   .login img{
     width:100%;
     height:auto;
+    height: auto;
+    left: 0px;
+    top: 0px;
     
   }
   
-  .login .buttons{
-    position: absolute;
-    top: 60%;
-    left: 30%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    border: none;
-    cursor: pointer;
-    text-align: center;
-  }
+  
   
   #entrar{
     border-color: #488baf;
     color: #488baf;
     background-color: #FCF7F7;
     font-size: 25px;
-    padding-left: 20px;
-    padding-right: 20px;
+    border-radius: 10px;
+    width: 216.87px;
+    height: 61.52px;
+    left: 265px;
+    top: 458.48px;
+    position: absolute;
+
   }
   
   #registar{
     border-color: #488baf;
     background-color: #488baf;
     color: #FCF7F7;
-    margin-left: 30px;
     font-size: 25px;
-    padding-left: 15px;
-    padding-right: 15px;
+    border-radius: 10px;
+    width: 216.87px;
+    height: 61.52px;
+    left: 537.13px;
+    top: 458.48px;
+    position: absolute;
   }
   
   #carouselExampleCaptions{
@@ -87,19 +59,8 @@ body{
     margin-left: auto;
   }
   
-  footer{
-    background-color: #488baf;
-    height: 100px;
-  }
-  
-  #logo img{
-    height: 20px; 
-    
-  }
 
-  .dropup i{
-    color: #2D2F44;
-  }
+  
 
   .carousel {
     margin-bottom: 4rem;
@@ -126,9 +87,11 @@ body{
     height: 32rem;
   }
 
-  .carousel-control-prev>span{
-      background-color: #2D2F44;
+  .carousel-button i{
+      color:#2D2F44;
   }
+
+  
   
   
   

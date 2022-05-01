@@ -1,0 +1,41 @@
+#sidebar{
+    height: 100%;
+    position:fixed;
+    display: flex;
+  }
+
+  #logo{
+      padding: 15px;
+      padding-top: 20px;
+      padding-bottom: 40px;
+      align-items: center;
+  }
+  
+#active {
+    background-color:#488baf;
+}
+
+#active>i:hover{
+    color: #2D2F44;
+}
+
+ul#icons>li>a{
+    color:#2D2F44;
+}
+  
+ul#icons>li>a:hover{
+    color: #488baf;
+}
+
+i{
+    font-size: 20px;
+}
+
+#logo img{
+    height: 20px; 
+
+}
+
+.dropup i{
+    color: #2D2F44;
+}

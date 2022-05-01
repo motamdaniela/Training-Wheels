@@ -10,42 +10,45 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel="stylesheet" href="inicial.css">
-
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="footer.css">
+    <script src="../popper/bootstrap.bundle.min.js"></script>
+    
 
   </head>
   <body>
     <div id="sidebar" class="d-flex flex-column flex-shrink-0 ">
-      <a href="#" id="logo" class="d-block link-dark text-decoration-none " title="Icon-only" data-bs-toggle="tooltip" data-bs-placement="right">
+      <a href="#" id="logo" class="d-block link-dark text-decoration-none "  data-bs-toggle="tooltip" data-bs-placement="right">
         <img src="logo.svg">
       </a>
       <ul id="icons" class="nav nav-pills nav-flush flex-column mb-auto text-center">
         <li class="nav-item">
-          <a href="#" id="home" class="nav-link active py-3 " aria-current="page" title="Home" data-bs-toggle="tooltip" data-bs-placement="right">
+          <a href="#" id="active" class="nav-link active py-3 " aria-current="page" title="Início" data-bs-toggle="tooltip" data-bs-placement="right">
             <i class="fi fi-rr-home"></i>        
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link py-3 " title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+          <a href="#" class="nav-link py-3 " title="Caderneta" data-bs-toggle="tooltip" data-bs-placement="right">
             <i class="fi fi-rr-book-alt"></i>       
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link py-3 " title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+          <a href="#" class="nav-link py-3 " title="Aulas" data-bs-toggle="tooltip" data-bs-placement="right">
             <i class="fi fi-rr-graduation-cap"></i>        
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link py-3 " title="Orders" data-bs-toggle="tooltip" data-bs-placement="right">
+          <a href="#" class="nav-link py-3 " title="Loja" data-bs-toggle="tooltip" data-bs-placement="right">
             <i class="fi fi-rr-shopping-bag"></i>        
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link py-3 " title="Products" data-bs-toggle="tooltip" data-bs-placement="right">
+          <a href="#" class="nav-link py-3 " title="F.A.Q." data-bs-toggle="tooltip" data-bs-placement="right">
             <i class="fi fi-rr-interrogation"></i>        
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link py-3 " title="Products" data-bs-toggle="tooltip" data-bs-placement="right">
+          <a href="#" class="nav-link py-3 " title="Sobre nós" data-bs-toggle="tooltip" data-bs-placement="right">
             <i class="fi fi-rr-info"></i>        
           </a>
         </li>
@@ -69,7 +72,7 @@
     <div class="login">
       <img src="imagem.svg">
       <div class="buttons">
-        <button type="button" id="entrar" class="btn btn-outline">Entrar</button>
+        <button type="button" id="entrar" class="btn btn-outline ">Entrar</button>
         <button type="button" id="registar" class="btn btn">Registar</button>
       </div>
     </div>
@@ -90,30 +93,20 @@
             <img src="..." class="d-block w-100" alt="...">
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
+        <button class="carousel-button carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <i class="fi fi-rr-angle-left"></i>   
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
+        <button class="carousel-button carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <i class="fi fi-rr-angle-right"></i>
         </button>
       </div>
     
-    <div class="leaderboard">
-      <ul class="list-group">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-        <li class="list-group-item">A fourth item</li>
-        <li class="list-group-item">And a fifth one</li>
-      </ul>
-    </div>
+    
     <footer>
 
     </footer>
+    
     <script src="inicial.js"></script>
-    <script src="../popper/bootstrap.bundle.min.js"></script>
 
   </body>
 </html>
