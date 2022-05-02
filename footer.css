@@ -1,4 +1,6 @@
 footer{
     background-color: #488baf;
     height: 100px;
+    order:2;
+    margin-top: 60px;
   }

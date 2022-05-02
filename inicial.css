@@ -1,97 +1,83 @@
 body{
-    background-color: #FCF7F7;
-  }
+  background-color: #FCF7F7;
+  display:flex;
+  flex-direction: column;
+  font-family: 'ABC-Regular', sans-serif;
+}
   
-  body>div{
-    margin-bottom: 70px;
-  }
-  
-  .login img{
-    width:100%;
-    height:auto;
-    height: auto;
-    left: 0px;
-    top: 0px;
-    
-  }
-  
-  
-  
-  #entrar{
-    border-color: #488baf;
-    color: #488baf;
-    background-color: #FCF7F7;
-    font-size: 25px;
-    border-radius: 10px;
-    width: 216.87px;
-    height: 61.52px;
-    left: 265px;
-    top: 458.48px;
-    position: absolute;
+#fundo{
+  width:100%;
+  height:auto;
+}
 
-  }
+.container{
+  order: 1;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
   
-  #registar{
-    border-color: #488baf;
-    background-color: #488baf;
-    color: #FCF7F7;
-    font-size: 25px;
-    border-radius: 10px;
-    width: 216.87px;
-    height: 61.52px;
-    left: 537.13px;
-    top: 458.48px;
-    position: absolute;
-  }
-  
-  #carouselExampleCaptions{
-    width:60%;
-    margin-left: auto;
-    margin-right: auto;
-    
-  }
-  
-  .leaderboard ul li{
-    margin-left: 100px;
-    background-color: #E7EDF1;
-    width:350px;
-    margin-right: 30px;
-    margin-left: auto;
-  }
-  
+}
 
-  
+.container>div{
+  margin-top: 60px;
+}
 
-  .carousel {
-    margin-bottom: 4rem;
-    width:1000px;
-    margin-left: auto;
-    margin-right: auto;
 
-  }
-  /* Since positioning the image, we need to help out the caption */
-  .carousel-caption {
-    bottom: 3rem;
-    z-index: 10;
-  }
-  
-  /* Declare heights because of positioning of img element */
-  .carousel-item {
-    height: 32rem;
-  }
-  .carousel-item > img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    height: 32rem;
-  }
+.tutorial>p{
+  margin-bottom: 40px;
+  text-align: center;
+  color: #2D2F44;
+  font-family: 'ABC-Bold', sans-serif;
+  font-size: 40px;
+}
 
-  .carousel-button i{
-      color:#2D2F44;
-  }
+.tutorial>img{
+  width:800px;
+}
+
+.buttons{
+  font-family: 'ABC-Bold', sans-serif;
+}
+
+#entrar{
+  border-color: #488baf;
+  color: #488baf;
+  background-color: #FCF7F7;
+  font-size: 25px;
+  border-radius: 10px;
+  width: 216.87px;
+  height: 61.52px;
+  left: 265px;
+  top: 450px;
+  position: absolute;
+  border-width: 3px;
+}
+
+#registar{
+  border-color: #488baf;
+  background-color: #488baf;
+  color: #FCF7F7;
+  font-size: 25px;
+  border-radius: 10px;
+  width: 216.87px;
+  height: 61.52px;
+  left: 537.13px;
+  top: 450px;
+  position: absolute;
+}
+
+#video{
+  align-self: center;
+  margin-top: 80px;
+  width:800px;
+}
+
+
+
 
   
+ 
+
   
   
   

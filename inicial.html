@@ -3,53 +3,71 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap Site</title>
+    <title>Training Wheels</title>
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <script src="https://unpkg.com/feather-icons"></script>
     <link rel="stylesheet" href="inicial.css">
     <link rel="stylesheet" href="sidebar.css">
     <link rel="stylesheet" href="footer.css">
     <script src="../popper/bootstrap.bundle.min.js"></script>
+    <style>
+      @font-face {
+        font-family: 'ABC-Regular';
+        src:  url('fonte/ABCCameraPlain-Regular-Trial.woff2') format('woff2'),
+              url('fonte/ABCCameraPlain-Regular-Trial.woff') format('woff');
+
+        font-family: 'ABC-Medium';
+        src:  url('fonte/ABCCameraPlain-Medium-Trial.woff2') format('woff2'),
+              url('fonte/ABCCameraPlain-Medium-Trial.woff') format('woff');
+
+        font-family: 'ABC-Bold';
+        src:  url('fonte/ABCCameraPlain-Bold-Trial.woff2') format('woff2'),
+              url('fonte/ABCCameraPlain-Bold-Trial.woff') format('woff');
+
+      }
+    </style>
     
 
   </head>
   <body>
+    <img id="fundo" src="imagens/imagem.svg">
+
     <div id="sidebar" class="d-flex flex-column flex-shrink-0 ">
       <a href="#" id="logo" class="d-block link-dark text-decoration-none "  data-bs-toggle="tooltip" data-bs-placement="right">
-        <img src="logo.svg">
+        <img src="imagens/logo.svg">
       </a>
       <ul id="icons" class="nav nav-pills nav-flush flex-column mb-auto text-center">
         <li class="nav-item">
           <a href="#" id="active" class="nav-link active py-3 " aria-current="page" title="Início" data-bs-toggle="tooltip" data-bs-placement="right">
-            <i class="fi fi-rr-home"></i>        
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link py-3 " title="Caderneta" data-bs-toggle="tooltip" data-bs-placement="right">
-            <i class="fi fi-rr-book-alt"></i>       
+            <i data-feather="home"></i>        
           </a>
         </li>
         <li>
           <a href="#" class="nav-link py-3 " title="Aulas" data-bs-toggle="tooltip" data-bs-placement="right">
-            <i class="fi fi-rr-graduation-cap"></i>        
+            <i data-feather="file-text"></i>      
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link py-3 " title="Caderneta" data-bs-toggle="tooltip" data-bs-placement="right">
+            <i data-feather="book-open"></i>     
           </a>
         </li>
         <li>
           <a href="#" class="nav-link py-3 " title="Loja" data-bs-toggle="tooltip" data-bs-placement="right">
-            <i class="fi fi-rr-shopping-bag"></i>        
+            <i data-feather="shopping-bag"></i>      
           </a>
         </li>
         <li>
           <a href="#" class="nav-link py-3 " title="F.A.Q." data-bs-toggle="tooltip" data-bs-placement="right">
-            <i class="fi fi-rr-interrogation"></i>        
+            <i data-feather="help-circle"></i>      
           </a>
         </li>
         <li>
           <a href="#" class="nav-link py-3 " title="Sobre nós" data-bs-toggle="tooltip" data-bs-placement="right">
-            <i class="fi fi-rr-info"></i>        
+            <i data-feather="info"></i>      
           </a>
         </li>
         <li>
@@ -60,7 +78,7 @@
       </ul>
       <div class="btn-group dropup">
         <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fi fi-rr-sign-in-alt"></i>
+          <i data-feather="log-in"></i>
         </button>
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Entrar</a></li>
@@ -69,37 +87,62 @@
         </ul>
       </div>
     </div>
-    <div class="login">
-      <img src="imagem.svg">
+
+    <div class="container">
+      
       <div class="buttons">
         <button type="button" id="entrar" class="btn btn-outline ">Entrar</button>
         <button type="button" id="registar" class="btn btn">Registar</button>
       </div>
-    </div>
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+
+      
+
+      <!-- <div id="carousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="..." class="d-block w-100" alt="...">
+          <div class="carousel-item active" data-bs-interval="1000">
+            <img src="https://www.psndesign.com.br/blog/wp-content/uploads/2019/05/exemplo-cor-violeta-psndesign.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>First slide label</h5>
+              <p>Some representative placeholder content for the first slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgWnyE0iAWDVTxSXnEnNGcbRBmAYX76rSkGIl-6ZCALVPzwTL1kb2ZI8QEbhKfGoQwEzM&usqp=CAU" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Second slide label</h5>
+              <p>Some representative placeholder content for the second slide.</p>
+            </div>
           </div>
           <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
+            <img src="http://brusmalhas.com.br/uploads/produto/162.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Third slide label</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+            </div>
           </div>
         </div>
-        <button class="carousel-button carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <i class="fi fi-rr-angle-left"></i>   
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         </button>
-        <button class="carousel-button carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <i class="fi fi-rr-angle-right"></i>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
         </button>
+      </div> -->
+      
+      
+      <div class="tutorial" >
+        <p>Como usar Training Wheels</p>
+        <img src="imagens/inicio_tutorial.svg">
       </div>
+  
+    </div>
+    <img id="video" src="https://www.hypeness.com.br/1/2019/05/azul-ou-verde-teste-1.jpg">
+      
     
     
     <footer>
@@ -107,6 +150,10 @@
     </footer>
     
     <script src="inicial.js"></script>
+    <script>
+      feather.replace()
+    </script>
+    <script src="popper/bootstrap.bundle.min.js"></script>
 
   </body>
 </html>
