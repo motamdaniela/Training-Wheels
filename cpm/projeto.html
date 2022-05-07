@@ -27,6 +27,8 @@
 					  material="color: #000000; shader: flat; opacity: 0.5">
 			</a-entity>
 		</a-camera>
+
+        <!--  modelos carros
         <a-entity obj-model="obj: #mistery-obj; mtl: #mistery-mtl"
         position="0 0 0"
         ></a-entity>
@@ -36,19 +38,101 @@
         <a-entity obj-model="obj: #moto-obj; mtl: #moto-mtl"
         position="-5 0 0"
         ></a-entity>
+        -->
 
         <a-sky 
         color="#6EBAA7"
         ></a-sky>
 
         <a-plane
-        position="0 0 -2"
-        color="#CCC"
+        position="0 2.7 -30.03"
+        color="gray"
         width="100"
-        height="50"
+        height="55"
         ></a-plane>
+        
+        <!--passeio frente-->
+        <a-plane
+        color="darkgray"
+        src="#"
+        normal-map="#"
+        repeat="10 10"
+        width="100"
+        height="10"
+        position="0 30 -30">
+        </a-plane>
+
+        <!--passeio esquerda-->
+        <a-plane
+        color="darkgray"
+        src="#"
+        normal-map="#"
+        repeat="10 10"
+        width="40"
+        height="30"
+        position="-30 -10 -30">
+        </a-plane>
+        <!--passeio direita-->
+        <a-plane
+        color="darkgray"
+        src="#"
+        normal-map="#"
+        repeat="10 10"
+        width="40"
+        height="30"
+        position="30 -10 -30">
+        </a-plane>
         
     </a-scene>
     
 </body>
 </html>
+
+<!--  outra prespetiva
+    
+    <a-plane
+    color="gray"
+    src="#"
+    normal-map="#"
+    repeat="10 10"
+    width="100"
+    depth="100"
+    rotation="-90 -90 180"
+    height="100">
+    </a-plane>
+
+    <a-plane
+    color="darkgray"
+    src="#"
+    normal-map="#"
+    repeat="10 10"
+    width="50"
+    depth="10"
+    position="0 0.01 -40"
+    rotation="-90 -90 180">
+    </a-plane>
+    
+    <a-plane
+    color="darkgray"
+    src="#"
+    normal-map="#"
+    repeat="10 10"
+    width="10"
+    height="40"
+    depth="1"
+    position="-30 0.01 0"
+    rotation="-90 -90 180">
+    </a-plane>
+   
+    <a-plane
+    color="darkgray"
+    src="#"
+    normal-map="#"
+    repeat="10 10"
+    width="10"
+    height="46"
+    depth="1"
+    position="27 0.01 0"
+    rotation="-90 -90 180">
+    </a-plane>
+-->
