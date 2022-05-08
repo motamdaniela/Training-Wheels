@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"
+[
+<!ATTLIST g
+  xmlns:vectornator CDATA #FIXED "http://vectornator.io"
+  vectornator:layerName CDATA #IMPLIED >
+<!ATTLIST g
+  xmlns:vectornator CDATA #FIXED "http://vectornator.io"
+  vectornator:mask CDATA #IMPLIED >
+<!ATTLIST text
+  xmlns:vectornator CDATA #FIXED "http://vectornator.io"
+  vectornator:width CDATA #IMPLIED >
+<!ATTLIST text
+  xmlns:vectornator CDATA #FIXED "http://vectornator.io"
+  vectornator:text CDATA #IMPLIED >
+
+<!ATTLIST path
+  xmlns:vectornator CDATA #FIXED "http://vectornator.io"
+  vectornator:blendMode CDATA #IMPLIED >
+<!ATTLIST path
+  xmlns:vectornator CDATA #FIXED "http://vectornator.io"
+  vectornator:shadowColor CDATA #IMPLIED >
+<!ATTLIST path
+  xmlns:vectornator CDATA #FIXED "http://vectornator.io"
+  vectornator:shadowOpacity CDATA #IMPLIED >
+<!ATTLIST path
+  xmlns:vectornator CDATA #FIXED "http://vectornator.io"
+  vectornator:shadowRadius CDATA #IMPLIED >
+<!ATTLIST path
+  xmlns:vectornator CDATA #FIXED "http://vectornator.io"
+  vectornator:shadowOffset CDATA #IMPLIED >
+<!ATTLIST path
+  xmlns:vectornator CDATA #FIXED "http://vectornator.io"
+  vectornator:shadowAngle CDATA #IMPLIED >
+
+<!ATTLIST image
+  xmlns:vectornator CDATA #FIXED "http://vectornator.io"
+  vectornator:blendMode CDATA #IMPLIED >
+<!ATTLIST image
+  xmlns:vectornator CDATA #FIXED "http://vectornator.io"
+  vectornator:shadowColor CDATA #IMPLIED >
+<!ATTLIST image
+  xmlns:vectornator CDATA #FIXED "http://vectornator.io"
+  vectornator:shadowOpacity CDATA #IMPLIED >
+<!ATTLIST image
+  xmlns:vectornator CDATA #FIXED "http://vectornator.io"
+  vectornator:shadowRadius CDATA #IMPLIED >
+<!ATTLIST image
+  xmlns:vectornator CDATA #FIXED "http://vectornator.io"
+  vectornator:shadowOffset CDATA #IMPLIED >
+<!ATTLIST image
+  xmlns:vectornator CDATA #FIXED "http://vectornator.io"
+  vectornator:shadowAngle CDATA #IMPLIED >
+
+<!ATTLIST g
+  xmlns:vectornator CDATA #FIXED "http://vectornator.io"
+  vectornator:blendMode CDATA #IMPLIED >
+<!ATTLIST g
+  xmlns:vectornator CDATA #FIXED "http://vectornator.io"
+  vectornator:shadowColor CDATA #IMPLIED >
+<!ATTLIST g
+  xmlns:vectornator CDATA #FIXED "http://vectornator.io"
+  vectornator:shadowOpacity CDATA #IMPLIED >
+<!ATTLIST g
+  xmlns:vectornator CDATA #FIXED "http://vectornator.io"
+  vectornator:shadowRadius CDATA #IMPLIED >
+<!ATTLIST g
+  xmlns:vectornator CDATA #FIXED "http://vectornator.io"
+  vectornator:shadowOffset CDATA #IMPLIED >
+<!ATTLIST g
+  xmlns:vectornator CDATA #FIXED "http://vectornator.io"
+  vectornator:shadowAngle CDATA #IMPLIED >
+
+<!ENTITY % SVG.filter.extra.content  "| feDropShadow" >
+<!ELEMENT feDropShadow EMPTY>
+<!ATTLIST feDropShadow
+  xmlns:svg CDATA #FIXED "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"
+  dx CDATA #IMPLIED>
+<!ATTLIST feDropShadow
+  xmlns:svg CDATA #FIXED "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"
+  dy CDATA #IMPLIED>
+<!ATTLIST feDropShadow
+  xmlns:svg CDATA #FIXED "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"
+  stdDeviation CDATA #IMPLIED>
+<!ATTLIST feDropShadow
+  xmlns:svg CDATA #FIXED "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"
+  flood-opacity CDATA #IMPLIED>
+<!ATTLIST feDropShadow
+  xmlns:svg CDATA #FIXED "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"
+  in CDATA #IMPLIED>
+<!ATTLIST feDropShadow
+  xmlns:svg CDATA #FIXED "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"
+  result CDATA #IMPLIED>
+<!ATTLIST feDropShadow
+  xmlns:svg CDATA #FIXED "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"
+  flood-color CDATA #IMPLIED>
+]
+>
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 1024 1024" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<filter color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="760.866" id="Filter" width="851.717" x="86.1414" y="120.765">
+<feDropShadow dx="-3.67321e-05" dy="10" flood-color="#000000" flood-opacity="0.333" in="SourceGraphic" result="Shadow" stdDeviation="5"/>
+</filter>
+<image height="110" id="Image" overflow="visible" width="110" xlink:href="data:image/jpeg;base64,
+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"/>
+</defs>
+<g id="Camada-2" vectornator:layerName="Camada 2">
+<path d="M278.543 457.272L111.961 745.801C75.0274 809.772 104.968 861.631 178.836 861.631L512 861.631L845.164 861.631C919.032 861.631 948.973 809.772 912.039 745.801L745.457 457.272L578.874 168.743C541.941 104.772 482.059 104.772 445.126 168.743L278.543 457.272Z" fill="#ffffff" fill-rule="evenodd" filter="url(#Filter)" stroke="none" vectornator:shadowAngle="1.5708" vectornator:shadowColor="#000000" vectornator:shadowOffset="10" vectornator:shadowOpacity="0.333" vectornator:shadowRadius="10"/>
+<path d="M289.57 463.765L123.045 752.195C92.1693 805.672 117.199 849.025 178.95 849.025L512 849.025L845.05 849.025C906.801 849.025 931.831 805.672 900.955 752.195L734.43 463.765L567.905 175.335C537.03 121.857 486.97 121.857 456.095 175.335L289.57 463.765Z" fill="#de5e5d" fill-rule="evenodd" opacity="1" stroke="none"/>
+<path d="M516.837 229.498L358.817 503.196L200.797 776.894L516.837 776.894L832.876 776.894L674.856 503.196L516.837 229.498Z" fill="#ffffff" fill-rule="evenodd" opacity="1" stroke="none"/>
+<path d="M736.146 695.95L502.766 695.95L502.766 726.81L736.146 726.81L736.146 695.95Z" fill="#1e1c29" fill-rule="evenodd" opacity="1" stroke="none"/>
+<path d="M516.985 722.907L265.093 722.907L265.093 741.503L516.985 741.503L516.985 722.907Z" fill="#1e1c29" fill-rule="evenodd" opacity="1" stroke="none"/>
+<path d="M628.731 570.587L387.266 593.552C384.699 593.796 382.816 596.075 383.06 598.642L390.179 673.494C390.423 676.061 392.702 677.944 395.269 677.7L636.734 654.735C639.301 654.491 641.184 652.212 640.94 649.645L633.821 574.793C633.577 572.226 631.298 570.343 628.731 570.587Z" fill="#1e1c29" fill-rule="evenodd" opacity="1" stroke="none"/>
+<path d="M621.397 644.521L584.957 648.134C581.808 648.446 579.507 651.244 579.818 654.383L583.644 692.973C583.956 696.112 586.761 698.404 589.91 698.092L626.35 694.479C629.5 694.167 631.8 691.369 631.489 688.23L627.663 649.64C627.352 646.501 624.547 644.209 621.397 644.521Z" fill="#1e1c29" fill-rule="evenodd" opacity="1" stroke="none"/>
+<path d="M446.634 657.665L409.081 661.381C406.239 661.663 404.21 664.671 404.55 668.1L409.711 720.244C410.05 723.673 412.629 726.225 415.471 725.943L453.024 722.227C455.866 721.945 457.895 718.937 457.555 715.508L452.394 663.364C452.055 659.935 449.476 657.383 446.634 657.665Z" fill="#1e1c29" fill-rule="evenodd" opacity="1" stroke="none"/>
+<path d="M541.688 626.123L481.206 631.711C477.902 632.016 475.471 634.942 475.777 638.247L475.777 638.247C476.082 641.551 479.008 643.982 482.312 643.677L542.794 638.089C546.098 637.783 548.529 634.857 548.223 631.553L548.223 631.553C547.918 628.249 544.992 625.818 541.688 626.123Z" fill="#ffffff" fill-rule="evenodd" opacity="1" stroke="none"/>
+<path d="M393.273 605.225C393.034 606.205 394.999 606.799 397.662 606.551L620.65 585.831C623.313 585.584 624.515 583.437 623.335 581.037L586.716 506.549C585.536 504.149 582.419 502.386 579.754 502.613L422.37 515.989C418.7 516.301 414.992 519.448 414.088 523.019L393.273 605.225Z" fill="#1e1c29" fill-rule="evenodd" opacity="1" stroke="none"/>
+<path d="M573.822 522.421L432.092 534.64L420.393 597.811L596.649 581.433L573.822 522.421Z" fill="#1e1c29" fill-rule="evenodd" opacity="1" stroke="none"/>
+<path d="M572.604 524.466L429.368 536.289C428.457 536.364 427.563 537.151 427.373 538.045L416.565 588.801C416.374 589.695 594.341 572.944 594.341 572.944C595.253 572.863 574.975 525.821 574.975 525.821C574.577 524.997 573.515 524.391 572.604 524.466Z" fill="#ffffff" fill-rule="evenodd" opacity="1" stroke="none"/>
+</g>
+<clipPath id="ArtboardFrame">
+<rect height="1024" width="1024" x="0" y="0"/>
+</clipPath>
+<g clip-path="url(#ArtboardFrame)" id="Camada-1" vectornator:layerName="Camada 1" visibility="hidden">
+<use opacity="0.0755814" transform="matrix(9.30909 0 0 9.30909 0.6302 -0.528099)" xlink:href="#Image"/>
+</g>
+</svg>
