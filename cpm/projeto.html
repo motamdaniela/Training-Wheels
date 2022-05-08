@@ -16,6 +16,12 @@
             <a-asset-item id="audi-mtl" src="obj/audi/audi.mtl"></a-asset-item>
             <a-asset-item id="moto-obj" src="obj/moto/moto.obj"></a-asset-item>
             <a-asset-item id="moto-mtl" src="obj/moto/moto.mtl"></a-asset-item>
+            <!--texturas estrada-->
+            <img id="sidewalk" src="textures/sidewalk.tif">
+            <img id="sidewalk_normal" src="textures/sidewalk_normal.tif">
+            <img id="road" src="textures/sroad.tif">
+            <img id="road_normal" src="textures/road_normal.tif">
+            <img id="scenery" src="textures/scenery.jpg">
 
         </a-assets>
         <a-camera
@@ -29,52 +35,58 @@
 			</a-entity>
 		</a-camera>
 
-        
-        <a-entity obj-model="obj: #mistery-obj; mtl: #mistery-mtl"
-        position="-10 3 -10.487"
-        rotation="90 0 0"
-        ></a-entity>
-        <a-entity obj-model="obj: #audi-obj; mtl: #audi-mtl"
-        position="8.476 8 -10.037"
-        rotation="0 -90 -90"
-        ></a-entity>
-        <a-entity obj-model="obj: #moto-obj; mtl: #moto-mtl"
-        position="3.240 -3.197 -10.078"
+        <a-entity id="audi" obj-model="obj: #audi-obj; mtl: #audi-mtl"
         scale="2 2 2"
-        rotation="-90 -90 -90"
+        position="0.6 0 2.7"
+        rotation="0 180 0"
+        ></a-entity>
+        <a-entity id="carrinha" obj-model="obj: #mistery-obj; mtl: #mistery-mtl"
+        position="-12 -0.7 -7"
+        rotation="0 0 0"
+        scale="1.7 1.8 1.2"
+        ></a-entity>
+        <a-entity id="moto" obj-model="obj: #moto-obj; mtl: #moto-mtl"
+        position="3 0 -12"
+        scale="2 2 2"
+        rotation="0 260 0"
         ></a-entity>
 
         <a-sky 
         color="#6EBAA7"
+        src="#scenery"
         ></a-sky>
 
     <!--chao-->
         <a-plane
-        position="0 0 -10.05"
+        position="0 0 0"
         color="darkgray"
         width="100"
-        height="1105"
+        height="200"
+        rotation="-90 -90 180"
         ></a-plane>
         
-        <!--estrada vertical-->
-        <a-plane
-        color="gray"
-        src="#"
-        normal-map="#"
-        repeat="10 10"
-        width="12"
-        height="27"
-        position="0 -14 -10.02">
-        </a-plane>
         <!--estrada horizontal-->
         <a-plane
         color="gray"
         src="#"
         normal-map="#"
         repeat="10 10"
-        width="100"
+        width="12"
+        height="200"
+        position="0 0.01 -10"
+        rotation="-90 -90 180">
+        </a-plane>
+        <!--estrada vertical-->
+        <a-plane
+        color="white"
+        src="#road"
+        normal-map="#road_normal"
+        repeat="10 10"
+        repeat="10 10"
+        width="54"
         height="12"
-        position="0 5.5 -10.02">
+        position="-2.5 0.01 23"
+        rotation="-90 -90 180">
         </a-plane>
 
         <!--linhas-->
@@ -83,62 +95,75 @@
         src="#"
         normal-map="#"
         repeat="10 10"
-        width="100"
+        width="0.3"
+        height="200"
+        position="0 0.02 -15.5"
+        rotation="-90 -90 180">
+        </a-plane>
+        <!--marcas esquerda-->
+        <a-plane
+        color="yellow"
+        src="#"
+        normal-map="#"
+        repeat="10 10"
+        width="0.3"
+        height="92"
+        position="-54 0.02 -4.5"
+        rotation="-90 -90 180">
+        </a-plane>
+        <a-plane
+        color="yellow"
+        src="#"
+        normal-map="#"
+        repeat="10 10"
+        width="54.7"
         height="0.3"
-        position="0 11 -10">
+        position="-8 0.02 22.7"
+        rotation="-90 -90 180">
+        </a-plane>
+        <!--marcas direita-->
+        <a-plane
+        color="yellow"
+        src="#"
+        normal-map="#"
+        repeat="10 10"
+        width="0.3"
+        height="97"
+        position="51.5 0.02 -4.5"
+        rotation="-90 -90 180">
+        </a-plane>
+        <a-plane
+        color="yellow"
+        src="#"
+        normal-map="#"
+        repeat="10 10"
+        width="54.7"
+        height="0.3"
+        position="3 0.02 22.7"
+        rotation="-90 -90 180">
         </a-plane>
     <!---->
+
+    <!--luzes-->
+        <a-entity id="luz-ambiente"
+                light="type: ambient; intensity: 1">
+        </a-entity>
+
+        <!--pisca moto-->
+        <!--ainda n funciona-->
+        <a-entity id="luz-ponto-rosa"
+        light="type: spot; 
+        color: white; 
+        angle: 30; penumbra: 1; 
+        castShadow: true;
+        decay: 0.58;
+        distance: 0.3;
+        intensity: 4.01" 
+        position="0 0 0"
+        rotation="17 0 -30">
+        </a-entity>
         
     </a-scene>
     
 </body>
 </html>
-
-<!--  outra prespetiva
-    
-    <a-plane
-    color="gray"
-    src="#"
-    normal-map="#"
-    repeat="10 10"
-    width="100"
-    depth="100"
-    rotation="-90 -90 180"
-    height="100">
-    </a-plane>
-
-    <a-plane
-    color="darkgray"
-    src="#"
-    normal-map="#"
-    repeat="10 10"
-    width="50"
-    depth="10"
-    position="0 0.01 -40"
-    rotation="-90 -90 180">
-    </a-plane>
-    
-    <a-plane
-    color="darkgray"
-    src="#"
-    normal-map="#"
-    repeat="10 10"
-    width="10"
-    height="40"
-    depth="1"
-    position="-30 0.01 0"
-    rotation="-90 -90 180">
-    </a-plane>
-   
-    <a-plane
-    color="darkgray"
-    src="#"
-    normal-map="#"
-    repeat="10 10"
-    width="10"
-    height="46"
-    depth="1"
-    position="27 0.01 0"
-    rotation="-90 -90 180">
-    </a-plane>
--->
