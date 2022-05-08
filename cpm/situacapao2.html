@@ -16,6 +16,9 @@
             <a-asset-item id="audi-mtl" src="obj/audi/audi.mtl"></a-asset-item>
             <a-asset-item id="moto-obj" src="obj/moto/moto.obj"></a-asset-item>
             <a-asset-item id="moto-mtl" src="obj/moto/moto.mtl"></a-asset-item>
+            <!--texturas estrada-->
+            <img id="sidewalk" src="textures/sidewalk.tif">
+            <img id="sidewalk_normal" src="textures/sidewalk_normal.tif">
 
         </a-assets>
         <a-camera
@@ -46,10 +49,12 @@
         color="#6EBAA7"
         ></a-sky>
 
-    <!--chao-->
+    <!--passeio-->
     <a-plane
     position="0 0 -10.05"
-    color="darkgray"
+    color="gray"
+    src="#sidewalk"
+    normal-map="#sidewalk_normal"
     width="100"
     height="55"
     ></a-plane>
