@@ -17,16 +17,15 @@
             <a-asset-item id="moto-obj" src="obj/moto/moto.obj"></a-asset-item>
             <a-asset-item id="moto-mtl" src="obj/moto/moto.mtl"></a-asset-item>
             <!--texturas estrada-->
-            <img id="sidewalk" src="textures/sidewalk.tif">
-            <img id="sidewalk_normal" src="textures/sidewalk_normal.tif">
-            <img id="road" src="textures/sroad.tif">
-            <img id="road_normal" src="textures/road_normal.tif">
+            <img id="sidewalk" src="textures/sidewalk.png">
+            <img id="sidewalk_normal" src="textures/sidewalk_normal.png">
+            <img id="road" src="textures/road.png">
+            <img id="road_normal" src="textures/road_normal.png">
             <img id="scenery" src="textures/scenery.jpg">
 
         </a-assets>
         <a-camera
         position="0 2 1"
-        
         >
 			<!-- Representação visual do Cursor -->
 			<a-entity cursor position="0 0 -1"
@@ -59,7 +58,9 @@
     <!--chao-->
         <a-plane
         position="0 0 0"
-        color="darkgray"
+        src="#sidewalk"
+        normal-map="#sidewalk_normal"
+        repeat="30 30"
         width="100"
         height="200"
         rotation="-90 -90 180"
@@ -67,22 +68,19 @@
         
         <!--estrada horizontal-->
         <a-plane
-        color="gray"
-        src="#"
-        normal-map="#"
-        repeat="10 10"
-        width="12"
-        height="200"
+        src="#road"
+        normal-map="#road_normal"
+        repeat="1 1"
+        width="200"
+        height="12"
         position="0 0.01 -10"
-        rotation="-90 -90 180">
+        rotation="-90 -90 90">
         </a-plane>
         <!--estrada vertical-->
         <a-plane
-        color="white"
         src="#road"
         normal-map="#road_normal"
-        repeat="10 10"
-        repeat="10 10"
+        repeat="1 1"
         width="54"
         height="12"
         position="-2.5 0.01 23"
