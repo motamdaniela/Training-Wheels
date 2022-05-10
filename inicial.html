@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="inicial.css">
     <link rel="stylesheet" href="sidebar.css">
     <link rel="stylesheet" href="footer.css">
-    <script src="../popper/bootstrap.bundle.min.js"></script>
+    <script src=".../popper/bootstrap.bundle.min.js"></script>
     <style>
       @font-face {
         font-family: 'ABC-Regular';
@@ -34,51 +34,56 @@
   </head>
   <body>
     <img id="fundo" src="imagens/imagem.svg">
+    
 
-    <div id="sidebar" class="d-flex flex-column flex-shrink-0 ">
-      <a href="#" id="logo" class="d-block link-dark text-decoration-none "  data-bs-toggle="tooltip" data-bs-placement="right">
-        <img src="imagens/logo.svg">
+    <div id="sidebar" class="main-menu d-flex flex-column flex-shrink-0 ">
+      <a href="#" id="logo" class="d-block link-dark text-decoration-none ">
+        <img class="logo-icon" src="imagens/logo.svg">
+        
       </a>
       <ul id="icons" class="nav nav-pills nav-flush flex-column mb-auto text-center">
         <li class="nav-item">
-          <a href="#" id="active" class="nav-link active py-3 " aria-current="page" title="Início" data-bs-toggle="tooltip" data-bs-placement="right">
-            <i data-feather="home"></i>        
+          
+          <a href="#"  class="nav-link  py-3 " aria-current="page"">
+            <i id="active" class="nav-icon" data-feather="home"></i>  
+            <span id="active2" class="nav-text">Home</span>      
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link py-3 " title="Aulas" data-bs-toggle="tooltip" data-bs-placement="right">
-            <i data-feather="file-text"></i>      
+          <a href="#" class="nav-link py-3 " >
+            <i class="nav-icon" data-feather="file-text"></i>   
+            <span class="nav-text">Aulas</span>     
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link py-3 " title="Caderneta" data-bs-toggle="tooltip" data-bs-placement="right">
-            <i data-feather="book-open"></i>     
+          <a href="#" class="nav-link py-3 " >
+            <i class="nav-icon" data-feather="book-open"></i>     
+            <span class="nav-text">Caderneta</span>  
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link py-3 " title="Loja" data-bs-toggle="tooltip" data-bs-placement="right">
-            <i data-feather="shopping-bag"></i>      
+          <a href="#" class="nav-link py-3 ">
+            <i class="nav-icon" data-feather="shopping-bag"></i>  
+            <span class="nav-text">Loja</span>      
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link py-3 " title="F.A.Q." data-bs-toggle="tooltip" data-bs-placement="right">
-            <i data-feather="help-circle"></i>      
+          <a href="#" class="nav-link py-3 " >
+            <i class="nav-icon" data-feather="help-circle"></i>  
+            <span class="nav-text">F.A.Q.</span>      
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link py-3 " title="Sobre nós" data-bs-toggle="tooltip" data-bs-placement="right">
-            <i data-feather="info"></i>      
+          <a href="#" class="nav-link py-3 " >
+            <i class="nav-icon" data-feather="info"></i>    
+            <span class="nav-text">Sobre nós</span>    
           </a>
         </li>
-        <li>
-          <a href="#" class="nav-link py-3 " title="Customers" data-bs-toggle="tooltip" data-bs-placement="right">
-            <svg class="bi" width="24" height="24" role="img" aria-label="Customers"><use xlink:href="#people-circle"/></svg>
-          </a>
-        </li>
+        
       </ul>
       <div class="btn-group dropup">
         <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          <i data-feather="log-in"></i>
+          <i class="nav-icon" data-feather="log-in"></i>
         </button>
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Entrar</a></li>
