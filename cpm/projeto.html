@@ -44,11 +44,21 @@
         rotation="0 0 0"
         scale="1.7 1.8 1.2"
         ></a-entity>
-        <a-entity id="moto" obj-model="obj: #moto-obj; mtl: #moto-mtl"
-        position="3 0 -12"
-        scale="2 2 2"
-        rotation="0 260 0"
-        ></a-entity>
+        <a-entity>
+            <a-entity id="moto" obj-model="obj: #moto-obj; mtl: #moto-mtl"
+            position="3 0 -12"
+            scale="2 2 2"
+            rotation="0 260 0"
+            ></a-entity>
+            
+            <!--pisca moto-->
+            <a-entity id="luz_na_moto"
+            animation="property: light.intensity; from: 6; to: 0; dur: 900 ; loop: true"
+            light="type: spot; color: #fbff00; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 0.42; intensity: 6; groundColor: #fbff00" position="3.55524 1.29276 -11.45702" rotation="0 -45 0">
+            </a-entity>
+            <a-entity id="luz_na_moto" light="type: spot; color: #fbff00; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 2.2; intensity: 0.7; groundColor: #fbff00" position="3.55524 1.29276 -11.45702" rotation="-84.60294802901736 25.83409402465369 -83.40833102616959">
+            </a-entity>        
+            </a-entity>
 
         <a-sky 
         color="#6EBAA7"
@@ -128,24 +138,8 @@
     <!---->
 
     <!--luzes-->
-        <a-entity id="luz-ambiente"
-                light="type: ambient; intensity: 0.5">
-        </a-entity>
-
-        <!--pisca moto-->
-        <!--ainda n funciona-->
-        <a-entity id="pisca_moto"
-        light="type: spot; 
-        color: white; 
-        angle: 30; penumbra: 1; 
-        castShadow: true;
-        decay: 0.58;
-        distance: 0.6;
-        intensity: 5" 
-        position="5 3 5"
-        rotation="90 0 0">
-        </a-entity>
-        
+    <a-entity position="0 9 -1" id="luz-ambiente" light="directional intensity:  0.69">   
+    </a-entity>
     </a-scene>
     
 </body>
