@@ -42,6 +42,7 @@
         <!--carro-->
         <a-entity>
             <a-entity id="audi" obj-model="obj: #audi-obj; mtl: #audi-mtl"
+            color="#56C4C0"
             scale="2 2 2"
             position="0.6 0 2.7"
             rotation="0 180 0"
@@ -58,22 +59,23 @@
         <!--moto-->
         <a-entity>
             <a-entity id="moto" obj-model="obj: #moto-obj; mtl: #moto-mtl"
+            color="#DD5E5C"
             position="3 0 -12"
             scale="2 2 2"
             rotation="0 260 0"
         ></a-entity>
         <!--pisca moto-->
         <a-entity id="pisca_moto"
-        animation="property: light.intensity; from: 6; to: 0; dur: 900 ; loop: true"
-        light="type: spot; color: #fbff00; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 0.42; intensity: 6; groundColor: #fbff00" position="3.55524 1.4 -11.45702" rotation="0 -45 0">
+        animation="property: light.intensity; from: 10; to: 0; dur: 900 ; loop: true"
+        light="type: spot; color: #fbff00; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 0.42; intensity: 10; groundColor: #fbff00" position="3.55524 1.4 -11.45702" rotation="0 -45 0">
         </a-entity>
-        <a-entity id="luz_moto"
-        animation="property: light.intensity; from: 0.9; to: 0; dur: 900 ; loop: true"
-        light="type: spot; color: #fbff00; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 2.2; intensity: 0.9; groundColor: #fbff00" position="3.55524 1.29276 -11.45702" rotation="-84.60294802901736 25.83409402465369 -83.40833102616959">
+        <a-entity id="luz_moto" 
+        animation="property: light.intensity; from: 1.2; to: 0; dur: 900; loop: true"
+        light="type: spot; color: #fbff00; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 2.2; intensity: 0.536; groundColor: #fbff00" position="3.55524 1.29276 -11.45702" rotation="-56.534318603353455 140.76942772789684 -132.37846081820592">
         </a-entity></a-entity>
             
     <!--luze ambiente-->
-        <a-entity position="0 9 -1" id="luz-ambiente" light="directional intensity:  0.69">   
+        <a-entity position="6.91037 12.22318 5.27743" id="luz-ambiente" light="angle: 0; intensity: 2.38">   
         </a-entity>
     <!--estrada-->
         <a-plane
