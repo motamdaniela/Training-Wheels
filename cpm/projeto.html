@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
 </head>
 <body>
     <a-scene>
@@ -17,16 +18,22 @@
             <a-asset-item id="moto-obj" src="obj/moto/moto.obj"></a-asset-item>
             <a-asset-item id="moto-mtl" src="obj/moto/moto.mtl"></a-asset-item>
             <!--texturas estrada-->
+<<<<<<< HEAD
             <img id="sidewalk" src="textures/sidewalk.tif">
             <img id="sidewalk_normal" src="textures/sidewalk_normal.tif">
             <img id="road" src="textures/road.tif">
             <img id="road_normal" src="textures/road_normal.tif">
+=======
+            <img id="sidewalk" src="textures/sidewalk.png">
+            <img id="sidewalk_normal" src="textures/sidewalk_normal.png">
+            <img id="road" src="textures/road.png">
+            <img id="road_normal" src="textures/road_normal.png">
+>>>>>>> b069b1e49208c509b41872da394cd7d05ddbda8f
             <img id="scenery" src="textures/scenery.jpg">
 
         </a-assets>
         <a-camera
-        position="0 2 1"
-        
+        position="0 2 -22"
         >
 			<!-- Representação visual do Cursor -->
 			<a-entity cursor position="0 0 -1"
@@ -35,66 +42,115 @@
 			</a-entity>
 		</a-camera>
 
-        <a-entity id="audi" obj-model="obj: #audi-obj; mtl: #audi-mtl"
-        scale="2 2 2"
-        position="0.6 0 2.7"
-        rotation="0 180 0"
+        <!--
+        <a-entity
+        geometry="primitive: plane; width: 7; height: 2"
+        position="0 1.5 0"
+        material="color: grey; roughness:1;"
+        text="width: 10; 
+        wrapCount: 90; 
+        align: center;
+        baseline: bottom;
+        value: property: rotation | to: 0 360 0 | loop: true | dur: 5000 | easing: linear">
+        </a-entity>-->
+
+        <a-entity
+            geometry="primitive: plane; width:2; height: 2;"
+            text="value: Hello; color: #000000; align: center; width: 5"
+            position="0 0.3 -20"
+            material="color: #FAF5AC; roughness: 0.1"
         ></a-entity>
-        <a-entity id="carrinha" obj-model="obj: #mistery-obj; mtl: #mistery-mtl"
-        position="-12 -0.7 -7"
-        rotation="0 0 0"
-        scale="1.7 1.8 1.2"
-        ></a-entity>
-        <a-entity id="moto" obj-model="obj: #moto-obj; mtl: #moto-mtl"
-        position="3 0 -12"
-        scale="2 2 2"
-        rotation="0 260 0"
-        ></a-entity>
+        <a-box
+            color="#DD5E5C"
+            depth="1"
+            height="0.3"
+            position="1.5 0.3 -20"
+        ></a-box>
+        <a-box
+            color="#56C4C0"
+            depth="1"
+            height="0.3"
+            position="-1.5 0.3 -20"
+        ></a-box>
 
         <a-sky 
         color="#6EBAA7"
         src="#scenery"
         ></a-sky>
 
-    <!--chao-->
+        <!--carro-->
+        <a-entity>
+            <a-entity id="audi" obj-model="obj: #audi-obj; mtl: #audi-mtl"
+            color="#56C4C0"
+            scale="2 2 2"
+            position="0.6 0 2.7"
+            rotation="0 180 0"
+            ></a-entity>
+        </a-entity>
+        <!--carrinha-->
+        <a-entity>
+            <a-entity id="carrinha" obj-model="obj: #mistery-obj; mtl: #mistery-mtl"
+            position="-12 -0.7 -7"
+            rotation="0 0 0"
+            scale="1.7 1.8 1.2"
+            ></a-entity>
+        </a-entity>
+        <!--moto-->
+        <a-entity>
+            <a-entity id="moto" obj-model="obj: #moto-obj; mtl: #moto-mtl"
+            color="#DD5E5C"
+            position="3 0 -12"
+            scale="2 2 2"
+            rotation="0 260 0"
+        ></a-entity>
+        <!--pisca moto-->
+        <a-entity id="pisca_moto"
+        animation="property: light.intensity; from: 10; to: 0; dur: 900 ; loop: true"
+        light="type: spot; color: #fbff00; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 0.42; intensity: 10; groundColor: #fbff00" position="3.55524 1.4 -11.45702" rotation="0 -45 0">
+        </a-entity>
+        <a-entity id="luz_moto" 
+        animation="property: light.intensity; from: 1.2; to: 0; dur: 900; loop: true"
+        light="type: spot; color: #fbff00; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 2.2; intensity: 0.536; groundColor: #fbff00" position="3.55524 1.29276 -11.45702" rotation="-56.534318603353455 140.76942772789684 -132.37846081820592">
+        </a-entity></a-entity>
+            
+    <!--luze ambiente-->
+        <a-entity position="6.91037 12.22318 5.27743" id="luz-ambiente" light="angle: 0; intensity: 0.2">   
+        </a-entity>
+        <a-light type="ambient" color="white" intensity="0.3"></a-light>
+        </a-light>
+    <!--estrada-->
         <a-plane
         position="0 0 0"
-        color="darkgray"
+        src="#sidewalk"
+        normal-map="#sidewalk_normal"
+        repeat="30 30"
         width="100"
         height="200"
         rotation="-90 -90 180"
         ></a-plane>
-        
         <!--estrada horizontal-->
         <a-plane
-        color="gray"
-        src="#"
-        normal-map="#"
-        repeat="10 10"
-        width="12"
-        height="200"
+        src="#road"
+        normal-map="#road_normal"
+        repeat="5 1"
+        width="200"
+        height="12"
         position="0 0.01 -10"
-        rotation="-90 -90 180">
+        rotation="-90 -90 90">
         </a-plane>
         <!--estrada vertical-->
         <a-plane
-        color="white"
         src="#road"
         normal-map="#road_normal"
-        repeat="10 10"
-        repeat="10 10"
+        repeat="1 1"
         width="54"
         height="12"
         position="-2.5 0.01 23"
         rotation="-90 -90 180">
         </a-plane>
-
         <!--linhas-->
         <a-plane
         color="yellow"
-        src="#"
-        normal-map="#"
-        repeat="10 10"
         width="0.3"
         height="200"
         position="0 0.02 -15.5"
@@ -103,9 +159,6 @@
         <!--marcas esquerda-->
         <a-plane
         color="yellow"
-        src="#"
-        normal-map="#"
-        repeat="10 10"
         width="0.3"
         height="92"
         position="-54 0.02 -4.5"
@@ -113,9 +166,6 @@
         </a-plane>
         <a-plane
         color="yellow"
-        src="#"
-        normal-map="#"
-        repeat="10 10"
         width="54.7"
         height="0.3"
         position="-8 0.02 22.7"
@@ -124,9 +174,6 @@
         <!--marcas direita-->
         <a-plane
         color="yellow"
-        src="#"
-        normal-map="#"
-        repeat="10 10"
         width="0.3"
         height="97"
         position="51.5 0.02 -4.5"
@@ -134,36 +181,12 @@
         </a-plane>
         <a-plane
         color="yellow"
-        src="#"
-        normal-map="#"
-        repeat="10 10"
         width="54.7"
         height="0.3"
         position="3 0.02 22.7"
         rotation="-90 -90 180">
         </a-plane>
     <!---->
-
-    <!--luzes-->
-        <a-entity id="luz-ambiente"
-                light="type: ambient; intensity: 1">
-        </a-entity>
-
-        <!--pisca moto-->
-        <!--ainda n funciona-->
-        <a-entity id="pisca_moto"
-        light="type: spot; 
-        color: white; 
-        angle: 30; penumbra: 1; 
-        castShadow: true;
-        decay: 0.58;
-        distance: 0.3;
-        intensity: 4.01" 
-        position="5 3 5"
-        rotation="0 0 0">
-        </a-entity>
-        
-    </a-scene>
-    
+        </a-scene>    
 </body>
 </html>

@@ -1,41 +1,110 @@
 #sidebar{
-    height: 100%;
-    position:fixed;
-    display: flex;
-  }
-
-  #logo{
-      padding: 15px;
-      padding-top: 20px;
-      padding-bottom: 40px;
-      align-items: center;
-  }
+    position: fixed;
+}
+#logo{
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
   
-#active {
-    background-color:#488baf;
+.logo-icon{
+    height: 35px; 
+
 }
 
-#active>i:hover{
+
+.dropdown-toggle{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+
+#login{
+    height: 35px;
+}
+
+.nav-icon {
+    display: table-cell;
+    height: 35px;
+    margin-left: 20px;
+}
+
+
+.main-menu:hover,nav.main-menu.expanded {
+    background-color:#f8f4f4;
+    width:250px;
+    overflow:visible;
+}
+
+.main-menu {
+    height: 100%;
+    display: flex;
+    width:80px;
+    overflow:hidden;
+    transition:width .05s linear;
+    z-index:1000;
+    flex-direction: column;
+}
+
+.main-menu li {
+    position:relative;
+    display:block;
+    width:250px;
+}
+.dropup {
+    position:relative;
+    display:block;
+    width:250px;
+    margin-left: 0px;
+    padding-left: 0px;
     color: #2D2F44;
 }
 
-ul#icons>li>a{
+
+.main-menu li>a, .main-menu drop-up {
+    position:relative;
+    display:table;
+    border-collapse:collapse;
+    border-spacing:0;
     color:#2D2F44;
+    font-size: 20px;
+    transition:all .1s linear;
+    margin-bottom: 30px;
+    
 }
-  
-ul#icons>li>a:hover{
+
+.main-menu li>a #active,.main-menu li>a #active2{
     color: #488baf;
 }
 
-i{
-    font-size: 20px;
+.main-menu .nav-icon {
+    position:relative;
+    display:table-cell;
+    width:30px;
+    text-align:center;
+    vertical-align:middle;
+    font-size:18px;
 }
 
-#logo img{
-    height: 20px; 
-
+.main-menu .nav-text {
+    position:relative;
+    display:table-cell;
+    vertical-align:middle;
+    width:190px;
 }
 
-.dropup i{
-    color: #2D2F44;
+.no-touch .scrollable.hover {
+    overflow-y:hidden;
 }
+
+.no-touch .scrollable.hover:hover {
+    overflow-y:auto;
+    overflow:visible;
+}
+
+.main-menu li:hover>a #active ,.main-menu li:hover>a #active2, .main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a{
+    color:#f8f4f4;
+    background-color:#488baf;
+}
+

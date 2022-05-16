@@ -1,0 +1,18 @@
+body{
+    background-color: #A8DDDB;
+    display:flex;
+    flex-direction: column;
+    font-family: 'ABC-Regular', sans-serif;
+}
+.container{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+fieldset{
+    background-color: #FFF8F8;
+}
+.button{
+    background-color: #4B94BC;
+    color: #FFF8F8;
+}
