@@ -12,7 +12,7 @@ body{
 fieldset{
     background-color: #FFF8F8;
 }
-button{
+.button{
     background-color: #4B94BC;
     color: #FFF8F8;
 }
