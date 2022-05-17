@@ -25,66 +25,85 @@
             <img id="scenery" src="textures/scenery.jpg">
 
         </a-assets>
-        <a-camera
-        position="0 2 -22"
-        rotation="0 -90 0"
-        >
+        <a-entity rotation="-10 180 0" position="0 1 -21.5">
+            <a-camera>
 			<!-- Representação visual do Cursor -->
 			<a-entity cursor position="0 0 -1"
-					  geometry="primitive: sphere; radius: 0.015"
-					  material="color: #000000; shader: flat; opacity: 0.5">
-			</a-entity>
-		</a-camera>
-
-
-        <!--carro-->
-        <a-entity>
-            <a-entity id="audi" obj-model="obj: #audi-obj; mtl: #audi-mtl"
-            color="#56C4C0"
-            scale="2 2 2"
-            position="0.6 0 2.7"
-            rotation="0 180 0"
-            ></a-entity>
-        <!--pisca carro-->
-            <a-entity>
-                <a-entity id="pisca_carro"
-                animation="property: light.intensity; from: 20; to: 0; dur: 900 ; loop: true"
-                light="type: spot; color: white; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 0.42; intensity: 20; groundColor: white" position="-0.632 1.136 -1.488" rotation="-9.211 -153.25 98.951">
-            </a-entity>
-            <a-entity id="luz_carro" 
-            animation="property: light.intensity; from: 1.2; to: 0; dur: 900; loop: true"
-            light="type: spot; color: white; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 2.2; intensity: 0.536; groundColor: white" position="-0.473 1.293 -1.545" rotation="-61.715 52.568 -148.154">
-            </a-entity></a-entity>
+            geometry="primitive: sphere; radius: 0.015"
+            material="color: #252131; shader: flat; opacity: 0.5">
         </a-entity>
-        <!--carrinha-->
+    </a-camera>
+</a-entity>
+
+
+<!--carro-->
+<a-entity position="-9 0 -3" animation="property: rotation;to: 0 90 0;loop: false; dur: 2000; delay:2000; easing: linear">
+    <a-entity id="carro_todo">
+    <a-entity id="audi" obj-model="obj: #audi-obj; mtl: #audi-mtl"
+        color="#56C4C0"
+        scale="2 2 2"
+        position="9.6 0 -1.7"
+        rotation="0 180 0"
+    ></a-entity>
+    <!--pisca carro-->
+    <a-entity>
+        <a-entity id="pisca_carro"
+            animation="property: light.intensity; from: 20; to: 0; dur: 900 ; loop: true"
+            light="type: spot; color: white; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 0.42; intensity: 20; groundColor: white"
+            position="-9.632 1.136 -5.959" rotation="-9.211 -153.25 98.951">
+        </a-entity>
+        <a-entity id="luz_carro" 
+            animation="property: light.intensity; from: 1.2; to: 0; dur: 900; loop: true"
+            light="type: spot; color: white; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 2.2; intensity: 0.536; groundColor: white"
+            position="-9.473 1.206 -6.067" rotation="-61.715 52.568 -148.154">
+        </a-entity></a-entity>
+    </a-entity>
+</a-entity>
+
+    <!--carrinha-->
         <a-entity>
             <a-entity id="carrinha" obj-model="obj: #mistery-obj; mtl: #mistery-mtl"
             position="-12 -0.9 -7"
             rotation="0 0 0"
             scale="1.7 1.8 1.2"
+            animation__posicao="property: position;
+            from: -12 -0.9 -7;
+            to: 100 -0.9 -7;
+            loop: false;
+            delay: 3000;
+            dir: alternate;
+            dur: 6000;
+            easing: easeInOutCubic"
             ></a-entity>
         </a-entity>
-        <!--moto-->
-        <a-entity>
+    <!--moto-->
+
+    <a-entity position="4 0 -3.7"
+              animation="property: rotation; to: 0 100 0; loop: false; dur: 5000; easing: easeInOutCubic">
+
+        <a-entity id="moto_inteira">
             <a-entity id="moto" obj-model="obj: #moto-obj; mtl: #moto-mtl"
             color="#DD5E5C"
-            position="3 0 -12"
+            position="1 0 -9"
             scale="2 2 2"
-            rotation="0 260 0"
+            rotation="0 270 0"
         ></a-entity>
         <!--pisca moto-->
         <a-entity id="pisca_moto"
-        animation="property: light.intensity; from: 10; to: 0; dur: 900 ; loop: true"
-        light="type: spot; color: #fbff00; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 0.42; intensity: 10; groundColor: #fbff00" position="3.55524 1.4 -11.45702" rotation="0 -45 0">
+        animation="property: light.intensity; from: 10; to: 0; dur: 900 ; loop: true; delay:150"
+        light="type: spot; color: #fbff00; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 0.42; intensity: 10; groundColor: #fbff00"
+        position="1.55524 1.4 -8.45702" rotation="0 -45 0">
         </a-entity>
         <a-entity id="luz_moto" 
-        animation="property: light.intensity; from: 1.2; to: 0; dur: 900; loop: true"
-        light="type: spot; color: #fbff00; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 2.2; intensity: 0.536; groundColor: #fbff00" position="3.55524 1.29276 -11.45702" rotation="-56.534318603353455 140.76942772789684 -132.37846081820592">
+        animation="property: light.intensity; from: 1.2; to: 0; dur: 900; loop: true; delay:150"
+        light="type: spot; color: #fbff00; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 2.2; intensity: 0.536; groundColor: #fbff00"
+        position="1.55524 1.29276 -8.45702" rotation="-56.534318603353455 140.76942772789684 -132.37846081820592">
         </a-entity></a-entity>
+    </a-entity>
           
-        <!--Pergunta-->
+    <!--Pergunta-->
         <a-entity
-        position="-3.3 0.5 -19"
+        position="-3.3 0.6 -17.5"
         rotation="0 180 0"
         text="width: 10; 
         wrapCount: 90;
@@ -94,13 +113,13 @@
 
         <!--botao vermelho-->
         <a-cylinder
-            position="1.5 0.3 -20" color="#DD5E5C" height="0.3" radius="0.5"
+            position="1.5 0.3 -18" color="#DD5E5C" height="0.3" radius="0.5"
             event-set__mouseenter="material.color: #F7BAB9"
 			event-set__mouseleave="material.color: #DD5E5C"
 			event-set__click="_event: click; _target: #verde; material.color: #00AAFF">
         </a-cylinder>
         <a-entity
-            position="-3.2 0.45 -20"
+            position="-3.2 0.45 -18"
             rotation="-90 180 0"
             text="width: 10; 
             wrapCount: 90;
@@ -109,13 +128,13 @@
         ></a-entity>
         <!--botao amarelo-->
         <a-cylinder
-            position="0 0.3 -20" color="#FAF5AC" height="0.3" radius="0.5"
+            position="0 0.3 -18" color="#FAF5AC" height="0.3" radius="0.5"
             event-set__mouseenter="material.color: #FFFFED"
 			event-set__mouseleave="material.color: #FAF5AC"
 			event-set__click="_event: click; _target: #verde; material.color: #00AAFF">
         </a-cylinder>
         <a-entity
-            position="-4.7 0.45 -20"
+            position="-4.7 0.45 -18"
             rotation="-90 180 0"
             text="width: 10; 
             wrapCount: 90;
@@ -124,15 +143,13 @@
         ></a-entity>
         <!--botao verde-->
         <a-cylinder
-            position="-1.5 0.3 -20" color="#56C4C0" height="0.3" radius="0.5"
+            position="-1.5 0.3 -18" color="#56C4C0" height="0.3" radius="0.5"
             event-set__mouseenter="material.color: #A8DDDB"
 			event-set__mouseleave="material.color: #56C4C0"
-			event-set__click="_event: click; _target: #carrinha; property: position;
-            from: -0 0.45 -20;
-            to: 8 4 2;">
+			event-set__click="_event: click; _target: #carrinha">
         </a-cylinder>
         <a-entity
-            position="-6.1 0.45 -20"
+            position="-6.1 0.45 -18"
             rotation="-90 180 0"
             text="width: 10; 
             wrapCount: 90;
