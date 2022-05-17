@@ -18,10 +18,10 @@
             <a-asset-item id="moto-obj" src="obj/moto/moto.obj"></a-asset-item>
             <a-asset-item id="moto-mtl" src="obj/moto/moto.mtl"></a-asset-item>
             <!--texturas estrada-->
-            <img id="sidewalk" src="textures/sidewalk.tif">
-            <img id="sidewalk_normal" src="textures/sidewalk_normal.tif">
-            <img id="road" src="textures/road.tif">
-            <img id="road_normal" src="textures/road_normal.tif">
+            <img id="sidewalk" src="textures/sidewalk.png">
+            <img id="sidewalk_normal" src="textures/sidewalk_normal.png">
+            <img id="road" src="textures/road.png">
+            <img id="road_normal" src="textures/road_normal.png">
             <img id="scenery" src="textures/scenery.jpg">
 
         </a-assets>
@@ -36,61 +36,6 @@
 			</a-entity>
 		</a-camera>
 
-        <!--Pergunta-->
-        <a-entity
-        position="-3.3 0.5 -19"
-        rotation="0 180 0"
-        text="width: 10; 
-        wrapCount: 90;
-        baseline: bottom;
-        value: Quem deve avancar em primeiro lugar?">
-        </a-entity>
-
-        <!--botao vermelho-->
-        <a-cylinder
-            position="1.5 0.3 -20" color="#DD5E5C" height="0.3" radius="0.5"
-            event-set__mouseenter="material.color: #F7BAB9"
-			event-set__mouseleave="material.color: #DD5E5C"
-			event-set__click="_event: click; _target: #verde; material.color: #00AAFF">
-        </a-cylinder>
-        <a-entity
-            position="-3.2 0.45 -20"
-            rotation="-90 180 0"
-            text="width: 10; 
-            wrapCount: 90;
-            color: #000000;
-            value: Moto"
-        ></a-entity>
-        <!--botao amarelo-->
-        <a-cylinder
-            position="0 0.3 -20" color="#FAF5AC" height="0.3" radius="0.5"
-            event-set__mouseenter="material.color: #FFFFED"
-			event-set__mouseleave="material.color: #FAF5AC"
-			event-set__click="_event: click; _target: #verde; material.color: #00AAFF">
-        </a-cylinder>
-        <a-entity
-            position="-4.7 0.45 -20"
-            rotation="-90 180 0"
-            text="width: 10; 
-            wrapCount: 90;
-            color: #000000;
-            value: Carro"
-        ></a-entity>
-        <!--botao verde-->
-        <a-cylinder
-            position="-1.5 0.3 -20" color="#56C4C0" height="0.3" radius="0.5"
-            event-set__mouseenter="material.color: #A8DDDB"
-			event-set__mouseleave="material.color: #56C4C0"
-			event-set__click="_event: click; _target: #verde; material.color: #00AAFF">
-        </a-cylinder>
-        <a-entity
-            position="-6.1 0.45 -20"
-            rotation="-90 180 0"
-            text="width: 10; 
-            wrapCount: 90;
-            color: #000000;
-            value: Carrinha"
-        ></a-entity>
 
         <!--carro-->
         <a-entity>
@@ -137,7 +82,64 @@
         light="type: spot; color: #fbff00; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 2.2; intensity: 0.536; groundColor: #fbff00" position="3.55524 1.29276 -11.45702" rotation="-56.534318603353455 140.76942772789684 -132.37846081820592">
         </a-entity></a-entity>
           
-        
+        <!--Pergunta-->
+        <a-entity
+        position="-3.3 0.5 -19"
+        rotation="0 180 0"
+        text="width: 10; 
+        wrapCount: 90;
+        baseline: bottom;
+        value: Quem deve avancar em primeiro lugar?">
+        </a-entity>
+
+        <!--botao vermelho-->
+        <a-cylinder
+            position="1.5 0.3 -20" color="#DD5E5C" height="0.3" radius="0.5"
+            event-set__mouseenter="material.color: #F7BAB9"
+			event-set__mouseleave="material.color: #DD5E5C"
+			event-set__click="_event: click; _target: #verde; material.color: #00AAFF">
+        </a-cylinder>
+        <a-entity
+            position="-3.2 0.45 -20"
+            rotation="-90 180 0"
+            text="width: 10; 
+            wrapCount: 90;
+            color: #000000;
+            value: Moto"
+        ></a-entity>
+        <!--botao amarelo-->
+        <a-cylinder
+            position="0 0.3 -20" color="#FAF5AC" height="0.3" radius="0.5"
+            event-set__mouseenter="material.color: #FFFFED"
+			event-set__mouseleave="material.color: #FAF5AC"
+			event-set__click="_event: click; _target: #verde; material.color: #00AAFF">
+        </a-cylinder>
+        <a-entity
+            position="-4.7 0.45 -20"
+            rotation="-90 180 0"
+            text="width: 10; 
+            wrapCount: 90;
+            color: #000000;
+            value: Carro"
+        ></a-entity>
+        <!--botao verde-->
+        <a-cylinder
+            position="-1.5 0.3 -20" color="#56C4C0" height="0.3" radius="0.5"
+            event-set__mouseenter="material.color: #A8DDDB"
+			event-set__mouseleave="material.color: #56C4C0"
+			event-set__click="_event: click; _target: #carrinha; property: position;
+            from: -0 0.45 -20;
+            to: 8 4 2;">
+        </a-cylinder>
+        <a-entity
+            position="-6.1 0.45 -20"
+            rotation="-90 180 0"
+            text="width: 10; 
+            wrapCount: 90;
+            color: #000000;
+            value: Carrinha"
+        ></a-entity>
+
         <a-sky 
         color="#9EC2D5"
         src="#scenery"
