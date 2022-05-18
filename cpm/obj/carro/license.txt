@@ -1,0 +1,11 @@
+Model Information:
+* title:	Cartoon Sports Car
+* source:	https://sketchfab.com/3d-models/cartoon-sports-car-0fd87559642a41b7a7924876ad3e9399
+* author:	RCC Design (https://sketchfab.com/retrovalorem)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Cartoon Sports Car" (https://sketchfab.com/3d-models/cartoon-sports-car-0fd87559642a41b7a7924876ad3e9399) by RCC Design (https://sketchfab.com/retrovalorem) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
