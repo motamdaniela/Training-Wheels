@@ -28,7 +28,7 @@ blue.addEventListener('click', ()=>{
     carro.removeAttribute("animation");
     moto.removeAttribute("animation");
     carrinha.setAttribute("position",'-12 -0.9 -7');
-    carro.setAttribute("position",'-9 0 -3');
-    moto.setAttribute("position", '4 0 -3.7');
+    carro.setAttribute("rotation",'0 0 0');
+    moto.setAttribute("rotation", '0 0 0');
 })
 /*carrinha-->moto-->carro*/
