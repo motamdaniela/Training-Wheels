@@ -14,12 +14,12 @@ green.addEventListener('click',()=>{
     carro.setAttribute("animation",`property: rotation; to: 0 90 0; loop: false; dur: 2000; delay:4500; easing: linear`)
 })
 red.addEventListener('click',()=>{
-    carrinha.setAttribute("animation", `property: position; from: -20.25605 6.59958 -2.19438; to: 100 6.59958 -2.19438; loop: false; delay: 300; dir: alternate; dur: 6000; easing: easeInOutCubic`)
+    carrinha.setAttribute("animation", `property: position; from: -15 3.8 -4; to: 100 6.59958 -2.19438; loop: false; delay: 300; dir: alternate; dur: 6000; easing: easeInOutCubic`)
     moto.setAttribute("animation", `property: rotation; to: 0 100 0; loop: false; dur: 5000; easing: easeInOutCubic`)
     carro.setAttribute("animation",`property: rotation; to: 0 90 0; loop: false; dur: 2000; delay:2000; easing: linear`)
 })
 yellow.addEventListener('click',()=>{
-    carrinha.setAttribute("animation", `property: position; from: -20.25605 6.59958 -2.19438; to: 100 6.59958 -2.19438; loop: false; delay: 300; dir: alternate; dur: 6000; easing: easeInOutCubic`)
+    carrinha.setAttribute("animation", `property: position; from: -15 3.8 -4; to: 100 6.59958 -2.19438; loop: false; delay: 300; dir: alternate; dur: 6000; easing: easeInOutCubic`)
     moto.setAttribute("animation", `property: rotation; to: 0 100 0; loop: false; dur: 5000; easing: easeInOutCubic`)
     carro.setAttribute("animation",`property: rotation; to: 0 90 0; loop: false; dur: 2000; delay:2000; easing: linear`)
 })
@@ -27,7 +27,7 @@ blue.addEventListener('click', ()=>{
     carrinha.removeAttribute("animation");
     carro.removeAttribute("animation");
     moto.removeAttribute("animation");
-    carrinha.setAttribute("position",'-20.25605 6.59958 -2.19438');
+    carrinha.setAttribute("position",'-15 3.8 -4');
     carro.setAttribute("rotation",'0 0 0');
     moto.setAttribute("rotation", '0 0 0');
 })
