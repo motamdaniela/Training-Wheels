@@ -8,9 +8,6 @@ let carrinha = document.querySelector("#carrinha");
 let moto = document.querySelector("#moto_inteira");
 let carro = document.querySelector("#carro_todo");
 
-/*posicoes iniciais*/
-let moto_position = '';
-
 green.addEventListener('click',()=>{
     carrinha.setAttribute("animation", `property: position; from: -12 -0.9 -7; to: 100 -0.9 -7; loop: false; delay: 300; dir: alternate; dur: 6000; easing: easeInOutCubic`)
     moto.setAttribute("animation", `property: rotation; to: 0 100 0; loop: false; delay:2000; dur: 5000; easing: easeInOutCubic`)
@@ -28,7 +25,10 @@ yellow.addEventListener('click',()=>{
 })
 blue.addEventListener('click', ()=>{
     carrinha.removeAttribute("animation");
-    carro.setAttribute("animation");
-    moto.setAttribute("animation");
+    carro.removeAttribute("animation");
+    moto.removeAttribute("animation");
+    carrinha.setAttribute("position",'-12 -0.9 -7');
+    carro.setAttribute("position",'-9 0 -3');
+    moto.setAttribute("position", '4 0 -3.7');
 })
 /*carrinha-->moto-->carro*/
