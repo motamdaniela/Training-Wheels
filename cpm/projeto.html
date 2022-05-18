@@ -11,12 +11,10 @@
 <body>
     <a-scene>
         <a-assets>
-            <a-asset-item id="mistery-obj" src="obj/mistery/mistery.obj"></a-asset-item>
-            <a-asset-item id="mistery-mtl" src="obj/mistery/mistery.mtl"></a-asset-item>
-            <a-asset-item id="audi-obj" src="obj/audi/audi.obj"></a-asset-item>
-            <a-asset-item id="audi-mtl" src="obj/audi/audi.mtl"></a-asset-item>
-            <a-asset-item id="moto-obj" src="obj/moto/moto.obj"></a-asset-item>
-            <a-asset-item id="moto-mtl" src="obj/moto/moto.mtl"></a-asset-item>
+            <a-asset-item id="truck-obj" src="obj/truck/scene.gltf"></a-asset-item>
+            <a-asset-item id="carro-obj" src="obj/carro/scene.gltf"></a-asset-item>
+            <a-asset-item id="moto-obj" src="obj/moto2/scene.gltf"></a-asset-item>
+            
             <!--texturas estrada-->
             <img id="sidewalk" src="textures/sidewalk.png">
             <img id="sidewalk_normal" src="textures/sidewalk_normal.png">
@@ -39,11 +37,10 @@
 <!--carro-->
         <a-entity id="carro_todo" position="-9 0 -3" >
             <a-entity >
-                <a-entity id="audi" obj-model="obj: #audi-obj; mtl: #audi-mtl"
-                    color="#56C4C0"
+                <a-entity id="carro" gltf-model="#carro-obj"
                     scale="2 2 2"
-                    position="9.6 0 2.7"
-                    rotation="0 180 0">
+                    position="9.600 0 4.915"
+                    rotation="0 90 0">
                 </a-entity>
             <!--pisca carro-->
                 <a-entity>
@@ -63,19 +60,18 @@
 
     <!--carrinha-->
         <a-entity>
-            <a-entity id="carrinha" obj-model="obj: #mistery-obj; mtl: #mistery-mtl"
-            position="-12 -0.9 -7"
-            rotation="0 0 0"
-            scale="1.7 1.8 1.2">
+            <a-entity id="truck" gltf-model="obj/truck/scene.gltf" 
+            position="-20.25605 6.59958 -2.19438" 
+            rotation="0 150 0" 
+            scale="0.1 0.1 0.1">
             </a-entity>
         </a-entity>
 
     <!--moto-->
         <a-entity id="moto_inteira" position="4 0 -3.7">
             <a-entity >
-                <a-entity id="moto" obj-model="obj: #moto-obj; mtl: #moto-mtl"
-                color="#DD5E5C"
-                position="1 0 -9"
+                <a-entity id="moto" gltf-model="#moto-obj"
+                position="113.087 0 -121.984"
                 scale="2 2 2"
                 rotation="0 270 0">
                 </a-entity>

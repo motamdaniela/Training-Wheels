@@ -1,0 +1,11 @@
+Model Information:
+* title:	Ice Cream Truck
+* source:	https://sketchfab.com/3d-models/ice-cream-truck-57ba94f1def5409d8588a15d497e1368
+* author:	Pooi Woon Hoh (https://sketchfab.com/Koha.Ha)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Ice Cream Truck" (https://sketchfab.com/3d-models/ice-cream-truck-57ba94f1def5409d8588a15d497e1368) by Pooi Woon Hoh (https://sketchfab.com/Koha.Ha) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
