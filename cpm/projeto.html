@@ -39,6 +39,9 @@
         scale="0.01 0.01 0.01"
         ></a-entity>
 
+<!-- som cidade -->
+    <a-sound id="cidade_som" src="src: url(som/ambient.mp3)" autoplay="tru"></a-sound>
+
 
 <!--carro-->
         <a-entity id="carro_todo" position="-9 0 0" >
@@ -80,7 +83,7 @@
             scale="1.5 1.5 1.5"
             animation-mixer
             visible="false"
-            ><a-sound id="explosao_som" src="src: url(som/explosion.mp3)" autoplay="false"></a-sound>
+            ><a-sound id="explosao_som" src="src: url(som/explosion.mp3)" autoplay="false" volume="10"></a-sound>
         </a-entity>
         
         <!-- firework -->
@@ -90,13 +93,13 @@
             scale="0.1 0.1 0.1"
             animation-mixer
             visible="false"
-        ><a-sound id="fogo_som" src="src: url(som/fireworks.mp3)" autoplay="false"></a-sound>
-        </a-entity>
+        ><a-sound id="fogo_som" src="src: url(som/fireworks.mp3)" autoplay="false" volume="10></a-sound>
 
-        <a-entity id="firework" gltf-model="#fire"
+        </a-entity>
+        <a-entity id="firework2" gltf-model="#fire"
             position="0 5 15"
             color="white"
-            scale="0.06 0.06 0.06"
+            scale="0.1 0.1 0.1"
             animation-mixer
             visible="false"
         ></a-entity>

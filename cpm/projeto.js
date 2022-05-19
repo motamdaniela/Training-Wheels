@@ -11,6 +11,7 @@ let carro = document.querySelector("#carro_todo");
 // fogo
 let fogo=document.querySelector("#explosao");
 let fire=document.querySelector("#firework");
+let fire2=document.querySelector("#firework2");
 
 // som
 let ex_som=document.querySelector("#explosao_som");
@@ -40,6 +41,7 @@ reset.addEventListener('click', ()=>{
     fire.setAttribute("visible",'false');
     ex_som.components.sound.stopSound();
     fg_som.components.sound.stopSound();
+    fire2.setAttribute("visible",'false');
 })
 
 /*movimentos da opcao correta*/
@@ -52,10 +54,10 @@ async function correct (carrinha, carro, moto){
     await sleep(1000)
     carro.setAttribute("animation",`property: rotation; from:0 0 0; to: 0 90 0; loop: false; dur: 1500; delay:50; easing: easeInOutCubic`)
     await sleep(1500)
-    carro.setAttribute("animation",`property: position; from:-9 0 -6; to: -100 0 -3; loop: false; dur: 2000; delay:50; easing: linear`)
-    fire.setAttribute("visible", `true`)
     fg_som.components.sound.playSound();
-
+    carro.setAttribute("animation",`property: position; from:-9 0 -6; to: -100 0 -3; loop: false; dur: 2000; delay:50; easing: linear`);
+    fire.setAttribute("visible", `true`);
+    fire2.setAttribute("visible", `true`);
 }
 
 /*movimentos opcao errada em que a moto avança primeiro*/
