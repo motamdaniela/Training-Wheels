@@ -14,6 +14,7 @@
             <a-asset-item id="truck-obj" src="obj/truck/scene.gltf"></a-asset-item>
             <a-asset-item id="carro-obj" src="obj/carro/scene.gltf"></a-asset-item>
             <a-asset-item id="moto-obj" src="obj/moto2/scene.gltf"></a-asset-item>
+            <a-asset-item id="cidade" src="obj/cidade/scene.gltf"></a-asset-item>
             
             <!--texturas estrada-->
             <img id="sidewalk" src="textures/sidewalk.png">
@@ -21,6 +22,7 @@
             <img id="road" src="textures/road.png">
             <img id="road_normal" src="textures/road_normal.png">
             <img id="scenery" src="textures/scenery.jpg">
+            <img id="ceu" src="ceu.png">
         </a-assets>
 
         <a-entity rotation="-10 180 0" position="0 1 -21.5">
@@ -32,6 +34,13 @@
                 </a-entity>
             </a-camera>
         </a-entity>
+
+<!--cidade-->
+        <a-entity id="cidade_cenario" gltf-model="#cidade"
+        position="-145.92447 0 -82.44527"
+        rotation="-180 0 -180"
+        scale="0.01 0.01 0.01"
+        ></a-entity>
 
 
 <!--carro-->
@@ -61,14 +70,14 @@
     <!--carrinha-->
         <a-entity>
             <a-entity id="truck" gltf-model="obj/truck/scene.gltf" 
-            position="-15 3.8 -4" 
+            position="-20.420 3.8 -4" 
             rotation="0 150 0" 
             scale="0.06 0.06 0.06">
             </a-entity>
         </a-entity>
 
     <!--moto-->
-        <a-entity id="moto_inteira" position="4 0 -3.7">
+        <a-entity id="moto_inteira" position="7.138 0 -5">
             <a-entity >
                 <a-entity id="moto" gltf-model="#moto-obj"
                 position="113.087 0 -121.984"
@@ -160,14 +169,12 @@
         </a-entity>
 
         <a-sky 
-        color="#9EC2D5"
-        src="#scenery"
-        repeat="2 2.1 1">
-        </a-sky>
+            src="#ceu"
+        ></a-sky>
     <!--luz ambiente-->
         <a-entity position="-2.210 12.22318 -20.3302" id="luz-sol" light="angle: 0; intensity: 0.9"></a-entity>
         <a-light type="ambient" color="white" intensity="0.6"></a-light>
-    <!--estrada-->
+    <!-- estrada
         <a-plane
         position="0 0 0"
         src="#sidewalk"
@@ -178,7 +185,7 @@
         rotation="-90 -90 180">
         </a-plane>
         <!--estrada horizontal-->
-        <a-plane
+        <!-- <a-plane
         src="#road"
         normal-map="#road_normal"
         repeat="5 1"
@@ -186,9 +193,9 @@
         height="12"
         position="0 0.01 -10"
         rotation="-90 -90 90">
-        </a-plane>
+        </a-plane> -->
         <!--estrada vertical-->
-        <a-plane
+        <!-- <a-plane
         src="#road"
         normal-map="#road_normal"
         repeat="1 1"
@@ -196,17 +203,17 @@
         height="12"
         position="-2.5 0.01 23"
         rotation="-90 -90 180">
-        </a-plane>
+        </a-plane> -->
         <!--linhas-->
-        <a-plane
+        <!-- <a-plane
         color="#FAF5AC"
         width="0.3"
         height="200"
         position="0 0.02 -15.5"
         rotation="-90 -90 180">
-        </a-plane>
+        </a-plane> -->
         <!--marcas esquerda-->
-        <a-plane
+        <!-- <a-plane
         color="#FAF5AC"
         width="0.3"
         height="92"
@@ -219,9 +226,9 @@
         height="0.3"
         position="-8 0.02 22.7"
         rotation="-90 -90 180">
-        </a-plane>
+        </a-plane> -->
         <!--marcas direita-->
-        <a-plane
+        <!-- <a-plane
         color="#FAF5AC"
         width="0.3"
         height="97"
@@ -234,7 +241,7 @@
         height="0.3"
         position="3 0.02 22.7"
         rotation="-90 -90 180">
-        </a-plane>
+        </a-plane> -->
     </a-scene>
 <script src="projeto.js"></script>
 </body>

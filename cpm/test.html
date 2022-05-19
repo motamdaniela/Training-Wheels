@@ -17,12 +17,13 @@
             <a-asset-item id="audi-mtl" src="obj/audi/audi.mtl"></a-asset-item>
             <a-asset-item id="moto-obj" src="obj/moto/moto.obj"></a-asset-item>
             <a-asset-item id="moto-mtl" src="obj/moto/moto.mtl"></a-asset-item>
+            <a-asset-item id="cidade" src="obj/cidade/scene.gltf"></a-asset-item>
             <!--texturas estrada-->
             <img id="sidewalk" src="textures/sidewalk.png">
             <img id="sidewalk_normal" src="textures/sidewalk_normal.png">
             <img id="road" src="textures/road.png">
             <img id="road_normal" src="textures/road_normal.png">
-            <img id="scenery" src="textures/scenery.jpg">
+            <img id="ceu" src="ceu.png">
             
         </a-assets>
         <a-entity rotation="-10 180 0" position="0 1 -21.5">
@@ -37,7 +38,7 @@
 
 
 <!--carro-->
-<a-entity position="-9 0 -3" animation="property: rotation; to: 0 90 0; loop: false; dur: 2000; delay:2000; easing: linear">
+<a-entity position="-9 0 -3" >
     <a-entity id="carro_todo">
         <a-entity id="audi" obj-model="obj: #audi-obj; mtl: #audi-mtl"
         color="#56C4C0"
@@ -47,18 +48,19 @@
         ></a-entity>
         <!--pisca carro-->
         <a-entity>
-            <a-entity id="pisca_carro"
-            animation="property: light.intensity; from: 20; to: 0; dur: 900 ; loop: true"
-            light="type: spot; color: white; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 0.42; intensity: 20; groundColor: white"
-            position="-9.632 1.136 -5.959" rotation="-9.211 -153.25 98.951">
+            
         </a-entity>
-        <a-entity id="luz_carro" 
-            animation="property: light.intensity; from: 1.2; to: 0; dur: 900; loop: true"
-            light="type: spot; color: white; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 2.2; intensity: 0.536; groundColor: white"
-            position="-9.473 1.206 -6.067" rotation="-61.715 52.568 -148.154">
-        </a-entity></a-entity>
     </a-entity>
 </a-entity>
+
+<a-entity id="cidade_cenario" gltf-model="#cidade"
+    position="-145.92447 0 -82.44527"
+    rotation="-180 0 -180"
+    scale="0.01 0.01 0.01"
+></a-entity>
+<a-sky 
+    src="#ceu"
+></a-sky>
 
 <!--carrinha-->
 <a-entity>
@@ -70,8 +72,7 @@
     </a-entity>
     <!--moto-->
     
-    <a-entity position="4 0 -3.7"
-    animation="property: rotation; to: 0 100 0; loop: false; dur: 5000; easing: easeInOutCubic">
+    <a-entity position="4 0 -3.7">
     
     <a-entity id="moto_inteira">
         <a-entity id="moto" obj-model="obj: #moto-obj; mtl: #moto-mtl"
@@ -81,16 +82,8 @@
         rotation="0 270 0"
         ></a-entity> -->
         <!--pisca moto-->
-        <a-entity id="pisca_moto"
-        animation="property: light.intensity; from: 10; to: 0; dur: 900 ; loop: true; delay:150"
-        light="type: spot; color: #fbff00; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 0.42; intensity: 10; groundColor: #fbff00"
-        position="1.55524 1.4 -8.45702" rotation="0 -45 0">
+        
     </a-entity>
-    <a-entity id="luz_moto" 
-    animation="property: light.intensity; from: 1.2; to: 0; dur: 900; loop: true; delay:150"
-    light="type: spot; color: #fbff00; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 2.2; intensity: 0.536; groundColor: #fbff00"
-    position="1.55524 1.29276 -8.45702" rotation="-56.534318603353455 140.76942772789684 -132.37846081820592">
-</a-entity></a-entity>
 </a-entity>
 
 <!--Pergunta-->
@@ -148,80 +141,11 @@ value: Quem deve avancar em primeiro lugar?">
     value: Carrinha"
     ></a-entity>
     
-    <a-sky 
-    color="#9EC2D5"
-    src="#scenery"
-    repeat="2 2.1 1"></a-sky>
+    
     <!--luze ambiente-->
-    <a-entity position="-2.210 12.22318 -20.3302" id="luz-sol" light="angle: 0; intensity: 0.9">   
-    </a-entity>
+    
     <!--estrada-->
-    <a-plane
-    position="0 0 0"
-    src="#sidewalk"
-    normal-map="#sidewalk_normal"
-    repeat="30 30"
-    width="100"
-    height="200"
-    rotation="-90 -90 180"
-    ></a-plane>
-    <!--estrada horizontal-->
-    <a-plane
-    src="#road"
-    normal-map="#road_normal"
-    repeat="5 1"
-    width="200"
-        height="12"
-        position="0 0.01 -10"
-        rotation="-90 -90 90">
-    </a-plane>
-    <!--estrada vertical-->
-    <a-plane
-    src="#road"
-    normal-map="#road_normal"
-    repeat="1 1"
-    width="54"
-    height="12"
-    position="-2.5 0.01 23"
-    rotation="-90 -90 180">
-</a-plane>
-<!--linhas-->
-<a-plane
-color="#FAF5AC"
-        width="0.3"
-        height="200"
-        position="0 0.02 -15.5"
-        rotation="-90 -90 180">
-    </a-plane>
-    <!--marcas esquerda-->
-    <a-plane
-    color="#FAF5AC"
-    width="0.3"
-    height="92"
-    position="-54 0.02 -4.5"
-    rotation="-90 -90 180">
-</a-plane>
-<a-plane
-color="#FAF5AC"
-width="54.7"
-height="0.3"
-position="-8 0.02 22.7"
-rotation="-90 -90 180">
-</a-plane>
-<!--marcas direita-->
-<a-plane
-color="#FAF5AC"
-width="0.3"
-height="97"
-position="51.5 0.02 -4.5"
-rotation="-90 -90 180">
-</a-plane>
-<a-plane
-color="#FAF5AC"
-width="54.7"
-height="0.3"
-position="3 0.02 22.7"
-rotation="-90 -90 180">
+    
 </a-plane>
 </a-scene>    
 <script src="projeto.js"></script>
