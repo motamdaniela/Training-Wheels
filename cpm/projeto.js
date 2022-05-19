@@ -11,6 +11,7 @@ let carro = document.querySelector("#carro_todo");
 // fogo
 let fogo=document.querySelector("#explosao");
 let fire=document.querySelector("#firework");
+let fire2=document.querySelector("#firework2");
 
 green.addEventListener('click',()=>{
     correct(carrinha, carro, moto)
@@ -34,6 +35,7 @@ reset.addEventListener('click', ()=>{
     moto.setAttribute("position",'6 0 -5');
     fogo.setAttribute("visible",'false');
     fire.setAttribute("visible",'false');
+    fire2.setAttribute("visible",'false');
 })
 
 /*movimentos da opcao correta*/
@@ -48,7 +50,7 @@ async function correct (carrinha, carro, moto){
     await sleep(1500)
     carro.setAttribute("animation",`property: position; from:-9 0 -6; to: -100 0 -3; loop: false; dur: 2000; delay:50; easing: linear`);
     fire.setAttribute("visible", `true`);
-
+    fire2.setAttribute("visible", `true`);
 }
 
 /*movimentos opcao errada em que a moto avança primeiro*/
