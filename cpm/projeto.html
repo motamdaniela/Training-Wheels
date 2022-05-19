@@ -15,13 +15,9 @@
             <a-asset-item id="carro-obj" src="obj/carro/scene.gltf"></a-asset-item>
             <a-asset-item id="moto-obj" src="obj/moto2/scene.gltf"></a-asset-item>
             <a-asset-item id="cidade" src="obj/cidade/scene.gltf"></a-asset-item>
+            <a-asset-item id="boom" src="obj/explosion/scene.gltf"></a-asset-item>
             
-            <!--texturas estrada
-            <img id="sidewalk" src="textures/sidewalk.png">
-            <img id="sidewalk_normal" src="textures/sidewalk_normal.png">
-            <img id="road" src="textures/road.png">
-            <img id="road_normal" src="textures/road_normal.png">
-            <img id="scenery" src="textures/scenery.jpg">-->
+            
             <img id="ceu" src="ceu.png">
         </a-assets>
 
@@ -70,11 +66,20 @@
     <!--carrinha-->
         <a-entity>
             <a-entity id="truck" gltf-model="obj/truck/scene.gltf" 
-            position="-20.420 3.8 -4" 
+            position="-20.012 3.8 -4" 
             rotation="0 150 0" 
             scale="0.06 0.06 0.06">
             </a-entity>
         </a-entity>
+
+        <a-entity id="explosao" gltf-model="#boom" 
+            position="-2.420 -1.2 -4" 
+            scale="1.5 1.5 1.5"
+            animation-mixer
+            visible="false"
+            >
+        </a-entity>
+        
 
     <!--moto-->
         <a-entity id="moto_inteira" position="6 0 -5">
@@ -174,75 +179,9 @@
     <!--luz ambiente-->
         <a-entity position="-2.210 12.22318 -20.3302" id="luz-sol" light="angle: 0; intensity: 0.9"></a-entity>
         <a-light type="ambient" color="white" intensity="0.6"></a-light>
-    <!-- estrada
-        <a-plane
-        position="0 0 0"
-        src="#sidewalk"
-        normal-map="#sidewalk_normal"
-        repeat="30 30"
-        width="100"
-        height="200"
-        rotation="-90 -90 180">
-        </a-plane>
-        <!--estrada horizontal-->
-        <!-- <a-plane
-        src="#road"
-        normal-map="#road_normal"
-        repeat="5 1"
-        width="200"
-        height="12"
-        position="0 0.01 -10"
-        rotation="-90 -90 90">
-        </a-plane> -->
-        <!--estrada vertical-->
-        <!-- <a-plane
-        src="#road"
-        normal-map="#road_normal"
-        repeat="1 1"
-        width="54"
-        height="12"
-        position="-2.5 0.01 23"
-        rotation="-90 -90 180">
-        </a-plane> -->
-        <!--linhas-->
-        <!-- <a-plane
-        color="#FAF5AC"
-        width="0.3"
-        height="200"
-        position="0 0.02 -15.5"
-        rotation="-90 -90 180">
-        </a-plane> -->
-        <!--marcas esquerda-->
-        <!-- <a-plane
-        color="#FAF5AC"
-        width="0.3"
-        height="92"
-        position="-54 0.02 -4.5"
-        rotation="-90 -90 180">
-        </a-plane>
-        <a-plane
-        color="#FAF5AC"
-        width="54.7"
-        height="0.3"
-        position="-8 0.02 22.7"
-        rotation="-90 -90 180">
-        </a-plane> -->
-        <!--marcas direita-->
-        <!-- <a-plane
-        color="#FAF5AC"
-        width="0.3"
-        height="97"
-        position="51.5 0.02 -4.5"
-        rotation="-90 -90 180">
-        </a-plane>
-        <a-plane
-        color="#FAF5AC"
-        width="54.7"
-        height="0.3"
-        position="3 0.02 22.7"
-        rotation="-90 -90 180">
-        </a-plane> -->
+   
     </a-scene>
 <script src="projeto.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
 </body>
 </html>
