@@ -13,6 +13,10 @@ let fogo=document.querySelector("#explosao");
 let fire=document.querySelector("#firework");
 let fire2=document.querySelector("#firework2");
 
+// som
+let ex_som=document.querySelector("#explosao_som");
+let fg_som=document.querySelector("#fogo_som");
+
 green.addEventListener('click',()=>{
     correct(carrinha, carro, moto)
 })
@@ -35,6 +39,8 @@ reset.addEventListener('click', ()=>{
     moto.setAttribute("position",'6 0 -5');
     fogo.setAttribute("visible",'false');
     fire.setAttribute("visible",'false');
+    ex_som.components.sound.stopSound();
+    fg_som.components.sound.stopSound();
     fire2.setAttribute("visible",'false');
 })
 
@@ -48,6 +54,7 @@ async function correct (carrinha, carro, moto){
     await sleep(1000)
     carro.setAttribute("animation",`property: rotation; from:0 0 0; to: 0 90 0; loop: false; dur: 1500; delay:50; easing: easeInOutCubic`)
     await sleep(1500)
+    fg_som.components.sound.playSound();
     carro.setAttribute("animation",`property: position; from:-9 0 -6; to: -100 0 -3; loop: false; dur: 2000; delay:50; easing: linear`);
     fire.setAttribute("visible", `true`);    
     fire2.setAttribute("visible", `true`);
@@ -61,8 +68,11 @@ async function wrong_moto (carrinha, carro, moto){
     carro.setAttribute("animation",`property: position; from:-9 0 0; to: -9 0 -8; loop: false; dur: 500; delay:700; easing: linear`);
     fogo.setAttribute("animation",`property:position; from:-2.420 -1.2 -4; to:-2.420 -1 -4; delay:99999`)
     await sleep(1500)
-    fogo.setAttribute("visible",`true`);
+    fogo.setAttribute("visible",`true`)
+    fogo.setAttribute("sound",`autoplay:true`)
+    ex_som.components.sound.playSound();
 }
+
 /*movimentos opcao errada em que o carro avança primeiro*/
 async function wrong_car (carrinha, carro, moto){
     carro.setAttribute("animation",`property: position; from:-9 0 0; to: -9 0 -10; loop: false; dur: 500; delay:200; easing: linear`);
@@ -70,7 +80,9 @@ async function wrong_car (carrinha, carro, moto){
     moto.setAttribute("animation", `property: rotation; to: 0 80 0; loop: false; delay:300; dur: 1000; easing: easeInOutCubic`)
     fogo.setAttribute("animation",`property:position; from:-2.420 -1.2 -4; to:-2.420 -1 -4; delay:99999`)
     await sleep(1200)
-    fogo.setAttribute("visible",`true`);
+    fogo.setAttribute("visible",`true`)
+    fogo.setAttribute("sound",`autoplay:true`)
+    ex_som.components.sound.playSound();
 }
 
 function sleep(ms){
