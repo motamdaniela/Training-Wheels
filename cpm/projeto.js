@@ -49,7 +49,7 @@ async function correct (carrinha, carro, moto){
     carro.setAttribute("animation",`property: rotation; from:0 0 0; to: 0 90 0; loop: false; dur: 1500; delay:50; easing: easeInOutCubic`)
     await sleep(1500)
     carro.setAttribute("animation",`property: position; from:-9 0 -6; to: -100 0 -3; loop: false; dur: 2000; delay:50; easing: linear`);
-    fire.setAttribute("visible", `true`);
+    fire.setAttribute("visible", `true`);    
     fire2.setAttribute("visible", `true`);
 }
 
