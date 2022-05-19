@@ -9,7 +9,8 @@ let moto = document.querySelector("#moto_inteira");
 let carro = document.querySelector("#carro_todo");
 
 // fogo
-let fogo=document.querySelector("#explosao")
+let fogo=document.querySelector("#explosao");
+let fire=document.querySelector("#firework");
 
 green.addEventListener('click',()=>{
     correct(carrinha, carro, moto)
@@ -32,10 +33,11 @@ reset.addEventListener('click', ()=>{
     carro.setAttribute("position",'-9 0 0');
     moto.setAttribute("position",'6 0 -5');
     fogo.setAttribute("visible",'false');
+    fire.setAttribute("visible",'false');
 })
 
 /*movimentos da opcao correta*/
-async function correct (carrinha, carro, moto,fogo){
+async function correct (carrinha, carro, moto){
     carrinha.setAttribute("animation", `property: position; from: -20.420 3.8 -4; to: 100 3.8 -4; loop: false; delay: 300; dir: alternate; dur: 6000; easing: easeInOutCubic`)
     moto.setAttribute("animation", `property: rotation; to: 0 100 0; loop: false; delay:1500; dur: 3500; easing: easeInOutCubic`)
     await sleep(4000)
@@ -45,7 +47,7 @@ async function correct (carrinha, carro, moto,fogo){
     carro.setAttribute("animation",`property: rotation; from:0 0 0; to: 0 90 0; loop: false; dur: 1500; delay:50; easing: easeInOutCubic`)
     await sleep(1500)
     carro.setAttribute("animation",`property: position; from:-9 0 -6; to: -100 0 -3; loop: false; dur: 2000; delay:50; easing: linear`);
-    
+    fire.setAttribute("visible", `true`);
 
 }
 

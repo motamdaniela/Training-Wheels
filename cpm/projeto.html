@@ -16,6 +16,7 @@
             <a-asset-item id="moto-obj" src="obj/moto2/scene.gltf"></a-asset-item>
             <a-asset-item id="cidade" src="obj/cidade/scene.gltf"></a-asset-item>
             <a-asset-item id="boom" src="obj/explosion/scene.gltf"></a-asset-item>
+            <a-asset-item id="fire" src="obj/firework/scene.gltf"></a-asset-item>
             
             
             <img id="ceu" src="ceu.png">
@@ -72,6 +73,7 @@
             </a-entity>
         </a-entity>
 
+        <!-- explosao -->
         <a-entity id="explosao" gltf-model="#boom" 
             position="-2.420 -1.2 -4" 
             scale="1.5 1.5 1.5"
@@ -80,6 +82,22 @@
             >
         </a-entity>
         
+        <!-- firework -->
+        <a-entity id="firework" gltf-model="#fire"
+            position="0 5 15"
+            color="white"
+            scale="0.1 0.1 0.1"
+            animation-mixer
+            visible="true"
+        ></a-entity>
+
+        <a-entity id="firework" gltf-model="#fire"
+            position="0 5 15"
+            color="white"
+            scale="0.06 0.06 0.06"
+            animation-mixer
+            visible="true"
+        ></a-entity>
 
     <!--moto-->
         <a-entity id="moto_inteira" position="6 0 -5">
