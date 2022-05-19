@@ -44,7 +44,7 @@
 
 
 <!--carro-->
-        <a-entity id="carro_todo" position="-9 0 -3" >
+        <a-entity id="carro_todo" position="-9 0 0" >
             <a-entity >
                 <a-entity id="carro" gltf-model="#carro-obj"
                     scale="2 2 2"
@@ -54,14 +54,14 @@
             <!--pisca carro-->
                 <a-entity>
                         <a-entity id="pisca_carro"
-                            animation="property: light.intensity; from: 20; to: 0; dur: 900 ; loop: true"
-                            light="type: spot; color: white; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 0.42; intensity: 20; groundColor: white"
-                            position="-9.632 1.136 -5.959" rotation="-9.211 -153.25 98.951">
+                            animation="property: light.intensity; from: 15; to: 0; dur: 900 ; loop: true"
+                            light="type: spot; color: yellow; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 1.08; intensity: 15; groundColor: yellow"
+                            position="8.073 1.320 0.735" rotation="11.875 -176.66 35.83">
                         </a-entity>
                         <a-entity id="luz_carro" 
-                            animation="property: light.intensity; from: 1.2; to: 0; dur: 900; loop: true"
-                            light="type: spot; color: white; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 2.2; intensity: 0.536; groundColor: white"
-                            position="-9.473 1.206 -6.067" rotation="-61.715 52.568 -148.154">
+                            animation="property: light.intensity; from: 3; to: 0; dur: 900; loop: true"
+                            light="type: spot; color: #FAF5AC; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 5; intensity: 1; groundColor: #FAF5AC"
+                            position="7.977 1.517 0.534" rotation="-69.386 35.106 -129.04">
                         </a-entity>
                 </a-entity>
             </a-entity>
@@ -77,7 +77,7 @@
         </a-entity>
 
     <!--moto-->
-        <a-entity id="moto_inteira" position="7.138 0 -5">
+        <a-entity id="moto_inteira" position="6 0 -5">
             <a-entity >
                 <a-entity id="moto" gltf-model="#moto-obj"
                 position="113.087 0 -121.984"
@@ -86,14 +86,14 @@
                 </a-entity>
             <!--pisca moto-->
                 <a-entity id="pisca_moto"
-                animation="property: light.intensity; from: 10; to: 0; dur: 900 ; loop: true; delay:150"
-                light="type: spot; color: #fbff00; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 0.42; intensity: 10; groundColor: #fbff00"
-                position="1.55524 1.4 -8.45702" rotation="0 -45 0">
+                animation="property: light.intensity; from: 20; to: 0; dur: 900 ; loop: true; delay:150"
+                light="type: spot; color: #FAF5AC; angle: 30; penumbra: 1; castShadow: true; decay: 5; distance: 1.5; intensity: 20; groundColor: #FAF5AC"
+                position="0.479 1.804 -9.876" rotation="-3 -69.753 -0405">
                 </a-entity>
                 <a-entity id="luz_moto" 
-                animation="property: light.intensity; from: 1.2; to: 0; dur: 900; loop: true; delay:150"
-                light="type: spot; color: #fbff00; angle: 30; penumbra: 1; castShadow: true; decay: 0.58; distance: 2.2; intensity: 0.536; groundColor: #fbff00"
-                position="1.55524 1.29276 -8.45702" rotation="-56.534318603353455 140.76942772789684 -132.37846081820592">
+                animation="property: light.intensity; from: 7; to: 0; dur: 900; loop: true; delay:150"
+                light="type: spot; color: #FAF5AC; angle: 30; penumbra: 1; castShadow: true; decay: 5; distance: 15; intensity: 7; groundColor: #FAF5AC"
+                position="0.287 1 -9.7" rotation="-59.898 108.703 -112.72">
                 </a-entity>
             </a-entity>
         </a-entity>
