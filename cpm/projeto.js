@@ -56,7 +56,7 @@ async function correct (carrinha, carro, moto){
     await sleep(1500)
     fg_som.components.sound.playSound();
     carro.setAttribute("animation",`property: position; from:-9 0 -6; to: -100 0 -3; loop: false; dur: 2000; delay:50; easing: linear`);
-    fire.setAttribute("visible", `true`);
+    fire.setAttribute("visible", `true`);    
     fire2.setAttribute("visible", `true`);
 }
 
