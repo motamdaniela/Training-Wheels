@@ -4,7 +4,7 @@ export default class User {
     #password = ''
     #email = ''
     #sex = ''
-    #birthday = '00-00-0000'
+    #birthday = ''
     #place = ''
     #photo = ''
     #ranking = 0 
