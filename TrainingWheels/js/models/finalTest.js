@@ -1,6 +1,7 @@
-export default class Question{
-    #questions =""
-    #answers =""
-    #rightAnswer =""
-    #image =""
+class exercise{
+    id=''
+    question=''
+    answers=''
+    correctAnswer=''
+    level=''
 }
