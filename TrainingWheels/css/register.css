@@ -3,6 +3,8 @@ body{
     display:flex;
     flex-direction: column;
     font-family: 'ABC-Regular', sans-serif;
+    background-image: url("../media/images/placeholder.svg");
+    background-repeat: no-repeat, repeat;
 }
 .container{
     display:flex;
