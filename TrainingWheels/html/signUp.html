@@ -40,8 +40,8 @@
     
     </header>
     <!--formulario-->
-    <div class="formulario">
-    <form>
+    <div>
+    <form class="formSignUp">
         <fieldset id="Info">
             <div class="info">
                 <label for="username" class="form-label">Username</label>
@@ -64,9 +64,12 @@
                 <input type="password" name="passCheck" id="passCheck" required>
             </div>
         </fieldset>
-        <button type="submit" class="btn btn">Criar Conta</button>
+        <button id="signUpBtn" type="submit" class="btn btn">Criar Conta</button>
     </form>
-    Já tens conta?<a href="#">Entrar</a>
+    Já tens conta?<a href="login.html">Entrar</a>
     </div>
+
+    <script src="/js/models/userModel.js"></script>
+    <script src="/js/views/SignUpView.js"></script>
 </body>
 </html>
