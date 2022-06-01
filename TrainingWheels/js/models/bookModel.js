@@ -1,5 +1,11 @@
 export default class Book{
-    #usernames =""
+    #username =""
     #stickersLvl =""
     #stickersBuy =""
+
+    constructor(username, stickersLvl, stickersBuy){
+        this.#username = username;
+        this.#stickersLvl = stickersLvl;
+        this.#stickersBuy = stickersBuy;
+    }
 }
