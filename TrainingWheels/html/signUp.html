@@ -41,30 +41,63 @@
     </header>
     <!--formulario-->
     <div>
+
+        <!-- BEA ISTO É O Q EU PRECISO NO FORMULÁRIO:
+        name
+        username
+        pass
+        passChec(confirmar passe)
+        email
+        sex
+        bday -->
     <form class="formSignUp">
         <fieldset id="Info">
-            <div class="info">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" name="username" id="username" required>
+            <!-- nomme -->
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="nome" aria-describedby="emailHelp">
             </div>
-            <div class="info">
-                <label for="email" class="form-label">E-mail</label>
-                <input type="email" name="email" id="email" required>
+            <!-- user -->
+            <div class="col-12">
+                <label class="visually-hidden" for="username">Username</label>
+                <div class="input-group">
+                  <div class="input-group-text">@</div>
+                  <input type="text" class="form-control" id="username" placeholder="Username">
+                </div>
+              </div>
+            <!-- email -->
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
             </div>
-            <div class="info">
-                <label for="email" class="form-label">Data de nascimento</label>
-                <input type="date" name="bday" id="bday">
+            
+            <!-- bday -->
+            <label for="bday" class="form-label">Data de nascimento</label>
+            <input type="date" class="form-control form-control-date" id="bday" title="Choose your color">
+
+            <!-- sexo -->
+            <label for="sexSelect" class="form-label">Sexo</label>
+            <select class="form-select" aria-label="Default select example" id="sexSelect">
+                <option value="f">Feminio</option>
+                <option value="m">Masculino</option>
+            </select>
+            <!-- pass -->
+            <label for="pass" class="form-label">Password</label>
+            <input type="password" id="pass" class="form-control" aria-describedby="passwordHelpBlock">
+            <div id="passwordHelpBlock" class="form-text">
+            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
             </div>
-            <div class="info">
-                <label for="pass" class="form-label">Palavra passe</label>
-                <input type="password" name="pass" id="pass" required>
+            <!-- confirmar pass -->
+            <label for="passCheck" class="form-label">Confirmar Password</label>
+            <input type="password" id="passCheck" class="form-control" aria-describedby="passwordHelpBlock">
+            <!-- check butao -->
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
             </div>
-            <div class="info">
-                <label for="email" class="form-label">Confirme a palavra passe</label>
-                <input type="password" name="passCheck" id="passCheck" required>
-            </div>
+            <!-- butao submit -->
+            <button type="submit" class="btn btn-primary">Submit</button>
         </fieldset>
-        <button id="signUpBtn" type="submit" class="btn btn">Criar Conta</button>
     </form>
     Já tens conta?<a href="login.html">Entrar</a>
     </div>
