@@ -1,4 +1,4 @@
-class exercise{
+export default class exercise{
     id=''
     question=''
     answers=[]
