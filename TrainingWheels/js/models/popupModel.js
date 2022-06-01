@@ -1,11 +1,11 @@
 export default class popUp{
     #question =""
     #image =""
-    #answer =""
+    #answers =[]
     #correctAnswer =""
     #reward =""
     #level =0
     #video =""
     #tag =""
-    #pointsEarned =""
+    #pointsEarned =0
 }

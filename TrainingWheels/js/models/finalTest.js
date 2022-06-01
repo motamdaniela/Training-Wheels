@@ -1,7 +1,7 @@
 class exercise{
     id=''
     question=''
-    answers=''
+    answers=[]
     correctAnswer=''
-    level=''
+    level=0
 }
