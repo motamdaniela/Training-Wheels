@@ -55,7 +55,7 @@
             <!-- nomme -->
             <div class="mb-3">
                 <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="nome" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="name" aria-describedby="emailHelp">
             </div>
             <!-- user -->
             <div class="col-12">
@@ -77,7 +77,7 @@
 
             <!-- sexo -->
             <label for="sexSelect" class="form-label">Sexo</label>
-            <select class="form-select" aria-label="Default select example" id="sexSelect">
+            <select class="form-select" aria-label="Default select example" id="sex">
                 <option value="f">Feminio</option>
                 <option value="m">Masculino</option>
             </select>
@@ -90,19 +90,14 @@
             <!-- confirmar pass -->
             <label for="passCheck" class="form-label">Confirmar Password</label>
             <input type="password" id="passCheck" class="form-control" aria-describedby="passwordHelpBlock">
-            <!-- check butao -->
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
+            
             <!-- butao submit -->
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" id="signUpBtn">Submit</button>
         </fieldset>
     </form>
     Já tens conta?<a href="login.html">Entrar</a>
     </div>
 
-    <script src="/js/models/userModel.js"></script>
-    <script src="/js/views/SignUpView.js"></script>
+    <script type="module" src="../js/views/signUpView.js"></script>
 </body>
 </html>
