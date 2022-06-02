@@ -31,7 +31,7 @@ function navbarView() {
   <ul id="icon-fundo" class="nav nav-pills nav-flush flex-column mb-auto text-center">
     <li>
       <a href="#" class="nav-link py-3 " >
-        <i id="login" data-feather="log-in"></i>   
+        <i class="nav-icon" data-feather="log-in"></i>   
         <span class="nav-text">Log in</span>    
       </a>
     </li>

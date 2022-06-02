@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Wheels</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/register.css">
+    <style>
+        @font-face {
+          font-family: 'ABC-Regular';
+          src:  url('fonte/ABCCameraPlain-Regular-Trial.woff2') format('woff2'),
+                url('fonte/ABCCameraPlain-Regular-Trial.woff') format('woff');
+  
+          font-family: 'ABC-Medium';
+          src:  url('fonte/ABCCameraPlain-Medium-Trial.woff2') format('woff2'),
+                url('fonte/ABCCameraPlain-Medium-Trial.woff') format('woff');
+  
+          font-family: 'ABC-Bold';
+          src:  url('fonte/ABCCameraPlain-Bold-Trial.woff2') format('woff2'),
+                url('fonte/ABCCameraPlain-Bold-Trial.woff') format('woff');
+  
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a onclick="history.back()">
+                    <img src="../media/images/seta.svg" id="voltar"width="30" height="24">
+                </a>
+                <img src="../media/images/logooriginal.svg" id="logo"width="50">
+            </div>
+          </nav>
+    <!--fundo-->
+    
+    </header>
+    <!--formulario-->
+    <div>
+
+        <!-- BEA ISTO É O Q EU PRECISO NO FORMULÁRIO:
+        name
+        username
+        pass
+        passChec(confirmar passe)
+        email
+        sex
+        bday -->
+    <form class="formSignUp">
+        <fieldset id="Info">
+            <!-- user -->
+            <div class="col-12">
+                <label class="visually-hidden" for="username">Username</label>
+                <div class="input-group">
+                  <div class="input-group-text">@</div>
+                  <input type="text" class="form-control" id="username" placeholder="Username">
+                </div>
+              </div> 
+            <!-- pass -->
+            <label for="pass" class="form-label">Password</label>
+            <input type="password" id="pass" class="form-control" aria-describedby="passwordHelpBlock">
+            
+            <!-- butao submit -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </fieldset>
+    </form>
+    Ainda não tem conta? <a href="login.html">Registar</a>
+    </div>
+
+    <script type="module" src="/js/views/loginView.js"></script>
+</body>
+</html>
