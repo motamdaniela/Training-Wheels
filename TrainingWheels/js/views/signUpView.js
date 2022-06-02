@@ -1,11 +1,11 @@
-import * as User from "../models/userModel.js"
+import * as User from "../models/userModel.js";
 
 let Rank = 0
 
 const signUpBtn = document.querySelector("#signUpBtn");
 
 signUpBtn.addEventListener("submit",(event)=>{
-    
+    event.preventDefault();
     let username = document.querySelector("#username");
     let name = document.querySelector("#name");
     let pass = document.querySelector("#pass");
@@ -35,7 +35,7 @@ signUpBtn.addEventListener("submit",(event)=>{
         displayMessage("msgRegister", e.message, "danger");
       }
 
-      event.preventDefault();
+      
 })
 
 
