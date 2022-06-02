@@ -62,6 +62,10 @@
     color: #2D2F44;
 }
 
+#icon-fundp{
+    margin-bottom: 0px;
+}
+
 
 .main-menu li>a, .main-menu drop-up {
     position:relative;
