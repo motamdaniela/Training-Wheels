@@ -32,7 +32,7 @@ body{
 }
 
 .tutorial>img{
-  width:800px;
+  width:1000px;
 }
 
 .buttons{
@@ -43,12 +43,12 @@ body{
   border-color: #488baf;
   color: #488baf;
   background-color: #FCF7F7;
-  font-size: 25px;
+  font-size: 22px;
   border-radius: 10px;
-  width: 216.87px;
+  width: 180px;
   height: 61.52px;
   left: 265px;
-  top: 450px;
+  top: 350px;
   position: absolute;
   border-width: 3px;
 }
@@ -57,12 +57,12 @@ body{
   border-color: #488baf;
   background-color: #488baf;
   color: #FCF7F7;
-  font-size: 25px;
+  font-size: 22px;
   border-radius: 10px;
-  width: 216.87px;
+  width: 180px;
   height: 61.52px;
-  left: 537.13px;
-  top: 450px;
+  left: 500.13px;
+  top: 350px;
   position: absolute;
 }
 

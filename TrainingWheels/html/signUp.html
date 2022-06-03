@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="../css/register.css">
     <style>
         @font-face {
           font-family: 'ABC-Regular';
@@ -31,42 +31,86 @@
         <nav class="navbar">
             <div class="container">
                 <a onclick="history.back()">
-                    <img src="imagens/seta.svg" id="voltar"width="30" height="24">
+                    <img src="../media/images/seta.svg" id="voltar"width="30" height="24">
                 </a>
-                <img src="imagens/logooriginal.svg" id="logo"width="50">
+                <img src="../media/images/logooriginal.svg" id="logo"width="50">
             </div>
           </nav>
     <!--fundo-->
-    <img src="imagens/placeholder.svg" id="fundo">
+    
     </header>
     <!--formulario-->
-    <div class="formulario">
-    <form>
+    <div>
+
+        <!-- BEA ISTO É O Q EU PRECISO NO FORMULÁRIO:
+        name
+        username
+        pass
+        passChec(confirmar passe)
+        email
+        sex
+        bday -->
+    <form class="formSignUp">
         <fieldset id="Info">
-            <div class="info">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" name="username" id="username" required>
+            <!-- nomme -->
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="name" aria-describedby="emailHelp">
             </div>
-            <div class="info">
-                <label for="email" class="form-label">E-mail</label>
-                <input type="email" name="email" id="email" required>
+            <!-- user -->
+            <div class="col-12">
+                <label class="visually-hidden" for="username">Username</label>
+                <div class="input-group">
+                  <div class="input-group-text">@</div>
+                  <input type="text" class="form-control" id="username" placeholder="Username">
+                </div>
+              </div>
+            <!-- email -->
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
             </div>
-            <div class="info">
-                <label for="email" class="form-label">Data de nascimento</label>
-                <input type="date" name="bday" id="bday">
+            
+            <!-- bday -->
+            <label for="bday" class="form-label">Data de nascimento</label>
+            <input type="date" class="form-control form-control-date" id="bday" title="Choose your color">
+
+            <!-- sexo -->
+            <label for="sexSelect" class="form-label">Sexo</label>
+            <select class="form-select" aria-label="Default select example" id="sex">
+                <option value="f">Feminio</option>
+                <option value="m">Masculino</option>
+            </select>
+            <!-- pass -->
+            <label for="pass" class="form-label">Password</label>
+            <input type="password" id="pass" class="form-control" aria-describedby="passwordHelpBlock">
+            <div id="passwordHelpBlock" class="form-text">
+            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
             </div>
-            <div class="info">
-                <label for="pass" class="form-label">Palavra passe</label>
-                <input type="password" name="pass" id="pass" required>
-            </div>
-            <div class="info">
-                <label for="email" class="form-label">Confirme a palavra passe</label>
-                <input type="password" name="passCheck" id="passCheck" required>
-            </div>
+            <!-- confirmar pass -->
+            <label for="passCheck" class="form-label">Confirmar Password</label>
+            <input type="password" id="passCheck" class="form-control" aria-describedby="passwordHelpBlock">
+            
+            <!-- butao submit -->
+            <button type="submit" class="btn btn-primary" id="signUpBtn">Submit</button>
         </fieldset>
-        <button type="submit" class="btn btn">Criar Conta</button>
     </form>
-    Já tens conta?<a href="#">Entrar</a>
+    Já tens conta?<a href="login.html">Entrar</a>
     </div>
+
+    <script type="module" src="../js/views/signUpView.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+    crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
 </body>
 </html>

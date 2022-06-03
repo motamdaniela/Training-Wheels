@@ -1,4 +1,4 @@
-import * as User from "../models/userModel.js";
+//import * as User from "../models/userModel.js";
 
 const loginBtn = document.querySelector("#loginBtn");
 
@@ -8,9 +8,12 @@ loginBtn.addEventListener("submit", () =>{
     let password = document.querySelector("#password").value;
     
     try {
-        User.login(username, password);
+        if(User.login(username, password)){
+            console.log("funciona");
+        }else{
+            console.log("error");
+        }
         
-        console.log("funciona");
         // Wait 1 second before reloading, so the user can see the login success message
         setTimeout(() => {
           location.replace("../index.html");
