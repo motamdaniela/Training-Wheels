@@ -14,7 +14,7 @@ function navbarView() {
       </a>
     </li>
     <li>
-      <a href="#" class="nav-link py-3 " >
+      <a href="html/faq.html" class="nav-link py-3 " >
         <i class="nav-icon" data-feather="help-circle"></i>  
         <span class="nav-text">F.A.Q.</span>      
       </a>

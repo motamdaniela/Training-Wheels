@@ -1,26 +1,22 @@
 import * as User from "../models/userModel.js";
 
-let Rank = 0
-
 const signUpBtn = document.querySelector("#signUpBtn");
 
-signUpBtn.addEventListener("submit",(event)=>{
-    event.preventDefault();
-    let username = document.querySelector("#username");
-    let name = document.querySelector("#name");
-    let pass = document.querySelector("#pass");
-    let passCheck = document.querySelector("#passCheck");
-    let email = document.querySelector("#email");
-    let sex = document.querySelector("#sex");
-    let bday = document.querySelector("#bday");
+signUpBtn.addEventListener("click",()=>{
+    let username = document.querySelector("#username").value;
+    let name = document.querySelector("#name").value;
+    let pass = document.querySelector("#pass").value;
+    let passCheck = document.querySelector("#passCheck").value;
+    let email = document.querySelector("#email").value;
+    let sex = document.querySelector("#sex").value; //value=> f for fem m for male
+    let bday = document.querySelector("#bday").value;
     
     try {
-        if (pass.value !== passCheck.value) {
-            console.log('naooo')
-            throw Error("Password and Confirm Password are not equal");
-          
+        if (pass !== passCheck) {
+            console.log('passe')
+            throw Error("Password and Confirm Password are not equal");          
         }
-        User.add(username.value, 'user',pass.value, name.value,email.value, sex.value,bday.value);
+        User.add(username, 'user',pass, name, email, sex.value, bday);
         console.log('olaa')
         displayMessage(
           "msgRegister",
@@ -29,12 +25,11 @@ signUpBtn.addEventListener("submit",(event)=>{
         );
         // Wait 1 second before reloading, so the user can see the login success message
         setTimeout(() => {
-          location.reload();
+          location.replace(".../index.html");
         }, 1000);
       } catch (e) {
         displayMessage("msgRegister", e.message, "danger");
       }
-
       
 })
 

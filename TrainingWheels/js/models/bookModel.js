@@ -1,7 +1,7 @@
 export default class Book{
     #username =""
-    #stickersLvl =""
-    #stickersBuy =""
+    #stickersLvl ={}
+    #stickersBuy ={}
 
     constructor(username, stickersLvl, stickersBuy){
         this.#username = username;
