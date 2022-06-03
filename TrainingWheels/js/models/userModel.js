@@ -83,6 +83,7 @@ export default class User {
         this.book = book;
     }
 
+    let n = 0
 
     // get getUsername(){return this.#username};
     // get getType(){return this.#type};
