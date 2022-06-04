@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/register.css">
+    <link rel="stylesheet" href="../css/signUp.css">
     <style>
         @font-face {
           font-family: 'ABC-Regular';
@@ -42,18 +42,12 @@
     <!--formulario-->
     <div>
 
-        <!-- BEA ISTO É O Q EU PRECISO NO FORMULÁRIO:
-        name
-        username
-        pass
-        passChec(confirmar passe)
-        email
-        sex
-        bday -->
     <form class="formSignUp">
         <fieldset id="Info">
             <!-- user -->
             <div class="col-12">
+                <!-- div vazia que conterá uma mensagem de erro caso login sem sucesso -->
+                <div id="errorSlot"></div>
                 <label class="visually-hidden" for="username">Username</label>
                 <div class="input-group">
                   <div class="input-group-text">@</div>
@@ -62,13 +56,13 @@
               </div> 
             <!-- pass -->
             <label for="pass" class="form-label">Password</label>
-            <input type="password" id="pass" class="form-control" aria-describedby="passwordHelpBlock">
+            <input type="password" id="password" class="form-control" aria-describedby="passwordHelpBlock">
             
             <!-- butao submit -->
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button id="loginBtn" type="submit" class="btn btn-primary">Submit</button>
         </fieldset>
     </form>
-    Ainda não tem conta? <a href="login.html">Registar</a>
+    Ainda não tem conta? <a href="signUp.html">Registar</a>
     </div>
 
     <script type="module" src="/js/views/loginView.js"></script>
