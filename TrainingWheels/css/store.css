@@ -1,0 +1,31 @@
+body{
+    background-color: #FEFCFC;
+    display:flex;
+    flex-direction: column;
+    font-family: 'ABC-Regular', sans-serif;
+  }
+
+  .container{
+    order: 1;
+    
+  }
+  
+  .container>div{
+    margin-top: 60px;
+  }
+
+  .middle{
+      margin-left: 50px;
+      margin-right: 50px;
+  }
+
+  .card-body{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .card{
+      width: 20px;
+      padding-top: 10px;
+  }

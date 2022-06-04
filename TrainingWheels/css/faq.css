@@ -64,3 +64,8 @@ h3{
   display:flex;
   align-items: center;
 }
+
+.accordion > .accordion-header {
+  background-color: #DD5E5C;
+
+}
