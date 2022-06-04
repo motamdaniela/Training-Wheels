@@ -2,21 +2,42 @@ import * as User from "../models/userModel.js";
 
 const signUpBtn = document.querySelector("#signUpBtn");
 
+User.init()
 
-signUpBtn.addEventListener("click",()=>{
-  let username = document.querySelector("#username");
+signUpBtn.addEventListener("click",(event)=>{
+  event.preventDefault()
+  let username = document.querySelector("#username").value;
   let type = 'user';
-  let name = document.querySelector("#name");
-  let pass = document.querySelector("#pass");
-  let passCheck = document.querySelector("#passCheck");
-  let email = document.querySelector("#email");
-  let sex = document.querySelector("#sex");
-  let bday = document.querySelector("#bday");
+  let name = document.querySelector("#name").value;
+  let pass = document.querySelector("#pass").value;
+  let passCheck = document.querySelector("#passCheck").value;
+  let email = document.querySelector("#email").value;
+  let sex = document.querySelector("#sex").value;
+  let bday = document.querySelector("#bday").value;
   
-  if (pass.value !== passCheck.value) {
-    console.log('passe');         
-  }
-})
+  try {
+      if (pass == passCheck) {
+          User.add(username, type, pass, name, email, sex, bday);
+          alert("usar provavelemnte cirado")
+          // Wait 1 second before reloading, so the user can see the login success message
+          /* setTimeout(() => {
+            location.replace(".../index.html");
+          }, 1000); */
+      }
+    } catch (e) {
+      alert('boa dia')
+    }
+    
+  })
+
+function displayMessage(modal, message, type) {
+  const divMessage = document.getElementById(modal);
+  divMessage.innerHTML = `<div class="alert alert-${type}" role="alert">${message}</div>`;
+  setTimeout(() => {
+    divMessage.innerHTML = "";
+  }, 2000);
+}
+
 
 /*
 
@@ -25,26 +46,6 @@ signUpBtn.addEventListener("click",()=>{
         location.replace(".../index.html");
       }, 1000);
 
-  try {
-      if (pass !== passCheck) {
-          console.log('passe');         
-      }
-      User.add(username, type, pass, name, email, sex, bday);
-      console.log('olaa')
-      displayMessage(
-        "msgRegister",
-        "User registered with success!",
-        "success"
-      );
-      // Wait 1 second before reloading, so the user can see the login success message
-      setTimeout(() => {
-        location.replace(".../index.html");
-      }, 1000);
-    } catch (e) {
-      displayMessage("msgRegister", e.message, "danger");
-    }
-    
-})
 
 
     */

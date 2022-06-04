@@ -7,6 +7,7 @@ export function init() {
 
 // ADICIONAR UTILIZADOR
 export function add(username, type, pass ,name, email, sex, bday) {
+  console.log("oi");
   if (users.some((user) => user.username === username || user.email === email)) {
     console.log('runs existing username')
     //throw Error(`User with username "${username}" already exists!`);
@@ -50,7 +51,7 @@ export function getUsers() {
   return users;
 }
 
-export default class User {
+class User {
     username = ''
     type = ''
     password = ''
@@ -81,6 +82,10 @@ export default class User {
         this.points = points;
         this.clues = clues;
         this.book = book;
+    }
+
+    pleek(){
+      return true
     }
 
     // get getUsername(){return this.#username};
