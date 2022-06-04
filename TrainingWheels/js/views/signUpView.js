@@ -16,7 +16,6 @@ signUpBtn.addEventListener("click",()=>{
   if (pass.value !== passCheck.value) {
     console.log('passe');         
   }
-    
 })
 
 /*
