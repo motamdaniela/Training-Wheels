@@ -65,7 +65,6 @@ h3{
   align-items: center;
 }
 
-.accordion > .accordion-header {
-  background-color: #DD5E5C;
-
+.accordion-button.collapsed {
+  background-color: #ECF1F1;
 }
