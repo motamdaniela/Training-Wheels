@@ -21,9 +21,9 @@ signUpBtn.addEventListener("click",(event)=>{
       User.add(username, type, pass, name, email, sex, bday);
       displayMessage(User.add(username, type, pass, name, email, sex, bday))
       // Wait 1 second before reloading, so the user can see the login success message
-      /* setTimeout(() => {
-        location.replace(".../index.html");
-      }, 1000); */
+      setTimeout(() => {
+        location.replace("../index.html");
+      }, 1000);
     }catch(e) {
       console.log('outro erro besides pass!=')
     }
