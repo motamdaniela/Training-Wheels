@@ -15,27 +15,27 @@ signUpBtn.addEventListener("click",(event)=>{
   let sex = document.querySelector("#sex").value;
   let bday = document.querySelector("#bday").value;
   
-  try {
-      if (pass == passCheck) {
-          User.add(username, type, pass, name, email, sex, bday);
-          alert("usar provavelemnte cirado")
-          // Wait 1 second before reloading, so the user can see the login success message
-          /* setTimeout(() => {
-            location.replace(".../index.html");
-          }, 1000); */
-      }
-    } catch (e) {
-      alert('boa dia')
+  if (pass == passCheck) {
+    try{
+
+      User.add(username, type, pass, name, email, sex, bday);
+      displayMessage(User.add(username, type, pass, name, email, sex, bday))
+      // Wait 1 second before reloading, so the user can see the login success message
+      /* setTimeout(() => {
+        location.replace(".../index.html");
+      }, 1000); */
+    }catch(e) {
+      console.log('outro erro besides pass!=')
     }
+  }else{
+    displayMessage('Confirme que os campos da password coincidam')
+  }
     
   })
 
-function displayMessage(modal, message, type) {
-  const divMessage = document.getElementById(modal);
-  divMessage.innerHTML = `<div class="alert alert-${type}" role="alert">${message}</div>`;
-  setTimeout(() => {
-    divMessage.innerHTML = "";
-  }, 2000);
+function displayMessage(message) {
+  const errorMessage = document.querySelector("#errorSlot");
+  errorMessage.innerHTML = `<div class="alert alert-danger" role="alert" id="errorSlot">${message}</div>`;
 }
 
 

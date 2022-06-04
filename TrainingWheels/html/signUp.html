@@ -54,21 +54,22 @@
         <fieldset id="Info">
             <!-- nomme -->
             <div class="mb-3">
+                <div id="errorSlot"></div>
                 <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="name" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="name" aria-describedby="emailHelp" required>
             </div>
             <!-- user -->
             <div class="col-12">
                 <label class="visually-hidden" for="username">Username</label>
                 <div class="input-group">
                   <div class="input-group-text">@</div>
-                  <input type="text" class="form-control" id="username" placeholder="Username">
+                  <input type="text" class="form-control" id="username" placeholder="Username" required>
                 </div>
               </div>
             <!-- email -->
             <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
             </div>
             
             <!-- bday -->
@@ -78,8 +79,9 @@
             <!-- sexo -->
             <label for="sexSelect" class="form-label">Sexo</label>
             <select class="form-select" aria-label="Default select example" id="sex">
-                <option value="f">Feminio</option>
+                <option value="f">Feminino</option>
                 <option value="m">Masculino</option>
+                <option value="x">Outro</option>
             </select>
             <!-- pass -->
             <label for="pass" class="form-label">Password</label>
@@ -90,7 +92,6 @@
             
             <!-- butao submit -->
             <button type="submit" class="btn btn-primary" id="signUpBtn">Submit</button>
-            <div id="errorSlot"></div>
         </fieldset>
     </form>
     Já tens conta?<a href="login.html">Entrar</a>

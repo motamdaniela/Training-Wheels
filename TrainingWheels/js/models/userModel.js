@@ -7,12 +7,12 @@ export function init() {
 
 // ADICIONAR UTILIZADOR
 export function add(username, type, pass ,name, email, sex, bday) {
-  console.log("oi");
-  if (users.some((user) => user.username === username || user.email === email)) {
-    console.log('runs existing username')
+  if (users.some((user) => user.username === username)) {
+    return('Esse username já existe. Por favor tente outro!')
     //throw Error(`User with username "${username}" already exists!`);
-  } else {
-    console.log('runs registration')
+  } else if(users.some((user) => user.email === email)){
+    return('Esse email já tem uma conta associada. Por favor tente outro!')
+  }else {
     users.push(new User(username, type, pass, name, email, sex, bday));
     localStorage.setItem("users", JSON.stringify(users));
   }
