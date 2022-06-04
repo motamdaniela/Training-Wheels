@@ -13,12 +13,22 @@ body{
 }
 fieldset{
     background-color: #FFF8F8;
-    width:50%;
+    width:40%;
     border-radius: 10px;
     padding:50px;
-    height:80%;
+    height:70%;
 }
 .button{
     background-color: #4B94BC;
     color: #FFF8F8;
+}
+form{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+header{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
 }

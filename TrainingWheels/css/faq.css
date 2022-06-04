@@ -7,8 +7,49 @@ body{
 
 .container{
   order: 1;
+  margin-left:100px;
+  margin-right:100px;
   
 }
+h3{
+  margin-left:30px;
+}
+
+.nav-icon1, .nav-icon2, .nav-icon3, .nav-icon4, .nav-icon5{
+  
+  width: 16px;
+  height: 16px;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  margin-left:100px;
+}
+
+.nav-icon1, .nav-icon5{
+  stroke: #DD5E5C;
+  fill: #DD5E5C;
+}
+
+.nav-icon2{
+  stroke: #56C4C0;
+  fill: #56C4C0;
+}
+
+.nav-icon3{
+  stroke: #FAF5AC;
+  fill: #FAF5AC;
+}
+
+.nav-icon4{
+  stroke: #4B94BC;
+  fill: #4B94BC;
+}
+
+.container>img{
+  margin-top: 60px;
+  margin-left:100px;
+}
+
 
 .container>div{
   margin-top: 60px;
@@ -17,4 +58,9 @@ body{
 .accordion{
   margin-left:100px;
   margin-right:100px;
+}
+
+.title1, .title2, .title3, .title4, .title5{
+  display:flex;
+  align-items: center;
 }

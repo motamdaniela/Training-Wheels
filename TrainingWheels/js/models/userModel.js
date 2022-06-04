@@ -6,13 +6,13 @@ export function init() {
 }
 
 // ADICIONAR UTILIZADOR
-export function add(username, password ,name, email, sex, bday) {
+export function add(username, type, pass ,name, email, sex, bday) {
   if (users.some((user) => user.username === username || user.email === email)) {
     console.log('runs existing username')
-    throw Error(`User with username "${username}" already exists!`);
+    //throw Error(`User with username "${username}" already exists!`);
   } else {
     console.log('runs registration')
-    users.push(new User(username, type, password, name, email, sex, bday));
+    users.push(new User(username, type, pass, name, email, sex, bday));
     localStorage.setItem("users", JSON.stringify(users));
   }
 }
@@ -82,8 +82,6 @@ export default class User {
         this.clues = clues;
         this.book = book;
     }
-
-    let n = 0
 
     // get getUsername(){return this.#username};
     // get getType(){return this.#type};

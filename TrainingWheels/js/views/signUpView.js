@@ -2,51 +2,50 @@ import * as User from "../models/userModel.js";
 
 const signUpBtn = document.querySelector("#signUpBtn");
 
+
 signUpBtn.addEventListener("click",()=>{
-    let username = document.querySelector("#username").value;
-    let name = document.querySelector("#name").value;
-    let pass = document.querySelector("#pass").value;
-    let passCheck = document.querySelector("#passCheck").value;
-    let email = document.querySelector("#email").value;
-    let sex = document.querySelector("#sex").value; //value=> f for fem m for male
-    let bday = document.querySelector("#bday").value;
+  let username = document.querySelector("#username");
+  let type = 'user';
+  let name = document.querySelector("#name");
+  let pass = document.querySelector("#pass");
+  let passCheck = document.querySelector("#passCheck");
+  let email = document.querySelector("#email");
+  let sex = document.querySelector("#sex");
+  let bday = document.querySelector("#bday");
+  
+  if (pass.value !== passCheck.value) {
+    console.log('passe');         
+  }
     
-    try {
-        if (pass !== passCheck) {
-            console.log('passe')
-            throw Error("Password and Confirm Password are not equal");          
-        }
-        User.add(username, 'user',pass, name, email, sex.value, bday);
-        console.log('olaa')
-        displayMessage(
-          "msgRegister",
-          "User registered with success!",
-          "success"
-        );
-        // Wait 1 second before reloading, so the user can see the login success message
-        setTimeout(() => {
-          location.replace(".../index.html");
-        }, 1000);
-      } catch (e) {
-        displayMessage("msgRegister", e.message, "danger");
+})
+
+/*
+
+// Wait 1 second before reloading, so the user can see the login success message
+      setTimeout(() => {
+        location.replace(".../index.html");
+      }, 1000);
+
+  try {
+      if (pass !== passCheck) {
+          console.log('passe');         
       }
-      
+      User.add(username, type, pass, name, email, sex, bday);
+      console.log('olaa')
+      displayMessage(
+        "msgRegister",
+        "User registered with success!",
+        "success"
+      );
+      // Wait 1 second before reloading, so the user can see the login success message
+      setTimeout(() => {
+        location.replace(".../index.html");
+      }, 1000);
+    } catch (e) {
+      displayMessage("msgRegister", e.message, "danger");
+    }
+    
 })
 
 
-/*
- #username = ''
-    #type = ''
-    #password = ''
-    #name = ''
-    #email = ''
-    #sex = ''
-    #bday = ''
-    #place = ''
-    #photo = ''
-    #ranking = 0 
-    #progress = 0
-    #points = 0
-    #clues = 0
-    #book = {}
-*/
+    */
