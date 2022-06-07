@@ -15,6 +15,9 @@ export function add(username, type, pass ,name, email, sex, bday) {
   }else {
     users.push(new User(username, type, pass, name, email, sex, bday));
     localStorage.setItem("users", JSON.stringify(users));
+    setTimeout(() => {
+      location.replace("../index.html");
+    }, 1000);
   }
 }
 
@@ -23,10 +26,13 @@ export function login(username, password) {
   const user = users.find(
     (user) => user.username === username && user.password === password
   );
+  console.log(1)
   if (user) {
+    console.log(2)
     sessionStorage.setItem("loggedUser", JSON.stringify(user));
-    return true;
+    return true;  
   } else {
+    console.log(3);
     return('cant login');
   }
 }

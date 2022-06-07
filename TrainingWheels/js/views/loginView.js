@@ -2,22 +2,30 @@ import * as User from "../models/userModel.js";
 
 const loginBtn = document.querySelector("#loginBtn");
 
+User.init()
+
 loginBtn.addEventListener("click", (event) =>{
     event.preventDefault();
     let username = document.querySelector("#username").value;
     let password = document.querySelector("#password").value;
     
     try {
-        User.login(username, password);
+        let coise=User.login(username, password);
         
         console.log("funciona");
         // Wait 1 second before reloading, so the user can see the login success message
-        /*setTimeout(() => {
-          location.replace("../index.html");
-        }, 1000);*/
-      } catch (e) {
-        displayMessage('User.login(username, password)');
-      }
+        // setTimeout(() => {
+        //   location.replace("../index.html");
+        // }, 1000);
+        if(coise==true){
+          setTimeout(() => {
+            location.replace("../index.html");
+          }, 1000);
+        }
+        
+    } catch (e) {
+      displayMessage('User.login(username, password)');
+    }
 
 })
 
