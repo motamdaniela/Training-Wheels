@@ -79,15 +79,14 @@ function navbarView() {
         </a>
       </li>
     </ul>
-    <div class="btn-group dropup">
-      <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        <i id="login" data-feather="log-in"></i>
-      </button>
-      <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Entrar</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#">Registar</a></li>
-      </ul>
+    <ul id="perfil" class="nav nav-pills nav-flush flex-column mb-auto text-center">
+      <li>
+        <a href="html/profile.html" class="nav-link py-3 " >
+          <i class="nav-icon" id="fundo-icon" data-feather="log-in"></i>   
+          <span class="nav-text">Perfil</span>    
+        </a>
+      </li>
+    </ul>
     </div>`;
     }
             

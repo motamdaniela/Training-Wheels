@@ -124,3 +124,5 @@ class User {
     // set setClues(value){this.#clues = value};
     // set setBook(value){this.#book = value}
 }
+
+new User('beasfr','admin','123','Beatriz')
