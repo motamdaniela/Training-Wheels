@@ -32,11 +32,15 @@ export function login(username, password) {
   if (user) {
     sessionStorage.setItem("loggedUser", JSON.stringify(user));
     if(user.type === "admin") {
+      console.log("é admin")
+
       setTimeout(() => {
-        location.replace("../admin.html");
+        location.replace("/html/admin.html");
       }, 1000);
     }
-    return true;  
+    else{
+      return true;  
+    }
   } else {
     return('cant login');
   }

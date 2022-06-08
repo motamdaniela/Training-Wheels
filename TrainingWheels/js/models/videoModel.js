@@ -6,6 +6,10 @@ export function init() {
   videos = localStorage.videos ? JSON.parse(localStorage.videos) : [];
 }
 
+export function initLevel() {
+  niveis = localStorage.niveis ? JSON.parse(localStorage.niveis) : [];
+}
+
 // ADICIONAR BANDA
 export function add(url, tags, name, level) {
   if (videos.some((video) => video.name === name)) {

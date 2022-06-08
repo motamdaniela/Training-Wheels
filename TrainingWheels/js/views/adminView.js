@@ -3,6 +3,7 @@ import * as Video from "../models/videoModel.js";
 
 User.init()
 Video.init()
+Video.initLevel()
 
 const newAdminBtn = document.querySelector("#createBtn")
 newAdminBtn.addEventListener("click", (event) =>{
@@ -18,11 +19,18 @@ newAdminBtn.addEventListener("click", (event) =>{
         try{
           if(displayMessage(User.add(username, type, pass, name, email))){
             User.add(username, type, pass, name, email);
-            alert('Nova conta admin criada com sucesso')
+            setTimeout(() => {
+                location.reload();
+              }, 1000);
+            alert("User added successfully");
           }else{
             displayMessage(User.add(username, type, pass, name, email))
           }
         }catch(e) {
+            setTimeout(() => {
+                location.reload();
+              }, 1000);
+              alert('this does something')
           console.log('outro erro besides pass!=')
         }
       }else{
@@ -44,16 +52,17 @@ function rankTable(){
     
     let i=0
     for (let user of users) {
-        i+=1
-        result += `
-        <tr>
-        <th scope="row">${i}</th>
-        <td>${user.username}</td>
-        <td>perguntas</td>
-        <td><button id="blockBtn" type="button" class="btn btn-danger">Bloquear</button>
-        <button id="removeBtn" type="button" class="btn btn-danger">Remover</button></td>
-      </tr>
-            `
+        if(user.type == 'user'){
+            i+=1
+            result += `
+            <tr>
+            <th scope="row">${i}</th>
+            <td>${user.username}</td>
+            <td>perguntas</td>
+            <td><button id="blockBtn" type="button" class="btn btn-danger">Bloquear</button>
+            <button id="removeBtn" type="button" class="btn btn-danger">Remover</button></td>
+          </tr>`
+        }
     }
 
     document.querySelector('#rankbody').innerHTML += result;
@@ -67,7 +76,6 @@ nivel.addEventListener("click", (event) =>{
     let nome=document.querySelector("#levelName").value;
     console.log('olaaaaa')
     Video.addLevel(nome)
-
     addNivel(nome)
 })
 
@@ -83,7 +91,7 @@ function addNivel(nome) {
         result += `
         <tr>
             <th scope="row">${i}</th>
-            <th>${nome}/th>
+            <th>${level.name}</th>
             <td><button id="addLicao" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#licaoModal">Add lição</button>
             <button id="addLicao" type="button" class="btn btn-danger">Remover lição</button></td>
         </tr>
