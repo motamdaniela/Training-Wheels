@@ -55,6 +55,7 @@ export function getUserLogged() {
 
 // OBTER lista de Users 
 export function getUsers() {
+  console.log(users)
   return users;
 }
 
