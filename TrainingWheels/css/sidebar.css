@@ -16,6 +16,10 @@ ul#icon-fundo{
     margin-top: 400px;
 }
 
+ul#perfil{
+    margin-top: 200px;
+}
+
 
 #login{
     height: 35px;
@@ -25,6 +29,11 @@ ul#icon-fundo{
     display: table-cell;
     height: 35px;
     margin-left: 20px;
+}
+
+#profile{
+    height: 30px;
+    border-radius: 50%;
 }
 
 
