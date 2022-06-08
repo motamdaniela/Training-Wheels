@@ -82,7 +82,7 @@ function navbarView() {
     <ul id="perfil" class="nav nav-pills nav-flush flex-column mb-auto text-center">
       <li>
         <a href="html/profile.html" class="nav-link py-3 " >
-          <i class="nav-icon" id="fundo-icon" data-feather="log-in"></i>   
+          <img class="nav-icon" id="profile" src="./media/images/default.svg"> 
           <span class="nav-text">Perfil</span>    
         </a>
       </li>

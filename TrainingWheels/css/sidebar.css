@@ -31,6 +31,11 @@ ul#perfil{
     margin-left: 20px;
 }
 
+#profile{
+    height: 30px;
+    border-radius: 50%;
+}
+
 
 .main-menu:hover,nav.main-menu.expanded {
     background-color:#f8f4f4;

@@ -125,4 +125,5 @@ class User {
     // set setBook(value){this.#book = value}
 }
 
-new User('beasfr','admin','123','Beatriz')
+// users.push(new User('bea','admin','123','Beatriz','bea@admin.com', 'f', '2003-10-23'));
+// localStorage.setItem("users", JSON.stringify(users));
