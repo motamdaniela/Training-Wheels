@@ -29,6 +29,25 @@ function rankTable(){
 rankTable()
 
 function addNivel() {
+    let result = ''
+    let users= User.getUsers()
+    console.log(users)
+    
+    let i=0
+    for (let user of users) {
+        i+=1
+        result += `
+        <tr>
+        <th scope="row">${i}</th>
+        <td>${user.username}</td>
+        <td>perguntas</td>
+        <td><button id="blockBtn" type="button" class="btn btn-danger">Bloquear</button>
+        <button id="removeBtn" type="button" class="btn btn-danger">Remover</button></td>
+      </tr>
+            `
+    }
+
+    document.querySelector('#rankbody').innerHTML += result;
     
 }
 
