@@ -21,8 +21,7 @@ export function add(username, type, pass ,name, email, sex, bday) {
 // LOGIN DO UTILIZADOR
 export function login(username, password) {
   const user = users.find(
-    (user) => user.username === username && user.password === password
-  );
+    (user) => user.username === username && user.password === password);
   if (user) {
     sessionStorage.setItem("loggedUser", JSON.stringify(user));
     return true;
