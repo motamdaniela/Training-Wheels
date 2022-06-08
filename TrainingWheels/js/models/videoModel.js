@@ -8,7 +8,7 @@ export function init() {
 // ADICIONAR BANDA
 export function add(url, tags, name, level) {
   if (videos.some((video) => video.name === name)) {
-    throw Error(`Band with name "${name}" already exists!`);
+    throw Error(`Video with name "${name}" already exists!`);
   } else {
     videos.push(new Band(url, tags, name, level));
     localStorage.setItem("videos", JSON.stringify(videos));
@@ -17,7 +17,7 @@ export function add(url, tags, name, level) {
 
 // REMOVER BANDA
 export function removeVideo(name) {
-  videos = videos.filter((band) => band.name !== name);
+  videos = videos.filter((video) => video.name !== name);
   localStorage.setItem("videos", JSON.stringify(videos));
 }
 
@@ -28,7 +28,7 @@ export function setCurrentVideo(name) {
 
 // OBTER A BANDA ATUAL (TODO O OBJETO)
 export function getCurrentVideo() {
-  return videos.find((band) => band.name === localStorage.getItem("band"));
+  return videos.find((video) => video.name === localStorage.getItem("video"));
 }
 
 // ORDENAR BANDAS
@@ -40,8 +40,8 @@ export function sortVideos() {
 // OBTER BANDAS (COM SUPORTE A FILTROS E ORDENAÇÕES)
 export function getVideos(filterName = "", filterGenre = "", isSorted = false) {
   let filteredVideos = videos.filter(
-    (band) =>
-      (band.name.toLowerCase().includes(filterName.toLowerCase()) ||
+    (video) =>
+      (video.name.toLowerCase().includes(filterName.toLowerCase()) ||
         filterName === "") &&
       (band.genre == filterGenre || filterGenre === "")
   );
@@ -57,16 +57,16 @@ class Video{
     url =""
     tags =""
     name =""
+    level =0
     likes =0
     comments =""
-    level =0
 
-    constructor(url, tags, name, likes, comments, level) {
+    constructor(url, tags, name,level,likes, comments) {
         this.url = url;
         this.tags = tags;
         this.name = name;
-        this.comments = comments;
         this.level = level;
+        this.comments = comments;
     }
 
     // get getUrl () { return this.#url }
