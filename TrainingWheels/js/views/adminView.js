@@ -19,19 +19,19 @@ newAdminBtn.addEventListener("click", (event) =>{
         try{
           if(displayMessage(User.add(username, type, pass, name, email))){
             User.add(username, type, pass, name, email);
-            setTimeout(() => {
+            /*setTimeout(() => {
                 location.reload();
               }, 1000);
-            alert("User added successfully");
+            alert("User added successfully");  */
           }else{
             displayMessage(User.add(username, type, pass, name, email))
           }
         }catch(e) {
             setTimeout(() => {
                 location.reload();
-              }, 1000);
-              alert('this does something')
-          console.log('outro erro besides pass!=')
+              }, 1100);
+            const errorMessage = document.querySelector("#errorSlot");
+            errorMessage.innerHTML = `<div class="alert alert-success" role="alert" id="errorSlot">Nova conta admin criada com sucesso!</div>`;
         }
       }else{
         displayMessage('Confirme que os campos da password coincidam')
