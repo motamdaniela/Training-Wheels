@@ -19,9 +19,9 @@ signUpBtn.addEventListener("click",(event)=>{
     try{
       if(displayMessage(User.add(username, type, pass, name, email, sex, bday))){
         User.add(username, type, pass, name, email, sex, bday);
-        setTimeout(() => {
-          location.replace("../index.html");
-        }, 1000);
+        // setTimeout(() => {
+        //   location.replace("../index.html");
+        // }, 1000);
       }else{
         displayMessage(User.add(username, type, pass, name, email, sex, bday))
       }
