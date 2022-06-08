@@ -64,8 +64,9 @@ function rankTable(){
           </tr>`
         }
     }
-
+    
     document.querySelector('#rankbody').innerHTML += result;
+    
 }
 rankTable()
 
@@ -79,7 +80,29 @@ nivel.addEventListener("click", (event) =>{
     addNivel(nome)
 })
 
-function addNivel(nome) {
+function addNivel(nome){
+    let result = ''
+    let levels=Video.getLevels()
+    let i=0
+    for (let level of levels) {
+        i+=1
+        if(nome==level.name){
+        result += `
+        <tr>
+            <th scope="row">${i}</th>
+            <th>${level.name}</th>
+            <td><button id="addLicao" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#licaoModal">Add lição</button>
+            <button id="addLicao" type="button" class="btn btn-danger">Remover lição</button></td>
+        </tr>
+            `
+        }
+        
+    }
+    document.querySelector('#lessonbody').innerHTML += result;
+
+}
+
+function renderNivel() {
     let result = ''
     console.log('olaa2')
     let levels=Video.getLevels()
@@ -101,6 +124,8 @@ function addNivel(nome) {
     document.querySelector('#lessonbody').innerHTML += result;
     
 }
+
+renderNivel()
 
 
 
