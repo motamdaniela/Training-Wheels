@@ -1,4 +1,5 @@
 let videos;
+let niveis;
 
 // CARREGAR BANDAS DA LOCALSTORAGE
 export function init() {
@@ -10,8 +11,17 @@ export function add(url, tags, name, level) {
   if (videos.some((video) => video.name === name)) {
     throw Error(`Video with name "${name}" already exists!`);
   } else {
-    videos.push(new Band(url, tags, name, level));
+    videos.push(new Video(url, tags, name, level));
     localStorage.setItem("videos", JSON.stringify(videos));
+  }
+}
+
+export function addLevel(name) {
+  if (niveis.some((nivel) => nivel.name === name)) {
+    throw Error(`Level with name "${name}" already exists!`);
+  } else {
+    niveis.push(new Level(name));
+    localStorage.setItem("niveis", JSON.stringify(niveis));
   }
 }
 
@@ -38,12 +48,12 @@ export function sortVideos() {
 }
 
 // OBTER BANDAS (COM SUPORTE A FILTROS E ORDENAÇÕES)
-export function getVideos(filterName = "", filterGenre = "", isSorted = false) {
+export function getVideos(filterName = "", filterLevel = "", isSorted = false) {
   let filteredVideos = videos.filter(
     (video) =>
       (video.name.toLowerCase().includes(filterName.toLowerCase()) ||
         filterName === "") &&
-      (band.genre == filterGenre || filterGenre === "")
+      (video.genre == filterLevel || filterLevel === "")
   );
 
   filteredVideos = isSorted
@@ -51,6 +61,18 @@ export function getVideos(filterName = "", filterGenre = "", isSorted = false) {
     : filteredVideos;
 
   return filteredVideos;
+}
+
+export function getLevels() {
+  return niveis;
+}
+
+class Level{
+  name=''
+
+  constructor(name) {
+    this.name = name;
+  }
 }
 
 class Video{

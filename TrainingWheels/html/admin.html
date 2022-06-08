@@ -34,9 +34,47 @@
 
 </head>
 
-<button id="" type="button" class="btn btn-primary">Criar novo admin</button>
-
 <body>
+
+<!--Criar novo admin-->
+  <button id="addAdminBtn" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addAdminModal">Criar novo admin</button>
+
+  <div id="addAdminModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Novo admin</h4>
+        </div>
+        <form class="formSignUp">
+              <!-- user -->
+              <div class="col-12">
+                  <!-- div vazia que conterá uma mensagem de erro caso login sem sucesso -->
+                  <div id="errorSlot"></div>
+                  <label for="nome" class="form-label">Nome</label>
+                  <input type="text" class="form-control" id="name" required>
+                  <label for="nome" class="form-label">Username</label>
+                  <input type="text" class="form-control" id="username" required>
+                  <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+                <label for="pass" class="form-label">Password</label>
+                <input type="password" id="pass" class="form-control" aria-describedby="passwordHelpBlock">
+                <label for="passCheck" class="form-label">Confirmar Password</label>
+                <input type="password" id="passCheck" class="form-control" aria-describedby="passwordHelpBlock">
+                <!-- butao submit -->
+                <button id="createBtn" type="submit" class="btn btn-primary">Create</button>
+              </div> 
+      </form>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+
+
   <!-- <button id="openModal" type="button" class="btn btn-info btn-lg" data-bs-toggle="modal" data-bs-target="#myModal">Adicionar lição</button> -->
 
   <div id="nivelModal" class="modal fade" role="dialog">
@@ -50,13 +88,13 @@
         <form>
           
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Nome" aria-label="Nome" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" placeholder="Nome" aria-label="Nome" aria-describedby="basic-addon1" id="levelName">
           </div>
           
 
         </form>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="addNivel">Close</button>
         </div>
       </div>
   
@@ -112,13 +150,8 @@
             <th scope="col"><button id="addNivel" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nivelModal">Add nivel</button></th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <th>Rua blabla</th>
-            <td><button id="addLicao" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#licaoModal">Add lição</button>
-              <button id="addLicao" type="button" class="btn btn-danger">Remover lição</button></td>
-          </tr>
+        <tbody id="lessonbody">
+          
           
         </tbody>
       </table>
