@@ -17,11 +17,7 @@ signUpBtn.addEventListener("click",(event)=>{
   
   if (pass == passCheck) {
     try{
-      if(displayMessage(User.add(username, type, pass, name, email, sex, bday))){
-        User.add(username, type, pass, name, email, sex, bday);
-        // setTimeout(() => {
-        //   location.replace("../index.html");
-        // }, 1000);
+      if(displayMessage(User.add(username, type, pass, name, email, sex, bday)) == true){
       }else{
         displayMessage(User.add(username, type, pass, name, email, sex, bday))
       }
@@ -30,7 +26,10 @@ signUpBtn.addEventListener("click",(event)=>{
       //   location.replace("../index.html");
       // }, 1000);
     }catch(e) {
-      console.log('outro erro besides pass!=')
+      User.add(username, type, pass, name, email, sex, bday);
+         setTimeout(() => {
+           location.replace("../index.html");
+         }, 1000);
     }
   }else{
     displayMessage('Confirme que os campos da password coincidam')
