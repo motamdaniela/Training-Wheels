@@ -82,7 +82,7 @@ class User {
     clues = 0
     book = {}
 
-    constructor(username, type = 'user', password, name, email, sex, bday, place, photo = '../media/default.svg', ranking = [0, 0], progress={}, points=0, clues=0, book={}){
+    constructor(username, type = 'user', password, name, email, sex, bday, place, photo = '.../media/images/default.svg', ranking = [0, 0], progress={}, points=0, clues=0, book={}){
         this.username = username;
         this.type = type;
         this.name = name;
