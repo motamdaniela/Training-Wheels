@@ -19,6 +19,7 @@ export function add(username, type, pass ,name, email, sex, bday) {
       setTimeout(() => {
         location.replace("../index.html");
       }, 1000);
+      sessionStorage.setItem("loggedUser", JSON.stringify(user));
     }
   }
 }
@@ -29,11 +30,9 @@ export function login(username, password) {
 
     (user) => user.username === username && user.password === password
   );
-  if (user) {
+  if (user == true) {
     sessionStorage.setItem("loggedUser", JSON.stringify(user));
     if(user.type === "admin") {
-      console.log("é admin")
-
       setTimeout(() => {
         location.replace("/html/admin.html");
       }, 1000);
@@ -42,7 +41,7 @@ export function login(username, password) {
       return true;  
     }
   } else {
-    return('cant login');
+    return('Username ou password errados');
   }
 }
 

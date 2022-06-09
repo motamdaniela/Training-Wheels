@@ -8,7 +8,7 @@ function navbarView() {
   <ul id="icons" class="nav nav-pills nav-flush flex-column mb-auto text-center">
     <li class="nav-item">
       
-      <a href="#"  class="nav-link  py-3 " aria-current="page"">
+      <a href="index.html"  class="nav-link  py-3 " aria-current="page"">
         <i id="active" class="nav-icon" data-feather="home"></i>  
         <span id="active2" class="nav-text">Home</span>      
       </a>
@@ -43,7 +43,7 @@ function navbarView() {
     <ul id="icons" class="nav nav-pills nav-flush flex-column mb-auto text-center">
       <li class="nav-item">
         
-        <a href="#"  class="nav-link  py-3 " aria-current="page"">
+        <a href="index.html"  class="nav-link  py-3 " aria-current="page"">
           <i id="active" class="nav-icon" data-feather="home"></i>  
           <span id="active2" class="nav-text">Home</span>      
         </a>
@@ -61,13 +61,13 @@ function navbarView() {
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link py-3 ">
+        <a href="html/store.html" class="nav-link py-3 ">
           <i class="nav-icon" data-feather="shopping-bag"></i>  
           <span class="nav-text">Loja</span>      
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link py-3 " >
+        <a href="html/faq.html" class="nav-link py-3 " >
           <i class="nav-icon" data-feather="help-circle"></i>  
           <span class="nav-text">F.A.Q.</span>      
         </a>

@@ -1,14 +1,12 @@
 let videos;
-let niveis;
+
 
 // CARREGAR BANDAS DA LOCALSTORAGE
 export function init() {
   videos = localStorage.videos ? JSON.parse(localStorage.videos) : [];
 }
 
-export function initLevel() {
-  niveis = localStorage.niveis ? JSON.parse(localStorage.niveis) : [];
-}
+
 
 // ADICIONAR BANDA
 export function add(url, tags, name, level) {
@@ -20,14 +18,7 @@ export function add(url, tags, name, level) {
   }
 }
 
-export function addLevel(name) {
-  if (niveis.some((nivel) => nivel.name === name)) {
-    throw Error(`Level with name "${name}" already exists!`);
-  } else {
-    niveis.push(new Level(name));
-    localStorage.setItem("niveis", JSON.stringify(niveis));
-  }
-}
+
 
 // REMOVER BANDA
 export function removeVideo(name) {
@@ -67,17 +58,9 @@ export function getVideos(filterName = "", filterLevel = "", isSorted = false) {
   return filteredVideos;
 }
 
-export function getLevels() {
-  return niveis;
-}
 
-class Level{
-  name=''
 
-  constructor(name) {
-    this.name = name;
-  }
-}
+
 
 class Video{
     url =""

@@ -1,9 +1,10 @@
 import * as User from "../models/userModel.js";
 import * as Video from "../models/videoModel.js";
+import * as Level from "../models/levelModel.js";
 
 User.init()
 Video.init()
-Video.initLevel()
+Level.init()
 
 const newAdminBtn = document.querySelector("#createBtn")
 newAdminBtn.addEventListener("click", (event) =>{
@@ -76,13 +77,13 @@ nivel.addEventListener("click", (event) =>{
     console.log('olaa')
     let nome=document.querySelector("#levelName").value;
     console.log('olaaaaa')
-    Video.addLevel(nome)
+    Level.add(nome)
     addNivel(nome)
 })
 
 function addNivel(nome){
     let result = ''
-    let levels=Video.getLevels()
+    let levels=Level.getLevels()
     let i=0
     for (let level of levels) {
         i+=1
@@ -105,7 +106,7 @@ function addNivel(nome){
 function renderNivel() {
     let result = ''
     console.log('olaa2')
-    let levels=Video.getLevels()
+    let levels=Level.getLevels()
     console.log('olaa3')
     
     let i=0

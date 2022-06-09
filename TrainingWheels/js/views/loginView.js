@@ -25,6 +25,9 @@ loginBtn.addEventListener("click", (event) =>{
             location.replace("../index.html");
           }, 1000);
         }
+        else{
+          displayMessage(User.login(username, password));
+        }
         
     } catch (e) {
       displayMessage('User.login(username, password)');
