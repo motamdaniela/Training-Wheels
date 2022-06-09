@@ -34,34 +34,37 @@
 
   </head>
   <body>
-    <img id="fundo" src="media/images/imagem.svg">
-   
     <div id="sidebar" class="main-menu d-flex flex-column flex-shrink-0 ">
    
       
     </div>
+    <div id="divfundo">
+
+      <img id="fundo" src="media/images/imagem.svg">
+    </div>
+    
 
       
       
 
-    <div class="container">
-      <img id="video" src="https://www.hypeness.com.br/1/2019/05/azul-ou-verde-teste-1.jpg">
-      <div class="buttons">
-        <a  href="html/login.html">
-          <button type="button" id="entrar" class="btn btn-outline ">Entrar</button>
-        </a>
-        <a  href="html/signUp.html">
-          <button type="button" id="registar" class="btn btn">Registar</button>
-        </a>
-        
-      </div>
-
+    <div class="container" id="content">
+      <table class="table table-borderless" id="ranking">
+        <thead>
+          <tr>
+            <th scope="col">Top 3</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Respostas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+          </tr>
+        </tbody>
+      </table>
       
-      
-      <div class="tutorial" >
-        <p>Como usar Training Wheels</p>
-        <img src="media/images/inicio_tutorial.svg">
-      </div>
   
     </div>
     
@@ -73,7 +76,7 @@
     </footer>
     
     <script type='module' src="./js/views/navbarView.js"></script>
-    <!-- <script type='module' src="./js/views/indexView.js"></script> -->
+    <script type='module' src="./js/views/indexView.js"></script>
     <script>
       feather.replace()
     </script>

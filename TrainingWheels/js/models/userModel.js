@@ -30,7 +30,7 @@ export function login(username, password) {
 
     (user) => user.username === username && user.password === password
   );
-  if (user == true) {
+  if (user) {
     sessionStorage.setItem("loggedUser", JSON.stringify(user));
     if(user.type === "admin") {
       setTimeout(() => {
@@ -40,7 +40,7 @@ export function login(username, password) {
     else{
       return true;  
     }
-  } else {
+  } else if(user != true) {
     return('Username ou password errados');
   }
 }

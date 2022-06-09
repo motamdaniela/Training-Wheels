@@ -61,13 +61,13 @@ function navbarView() {
         </a>
       </li>
       <li>
-        <a href="html/store.html" class="nav-link py-3 ">
+        <a href="store.html" class="nav-link py-3 ">
           <i class="nav-icon" data-feather="shopping-bag"></i>  
           <span class="nav-text">Loja</span>      
         </a>
       </li>
       <li>
-        <a href="html/faq.html" class="nav-link py-3 " >
+        <a href="faq.html" class="nav-link py-3 " >
           <i class="nav-icon" data-feather="help-circle"></i>  
           <span class="nav-text">F.A.Q.</span>      
         </a>

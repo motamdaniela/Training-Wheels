@@ -14,6 +14,11 @@ body{
     margin-top: 60px;
 }
 
+.container>img{
+    margin-top: 60px;
+    margin-left:80px;
+}
+
 
 .card-body{
     display: flex;
@@ -35,3 +40,17 @@ body{
     margin-right: 10px;
 }
 
+.buttons{
+    font-family: 'ABC-Bold', sans-serif;
+  }
+  
+  #comprar{
+    border-color: #56C4C0;
+    color: #ffffff;
+    background-color: #56C4C0;
+    font-size: 20px;
+    border-radius: 10px;
+    width: 110px;
+    height: 45px;
+    
+  }

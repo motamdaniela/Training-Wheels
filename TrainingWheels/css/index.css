@@ -9,6 +9,11 @@ body{
   width:100%;
   height:auto;
 }
+#fundo2{
+  margin-top: 155px;
+  width:100%;
+  height:auto;
+}
 
 .container{
   order: 1;
@@ -33,7 +38,7 @@ body{
 
 .tutorial>img{
   width:1000px;
-  margin-left: 500;
+  margin-left: 130px;
 }
 
 .buttons{
@@ -71,6 +76,11 @@ body{
   align-self: center;
   margin-top: 80px;
   width:800px;
+}
+
+#ranking{
+  background-color: #E7EDF1;
+  border-radius: 10px;
 }
 
 
