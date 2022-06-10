@@ -17,7 +17,7 @@
 </head>
 <body>
 
-  <button id='modalBtn' type="button" class="btn btn-primary">modal</button>
+  <button data-bs-toggle="modal" data-bs-target="#myModal" id='modalBtn' type="button" class="btn btn-primary">modal</button>
 
     <!----------------------------------------------->
 
@@ -30,9 +30,11 @@
         </div>
         <img src="../media/images/imagem.svg">
 
-        <button type="button" class="btn btn-primary">Primary</button>
-        <button type="button" class="btn btn-primary">Primary</button>
-        <button type="button" class="btn btn-primary">Primary</button>
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-primary">Left</button>
+          <button type="button" class="btn btn-primary">Middle</button>
+          <button type="button" class="btn btn-primary">Right</button>
+        </div>
 
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
@@ -57,20 +59,6 @@
       <a id="tag" class="list-group-item list-group-item-action list-group-item-primary">Tag 2</a>
       <a id="tag" class="list-group-item list-group-item-action list-group-item-primary">Tag 3</a>
     </div>
-
-    
-    <!--botoes stor-->
-    <h2 id="duration"></h2>
-    <button id="btnDuration">GET DURATION</button><br>
-    <button id="btnPlay">PLAY</button>
-    <button id="btnPause">PAUSE</button>
-    <button id="btnGotoStart">GO TO START</button>
-    <button id="btnGotoEnd">GO TO END</button>
-    <button id="btnGotoFrame">GO TO FRAME</button><br>
-
-    <br>
-    <input type="text" id="txtAnnotation">
-    <button id="btnSave">SAVE</button>
 
     <script type='module' src="../js/views/tutorialView.js"></script>
 
