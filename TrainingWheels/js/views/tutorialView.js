@@ -14,6 +14,7 @@ title.innerHTML = videoName
 
 const listTags = ['4:47', '5:01', '18:31']
 
+//"links" para as tags no grouplist
 let tagBtns = document.querySelectorAll('#tag')
 tagBtns = Array.from(tagBtns)
 console.log(tagBtns)
@@ -29,18 +30,37 @@ for (const tagBtn of tagBtns){
     })
 }
 
-document.querySelector('#modalBtn').addEventListener('click',()=>{
-    $("#myModal").modal()
-})
+//pergunta pop up
+var myModal = document.getElementById('myModal')
+myModal.addEventListener('shown.bs.modal', function () {
+        myInput.focus()
+      })
 
-function PopUp(){
-    if (video.currentTime == 287){
-        $('#myModal').on('shown.bs.modal', function () {
-            $('#myInput').trigger('focus')
-          })
-    }
+
+if (video.currentTime === 287){
+    video.pause()
+    $("#myModal").modal()
 }
 
+/*
+function popUps(){
+    let timesList = [];
+    for(const tag of listTags){
+        let time = listTags[tagBtns.indexOf(tag)]
+        let minutes = +time.substr(0, time.indexOf(':'))
+        let seconds = +time.substr(time.indexOf(':')+1)
+        time = (minutes*60) + seconds
+        timesList.push(time)
+    }
+    timesList.forEach((time) =>{
+        if (video.currentTime === time){
+            video.pause()
+            $("#myModal").modal()
+        }
+    })
+}
+
+popUps()*/
 
 /*
   <div id="addAdminModal" class="modal fade" role="dialog">
