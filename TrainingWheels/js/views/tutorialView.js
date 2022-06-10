@@ -30,13 +30,12 @@ for (const tagBtn of tagBtns){
     })
 }
 
+const myModal = document.getElementById('myModal')
+const modalBtn = document.querySelector('#modalBtn')
+modalBtn.addEventListener('myModal.show.bs.modal', ()=> {
+    alert('it works')
+})
 //pergunta pop up
-var myModal = document.getElementById('myModal')
-myModal.addEventListener('shown.bs.modal', function () {
-        myInput.focus()
-      })
-
-
 if (video.currentTime === 287){
     video.pause()
     $("#myModal").modal()
