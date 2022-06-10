@@ -3,6 +3,7 @@ body{
   display:flex;
   flex-direction: column;
   font-family: 'ABC-Regular', sans-serif;
+  color: #2D2F44;
 }
   
 #fundo{
@@ -20,6 +21,7 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   
 }
 
@@ -81,7 +83,45 @@ body{
 #ranking{
   background-color: #E7EDF1;
   border-radius: 10px;
+  width: 800px;
+  color: #2D2F44;
 }
+
+#reviews{
+  width: 400px;
+  background-color: #E7EDF1;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#avaliacoes{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+#avaliar{
+  margin-left: 50px;
+  background-color: #54C5C1;
+  border-color: #54C5C1;
+}
+
+.titulo{
+  background-color: #FBE2E2;
+  border-radius: 50px;
+  width: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-family: 'ABC-Bold', sans-serif;
+  color: #2D2F44;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+
 
 
 

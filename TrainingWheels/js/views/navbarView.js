@@ -1,5 +1,7 @@
 import * as User from "../models/UserModel.js";
 
+let user=User.getUserLogged()
+
 function navbarView() {
     let result = `   <a href="#" id="logo" class="d-block link-dark text-decoration-none ">
     <img class="logo-icon" src="media/images/logo.svg">
@@ -82,7 +84,7 @@ function navbarView() {
     <ul id="perfil" class="nav nav-pills nav-flush flex-column mb-auto text-center">
       <li>
         <a href="html/profile.html" class="nav-link py-3 " >
-          <img class="nav-icon" id="profile" src="./media/images/default.svg"> 
+          <img class="nav-icon" id="profile" src="${user.photo}"> 
           <span class="nav-text">Perfil</span>    
         </a>
       </li>

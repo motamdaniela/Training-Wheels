@@ -26,7 +26,11 @@ function pageView(){
     if (User.isLogged()){
       document.querySelector('#divfundo').innerHTML =`<img id="fundo2" src="./media/images/fundojalog.svg">`
         
-        result=`<table class="table table-borderless" id="ranking">
+        result=`<fieldset class="titulo">
+        <h2>Quadro de líderes</h2>
+        <i class="nav-icon" data-feather="bar-chart"></i>
+      </fieldset>
+        <table class="table table-borderless" id="ranking">
         <thead>
           <tr>
             <th scope="col">Top 3</th>
@@ -38,6 +42,33 @@ function pageView(){
           
         </tbody>
       </table>
+      <fieldset class="titulo">
+        <h2>Avaliações</h2>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+      </fieldset>
+      <fieldset class="titulo">
+        <h2>Avalia-nos!</h2>
+      </fieldset>
+    
+      <fieldset id="reviews">
+        <div class="form-floating">
+          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 150px"></textarea>
+        </div>
+        <div id="avaliacoes">
+          <i class="fa-regular fa-star" id="ola"></i>
+          <i class="fa-regular fa-star"></i> 
+          <i class="fa-regular fa-star"></i>  
+          <i class="fa-regular fa-star"></i> 
+          <i class="fa-regular fa-star"></i>  
+          <button type="button" id="avaliar" class="btn btn-primary">Avaliar</button>
+        </div>
+        
+        
+      </fieldset>
         `
         
         let users=User.getUsers()
@@ -61,3 +92,5 @@ function pageView(){
     
 }
 pageView()
+feather.replace()
+
