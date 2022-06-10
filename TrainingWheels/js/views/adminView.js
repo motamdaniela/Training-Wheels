@@ -45,6 +45,92 @@ function displayMessage(message) {
     errorMessage.innerHTML = `<div class="alert alert-danger" role="alert" id="errorSlot">${message}</div>`;
   }
 
+  const load = document.querySelector("#load")
+  load.addEventListener("click", (event) =>{
+      let result = ''
+      event.preventDefault()
+      const tipo=document.querySelector('#tipo').value
+      if(tipo=='Video'){
+        result=`
+        <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Nome" aria-label="Nome" aria-describedby="basic-addon1">
+              </div>
+              <div class="input-group mb-3">
+                <input type="url" class="form-control" placeholder="Link Video" aria-label="Link Video" aria-describedby="basic-addon1">
+              </div>
+              <div class="formTags">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Tag" aria-label="Tag" aria-describedby="basic-addon1">
+                  <input type="text" class="form-control" placeholder="Nome Tag" aria-label="Nome Tag" aria-describedby="basic-addon1">              
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <button id="addTag" type="button" class="btn btn-primary">+</button>
+              </div>
+        `
+
+      }else{
+        result=`
+        <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Título" aria-label="Titulo" aria-describedby="basic-addon1">
+              </div>
+              <div class="input-group mb-3">
+                <select class="form-select" id='tipoPergunta' aria-label="Default select example">
+                  <option selected>Escolha Multipla</option>
+                  <option value="teste">Verdadeiro e Falso</option>
+                </select>          
+                <button id="loadPergunta" type="button" class="btn btn-primary">carregar</button>
+              </div>
+              <div id="formPerguntas">
+                
+              </div>
+              <div class="input-group mb-3">
+                  <button id="addTag" type="button" class="btn btn-primary">+</button>
+                </div>
+        `
+      }
+      document.querySelector('#formLicoes').innerHTML = result;
+
+      const loadPergunta = document.querySelector("#loadPergunta")
+      loadPergunta.addEventListener("click", (event) =>{
+        let resultPerg = ''
+        event.preventDefault()
+        const tipoPerg=document.querySelector('#tipoPergunta').value
+        if(tipoPerg=='Escolha Multipla'){
+          resultPerg=`<div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Pergunta" aria-label="Tag" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Link Imagem" aria-label="Link Video" aria-describedby="basic-addon1">            
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">  
+          <input type="text" class="form-control" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">          
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">  
+          <input type="text" class="form-control" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">          
+        </div>
+          `
+        }else{
+          resultPerg=`<div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Pergunta" aria-label="Tag" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Link Imagem" aria-label="Link Video" aria-describedby="basic-addon1">            
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">  
+          <input type="text" class="form-control" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">          
+        </div>
+          `
+        }
+        document.querySelector('#formPerguntas').innerHTML = resultPerg;
+
+
+      })
+  })
+
 
 function rankTable(){
     let result = ''
