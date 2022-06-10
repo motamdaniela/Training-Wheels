@@ -27,6 +27,7 @@ signUpBtn.addEventListener("click",(event)=>{
       // }, 1000);
     }catch(e) {
       User.add(username, type, pass, name, email, sex, bday);
+      User.login(username,pass)
          setTimeout(() => {
            location.replace("../index.html");
          }, 1000);
