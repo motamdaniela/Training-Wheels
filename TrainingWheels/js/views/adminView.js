@@ -49,9 +49,10 @@ function displayMessage(message) {
   load.addEventListener("click", (event) =>{
       let result = ''
       event.preventDefault()
-      const tipo=document.querySelector('#tipo').value
+      let tipo=document.querySelector('#tipo').value
       if(tipo=='Video'){
         result=`
+        <div id="maisTags">
         <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Nome" aria-label="Nome" aria-describedby="basic-addon1">
               </div>
@@ -64,6 +65,7 @@ function displayMessage(message) {
                   <input type="text" class="form-control" placeholder="Nome Tag" aria-label="Nome Tag" aria-describedby="basic-addon1">              
                 </div>
               </div>
+        </div>
               <div class="input-group mb-3">
                 <button id="addTag" type="button" class="btn btn-primary">+</button>
               </div>
@@ -85,13 +87,36 @@ function displayMessage(message) {
                 
               </div>
               <div class="input-group mb-3">
-                  <button id="addTag" type="button" class="btn btn-primary">+</button>
+                  <button id="addPerg" type="button" class="btn btn-primary">+</button>
                 </div>
         `
       }
       document.querySelector('#formLicoes').innerHTML = result;
 
-      const loadPergunta = document.querySelector("#loadPergunta")
+      let loadNew = document.querySelector("#addTag")
+      loadNew.addEventListener("click", (event) =>{
+        event.preventDefault()
+        let mais = ''
+        mais=`<div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Nome" aria-label="Nome" aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group mb-3">
+        <input type="url" class="form-control" placeholder="Link Video" aria-label="Link Video" aria-describedby="basic-addon1">
+      </div>
+      <div class="formTags">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Tag" aria-label="Tag" aria-describedby="basic-addon1">
+          <input type="text" class="form-control" placeholder="Nome Tag" aria-label="Nome Tag" aria-describedby="basic-addon1">              
+        </div>
+      </div>
+        `
+        document.querySelector('#maisTags').innerHTML += mais;
+
+
+
+      })
+
+      let loadPergunta = document.querySelector("#loadPergunta")
       loadPergunta.addEventListener("click", (event) =>{
         let resultPerg = ''
         event.preventDefault()
@@ -213,11 +238,3 @@ function renderNivel() {
 }
 
 renderNivel()
-
-
-
-
-/*
-- bloquear users
-- adicionar/remover nível: -> licao(video/pergunta/stickers...)
-*/

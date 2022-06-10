@@ -55,7 +55,7 @@ function navbarView() {
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link py-3 " >
+        <a href="html/book.html" class="nav-link py-3 " >
           <i class="nav-icon" data-feather="book-open"></i>     
           <span class="nav-text">Caderneta</span>  
         </a>

@@ -1,0 +1,41 @@
+body{
+    background-color: #FEFCFC;
+    display:flex;
+    flex-direction: column;
+    font-family: 'ABC-Regular', sans-serif;
+}
+
+.container{
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items:center; */
+}
+
+#caderneta{
+    width:200px;
+}
+
+fieldset{
+    background-color: #FFFCCB;
+    width:1300px;
+    height:1000px;
+    border-radius: 0px 10px 10px 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#pagina1{
+    background-color: #FFFCCB;
+    border-color: #FFFCCB;
+    width:200px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+#pagina2{
+    background-color: #D3F0EF;
+    border-color: #D3F0EF;
+    width:200px;
+    border-radius: 10px 10px 0px 0px;
+}

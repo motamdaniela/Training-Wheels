@@ -14,26 +14,72 @@ title.innerHTML = videoName
 
 const listTags = ['4:47', '5:01', '18:31']
 
-const TagBtns = document.querySelectorAll('.tagBtn')
+let tagBtns = document.querySelectorAll('#tag')
+tagBtns = Array.from(tagBtns)
+console.log(tagBtns)
 
-foreach(TagBtns, () => {})
+for (const tagBtn of tagBtns){
+    tagBtn.addEventListener('click', () => {
+        let time = listTags[tagBtns.indexOf(tagBtn)]
+        let minutes = +time.substr(0, time.indexOf(':'))
+        let seconds = +time.substr(time.indexOf(':')+1)
+        time = (minutes*60) + seconds
+        video.currentTime = time;
+        video.play()
+    })
+}
 
-document.querySelector('#tag1').addEventListener('click', () => {
-    let minutes = +listTags[0].substr(0, listTags[0].indexOf(':')); 
-    let seconds = +listTags[0].substr(listTags[0].indexOf(':')+1);
-    let time = (minutes*60) + seconds
-    video.currentTime = time;
-    video.play()
-})
-document.querySelector('#tag2').addEventListener('click', () => {
-    video.currentTime = video.duration - (video.duration/2)
-    video.play()
-})
-document.querySelector('#tag3').addEventListener('click', () => {
-    video.currentTime = video.duration - (video.duration/4)
-    video.play()
+document.querySelector('#modalBtn').addEventListener('click',()=>{
+    $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+      })
 })
 
+function PopUp(){
+    if (video.currentTime == 287){
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
+          })
+    }
+}
+
+
+/*
+  <div id="addAdminModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Novo admin</h4>
+        </div>
+        <form class="formSignUp">
+              <!-- user -->
+              <div class="col-12">
+                  <!-- div vazia que conterá uma mensagem de erro caso login sem sucesso -->
+                  <div id="errorSlot"></div>
+                  <label for="nome" class="form-label">Nome</label>
+                  <input type="text" class="form-control" id="name" required>
+                  <label for="nome" class="form-label">Username</label>
+                  <input type="text" class="form-control" id="username" required>
+                  <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+                <label for="pass" class="form-label">Password</label>
+                <input type="password" id="pass" class="form-control" aria-describedby="passwordHelpBlock">
+                <label for="passCheck" class="form-label">Confirmar Password</label>
+                <input type="password" id="passCheck" class="form-control" aria-describedby="passwordHelpBlock">
+                <!-- butao submit -->
+                <button id="createBtn" type="submit" class="btn btn-primary">Create</button>
+              </div> 
+      </form>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+*/
 
 
 //------------------
