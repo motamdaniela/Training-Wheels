@@ -1,9 +1,16 @@
 body{
-    display: flex;
-}
+    background-color: #FEFCFC;
+    display:flex;
+    flex-direction: column;
+    font-family: 'ABC-Regular', sans-serif;
+    color: #2D2F44;
+  }
+    
 .grid-container {
     display: grid;
   }
+
+
 
 #divVideo{
     height: 50%;
@@ -11,4 +18,10 @@ body{
 
 #video{
     width:50px;
+}
+
+.list-group{
+    width: 360px;
+    
+    
 }
