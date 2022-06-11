@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 1099.47 1092.9" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<filter color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="909.514" id="Filter" width="909.514" x="135.449" y="76.9151">
+<feDropShadow dx="-3.67321e-05" dy="10" flood-color="#000000" flood-opacity="0.333" in="SourceGraphic" result="Shadow" stdDeviation="5"/>
+</filter>
+</defs>
+<g id="Camada-1" vectornator:layerName="Camada 1">
+<path d="M660.738 105.971L1006.12 452.435C1044.66 491.091 1044.56 553.668 1005.91 592.204L659.443 937.591C620.787 976.127 558.21 976.029 519.674 937.373L174.287 590.91C135.751 552.253 135.849 489.677 174.505 451.141L520.969 105.754C559.625 67.2175 622.202 67.3149 660.738 105.971Z" fill="#fff9f9" fill-rule="evenodd" filter="url(#Filter)" stroke="none" vectornator:shadowAngle="1.5708" vectornator:shadowColor="#000000" vectornator:shadowOffset="10" vectornator:shadowOpacity="0.333" vectornator:shadowRadius="10"/>
+<path d="M655.33 137.843L974.236 457.743C1009.82 493.436 1009.73 551.215 974.035 586.796L654.135 905.702C618.443 941.284 560.664 941.194 525.082 905.502L206.176 585.601C170.594 549.909 170.684 492.13 206.377 456.548L526.277 137.642C561.969 102.06 619.748 102.15 655.33 137.843Z" fill="#fff9f9" fill-rule="evenodd" opacity="1" stroke="#262231" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/>
+<path d="M591.149 246.218L865.66 522.615L589.263 797.126L314.752 520.73L591.149 246.218Z" fill="#fdfaa9" fill-rule="evenodd" opacity="1" stroke="#262231" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/>
+<path d="M857.628 334.765L402.756 777.74L333.213 709.668L788.085 266.693L857.628 334.765Z" fill="#262231" fill-rule="evenodd" opacity="1" stroke="none"/>
+</g>
+</svg>
