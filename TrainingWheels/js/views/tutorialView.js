@@ -36,10 +36,17 @@ modalBtn.addEventListener('myModal.show.bs.modal', ()=> {
     alert('it works')
 })
 //pergunta pop up
-if (video.currentTime === 287){
-    video.pause()
-    $("#myModal").modal()
-}
+video.addEventListener("timeupdate", function(){
+  if(this.currentTime >= 287) {
+    let pausa=this.pause()
+    $('#myModal').on('shown.bs.modal', function () {
+      $('#myModal').modal('show');
+    })
+
+  }
+});
+
+
 
 /*
 function popUps(){
