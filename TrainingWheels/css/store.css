@@ -28,9 +28,10 @@ body{
 
 .card{
     width: 20%;
-    margin-left: 90px;
-    margin-right: 90px;
-    padding-top: 10px;
+    margin-left: 40px;
+    margin-bottom: 40px;
+    margin-right: 40px;
+    padding-top: 40px;
     border-radius: 20px;
 }
 
@@ -54,3 +55,20 @@ body{
     height: 45px;
     
   }
+
+  #fieldset{
+    background-color: #E7EDF1;
+    border-radius: 10px;
+    margin-left: 80px;
+    margin-top: 45px;
+    margin-bottom: 20px;
+    width: 1150px;
+    align-items:center;
+    justify-content: center;
+    padding: 40px;
+}
+
+#fieldset>h1 {
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
