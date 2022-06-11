@@ -1,6 +1,9 @@
 body{
     display: flex;
 }
+.grid-container {
+    display: grid;
+  }
 
 #divVideo{
     height: 50%;
