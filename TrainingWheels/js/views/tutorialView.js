@@ -38,11 +38,11 @@ modalBtn.addEventListener('myModal.show.bs.modal', ()=> {
 //pergunta pop up
 video.addEventListener("timeupdate", function(){
   if(this.currentTime >= 287) {
-    let pausa=this.pause()
-    $('#myModal').on('shown.bs.modal', function () {
-      $('#myModal').modal('show');
-    })
-
+    this.pause()
+    OpenBootstrapPopup();
+  }
+  function OpenBootstrapPopup() {
+    $("#myModal").modal('show');
   }
 });
 
