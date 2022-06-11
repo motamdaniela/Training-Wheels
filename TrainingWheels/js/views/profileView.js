@@ -18,7 +18,7 @@ function rankTable(){
   console.log(user)
   let sexo=''
   if(user.sex=='f'){
-    sexo='feminio'
+    sexo='feminino'
   }else if(user.sex=='m'){
     sexo='masculino'
   }else{
