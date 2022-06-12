@@ -1,6 +1,8 @@
 import * as User from "../models/userModel.js";
 
 User.init()
+let user=User.getUserLogged()
+document.querySelector('#pontos').innerHTML=`Pontos: ${user.points} `
 
 const btns=document.querySelectorAll('.comprar-clues')
 for (const btn of btns) {
@@ -13,7 +15,6 @@ for (const btn of btns) {
        console.log(preco)
        let precoNum = +preco.slice(0,2)
        console.log(precoNum)
-       let user=User.getUserLogged()
        console.log(user.points)
        const conf=document.querySelector('#confirmar_compra')
        conf.addEventListener('click',function(){
@@ -40,7 +41,6 @@ for (const btn2 of btns2) {
         console.log(preco)
         let precoNum = +preco.slice(0,2)
         console.log(precoNum)
-        let user=User.getUserLogged()
         console.log(user.points)
         const conf=document.querySelector('#confirmar_compra2')
         conf.addEventListener('click',function(){
