@@ -1,10 +1,26 @@
-export default class Reviews{
-    usernames =""
+let reviews;
+
+export function init() {
+    reviews = localStorage.reviews ? JSON.parse(localStorage.reviews) : [];
+  }
+
+  export function add(username, txtReview, rating) {
+    reviews.push(new Review(username, txtReview, rating));
+    localStorage.setItem("reviews", JSON.stringify(reviews));
+  }
+
+export function getReviews() {
+    console.log(reviews)
+    return reviews;
+}
+
+export default class Review{
+    username =""
     txtReview =""
     rating = 0
 
-    constructor (usernames, txtReview, rating) {
-        this.usernames = usernames;
+    constructor (username, txtReview, rating) {
+        this.username = username;
         this.txtReview = txtReview;
         this.rating = rating;
     }
