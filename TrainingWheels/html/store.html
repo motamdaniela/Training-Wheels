@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../css/footer.css">
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
     rel="stylesheet" 
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
@@ -52,9 +54,9 @@
             <img src="../media/stickers/key.svg" class="card-img-top pista" alt="..." height="120px">
             <div class="card-body">
               <h5 class="card-title">1 Pista</h5>
-              <p>10pt</p>
+              <p class="preco">10 pt</p>
               <a  href="#">
-                <button type="button"  class="btn btn comprar">Comprar</button>
+                <button type="button"  class="btn btn comprar-clues">Comprar</button>
               </a>
             </div>
           </div>
@@ -62,9 +64,9 @@
             <img src="../media/stickers/key_3.svg" class="card-img-top pista" alt="..." height="120px">
             <div class="card-body">
               <h5 class="card-title">3 Pistas</h5>
-              <p>20pt</p>
+              <p class="preco">20 pt</p>
               <a  href="#">
-                <button type="button" class="btn btn comprar">Comprar</button>
+                <button type="button" class="btn btn comprar-clues">Comprar</button>
               </a>
             </div>
           </div>
@@ -72,9 +74,9 @@
             <img src="../media/stickers/key_present.svg" class="card-img-top pista" alt="..." height="120px">
             <div class="card-body">
               <h5 class="card-title">5 Pistas</h5>
-              <p>30pt</p>
+              <p class="preco">30 pt</p>
               <a  href="#">
-                <button type="button" class="btn btn comprar">Comprar</button>
+                <button type="button" class="btn btn comprar-clues">Comprar</button>
               </a>
             </div>
           </div>
@@ -89,9 +91,9 @@
           <img src="../media/stickers/semaforo.svg" class="card-img-top" alt="..." height="150px">
           <div class="card-body">
             <h5 class="card-title">Semaforo</h5>
-            <p>20 pt</p>
+            <p class="preco">20 pt</p>
             <a  href="#">
-              <button type="button" class="btn btn comprar">Comprar</button>
+              <button type="button" class="btn btn comprar-stickers">Comprar</button>
             </a>
           </div>
         </div>
@@ -99,9 +101,9 @@
           <img src="../media/stickers/semaforo.svg" class="card-img-top" alt="..." height="150px">
           <div class="card-body">
             <h5 class="card-title">Semaforo</h5>
-            <p>20 pt</p>
+            <p class="preco">20 pt</p>
             <a  href="#">
-              <button type="button" class="btn btn comprar">Comprar</button>
+              <button type="button" class="btn btn comprar-stickers">Comprar</button>
             </a>
           </div>
         </div>
@@ -109,9 +111,9 @@
           <img src="../media/stickers/semaforo.svg" class="card-img-top" alt="..." height="150px">
           <div class="card-body">
             <h5 class="card-title">Semaforo</h5>
-            <p>20 pt</p>
+            <p class="preco">20 pt</p>
             <a  href="#">
-              <button type="button" class="btn btn comprar">Comprar</button>
+              <button type="button" class="btn btn comprar-stickers">Comprar</button>
             </a>
           </div>
         </div>
@@ -121,9 +123,9 @@
           <img src="../media/stickers/semaforo.svg" class="card-img-top" alt="..." height="150px">
           <div class="card-body">
             <h5 class="card-title">Semaforo</h5>
-            <p>20 pt</p>
+            <p class="preco">20 pt</p>
             <a  href="#">
-              <button type="button" class="btn btn comprar">Comprar</button>
+              <button type="button" class="btn btn comprar-stickers">Comprar</button>
             </a>
           </div>
         </div>
@@ -131,9 +133,9 @@
           <img src="../media/stickers/semaforo.svg" class="card-img-top" alt="..." height="150px">
           <div class="card-body">
             <h5 class="card-title">Semaforo</h5>
-            <p>20 pt</p>
+            <p class="preco">20 pt</p>
             <a  href="#">
-              <button type="button" class="btn btn comprar">Comprar</button>
+              <button type="button" class="btn btn comprar-stickers">Comprar</button>
             </a>
           </div>
         </div>
@@ -141,15 +143,51 @@
           <img src="../media/stickers/semaforo.svg" class="card-img-top" alt="..." height="150px">
           <div class="card-body">
             <h5 class="card-title">Semaforo</h5>
-            <p>20 pt</p>
+            <p class="preco">20 pt</p>
             <a  href="#">
-              <button type="button" class="btn btn comprar">Comprar</button>
+              <button type="button" class="btn btn comprar-stickers">Comprar</button>
             </a>
           </div>
         </div>
       </div>
       </fieldset>
       
+    </div>
+    <div class="modal" tabindex="-1" id="cluesModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Confirmação</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Confirma a sua compra de</p>
+            <p id="nomeCompra"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" id="confirmar_compra">Confirmar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" tabindex="-1" id="stickersModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Confirmação</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Confirma a sua compra de</p>
+            <p id="nomeCompra2"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" id="confirmar_compra2">Confirmar</button>
+          </div>
+        </div>
+      </div>
     </div>
       
     
