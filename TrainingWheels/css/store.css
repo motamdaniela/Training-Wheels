@@ -10,6 +10,11 @@ body{
 
 }
 
+#pontos{
+    text-align: right;
+    margin-right: 80px;
+}
+
 .container>div{
     margin-top: 60px;
 }
@@ -45,7 +50,7 @@ body{
     font-family: 'ABC-Bold', sans-serif;
   }
   
-  #comprar{
+ a .btn{
     border-color: #56C4C0;
     color: #ffffff;
     background-color: #56C4C0;
