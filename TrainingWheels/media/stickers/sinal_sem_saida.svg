@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 1024 1024" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<filter color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="640.366" id="Filter" width="640.366" x="180.568" y="201.817">
+<feDropShadow dx="-3.67321e-05" dy="10" flood-color="#000000" flood-opacity="0.333" in="SourceGraphic" result="Shadow" stdDeviation="5"/>
+</filter>
+</defs>
+<g id="Camada-1" vectornator:layerName="Camada 1">
+<path d="M233.568 201.817L767.934 201.817C791.682 201.817 810.934 221.069 810.934 244.817L810.934 779.183C810.934 802.931 791.682 822.183 767.934 822.183L233.568 822.183C209.82 822.183 190.568 802.931 190.568 779.183L190.568 244.817C190.568 221.069 209.82 201.817 233.568 201.817Z" fill="#fff9f9" fill-rule="evenodd" filter="url(#Filter)" stroke="none" vectornator:shadowAngle="1.5708" vectornator:shadowColor="#000000" vectornator:shadowOffset="10" vectornator:shadowOpacity="0.333" vectornator:shadowRadius="10"/>
+<path d="M244.586 217.613L754.107 217.613C776.751 217.613 795.108 235.969 795.108 258.613L795.108 768.134C795.108 790.779 776.751 809.135 754.107 809.135L244.586 809.135C221.942 809.135 203.585 790.779 203.585 768.134L203.585 258.613C203.585 235.969 221.942 217.613 244.586 217.613Z" fill="#4c94be" fill-rule="evenodd" opacity="1" stroke="none"/>
+<path d="M448.193 374.606L553.287 374.606L553.287 758.505L448.193 758.505L448.193 374.606Z" fill="#fff9f9" fill-rule="evenodd" opacity="1" stroke="none"/>
+<path d="M673.131 269.722L672.319 390.223L331.895 387.966L332.708 267.465L673.131 269.722Z" fill="#de5e5d" fill-rule="evenodd" opacity="1" stroke="none"/>
+</g>
+</svg>
