@@ -1,6 +1,8 @@
 import * as User from "../models/userModel.js";
+import * as Review from "../models/reviewsModel.js";
 
 User.init()
+Review.init()
 
 function pageView(){
   
@@ -50,20 +52,33 @@ function pageView(){
         <i class="fa-regular fa-star"></i>
         <i class="fa-regular fa-star"></i>
       </fieldset>
+      <fieldset id="comentarios">
+        <div>
+          <img id="perfilCom" src="media/images/default.svg">
+          <div>
+            <p><strong>Nome</strong></p>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+        </div>
+        <p id="comentario">comentario</p>
+      </fieldset>
       <fieldset class="titulo">
         <h2>Avalia-nos!</h2>
       </fieldset>
     
       <fieldset id="reviews">
         <div class="form-floating">
-          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 150px"></textarea>
+          <textarea class="form-control" placeholder="Leave a comment here" style="height: 150px" id="commentReview"></textarea>
         </div>
         <div id="avaliacoes">
-          <i class="fa-regular fa-star" id="ola"></i>
-          <i class="fa-regular fa-star"></i> 
-          <i class="fa-regular fa-star"></i>  
-          <i class="fa-regular fa-star"></i> 
-          <i class="fa-regular fa-star"></i>  
+          <div class="input-group flex-nowrap" id="num">
+            <span class="input-group-text" id="addon-wrapping"><i class="fa-regular fa-star"></i></span>
+            <input type="number" class="form-control" min="1" max="5" placeholder="ex: 5" aria-describedby="addon-wrapping" id="starReview">
+          </div>  
           <button type="button" id="avaliar" class="btn btn-primary">Avaliar</button>
         </div>
         
@@ -93,4 +108,17 @@ function pageView(){
 }
 pageView()
 feather.replace()
+
+
+let avaliarBtn=document.querySelector('#avaliar');
+avaliarBtn.addEventListener("click",()=>{
+  console.log(1)
+  let comment=document.querySelector('#commentReview').value;
+  console.log(2)
+  let stars=document.querySelector('#starReview').value;
+  console.log(3)
+  let userLog=User.getUserLogged().username
+  Review.add(userLog, comment, stars)
+
+})
 
