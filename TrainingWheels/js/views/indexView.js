@@ -46,22 +46,22 @@ function pageView(){
       </table>
       <fieldset class="titulo">
         <h2>Avaliações</h2>
-        <i class="fa-regular fa-star"></i>
-        <i class="fa-regular fa-star"></i>
-        <i class="fa-regular fa-star"></i>
-        <i class="fa-regular fa-star"></i>
-        <i class="fa-regular fa-star"></i>
+        <i class="star" data-feather="star"></i>
+        <i class="star" data-feather="star"></i>
+        <i class="star" data-feather="star"></i>
+        <i class="star" data-feather="star"></i>
+        <i class="star" data-feather="star"></i>
       </fieldset>
       <fieldset id="comentarios">
         <div>
           <img id="perfilCom" src="media/images/default.svg">
           <div>
             <p><strong>Nome</strong></p>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
+            <i class="star" data-feather="star"></i>
+            <i class="star" data-feather="star"></i>
+            <i class="star" data-feather="star"></i>
+            <i class="star" data-feather="star"></i>
+            <i class="star" data-feather="star"></i>
           </div>
         </div>
         <p id="comentario">comentario</p>
@@ -123,29 +123,23 @@ avaliarBtn.addEventListener("click",()=>{
 })
 
 function rankingOrder(){
+  let array=[]
   let users=User.getUsers()
-        for(let user of users){
-          let respostasCertas= +user.ranking[0]
-          let respostasErradas= +user.ranking[1]
-          let total=respostasCertas+respostasErradas
-          let conta=respostasCertas/total
-          let array=[]
-          let coiso=user.username
-          if(array.length<3){
-            array.push(`${coiso} ${conta}`)
-            console.log(array)
-          }else{
-            continue
-          }
-          
-          //else{
-          //   array.forEach(item => {
-
-              
-          //   });
-          // }
-
-        }
+  for(let user of users){
+    let respostasCertas= +user.ranking[0]
+    let respostasErradas= +user.ranking[1]
+    let total=respostasCertas+respostasErradas
+    let conta=respostasCertas/total
+    let coiso=user.username
+    if(array.length<3){
+      array.push(`${coiso} ${conta}`)
+    }else{
+      array.forEach(element => {
+        
+      });
+    }
+  }
+  console.log(array)
 }
 rankingOrder()
 
