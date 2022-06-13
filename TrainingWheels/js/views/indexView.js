@@ -85,11 +85,14 @@ function pageView(){
         
       </fieldset>
         `
-        
+        let nome=rankingOrder()
         let users=User.getUsers()
         let cont=0;
+        let i=0
         for(let user of users){
-          cont+=1;
+          i+=1
+          if(nome[i]==user){
+            cont+=1;
           if(cont<4){
             result2+=`<tr>
           <th scope="row"><img src=${user.photo}</th>
@@ -97,7 +100,10 @@ function pageView(){
           <td><i class="nav-icon" data-feather="check"></i> ${user.ranking[0]}<i class="nav-icon" data-feather="x"></i>${user.ranking[1]}</td>
         </tr>
           `
+          
           }
+          }
+          
           
         }
         
@@ -129,17 +135,28 @@ function rankingOrder(){
     let respostasCertas= +user.ranking[0]
     let respostasErradas= +user.ranking[1]
     let total=respostasCertas+respostasErradas
-    let conta=respostasCertas/total
-    let coiso=user.username
-    if(array.length<3){
-      array.push(`${coiso} ${conta}`)
+    let conta
+    if(total==0){
+      conta=0
     }else{
-      array.forEach(element => {
-        
-      });
+      conta=respostasCertas/total
     }
+    let coiso=user.username
+    array.push(`${conta} ${coiso} `)
   }
+  array.sort(function(a, b){return b - a});
   console.log(array)
+  let nomes=[]
+  let ranks=[]
+  array.forEach(element => {
+    let outro=element.split(" ")
+    ranks.push(outro[0])
+    nomes.push(outro[1])
+  });
+  console.log(nomes)
+
+  return nomes
 }
-rankingOrder()
+
+
 
