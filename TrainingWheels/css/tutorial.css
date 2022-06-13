@@ -1,13 +1,15 @@
 body{
     background-color: #FEFCFC;
     display:flex;
-    flex-direction: column;
     font-family: 'ABC-Regular', sans-serif;
     color: #2D2F44;
+    padding: 50px;
   }
-    
-.grid-container {
+  
+  .grid-container {
     display: grid;
+    flex-direction: row;
+    margin-left: 60px;
   }
 
 
