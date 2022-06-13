@@ -32,12 +32,15 @@ for (const tagBtn of tagBtns){
 
 const myModal = document.getElementById('myModal')
 const modalBtn = document.querySelector('#modalBtn')
-modalBtn.addEventListener('myModal.show.bs.modal', ()=> {
-    alert('it works')
-})
+
 //pergunta pop up
 video.addEventListener("timeupdate", function(){
   if(this.currentTime >= 287) {
+    let pausa=this.pause()
+    $('#myModal').on('shown.bs.modal', function () {
+      $('#myModal').modal('show');
+    })
+
     this.pause()
     OpenBootstrapPopup();
   }
