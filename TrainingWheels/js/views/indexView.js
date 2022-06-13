@@ -138,16 +138,8 @@ function rankingOrder(){
         
       });
     }
-    console.log(array)
-    
-    //else{
-    //   array.forEach(item => {
-
-        
-    //   });
-    // }
-
   }
+  console.log(array)
 }
 rankingOrder()
 
