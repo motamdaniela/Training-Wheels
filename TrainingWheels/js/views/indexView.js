@@ -124,28 +124,28 @@ avaliarBtn.addEventListener("click",()=>{
 
 function rankingOrder(){
   let users=User.getUsers()
-        for(let user of users){
-          let respostasCertas= +user.ranking[0]
-          let respostasErradas= +user.ranking[1]
-          let total=respostasCertas+respostasErradas
-          let conta=respostasCertas/total
-          let array=[]
-          let coiso=user.username
-          if(array.length<3){
-            array.push(`${coiso} ${conta}`)
-            console.log(array)
-          }else{
-            continue
-          }
-          
-          //else{
-          //   array.forEach(item => {
+  for(let user of users){
+    let respostasCertas= +user.ranking[0]
+    let respostasErradas= +user.ranking[1]
+    let total=respostasCertas+respostasErradas
+    let conta=respostasCertas/total
+    let array=[]
+    let coiso=user.username
+    if(array.length<3){
+      array.push(`${coiso} ${conta}`)
+      console.log(array)
+    }else{
+      continue
+    }
+    
+    //else{
+    //   array.forEach(item => {
 
-              
-          //   });
-          // }
+        
+    //   });
+    // }
 
-        }
+  }
 }
 rankingOrder()
 
