@@ -144,17 +144,24 @@ function rankingOrder(){
     let coiso=user.username
     array.push(`${conta} ${coiso} `)
   }
-  array.sort(function(a, b){return b - a});
-  console.log(array)
   let nomes=[]
   let ranks=[]
+  let ranksFinal=[]
   array.forEach(element => {
     let outro=element.split(" ")
     ranks.push(outro[0])
     nomes.push(outro[1])
   });
-  console.log(nomes)
-
+  let i=0
+  ranks.forEach(element=>{
+    if(element>ranks[i-1]){
+      ranksFinal.push(element)
+      i+=1
+    }
+  })
+  console.log(ranksFinal)
+  
+  array.sort(function(a, b){return b - a});
   return nomes
 }
 
