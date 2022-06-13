@@ -94,7 +94,7 @@ function pageView(){
             result2+=`<tr>
           <th scope="row"><img src=${user.photo}</th>
           <td>${user.name}</td>
-          <td>Otto</td>
+          <td><i class="nav-icon" data-feather="check"></i> ${user.ranking[0]}<i class="nav-icon" data-feather="x"></i>${user.ranking[1]}</td>
         </tr>
           `
           }
