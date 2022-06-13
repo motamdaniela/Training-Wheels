@@ -12,7 +12,7 @@ logout.addEventListener("click", () =>{
 
 })
 
-function rankTable(){
+function show(){
   let result = ''
   let user= User.getUserLogged()
   console.log(user)
@@ -37,9 +37,28 @@ function rankTable(){
     <h5>sexo</h5>
     <p>${sexo}</p>
     <h5>cidade</h5>
-    <p>${user.place}</p>`
+    <p>${user.place}</p>
+    </fieldset>`
   
+  
+  let edit = document.querySelector("#edit");
+
+  edit.addEventListener('click',function(){
+    result+=`
+    <form class="form">
+          <h5>username</h5>
+          <input type="text" class="form-control" id="user" placeholder="name@example.com" value="coiso">
+          <h5>email</h5>
+          <input type="text" class="form-control" id="email" placeholder="name@example.com" value="em">
+          <h5>data de nascimento</h5>
+          <input type="text" class="form-control" id="bday" placeholder="name@example.com" value="3/#>
+          <h5>sexo</h5>
+          <input type="text" class="form-control" id="sex" placeholder="name@example.com" value="test@example.com">
+          <h5>cidade</h5>
+          <input type="text" class="form-control" id="city" placeholder="name@example.com" value="test@example.com">
+        </form>`
+  })
   document.querySelector('#coisasPerfil').innerHTML = result;
-  
 }
-rankTable()
+show()
+
