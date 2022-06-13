@@ -46,22 +46,22 @@ function pageView(){
       </table>
       <fieldset class="titulo">
         <h2>Avaliações</h2>
-        <i class="fa-regular fa-star"></i>
-        <i class="fa-regular fa-star"></i>
-        <i class="fa-regular fa-star"></i>
-        <i class="fa-regular fa-star"></i>
-        <i class="fa-regular fa-star"></i>
+        <i class="star" data-feather="star"></i>
+        <i class="star" data-feather="star"></i>
+        <i class="star" data-feather="star"></i>
+        <i class="star" data-feather="star"></i>
+        <i class="star" data-feather="star"></i>
       </fieldset>
       <fieldset id="comentarios">
         <div>
           <img id="perfilCom" src="media/images/default.svg">
           <div>
             <p><strong>Nome</strong></p>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
+            <i class="star" data-feather="star"></i>
+            <i class="star" data-feather="star"></i>
+            <i class="star" data-feather="star"></i>
+            <i class="star" data-feather="star"></i>
+            <i class="star" data-feather="star"></i>
           </div>
         </div>
         <p id="comentario">comentario</p>
