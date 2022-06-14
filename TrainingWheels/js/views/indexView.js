@@ -88,10 +88,11 @@ function pageView(){
         let nome=rankingOrder()
         let users=User.getUsers()
         let cont=0;
-        let i=0
+        let i=1
         for(let user of users){
           i+=1
-          if(nome[i]==user){
+          console.log(nome.name)
+          if(nome.name==user){
             cont+=1;
           if(cont<4){
             result2+=`<tr>
@@ -142,27 +143,22 @@ function rankingOrder(){
       conta=respostasCertas/total
     }
     let coiso=user.username
-    array.push(`${conta} ${coiso} `)
-  }
-  let nomes=[]
-  let ranks=[]
-  let ranksFinal=[]
-  array.forEach(element => {
-    let outro=element.split(" ")
-    ranks.push(outro[0])
-    nomes.push(outro[1])
-  });
-  let i=0
-  ranks.forEach(element=>{
-    if(element>ranks[i-1]){
-      ranksFinal.push(element)
-      i+=1
+    let idk={
+      name:coiso,
+      rank:conta
+
     }
-  })
-  console.log(ranksFinal)
+    array.unshift(idk)
+    console.log(array)
+  }
+  array.sort(function(a, b) {
+    return (b-a);
+  } );
+
+  console.log(array)
+  return array
+
   
-  array.sort(function(a, b){return b - a});
-  return nomes
 }
 
 

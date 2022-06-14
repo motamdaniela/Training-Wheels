@@ -1,6 +1,4 @@
-@ -1,26 +1,26 @@
 const annotations = localStorage.annotations ? JSON.parse(localStorage.annotations) : []
-
 
 const video = document.querySelector('video')
 const divVideo = document.querySelector('#divVideo')
@@ -21,33 +19,16 @@ tagBtns = Array.from(tagBtns)
 console.log(tagBtns)
 
 for (const tagBtn of tagBtns){
-    tagBtn.addEventListener('click', () => {
   tagBtn.addEventListener('click', () => {
         let time = listTags[tagBtns.indexOf(tagBtn)]
         let minutes = +time.substr(0, time.indexOf(':'))
-        let seconds = +time.substr(time.indexOf(':')+1)
-@ -28,82 +28,81 @@ for (const tagBtn of tagBtns){
+        let seconds = +time.substr(time.indexOf(':')+1, time.length)
+        time = (minutes*60) + seconds
         video.currentTime = time;
         video.play()
     })
-}
-
-const myModal = document.getElementById('myModal')
-const modalBtn = document.querySelector('#modalBtn')
-
-//pergunta pop up
-video.addEventListener("timeupdate", function(){
-  if(this.currentTime >= 287) {
-    let pausa=this.pause()
-    $('#myModal').on('shown.bs.modal', function () {
-      $('#myModal').modal('show');
-    })
-
-    this.pause()
-    OpenBootstrapPopup();
   }
-  function OpenBootstrapPopup() {
-    $("#myModal").modal('show');
+  
   
   const myModal = document.getElementById('myModal')
   
@@ -65,78 +46,27 @@ function OpenBootstrapPopup() {
   $("#myModal").modal('show');
 }
 
-
-/*
-function popUps(){
-    let timesList = [];
-    for(const tag of listTags){
-        let time = listTags[tagBtns.indexOf(tag)]
-        let minutes = +time.substr(0, time.indexOf(':'))
 function popUps(video, listTags){
   let timesList = [];
   for(const tag of listTags){
     let time = listTags[listTags.indexOf(tag)]
     let minutes = +time.substr(0, time.indexOf(':'))
-        let seconds = +time.substr(time.indexOf(':')+1)
-        time = (minutes*60) + seconds
-        timesList.push(time)
-    }
-    timesList.forEach((time) =>{
-        if (video.currentTime === time){
-            video.pause()
-            $("#myModal").modal()
+    let seconds = +time.substr(time.indexOf(':')+1)
+    time = (minutes*60) + seconds
+    timesList.push(time)
       }
       timesList.forEach((time) =>{
         if (video.currentTime >= time && video.currentTime <= time + 1){
           OpenBootstrapPopup();
         }
-    })
       })
 }
 
-popUps()*/
 
-/*
-  <div id="addAdminModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-  
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Novo admin</h4>
-        </div>
-        <form class="formSignUp">
-              <!-- user -->
-              <div class="col-12">
-                  <!-- div vazia que conterá uma mensagem de erro caso login sem sucesso -->
-                  <div id="errorSlot"></div>
-                  <label for="nome" class="form-label">Nome</label>
-                  <input type="text" class="form-control" id="name" required>
-                  <label for="nome" class="form-label">Username</label>
-                  <input type="text" class="form-control" id="username" required>
-                  <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
-                <label for="pass" class="form-label">Password</label>
-                <input type="password" id="pass" class="form-control" aria-describedby="passwordHelpBlock">
-                <label for="passCheck" class="form-label">Confirmar Password</label>
-                <input type="password" id="passCheck" class="form-control" aria-describedby="passwordHelpBlock">
-                <!-- butao submit -->
-                <button id="createBtn" type="submit" class="btn btn-primary">Create</button>
-              </div> 
-      </form>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-  
-    </div>
-  </div>
-*/
 let btn = document.querySelector('#btn')
-let imagePopUp = document.querySelector('#imagePopUp')
-let imageSrc = im.src.split('/')[video.src.split('/').length - 1]
+let imageTest = document.querySelector('#imageTest')
 btn.addEventListener('click', ()=>{
-  imagemPopUp.src =
+  imageTest.src = '../media/stickers/semaforo.svg'
 })
     
     //-------Perguntas
