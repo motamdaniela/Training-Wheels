@@ -1,3 +1,4 @@
+@ -1,26 +1,26 @@
 const annotations = localStorage.annotations ? JSON.parse(localStorage.annotations) : []
 
 
@@ -21,10 +22,11 @@ console.log(tagBtns)
 
 for (const tagBtn of tagBtns){
     tagBtn.addEventListener('click', () => {
+  tagBtn.addEventListener('click', () => {
         let time = listTags[tagBtns.indexOf(tagBtn)]
         let minutes = +time.substr(0, time.indexOf(':'))
         let seconds = +time.substr(time.indexOf(':')+1)
-        time = (minutes*60) + seconds
+@ -28,82 +28,81 @@ for (const tagBtn of tagBtns){
         video.currentTime = time;
         video.play()
     })
@@ -46,9 +48,22 @@ video.addEventListener("timeupdate", function(){
   }
   function OpenBootstrapPopup() {
     $("#myModal").modal('show');
+  
+  const myModal = document.getElementById('myModal')
+  
+  //pergunta pop up
+  video.addEventListener("timeupdate", function(){
+    /*
+    if(this.currentTime >= 287 && this.currentTime <= 288){
+    this.pause()
   }
+  */
+ popUps(video, listTags)
 });
 
+function OpenBootstrapPopup() {
+  $("#myModal").modal('show');
+}
 
 
 /*
@@ -57,6 +72,11 @@ function popUps(){
     for(const tag of listTags){
         let time = listTags[tagBtns.indexOf(tag)]
         let minutes = +time.substr(0, time.indexOf(':'))
+function popUps(video, listTags){
+  let timesList = [];
+  for(const tag of listTags){
+    let time = listTags[listTags.indexOf(tag)]
+    let minutes = +time.substr(0, time.indexOf(':'))
         let seconds = +time.substr(time.indexOf(':')+1)
         time = (minutes*60) + seconds
         timesList.push(time)
@@ -65,8 +85,13 @@ function popUps(){
         if (video.currentTime === time){
             video.pause()
             $("#myModal").modal()
+      }
+      timesList.forEach((time) =>{
+        if (video.currentTime >= time && video.currentTime <= time + 1){
+          OpenBootstrapPopup();
         }
     })
+      })
 }
 
 popUps()*/
@@ -107,3 +132,47 @@ popUps()*/
     </div>
   </div>
 */
+let btn = document.querySelector('#btn')
+let imagePopUp = document.querySelector('#imagePopUp')
+let imageSrc = im.src.split('/')[video.src.split('/').length - 1]
+btn.addEventListener('click', ()=>{
+  imagemPopUp.src =
+})
+    
+    //-------Perguntas
+    
+    let perguntas = [
+      {
+    question:"Qual deve ser o comportamento do condutor perante esta situação?",
+    image:"/",
+    answers:[],
+    correctAnswer:"",
+    reward:"",
+    level:0,
+    video:"",
+    tag:"4:47",
+    pointsEarned:0,
+  },
+  {
+    question:"",
+    image:"",
+    answers:[],
+    correctAnswer:"",
+    reward:"",
+    level:0,
+    video:"",
+    tag:"5:01",
+    pointsEarned:0,
+  },
+  {
+    question:"",
+    image:"",
+    answers:[],
+    correctAnswer:"",
+    reward:"",
+    level:0,
+    video:"",
+    tag:"18:31",
+    pointsEarned:0,
+  },
+]
