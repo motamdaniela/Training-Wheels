@@ -4,8 +4,8 @@ User.init()
 let user=User.getUserLogged()
 document.querySelector('#pontos').innerHTML=`Pontos: ${user.points} `
 
-const btns=document.querySelectorAll('.comprar-clues')
-for (const btn of btns) {
+let btns=document.querySelectorAll('.comprar-clues')
+for (let btn of btns) {
     btn.addEventListener('click', function () {
        let nome=this.parentNode.previousElementSibling.previousElementSibling.innerHTML
         let coise=document.querySelector('#nomeCompra')

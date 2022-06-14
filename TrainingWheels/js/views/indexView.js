@@ -25,6 +25,7 @@ function pageView(){
     </div>
     `
     let result2=''
+    let result3=''
     if (User.isLogged()){
       document.querySelector('#divfundo').innerHTML =`<img id="fundo2" src="./media/images/fundojalog.svg">`
         
@@ -52,20 +53,10 @@ function pageView(){
         <i class="star" data-feather="star"></i>
         <i class="star" data-feather="star"></i>
       </fieldset>
-      <fieldset id="comentarios">
-        <div>
-          <img id="perfilCom" src="media/images/default.svg">
-          <div>
-            <p><strong>Nome</strong></p>
-            <i class="star" data-feather="star"></i>
-            <i class="star" data-feather="star"></i>
-            <i class="star" data-feather="star"></i>
-            <i class="star" data-feather="star"></i>
-            <i class="star" data-feather="star"></i>
-          </div>
-        </div>
-        <p id="comentario">comentario</p>
-      </fieldset>
+      <div id="comentDiv">
+        
+      </div>
+      
       <fieldset class="titulo">
         <h2>Avalia-nos!</h2>
       </fieldset>
@@ -103,12 +94,52 @@ function pageView(){
           `
           
           }
-          } 
+          }
+          
+        let reviews=Review.getReviews()
+        
+        if(reviews.lenght==0){
+          result3+=`<fieldset id="comentarios">
+          <div>
+            <img id="perfilCom" src="media/images/default.svg">
+            <div>
+              <p><strong></strong></p>
+              <i class="star" data-feather="star"></i>
+              <i class="star" data-feather="star"></i>
+              <i class="star" data-feather="star"></i>
+              <i class="star" data-feather="star"></i>
+              <i class="star" data-feather="star"></i>
+            </div>
+          </div>
+          <p id="comentario">Avaliações não disponíveis</p>
+        </fieldset>
+          `
+            
+          }else{
+            for(let review of reviews){
+              result3+=`<fieldset id="comentarios">
+            <div>
+              <img id="perfilCom" src="media/images/default.svg">
+              <div>
+                <p><strong>${review.username}</strong></p>
+                <i class="star" data-feather="star"></i>
+                <i class="star" data-feather="star"></i>
+                <i class="star" data-feather="star"></i>
+                <i class="star" data-feather="star"></i>
+                <i class="star" data-feather="star"></i>
+              </div>
+            </div>
+            <p id="comentario">${review.txtReview}</p>
+          </fieldset>
+            `}
+          }  
         }
+        
         
   
     document.querySelector('#content').innerHTML += result;
     document.querySelector('#body_rank').innerHTML = result2;
+    document.querySelector('#comentDiv').innerHTML = result3;
     
 }
 pageView()
@@ -124,6 +155,7 @@ avaliarBtn.addEventListener("click",()=>{
   console.log(3)
   let userLog=User.getUserLogged().username
   Review.add(userLog, comment, stars)
+  window.location.reload()
 
 })
 

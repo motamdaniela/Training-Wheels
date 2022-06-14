@@ -1,6 +1,7 @@
 body{
     background-color: #FEFCFC;
     display:flex;
+    flex-direction: column;
     font-family: 'ABC-Regular', sans-serif;
     color: #2D2F44;
   }

@@ -1,11 +1,9 @@
 let videos;
 
-
 // CARREGAR BANDAS DA LOCALSTORAGE
 export function init() {
   videos = localStorage.videos ? JSON.parse(localStorage.videos) : [];
 }
-
 
 
 // ADICIONAR BANDA
@@ -17,7 +15,6 @@ export function add(url, tags, name, level) {
     localStorage.setItem("videos", JSON.stringify(videos));
   }
 }
-
 
 
 // REMOVER BANDA
@@ -58,42 +55,20 @@ export function getVideos(filterName = "", filterLevel = "", isSorted = false) {
   return filteredVideos;
 }
 
-
-
-
-
 class Video{
     url =""
-    tags =""
+    tags = []
     name =""
-    level =0
+    level = ""
     likes =0
-    comments =""
+    comments =[]
 
-    constructor(url, tags, name,level,likes, comments) {
+    constructor(url, tags, name,level,likes=0, comments=[]) {
         this.url = url;
         this.tags = tags;
         this.name = name;
         this.level = level;
+        this.likes = likes
         this.comments = comments;
     }
-
-    // get getUrl () { return this.#url }
-    // set setUrl (value) { this.#url = value}
-
-    // get getTags () { return this.#tags }
-    // set setTags (value) { this.#tags = value}
-
-    // get getName () { return this.#name }
-    // set setName (value) {this.#name = value}
-
-    // get getLikes () {return this.#likes}
-    // set setLikes (value) {this.#likes = value}
-
-    // get getComments () { return this.#comments}
-    // set setComments (value) {this.#comments = value}
-
-    // get getLevel () {return this.#level}
-    // set setLevel (value) {this.#level = value}
-
 }

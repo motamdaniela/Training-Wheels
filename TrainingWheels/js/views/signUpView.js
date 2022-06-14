@@ -1,8 +1,7 @@
 import * as User from "../models/userModel.js";
+User.init()
 
 const signUpBtn = document.querySelector("#signUpBtn");
-
-User.init()
 
 signUpBtn.addEventListener("click",(event)=>{
   event.preventDefault()

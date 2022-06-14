@@ -34,6 +34,10 @@
     
 
 </head>
+
+<footer>
+</footer>
+
 <body>
     
   <div id="sidebar" class="main-menu d-flex flex-column flex-shrink-0 ">
@@ -78,6 +82,7 @@
             </a>
           </div>
         </div>
+      </div>
       <!-- stickers -->
       <h1>Stickers</h1>
       <div class="row align-items-start">
@@ -110,6 +115,7 @@
               <button type="button" class="btn btn comprar-stickers">Comprar</button>
             </a>
         </div>
+      </div>
       </div>
       <div class="row align-items-start">
         <div class="card col" style="width: 18rem;" id="semaforo_setas_cor">
@@ -272,9 +278,44 @@
             </div>
           </div>
     </fieldset>
-    
-    <footer>
-    </footer>
+
+  </div>
+  <div class="modal" tabindex="-1" id="cluesModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirmação</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Confirma a sua compra de</p>
+          <p id="nomeCompra"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" id="confirmar_compra">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" tabindex="-1" id="stickersModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirmação</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Confirma a sua compra de</p>
+          <p id="nomeCompra2"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" id="confirmar_compra2">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
     
     <script type='module' src="../js/views/navbarView.js"></script>
     <script type='module' src="../js/views/storeView.js"></script>
