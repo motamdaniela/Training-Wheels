@@ -20,6 +20,8 @@
 </head>
 <body>
 
+  <button id="btn" type="button" class="btn btn-primary">Button</button>
+
     <!----------------------------------------------->
 
   <div id="myModal" class="modal" role="dialog">
@@ -27,18 +29,17 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Pergunta</h4>
+          <h4 class="modal-title" id="questionPopUp">Pergunta</h4>
         </div>
-        <img src="../media/images/imagem.svg">
+        <img id="imagePopUp" src="../media/images/imagem.svg">
 
-        <div class="btn-group" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-primary">Left</button>
-          <button type="button" class="btn btn-primary">Middle</button>
-          <button type="button" class="btn btn-primary">Right</button>
+        <div id="answersPopUp" class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Left</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Middle</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Right</button>
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
   
@@ -50,7 +51,6 @@
   <div class="grid-container">
     <div class="grid-item">
       <div id="divVideo">
-        <h2 id="title"></h2>
         <video src="../media/videos/Sinalizacao_Luminosa.mp4" height="300" controls>
         </video>
         
@@ -58,7 +58,7 @@
     </div>
 
     <div class="grid-item">
-      <!-- <img src="../media/images/faq.svg"> -->
+      <img src="../media/images/faq.svg">
     
       <div class="list-group">
         <a id="tag" class="list-group-item list-group-item-action list-group-item-primary">Tag 1</a>
@@ -67,7 +67,7 @@
       </div>
     </div>
     <div class="grid-item">
-      comentarios
+      <fieldset><label>Comentarios</label></fieldset>
     </div>
     <div class="grid-item">
       escrever comentario
