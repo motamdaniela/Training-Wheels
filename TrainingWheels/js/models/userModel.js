@@ -66,6 +66,14 @@ export function getUsers() {
   return users;
 }
 
+export function attUserOnStorage(attUser){
+  let users = JSON.parse(localStorage.getItem('users'))
+  users.forEach((user,i) => {
+      if (user.username === attUser.username) users[i] = attUser
+  })
+  localStorage.setItem('users', JSON.stringify(users))
+}
+
 class User {
     username = ''
     type = ''
@@ -78,11 +86,10 @@ class User {
     photo = ''
     ranking = []
     progress = {}
-    points = 0
     clues = 0
     book = {}
 
-    constructor(username, type = 'user', password, name, email, sex, bday, place='Portugal', photo = '../media/images/default.svg', ranking = [0, 0], progress={}, points=0, clues=0, book={}){
+    constructor(username, type = 'user', password, name, email, sex, bday, place='Portugal', photo = '../media/images/default.svg', ranking = [0, 0], progress={}, clues=0, book={}){
         this.username = username;
         this.type = type;
         this.name = name;
@@ -94,7 +101,6 @@ class User {
         this.photo = photo;
         this.ranking = ranking;
         this.progress = progress;
-        this.points = points;
         this.clues = clues;
         this.book = book;
     }
