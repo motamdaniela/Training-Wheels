@@ -7,17 +7,55 @@ const duration = document.querySelector('#duration')
 
 // PREENCHIMENTO AUTOMATICO DO NOME DO FICHEIRO DE VIDEO
 let videoName = video.src.split('/')[video.src.split('/').length - 1]
-videoName = videoName.replaceAll('_',' ')
-videoName = videoName.substr(0, videoName.indexOf('.'))
+videoName = videoName.substr(0, videoName.indexOf('.')).replaceAll('_',' ')
 title.innerHTML = videoName
+
+//funcao que abre a modal
+function OpenBootstrapPopup() {
+  $('#myModal').modal({
+    backdrop: 'static',
+    keyboard: false
+  })
+  $("#myModal").modal('show');
+}
+
+//funcao converte uma tag de video para o tempo em segundos
+function convertTag(time){
+  let minutes = +time.substr(0, time.indexOf(':'))
+  let seconds = +time.substr(time.indexOf(':')+1, time.length)
+  time = (minutes*60) + seconds
+    return time
+}
+const myModal = document.getElementById('myModal')
+
+let tagBtns = document.querySelectorAll('#tag')
+tagBtns = Array.from(tagBtns)
+
+
+video.addEventListener("timeupdate", function(){
+  popUps(video, listTags)
+});
+
+
+function popUps(video, listTags){
+  let timesList = [];
+  for(const tag of listTags){
+    let time = listTags[listTags.indexOf(tag)]
+    time =convertTag(time)
+    timesList.push(time)
+  }
+  timesList.forEach((time) =>{
+    if (video.currentTime >= time && video.currentTime <= time + 0.1){
+      video.pause()
+      OpenBootstrapPopup();
+    }
+  })
+}
+
 
 const listTags = ['4:47', '5:01', '18:31']
 
 //"links" para as tags no grouplist
-let tagBtns = document.querySelectorAll('#tag')
-tagBtns = Array.from(tagBtns)
-console.log(tagBtns)
-
 for (const tagBtn of tagBtns){
   tagBtn.addEventListener('click', () => {
         let time = listTags[tagBtns.indexOf(tagBtn)]
@@ -30,51 +68,39 @@ for (const tagBtn of tagBtns){
   }
   
   
-  const myModal = document.getElementById('myModal')
   
   //pergunta pop up
-  video.addEventListener("timeupdate", function(){
-    /*
-    if(this.currentTime >= 287 && this.currentTime <= 288){
-    this.pause()
-  }
-  */
- popUps(video, listTags)
-});
-
-function OpenBootstrapPopup() {
-  $("#myModal").modal('show');
-}
-
-function popUps(video, listTags){
-  let timesList = [];
-  for(const tag of listTags){
-    let time = listTags[listTags.indexOf(tag)]
-    let minutes = +time.substr(0, time.indexOf(':'))
-    let seconds = +time.substr(time.indexOf(':')+1)
-    time = (minutes*60) + seconds
-    timesList.push(time)
-      }
-      timesList.forEach((time) =>{
-        if (video.currentTime >= time && video.currentTime <= time + 1){
-          OpenBootstrapPopup();
-        }
-      })
-}
 
 
+
+/*
 let btn = document.querySelector('#btn')
 let imageTest = document.querySelector('#imageTest')
 btn.addEventListener('click', ()=>{
   imageTest.src = '../media/stickers/semaforo.svg'
 })
+*/
+
+video.addEventListener('timeupdate', ()=>{
+  modalPopUp(perguntas, video)
+})
+
+function modalPopUp(perguntas, video){
+  perguntas.forEach((pergunta) => {
+    let time = convertTag(pergunta.tag)
+    if (video.currentTime >= time && video.currentTime <= time + 0.1){
+      const imagePopUp = document.querySelector('#ImagePopUp')
+      imagePopUp.src = pergunta.image
+    }
+  });
+}
     
-    //-------Perguntas
+//-------Perguntas
     
     let perguntas = [
       {
     question:"Qual deve ser o comportamento do condutor perante esta situação?",
-    image:"/",
+    image:"../media/stickers/semaforo.svg",
     answers:[],
     correctAnswer:"",
     reward:"",
@@ -85,7 +111,7 @@ btn.addEventListener('click', ()=>{
   },
   {
     question:"",
-    image:"",
+    image:"../media/stickers/acidente.svg",
     answers:[],
     correctAnswer:"",
     reward:"",
@@ -96,7 +122,7 @@ btn.addEventListener('click', ()=>{
   },
   {
     question:"",
-    image:"",
+    image:"../media/stickers/carro_mao.svg",
     answers:[],
     correctAnswer:"",
     reward:"",

@@ -85,16 +85,16 @@ function pageView(){
         
       </fieldset>
         `
-        let nome=rankingOrder()
+        let nomes=rankingOrder()
+        console.log(nomes)
+        
         let users=User.getUsers()
         let cont=0;
-        let i=1
         for(let user of users){
-          i+=1
-          console.log(nome.name)
-          if(nome.name==user){
+          let nome = nomes.find(nome => nome.name === user.username);
+          console.log(nome)
             cont+=1;
-          if(cont<4){
+          if(cont<4 && nome.name==user.username ){
             result2+=`<tr>
           <th scope="row"><img src=${user.photo}</th>
           <td>${user.name}</td>
@@ -103,12 +103,10 @@ function pageView(){
           `
           
           }
-          }
-          
-          
+          } 
         }
         
-    }
+  
     document.querySelector('#content').innerHTML += result;
     document.querySelector('#body_rank').innerHTML = result2;
     
@@ -148,14 +146,12 @@ function rankingOrder(){
       rank:conta
 
     }
-    array.unshift(idk)
-    console.log(array)
+    array.push(idk)
   }
   array.sort(function(a, b) {
     return (b-a);
   } );
 
-  console.log(array)
   return array
 
   
