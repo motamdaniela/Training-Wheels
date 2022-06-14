@@ -3,12 +3,13 @@ body{
     display:flex;
     font-family: 'ABC-Regular', sans-serif;
     color: #2D2F44;
+    padding: 50px;
   }
   
   .grid-container {
     display: grid;
     flex-direction: row;
-    margin-left: 200px;
+    margin-left: 60px;
   }
 
 
