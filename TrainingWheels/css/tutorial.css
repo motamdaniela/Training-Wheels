@@ -43,9 +43,9 @@ div>.tag{
   color: #137874;
 }
 div>.tag:hover{
-  background-color: #56C4C0;
-  border-color: #137874;
-  color: #A8DDDB;
+  background-color: #FFF8F8;
+  border-color: #56C4C0;
+  color: #56C4C0;  
 }
 
 .heartIcon{

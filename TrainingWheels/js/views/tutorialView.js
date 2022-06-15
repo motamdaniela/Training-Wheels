@@ -60,9 +60,6 @@ function popUps(){
 }
 */
 
-
-const listTags = ['4:47', '5:01', '18:31']
-
 /*
 //"links" para as tags no grouplist
 for (const tagBtn of tagBtns){
@@ -74,28 +71,33 @@ for (const tagBtn of tagBtns){
       })
   }
   */
-let popUps = PopUpQuestions.getPopUp()
+
+  
+
  
  function tagsList(){
-   let tagsList = document.querySelector(".tagsList")
+   let popUps = PopUpQuestions.getPopUp()
+   let string = ''
    popUps.forEach((popUp)=>{
-    tagsList.innerHTML = `
-    <a class="list-group-item list-group-item-action list-group-item tag">${popUps.tag}</a>
+    string += `
+    <a class="list-group-item list-group-item-action list-group-item tag">${popUp.tag}</a>
     `
   })
+  console.log(popUps.length)
+  document.querySelector(".tagsList").innerHTML = string
 }
 tagsList()
-
 
 /*
   //--------------------funcao modals corresponde tag
   video.addEventListener('timeupdate', ()=>{
-    perguntas.forEach((pergunta) => {
-      let time = convertTag(pergunta.tag)
+    let popUps = PopUpQuestions.getPopUp()
+    popUps.forEach((popUp) => {
+      let time = convertTag(popUp.tag)
       if (video.currentTime >= time && video.currentTime <= time + 0.1){
         video.pause()
-        document.querySelector('#imagePopUp').src = pergunta.image
-        document.querySelector('#questionPopUp').innerHTML = pergunta.question
+        document.querySelector('#imagePopUp').src = popUp.image
+        document.querySelector('#questionPopUp').innerHTML = popUp.question
         OpenBootstrapPopup();
       }
     });
