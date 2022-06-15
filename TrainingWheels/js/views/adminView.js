@@ -231,9 +231,6 @@ nivel.addEventListener("click", (event) =>{
 const licao = document.querySelector("#addLicaoNivel")
 licao.addEventListener("click", (event) =>{
     event.preventDefault()
-    
-    
-    console.log(nivel)
     let tipo=document.querySelector("#tipo").value;
     if(tipo=='video'){
       let nome=document.querySelector("#nomeVideo").value;
@@ -285,9 +282,11 @@ function addNivel(nome){
 
 let addBtns=document.querySelectorAll('.addLicao')
 for (let addBtn of addBtns){
-  addBtn.addEventListener('click', () =>{
-    let nivel= this.parentNode.parentNode.previousElementSibling.innerHTML;
-    console.log(nivel)
+  addBtn.addEventListener('click', (event) =>{
+    event.preventDefault()
+    $("#li").modal('show');
+    let idiota= addBtn.parentElement.previousElementSibling.innerHTML;
+    console.log(idiota)
   })
 }
 
@@ -304,8 +303,8 @@ function renderNivel() {
         <tr>
             <th scope="row">${i}</th>
             <th>${level.name}</th>
-            <td><button id="addLicao" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#licaoModal">Add lição</button>
-            <button id="addLicao" type="button" class="btn btn-danger">Remover lição</button></td>
+            <td><button  type="button" class="btn btn-primary addLicao" data-bs-toggle="modal" data-bs-target="#licaoModal">Add lição</button>
+            <button  type="button" class="btn btn-danger">Remover lição</button></td>
         </tr>
             `
     }
