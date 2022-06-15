@@ -57,7 +57,7 @@ function displayMessage(message) {
                 <input type="text" class="form-control" id="nomeVideo" placeholder="Nome" aria-label="Nome" aria-describedby="basic-addon1">
               </div>
               <div class="input-group mb-3">
-                <input type="file" class="form-control" id="inputGroupFile01">
+                <input type="file" class="form-control" id="linkVideo">
               </div>
               <div class="formTags">
                 <div class="input-group mb-3">
@@ -234,22 +234,25 @@ licao.addEventListener("click", (event) =>{
     if(tipo=='video'){
       let nome=document.querySelector("#nomeVideo").value;
       let link=document.querySelector("#linkVideo").value;
+
+      let linkCompleto='../media/videos/'+link
+      console.log(linkCompleto)
       let NomeTags=[]
       document.querySelectorAll(".nomeTagVideo").forEach(eldom => NomeTags.push(eldom.value))
       console.log(NomeTags)
       let Tags=[]
       document.querySelectorAll(".tagVideo").forEach(eldom => Tags.push(eldom.value))
       console.log(Tags)
-      let array=[]
-      let i=0;
-      for(let tag of Tags){
-        let obj={
-          nome:NomeTags[i],
-          tempo:tag
-        }
-        array.push(obj);
-        i+=1;
-      }
+      // let array=[]
+      // let i=0;
+      // for(let tag of Tags){
+      //   let obj={
+      //     nome:NomeTags[i],
+      //     tempo:tag
+      //   }
+      //   array.push(obj);
+      //   i+=1;
+      // }
       console.log(nome)
       console.log(link)
       console.log(array)

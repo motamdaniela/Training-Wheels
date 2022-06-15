@@ -12,30 +12,34 @@ body{
 
 }
 
-
-
 #caderneta{
     width:200px;
 }
 
-fieldset{
+#fs1{
+    background-color: #9EC2D5;
+    width:1100px;
+    height:550px;
+    border-radius: 0px 10px 10px 10px;
+}
+
+#fs2{
     background-color: #FFFCCB;
     width:1100px;
     height:550px;
     border-radius: 0px 10px 10px 10px;
-    
 }
 
 #pagina1{
-    background-color: #FFFCCB;
-    border-color: #FFFCCB;
+    background-color: #9EC2D5;
+    border-color: #9EC2D5;
     width:200px;
     border-radius: 10px 10px 0px 0px;
 }
 
 #pagina2{
-    background-color: #D3F0EF;
-    border-color: #D3F0EF;
+    background-color: #FFFCCB;
+    border-color: #FFFCCB;
     width:200px;
     border-radius: 10px 10px 0px 0px;
     
