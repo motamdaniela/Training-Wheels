@@ -40,11 +40,15 @@
 
     <div class="container">
         <img id="caderneta" src="../media/images/caderneta.svg">
-        <button type="button" id="pagina1" class="btn btn-warning">1</button>
-        <button type="button" id="pagina2" class="btn btn-warning">2</button>
-        <fieldset>
-
+        <button type="button" id="pagina1" class="btn btn field1">1</button>
+        <button type="button" id="pagina2" class="btn btn field2">2</button>
+        <fieldset id="1">
+          <img id="semaforo" src="../media/stickers/semaforo.svg" height="200px" class="bright">
         </fieldset> 
+        
+        <fieldset id="2" class="hide">
+          <img id="blue_gilf" src="../media/stickers/blue_gilf.svg" height="150px">
+        </fieldset>
         
     </div>
       
@@ -55,6 +59,7 @@
     </footer>
     
     <script type='module' src="../js/views/navbarView.js"></script>
+    <script type='module' src="../js/views/bookView.js"></script>
     <script>
       feather.replace()
     </script>

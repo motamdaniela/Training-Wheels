@@ -92,15 +92,56 @@ for (const tagBtn of tagBtns){
   */
 
 function Questions(){
-  let popUps = PopUpQuestions.getPopUp
+  let popUps = PopUpQuestions.getPopUp()
+  let question = document.querySelector('#questionPopUp')
+  let imagePopUp = document.querySelector('#imagePopUp')
+  let answers = document.querySelector('#answersPopUp')
   popUps.forEach((popUp) => {
     let time = convertTag(popUp.tag)
     if (video.currentTime >= time && video.currentTime <= time + 0.1){
+      question.innerHTML = popUp.question
+      imagePopUp.src = popUp.image
+      answers.innerHTML = `
+      <button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[0]}" data-bs-dismiss="modal">${popUp.answers[0]}</button>
+      <button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[1]}" data-bs-dismiss="modal">${popUp.answers[1]}</button>
+      <button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[2]}" data-bs-dismiss="modal">${popUp.answers[2]}</button>
+      <button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[3]}" data-bs-dismiss="modal">${popUp.answers[3]}</button>
+      `
       video.pause();
       OpenBootstrapPopup();
+      CorrectAnswer(popUp.pointsEarned);
     }
   })
 }
+
+//funcao que descobre se a resposta esta certa
+function CorrectAnswer(pointsEarned){
+  let answerBtns = document.querySelectorAll('.answerBtn');
+  let popUps = PopUpQuestions.getPopUp()
+  let modal = document.querySelector('#myModal')
+  popUps.forEach((popUp) => {
+    answerBtns.forEach((answerBtn) => {
+      if(answerBtn.id === popUp.correctAnswer){
+        answerBtn.addEventListener('click',()=>{
+          setTimeout(() => {
+            $("#congratsModal").modal('hide');
+            video.play();
+            video.pause()
+            let points = document.querySelector('#pointsEarned')
+            points.innerHTML = `+ ${popUp.pointsEarned}points`
+            $("#congratsModal").modal('show');
+            setTimeout(() => {
+              $("#congratsModal").modal('hide');
+              video.play();
+            }, 1500);
+          }, 200);
+        })
+      }
+    })
+  })
+}
+
+
 video.addEventListener('timeupdate', () => {
   Questions()
 })
@@ -121,7 +162,7 @@ video.addEventListener('timeupdate', () => {
       level: '',
       video:"Sinalizacao_Luminosa.mp4",
       tag:"4:47",
-      pointsEarned:0,
+      pointsEarned:10,
     },
     {
       question:"Pergunta 2 so pq sim",
@@ -132,19 +173,19 @@ video.addEventListener('timeupdate', () => {
       level: '',
       video:"Sinalizacao_Luminosa.mp4",
       tag:"5:01",
-      pointsEarned:0,
+      pointsEarned:15,
     },
     {
       question:"Pergunta 3 vamos ver se da",
       image:"../media/stickers/carro_mao.svg",
-    answers:['1','2','3','4'],
-    correctAnswer:"1",
-    reward:"../media/stickers/carro_mao.svg",
-    level: '',
-    video:"Sinalizacao_Luminosa.mp4",
-    tag:"18:31",
-    pointsEarned:0,
-  },
+      answers:['1','2','3','4'],
+      correctAnswer:"1",
+      reward:"../media/stickers/carro_mao.svg",
+      level: '',
+      video:"Sinalizacao_Luminosa.mp4",
+      tag:"18:31",
+      pointsEarned:20,
+    },
 ]
 
 let btn = document.querySelector('#btn')

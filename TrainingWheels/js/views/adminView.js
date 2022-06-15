@@ -50,7 +50,7 @@ function displayMessage(message) {
       let result = ''
       event.preventDefault()
       let tipo=document.querySelector('#tipo').value
-      if(tipo=='Video'){
+      if(tipo=='video'){
         result=`
         <div id="maisTags">
         <div class="input-group mb-3">
@@ -78,8 +78,8 @@ function displayMessage(message) {
         mais=`
       <div class="formTags">
         <div class="input-group mb-3">
-          <input type="text" class="form-control tagVideo" placeholder="Tag" aria-label="Tag" aria-describedby="basic-addon1">
-          <input type="text" class="form-control nomeTagVideo" placeholder="Nome Tag" aria-label="Nome Tag" aria-describedby="basic-addon1">              
+          <input type="text" class="form-control tagVideo" placeholder="Tag" aria-label="Tag">
+          <input type="text" class="form-control nomeTagVideo" placeholder="Nome Tag" aria-label="Nome Tag" >              
         </div>
       </div>
         `
@@ -109,12 +109,13 @@ function displayMessage(message) {
         document.querySelector('#formLicoes').innerHTML = result;
         let loadPergunta = document.querySelector("#loadPergunta")
         loadPergunta.addEventListener("click", (event) =>{
+          event.preventDefault()
         let resultPerg = ''
-        event.preventDefault()
+        
         const tipoPerg=document.querySelector('#tipoPergunta').value
         if(tipoPerg=='Escolha Multipla'){
           resultPerg=`<div class="input-group mb-3">
-          <input type="text" class="form-control perguntaTesteM" placeholder="Pergunta" aria-label="Tag" aria-describedby="basic-addon1">
+          <input type="text" class="form-control perguntaTeste" placeholder="Pergunta" aria-label="Tag" aria-describedby="basic-addon1">
         </div>
         <div class="input-group mb-3">
           <input type="text" class="form-control imgPerg" placeholder="Link Imagem" aria-label="Link Video" aria-describedby="basic-addon1">            
@@ -130,7 +131,7 @@ function displayMessage(message) {
           `
         }else{
           resultPerg=`<div class="input-group mb-3">
-          <input type="text" class="form-control perguntaTesteVF" placeholder="Pergunta" aria-label="Tag" aria-describedby="basic-addon1">
+          <input type="text" class="form-control perguntaTeste" placeholder="Pergunta" aria-label="Tag" aria-describedby="basic-addon1">
         </div>
         <div class="input-group mb-3">
           <input type="text" class="form-control imgPerg" placeholder="Link Imagem" aria-label="Link Video" aria-describedby="basic-addon1">            
@@ -145,15 +146,16 @@ function displayMessage(message) {
 
         let addPerg = document.querySelector("#addPerg")
         addPerg.addEventListener("click", (event) =>{
-          let maisPerg = ''
           event.preventDefault()
+          let maisPerg = ''
+          
           let tipoPerg2=document.querySelector('#tipoPergunta').value
           if(tipoPerg2=='Escolha Multipla'){
             maisPerg=`<div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Pergunta" aria-label="Tag" aria-describedby="basic-addon1">
+          <input type="text" class="form-control perguntaTeste" placeholder="Pergunta" aria-label="Tag" aria-describedby="basic-addon1">
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Link Imagem" aria-label="Link Video" aria-describedby="basic-addon1">            
+          <input type="text" class="form-control imgPerg" placeholder="Link Imagem" aria-label="Link Video" aria-describedby="basic-addon1">            
         </div>
         <div class="input-group mb-3">
           <input type="text" class="form-control opcao_certa" placeholder="Opção certa" aria-label="Link Video" aria-describedby="basic-addon1">  
@@ -166,10 +168,10 @@ function displayMessage(message) {
           `
           }else{
             maisPerg=`<div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Pergunta" aria-label="Tag" aria-describedby="basic-addon1">
+          <input type="text" class="form-control perguntaTeste" placeholder="Pergunta" aria-label="Tag" aria-describedby="basic-addon1">
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Link Imagem" aria-label="Link Video" aria-describedby="basic-addon1">            
+          <input type="text" class="form-control imgPerg" placeholder="Link Imagem" aria-label="Link Video" aria-describedby="basic-addon1">            
         </div>
         <div class="input-group mb-3">
           <input type="text" class="form-control opcao_certa" placeholder="Opção certa" aria-label="Link Video" aria-describedby="basic-addon1">  
@@ -222,6 +224,41 @@ nivel.addEventListener("click", (event) =>{
     addNivel(nome)
 })
 
+
+
+const licao = document.querySelector("#addLicaoNivel")
+licao.addEventListener("click", (event) =>{
+    event.preventDefault()
+    console.log('olaa')
+    let tipo=document.querySelector("#tipo").value;
+    if(tipo=='video'){
+      let nome=document.querySelector("#nomeVideo").value;
+      let link=document.querySelector("#linkVideo").value;
+      let NomeTags=[]
+      let nomeTags=document.querySelectorAll(".nomeTagVideo").forEach(eldom => NomeTags.push(eldom.value))
+      console.log(NomeTags)
+      let Tags=[]
+      let tags=document.querySelectorAll(".tagVideo").forEach(eldom => Tags.push(eldom.value))
+      console.log(Tags)
+      let array=[]
+      let i=0;
+      for(let tag of Tags){
+        let obj={
+          nome:NomeTags[i],
+          tempo:tag
+        }
+        array.push(obj);
+        i+=1;
+      }
+      console.log(nome)
+      console.log(link)
+      console.log(array)
+
+    }
+})
+
+
+
 function addNivel(nome){
     let result = ''
     let levels=Level.getLevels()
@@ -249,7 +286,6 @@ function renderNivel() {
     console.log('olaa2')
     let levels=Level.getLevels()
     console.log('olaa3')
-    
     let i=0
     for (let level of levels) {
         i+=1

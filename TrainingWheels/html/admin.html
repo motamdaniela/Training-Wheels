@@ -109,7 +109,7 @@
           <form>
             <div class="input-group mb-3">
               <select class="form-select" id='tipo' aria-label="Default select example">
-                <option selected>Video</option>
+                <option selected value="video">Video</option>
                 <option value="teste">Teste</option>
               </select>          
               <button id="load" type="button" class="btn btn-primary">carregar</button>
@@ -123,7 +123,7 @@
             
           </form>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="addLicaoNivel" data-bs-dismiss="modal">Close</button>
           </div>
       </div>
     </div>
@@ -140,7 +140,7 @@
           <tr>
             <th scope="col">Nivel</th>
             <th scope="col">Nome</th>
-            <th scope="col"><button id="addNivel" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nivelModal">Add nivel</button></th>
+            <th scope="col"><button  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nivelModal">Add nivel</button></th>
           </tr>
         </thead>
         <tbody id="lessonbody">

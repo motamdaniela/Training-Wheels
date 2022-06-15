@@ -9,9 +9,10 @@ body{
     order: 1;
     display: flex;
     flex-direction: column;
-    /* justify-content: center;
-    align-items:center; */
+
 }
+
+
 
 #caderneta{
     width:200px;
@@ -19,15 +20,10 @@ body{
 
 fieldset{
     background-color: #FFFCCB;
-    width:1300px;
-    height:500px;
+    width:1100px;
+    height:550px;
     border-radius: 0px 10px 10px 10px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.container>button{
-    flex: auto;
+    
 }
 
 #pagina1{
@@ -42,4 +38,13 @@ fieldset{
     border-color: #D3F0EF;
     width:200px;
     border-radius: 10px 10px 0px 0px;
+    
+}
+
+.bright{
+    filter: brightness(1000%);
+}
+
+.hide {
+    display: none;
 }
