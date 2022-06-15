@@ -16,18 +16,38 @@ body{
     width:200px;
 }
 
-#fs1{
-    background-color: #9EC2D5;
+fieldset{
     width:1100px;
     height:550px;
     border-radius: 0px 10px 10px 10px;
+    background-image: url("../media/images/fundo_caderneta.svg");
+    background-repeat: no-repeat, repeat;
+}
+
+#fs1{
+    background-color: #9EC2D5;
+}
+.container1{
+    justify-content:center;
+    align-items:center;
+    padding:80px;
 }
 
 #fs2{
     background-color: #FFFCCB;
-    width:1100px;
-    height:550px;
-    border-radius: 0px 10px 10px 10px;
+}
+.container2{
+    justify-content:center;
+    align-items:center;
+    padding:80px;
+}
+
+#fs3{
+    background-color: #A8DDDB;
+}
+
+#fs4{
+    background-color: #F7BAB9;
 }
 
 #pagina1{
@@ -42,7 +62,20 @@ body{
     border-color: #FFFCCB;
     width:200px;
     border-radius: 10px 10px 0px 0px;
-    
+}
+
+#pagina3{
+    background-color: #A8DDDB;
+    border-color: #A8DDDB;
+    width:200px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+#pagina4{
+    background-color: #F7BAB9;
+    border-color: #F7BAB9;
+    width:200px;
+    border-radius: 10px 10px 0px 0px;
 }
 
 .bright{
