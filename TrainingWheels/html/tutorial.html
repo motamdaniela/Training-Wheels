@@ -62,18 +62,20 @@
   </div>
   
   <!----------------------------------------------->
-  
-  <div id="divVideo">
-    <video src="../media/videos/Sinalizacao_Luminosa.mp4" height="300" controls>
-    </video>
-    <h2 id="title"></h2>
-  </div>
-  
+<div class="theActualBody">
   <div class="grid-container">
     <div class="grid-item">
-      <div >
-      <img src="../media/images/faq.svg">
+      <h2 id="title"></h2>
+      <div class="divVideo">
+        <video src="../media/videos/Sinalizacao_Luminosa.mp4" height="300" controls></video>
+      </div>
+        <img id="heart" src="../media/images/heart.svg">
     </div>
+  
+    <div class="grid-item">
+      <div >
+        <img src="../media/images/etiquetas.svg" height="30px">
+      </div>
       
       <div class="list-group">
         <a id="tag" class="list-group-item list-group-item-action list-group-item-primary">Tag 1</a>
@@ -81,15 +83,14 @@
         <a id="tag" class="list-group-item list-group-item-action list-group-item-primary">Tag 3</a>
       </div>
     </div>
-  </div>
     <div class="grid-item">
       <fieldset><label>Comentarios</label></fieldset>
     </div>
     <div class="grid-item">
       escrever comentario
     </div>
-
-  <button type="button" id="btn" class="btn btn-primary">Button</button>
+  </div>
+</div>
   
   <script type='module' src="../js/views/tutorialView.js"></script>
   <script type='module' src="../js/views/navbarView.js"></script>

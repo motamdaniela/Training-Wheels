@@ -1,10 +1,12 @@
 import * as User from "../models/userModel.js";
 import * as Video from "../models/videoModel.js";
 import * as Level from "../models/levelModel.js";
+import * as Tag from "../models/tagsModel.js";
 
 User.init()
 Video.init()
 Level.init()
+Tag.init()
 
 const newAdminBtn = document.querySelector("#createBtn")
 newAdminBtn.addEventListener("click", (event) =>{
@@ -57,7 +59,7 @@ function displayMessage(message) {
                 <input type="text" class="form-control" id="nomeVideo" placeholder="Nome" aria-label="Nome" aria-describedby="basic-addon1">
               </div>
               <div class="input-group mb-3">
-                <input type="file" class="form-control" id="inputGroupFile01">
+                <input type="file" class="form-control" id="linkVideo">
               </div>
               <div class="formTags">
                 <div class="input-group mb-3">
@@ -203,8 +205,8 @@ function rankTable(){
             <th scope="row">${i}</th>
             <td>${user.username}</td>
             <td>perguntas</td>
-            <td><button id="blockBtn" type="button" class="btn btn-danger">Bloquear</button>
-            <button id="removeBtn" type="button" class="btn btn-danger">Remover</button></td>
+            <td><button type="button" class="btn btn-danger blockBtn">Bloquear</button>
+            <button type="button" class="btn btn-danger removeBtn">Remover</button></td>
           </tr>`
         }
     }
@@ -229,30 +231,30 @@ nivel.addEventListener("click", (event) =>{
 const licao = document.querySelector("#addLicaoNivel")
 licao.addEventListener("click", (event) =>{
     event.preventDefault()
-    console.log('olaa')
+    
+    
+    console.log(nivel)
     let tipo=document.querySelector("#tipo").value;
     if(tipo=='video'){
       let nome=document.querySelector("#nomeVideo").value;
       let link=document.querySelector("#linkVideo").value;
+      let result=link.substring(12)
+      console.log(result)
+      //C:\fakepath\
+      let linkCompleto='../media/videos/'+result
+      console.log(linkCompleto)
       let NomeTags=[]
       document.querySelectorAll(".nomeTagVideo").forEach(eldom => NomeTags.push(eldom.value))
       console.log(NomeTags)
       let Tags=[]
       document.querySelectorAll(".tagVideo").forEach(eldom => Tags.push(eldom.value))
       console.log(Tags)
-      let array=[]
-      let i=0;
-      for(let tag of Tags){
-        let obj={
-          nome:NomeTags[i],
-          tempo:tag
-        }
-        array.push(obj);
-        i+=1;
-      }
       console.log(nome)
-      console.log(link)
-      console.log(array)
+      let i=0
+      Tags.forEach(tag=>{
+        Tag.add(linkCompleto,tag,NomeTags[i])
+        i+=1
+      })
 
     }
 })
@@ -270,8 +272,8 @@ function addNivel(nome){
         <tr>
             <th scope="row">${i}</th>
             <th>${level.name}</th>
-            <td><button id="addLicao" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#licaoModal">Add lição</button>
-            <button id="addLicao" type="button" class="btn btn-danger">Remover lição</button></td>
+            <td><button  type="button" class="btn btn-primary addLicao" data-bs-toggle="modal" data-bs-target="#licaoModal">Add lição</button>
+            <button  type="button" class="btn btn-danger removeLicao">Remover lição</button></td>
         </tr>
             `
         }
@@ -280,6 +282,15 @@ function addNivel(nome){
     document.querySelector('#lessonbody').innerHTML += result;
 
 }
+
+let addBtns=document.querySelectorAll('.addLicao')
+for (let addBtn of addBtns){
+  addBtn.addEventListener('click', () =>{
+    let nivel= this.parentNode.parentNode.previousElementSibling.innerHTML;
+    console.log(nivel)
+  })
+}
+
 
 function renderNivel() {
     let result = ''

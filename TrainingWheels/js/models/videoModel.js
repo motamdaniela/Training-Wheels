@@ -7,11 +7,11 @@ export function init() {
 
 
 // ADICIONAR BANDA
-export function add(url, tags, name, level) {
+export function add(url,  name, level) {
   if (videos.some((video) => video.name === name)) {
     throw Error(`Video with name "${name}" already exists!`);
   } else {
-    videos.push(new Video(url, tags, name, level));
+    videos.push(new Video(url, name, level));
     localStorage.setItem("videos", JSON.stringify(videos));
   }
 }
@@ -57,15 +57,13 @@ export function getVideos(filterName = "", filterLevel = "", isSorted = false) {
 
 class Video{
     url =""
-    tags = []
     name =""
     level = ""
     likes =0
     comments =[]
 
-    constructor(url, tags, name,level,likes=0, comments=[]) {
+    constructor(url, name,level,likes=0, comments=[]) {
         this.url = url;
-        this.tags = tags;
         this.name = name;
         this.level = level;
         this.likes = likes
