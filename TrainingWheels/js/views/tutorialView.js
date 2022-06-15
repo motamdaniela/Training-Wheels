@@ -129,11 +129,13 @@ function CorrectAnswer(pointsEarned){
             video.pause()
             let points = document.querySelector('#pointsEarned')
             points.innerHTML = `+ ${popUp.pointsEarned}points`
+            let reward = document.querySelector('#reward')
+            reward.src = popUp.reward
             $("#congratsModal").modal('show');
             setTimeout(() => {
               $("#congratsModal").modal('hide');
               video.play();
-            }, 1500);
+            }, 1600);
           }, 200);
         })
       }

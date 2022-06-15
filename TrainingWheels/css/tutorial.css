@@ -24,3 +24,14 @@ body{
     
     
 }
+.rewardContent{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+fieldset{
+  background-color: #E7EDF1;
+  border-radius: 10px;
+}
