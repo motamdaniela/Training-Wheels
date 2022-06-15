@@ -9,23 +9,18 @@ body{
     justify-content: center;
   }
   
-.grid-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+.container {
   align-items: center;
-  padding: 100px;
   width: 100%;
 }
-.grid-item{
+.col{
   width: 50%;
   padding: 30px;
 }
 
-#video{
-    height:100%;
-  }
-
+video {
+  size: 100%;
+}
 
 .list-group{
     width: 360px;
@@ -42,6 +37,27 @@ fieldset{
   border-radius: 10px;
 }
 
-#heart.hover{
-  opacity: 10%;
+div>.tag{
+  background-color: #A8DDDB;
+  border-color: #137874;
+  color: #137874;
+}
+div>.tag:hover{
+  background-color: #56C4C0;
+  border-color: #137874;
+  color: #A8DDDB;
+}
+
+.heartIcon{
+  stroke: #DD5E5C;
+}
+
+.heartIcon:hover{
+  stroke: #DD5E5C;
+  fill: #DD5E5C;
+}
+
+video::-webkit-media-controls-fullscreen-button
+{
+        display: none !important;
 }

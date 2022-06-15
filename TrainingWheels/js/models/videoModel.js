@@ -40,19 +40,8 @@ export function sortVideos() {
 }
 
 // OBTER BANDAS (COM SUPORTE A FILTROS E ORDENAÇÕES)
-export function getVideos(filterName = "", filterLevel = "", isSorted = false) {
-  let filteredVideos = videos.filter(
-    (video) =>
-      (video.name.toLowerCase().includes(filterName.toLowerCase()) ||
-        filterName === "") &&
-      (video.genre == filterLevel || filterLevel === "")
-  );
-
-  filteredVideos = isSorted
-    ? filteredVideos.sort((a, b) => a.name.localeCompare(b.name))
-    : filteredVideos;
-
-  return filteredVideos;
+export function getVideos() {
+  return videos;
 }
 
 class Video{

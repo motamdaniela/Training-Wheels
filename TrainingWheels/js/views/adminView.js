@@ -8,6 +8,8 @@ Video.init()
 Level.init()
 Tag.init()
 
+
+
 const newAdminBtn = document.querySelector("#createBtn")
 newAdminBtn.addEventListener("click", (event) =>{
     event.preventDefault()
@@ -46,6 +48,16 @@ function displayMessage(message) {
     const errorMessage = document.querySelector("#errorSlot");
     errorMessage.innerHTML = `<div class="alert alert-danger" role="alert" id="errorSlot">${message}</div>`;
   }
+
+let levels=Level.getLevels()
+let resultado=''
+for(let level of levels){
+  resultado=`
+  <option value="${level.name}">${level.name}</option>
+  `
+  document.querySelector("#escolheNivel").innerHTML+=resultado
+}
+
 
   const load = document.querySelector("#load")
   load.addEventListener("click", (event) =>{
@@ -235,6 +247,7 @@ licao.addEventListener("click", (event) =>{
     if(tipo=='video'){
       let nome=document.querySelector("#nomeVideo").value;
       let link=document.querySelector("#linkVideo").value;
+      let nomeNivel=document.querySelector("#escolheNivel").value;
       let result=link.substring(12)
       console.log(result)
       //C:\fakepath\
@@ -247,16 +260,40 @@ licao.addEventListener("click", (event) =>{
       document.querySelectorAll(".tagVideo").forEach(eldom => Tags.push(eldom.value))
       console.log(Tags)
       console.log(nome)
+      console.log(nomeNivel)
       let i=0
       Tags.forEach(tag=>{
         Tag.add(linkCompleto,tag,NomeTags[i])
         i+=1
       })
+      Video.add(linkCompleto,nome,nomeNivel)
 
     }
 })
+function addLesson(){
+  let result = ''
+  let videos=Video.getVideos()
+  let tags=Tag.getTags()
+  let levels=Level.getLevels()
+  let i=0
+  for (let video of videos) {
+    let tag = tags.find(tag => tag.video === video.url);
+    if(tag.video === video.url ){
+      result += `
+      <tr>
+          <th scope="row">${video.level}</th>
+          <td>video -> ${tag.video}</td>
+          <td>
+          <button  type="button" class="btn btn-danger removeLicao">Remover tag</button></td>
+      </tr>
+          `
 
-
+    }
+      
+  }
+  document.querySelector('#lessonbody').innerHTML += result;
+}
+addLesson()
 
 function addNivel(nome){
     let result = ''
@@ -269,7 +306,7 @@ function addNivel(nome){
         <tr>
             <th scope="row">${i}</th>
             <th>${level.name}</th>
-            <td><button  type="button" class="btn btn-primary addLicao" data-bs-toggle="modal" data-bs-target="#licaoModal">Add lição</button>
+            <td>
             <button  type="button" class="btn btn-danger removeLicao">Remover lição</button></td>
         </tr>
             `
@@ -284,8 +321,9 @@ let addBtns=document.querySelectorAll('.addLicao')
 for (let addBtn of addBtns){
   addBtn.addEventListener('click', (event) =>{
     event.preventDefault()
-    $("#li").modal('show');
-    let idiota= addBtn.parentElement.previousElementSibling.innerHTML;
+    let idiota= this.parentElement.previousElementSibling.innerHTML;
+    $("#licaoModal").modal('show');
+    
     console.log(idiota)
   })
 }
@@ -303,7 +341,7 @@ function renderNivel() {
         <tr>
             <th scope="row">${i}</th>
             <th>${level.name}</th>
-            <td><button  type="button" class="btn btn-primary addLicao" data-bs-toggle="modal" data-bs-target="#licaoModal">Add lição</button>
+            <td>
             <button  type="button" class="btn btn-danger">Remover lição</button></td>
         </tr>
             `

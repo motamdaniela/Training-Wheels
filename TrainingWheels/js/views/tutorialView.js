@@ -63,6 +63,7 @@ function popUps(){
 
 const listTags = ['4:47', '5:01', '18:31']
 
+/*
 //"links" para as tags no grouplist
 for (const tagBtn of tagBtns){
   tagBtn.addEventListener('click', () => {
@@ -70,13 +71,23 @@ for (const tagBtn of tagBtns){
         time = convertTag(time)
         video.currentTime = time;
         video.play()
-    })
+      })
   }
-  
+  */
+let popUps = PopUpQuestions.getPopUp()
+ 
+ function tagsList(){
+   let tagsList = document.querySelector(".tagsList")
+   popUps.forEach((popUp)=>{
+    tagsList.innerHTML = `
+    <a class="list-group-item list-group-item-action list-group-item tag">${popUps.tag}</a>
+    `
+  })
+}
+tagsList()
 
 
-
-  /*
+/*
   //--------------------funcao modals corresponde tag
   video.addEventListener('timeupdate', ()=>{
     perguntas.forEach((pergunta) => {
@@ -92,13 +103,13 @@ for (const tagBtn of tagBtns){
   */
 
 function Questions(){
-  let popUps = PopUpQuestions.getPopUp()
   let question = document.querySelector('#questionPopUp')
   let imagePopUp = document.querySelector('#imagePopUp')
   let answers = document.querySelector('#answersPopUp')
   popUps.forEach((popUp) => {
     let time = convertTag(popUp.tag)
     if (video.currentTime >= time && video.currentTime <= time + 0.1){
+      console.log('something')
       question.innerHTML = popUp.question
       imagePopUp.src = popUp.image
       answers.innerHTML = `

@@ -13,6 +13,10 @@ export function add(video, tag, name) {
     // }
   }
 
+export function getTags() {
+  return tags;
+}
+
 class Tag{
     video = ''
     tag = ''

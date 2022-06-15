@@ -108,6 +108,12 @@
           </div>
           <form>
             <div class="input-group mb-3">
+              <select class="form-select" id='escolheNivel' aria-label="Default select example">
+                <!-- <option selected value="video">Video</option>
+                <option value="teste">Teste</option> -->
+              </select>          
+            </div>
+            <div class="input-group mb-3">
               <select class="form-select" id='tipo' aria-label="Default select example">
                 <option selected value="video">Video</option>
                 <option value="teste">Teste</option>
@@ -123,7 +129,45 @@
             
           </form>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" id="addLicaoNivel" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="addLicaoNivel" data-bs-dismiss="modal">Adicionar</button>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalPopup" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Adicionar Popup</h4>
+          </div>
+          <form>
+            <div class="input-group mb-3">
+              <select class="form-select" id='escolheVideo' aria-label="Default select example">
+                <!-- <option selected value="video">Video</option>
+                <option value="teste">Teste</option> -->
+              </select>          
+            </div>
+            <div id="formPopup">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control perguntaTeste" placeholder="Pergunta" aria-label="Tag" aria-describedby="basic-addon1">
+              </div>
+              <div class="input-group mb-3">
+                <input type="file" class="form-control" id="linkImg">            
+              </div>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control opcao_certa" placeholder="Opção certa" aria-label="Link Video" aria-describedby="basic-addon1">  
+                <input type="text" class="form-control opcao" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">          
+              </div>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control opcao" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">  
+                <input type="text" class="form-control opcao" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">          
+              </div>
+            </div>
+            
+          </form>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="addLicaoNivel" data-bs-dismiss="modal">Adicionar</button>
           </div>
       </div>
     </div>
@@ -140,7 +184,9 @@
           <tr>
             <th scope="col">Nivel</th>
             <th scope="col">Nome</th>
-            <th scope="col"><button  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nivelModal">Add nivel</button></th>
+            <th scope="col"><button  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nivelModal">Add nivel</button>
+              <button  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#licaoModal">Add lição</button>
+            </th>
           </tr>
         </thead>
         <tbody id="lessonbody">
@@ -148,6 +194,22 @@
           
         </tbody>
       </table>
+
+      <!-- tabela popup -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nivel</th>
+            <th scope="col">Nome video</th>
+            <th scope="col">Tempo</th>
+            <th scope="col"><button  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalPopup">Add popup</button></th>
+          </tr>
+        </thead>
+        <tbody id="rankbody">
+        </tbody>
+      </table>
+
+
         <table class="table">
             <thead>
               <tr>
@@ -160,6 +222,8 @@
             <tbody id="rankbody">
             </tbody>
           </table>
+        </table>
+        
     </div>
 
     <script type='module' src="../js/views/adminView.js"></script>
