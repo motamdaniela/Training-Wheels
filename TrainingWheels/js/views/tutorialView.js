@@ -135,7 +135,7 @@ function CorrectAnswer(pointsEarned){
             setTimeout(() => {
               $("#congratsModal").modal('hide');
               video.play();
-            }, 1600);
+            }, 1500);
           }, 200);
         })
       }
