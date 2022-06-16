@@ -11,7 +11,6 @@ body{
 
   
 video {
-  size: 100%;
   border-radius: 10px;
 }
 
@@ -90,9 +89,16 @@ video::-webkit-media-controls-fullscreen-button
 }
 
 .commentsField{
-  background-color: #A8DDDB;
+  background-color:  #FFF8F8;
   padding: 10px;
   margin: 10px;
+  width: 100%;
+  border-radius: 10px;
+}
+.leaveComentField{
+  background-color:  #A8DDDB;
+  padding: 10px;
+  margin: 20px;
   width: 100%;
   border-radius: 10px;
 }
@@ -121,11 +127,12 @@ fieldset{
 }
 
 #fs1,#fs2,#fs3,#fs4{
-  background-color: #FFFFED;
+  background-color: #fdfdde;
+  padding: 20px;
 }
 
 #pagina1, #pagina2, #pagina3, #pagina4{
-  background-color: #FFFFED;
+  background-color: #fdfdde;
   width:200px;
   border-radius: 10px 10px 0px 0px;
 }

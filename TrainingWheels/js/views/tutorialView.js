@@ -98,35 +98,37 @@ function Questions(){
   let cluesN = document.querySelector("#cluesN")
   let pointsN = document.querySelector("#pointsN")
   allPopUps.forEach((allPopUp) => {
-     let time = convertTag(allPopUp.tag)
-     if (video.currentTime >= time && video.currentTime <= time + 0.2){
-       console.log('it runs')
-       question.innerHTML = allPopUp.question
-       imagePopUp.src = allPopUp.image
-       cluesN.innerHTML = currentUser.clues + ' pistas'
-       pointsN.innerHTML = currentUser.points + ' pontos'
-       let randomBtns = shuffle(allPopUp.answers)
-       answers.innerHTML = `
-       <div class="row row-cols-2">
-         <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[0]}" data-bs-dismiss="modal">${randomBtns[0]}</button></div>
-         <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[1]}" data-bs-dismiss="modal">${randomBtns[1]}</button></div>
-         <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[2]}" data-bs-dismiss="modal">${randomBtns[2]}</button></div>
-         <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[3]}" data-bs-dismiss="modal">${randomBtns[3]}</button></div>
-       </div>
-       `
-      video.pause();
-      OpenBootstrapPopup();
-      CorrectAnswer();
+    if(allPopUp.video === title.innerHTML){
+      let time = convertTag(allPopUp.tag)
+      if (video.currentTime >= time && video.currentTime <= time + 0.2){
+        console.log('it runs')
+        question.innerHTML = allPopUp.question
+        imagePopUp.src = allPopUp.image
+        cluesN.innerHTML = currentUser.clues + ' pistas'
+        pointsN.innerHTML = currentUser.points + ' pontos'
+        let randomBtns = shuffle(allPopUp.answers)
+        answers.innerHTML = `
+        <div class="row row-cols-2">
+          <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[0]}" data-bs-dismiss="modal">${randomBtns[0]}</button></div>
+          <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[1]}" data-bs-dismiss="modal">${randomBtns[1]}</button></div>
+          <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[2]}" data-bs-dismiss="modal">${randomBtns[2]}</button></div>
+          <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[3]}" data-bs-dismiss="modal">${randomBtns[3]}</button></div>
+        </div>
+        `
+       video.pause();
+       OpenBootstrapPopup();
+       CorrectAnswer(allPopUp.correctAnswer, allPopUp.pointsEarned, allPopUp.reward);
+     }
     }
   })
 }
 
 //funcao que descobre se a resposta esta certa ou nao
-function CorrectAnswer(){
+function CorrectAnswer(gotAnswer, gotPoints, Reward){
   let answerBtns = document.querySelectorAll('.answerBtn');
   allPopUps.forEach((allPopUp) => {
     answerBtns.forEach((answerBtn) => {
-      if(answerBtn.id === allPopUp.correctAnswer){
+      if(answerBtn.id === gotAnswer){
         answerBtn.addEventListener('click',()=>{
           setTimeout(() => {
             $("#congratsModal").modal('hide');
@@ -136,6 +138,11 @@ function CorrectAnswer(){
             points.innerHTML = `+ ${allPopUp.pointsEarned} pontos`
             let reward = document.querySelector('#reward')
             reward.src = allPopUp.reward
+
+            currentUser.points += gotPoints
+            currentUser.stickersLvl.push(Reward)
+            console.log(currentUser.username, currentUser.stickersLvl, gotPoints, Reward)
+
             $("#congratsModal").modal('show');
             setTimeout(() => {
               $("#congratsModal").modal('hide');
