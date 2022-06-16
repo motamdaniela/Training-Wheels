@@ -5,7 +5,7 @@ export function init() {
   }
 
 export function add() {
-    exercicios.push(new Test(name, level, sticker));
+    testes.push(new Test(name, level, sticker));
     localStorage.setItem("testes", JSON.stringify(testes));
 }
 

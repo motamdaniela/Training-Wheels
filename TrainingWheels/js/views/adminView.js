@@ -322,6 +322,7 @@ licao.addEventListener("click", (event) =>{
       let result=sticker.substring(12)
       let linkSticker='../media/stickers/'+result
       Test.add(titulo,nomeNivel,linkSticker)
+      location.reload()
     }
 })
 function addLesson(){
@@ -337,7 +338,7 @@ function addLesson(){
           <th scope="row">${video.level}</th>
           <td>video -> ${video.name}</td>
           <td>
-          <button  type="button" class="btn btn-danger removeLicao">Remover tag</button></td>
+          <button  type="button" class="btn btn-danger removeLicao">Remover video</button></td>
       </tr>
           `
 
@@ -347,6 +348,26 @@ function addLesson(){
   document.querySelector('#lessonbody').innerHTML += result;
 }
 addLesson()
+
+function addTest(){
+  let result = ''
+  let testes=Test.getTests()
+  for (let teste of testes) {
+    result += `
+    <tr>
+        <th scope="row">${teste.level}</th>
+        <td>teste -> ${teste.name}</td>
+        <td>
+        <button  type="button" class="btn btn-danger removeLicao">Remover teste</button></td>
+    </tr>
+        `
+
+    
+      
+  }
+  document.querySelector('#lessonbody').innerHTML += result;
+}
+addTest()
 
 function addPopup(){
   let result = ''

@@ -45,7 +45,7 @@ for (const btn2 of btns2) {
         console.log(precoNum)
         console.log(user.points) 
         let stickersBuy=[]
-        document.querySelectorAll(".nomeTagVideo").forEach(eldom => NomeTags.push(eldom.value))
+        document.querySelectorAll(".comprar-stickers").forEach(eldom => stickersBuy.push(eldom.value))
         const conf=document.querySelector('#confirmar_compra2')
         conf.addEventListener('click',function(){
             if(precoNum<=user.points){
@@ -54,8 +54,8 @@ for (const btn2 of btns2) {
             }else{ 
                 alert('Não tem pontos suficientes para fazer esta compra')
                 $("#stickersModal").modal('hide');
-                // user.stickersBuy.push("hi"); 
-                console.log(user.stickersBuy) 
+                stickersBuy.push("hi"); 
+                console.log(stickersBuy) 
                 
             }
         }) 
