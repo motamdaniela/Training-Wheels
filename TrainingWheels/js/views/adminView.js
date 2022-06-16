@@ -3,12 +3,16 @@ import * as Video from "../models/videoModel.js";
 import * as Level from "../models/levelModel.js";
 import * as Tag from "../models/tagsModel.js";
 import * as PopUp from "../models/popupModel.js";
+import * as Test from "../models/testModel.js";
+import * as Question from "../models/questionModel.js";
 
 User.init()
 Video.init()
 Level.init()
 Tag.init()
 PopUp.init()
+Test.init()
+Question.init()
 
 
 
@@ -116,7 +120,7 @@ load.addEventListener("click", (event) =>{
     }else{
       result=`
       <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Título" aria-label="Titulo" aria-describedby="basic-addon1">
+              <input type="text" class="form-control" id="titulo" placeholder="Título" aria-label="Titulo" aria-describedby="basic-addon1">
             </div>
             <h4>Sticker</h4>
             <div class="input-group mb-3">
@@ -271,7 +275,7 @@ popup.addEventListener("click", (event) =>{
     let resultImg=img.substring(12)
     let linkImg='../media/images/'+resultImg
     let op_certa=document.querySelector("#opcao_certa_popup").value;
-    let opcoes=[]
+    let opcoes=[] 
     document.querySelectorAll(".opcao_popup").forEach(eldom => opcoes.push(eldom.value))
     let sticker=document.querySelector("#linkSticker").value;
     let resultSticker=sticker.substring(12)
@@ -313,13 +317,11 @@ licao.addEventListener("click", (event) =>{
       location.reload()
     }else{
       let nomeNivel=document.querySelector("#escolheNivel").value;
+      let titulo=document.querySelector("#titulo").value;
       let sticker=document.querySelector("#linkStickerTest").value;
       let result=sticker.substring(12)
       let linkSticker='../media/stickers/'+result
-      let perguntasM=[]
-      document.querySelectorAll(".perguntaTesteM").forEach(eldom => perguntasM.push(eldom.value))
-      let certasM=[]
-      document.querySelectorAll(".opcao_certaM").forEach(eldom => certasM.push(eldom.value))
+      Test.add(titulo,nomeNivel,linkSticker)
     }
 })
 function addLesson(){

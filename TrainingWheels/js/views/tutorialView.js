@@ -47,7 +47,6 @@ function convertTag(time){
    Questions()
  })
 
-
 //--------------------lista de etiquetas associadas às tags
  function tagsList(){
   let string = ''
@@ -61,11 +60,12 @@ function convertTag(time){
   tagBtns = Array.from(tagBtns)
   tagBtns.forEach((tagBtn) => {
     tagBtn.addEventListener('click',()=>{
-      allTags.forEach((tag)=>{
-        if(tagBtn.innerHtml === tag.name){
-          console.log('something')
-          time = convertTag(tag.tag)
+      allTags.forEach((alltag)=>{
+        if(alltag.name === tagBtn.innerHTML){
+          let time = convertTag(alltag.tag)
+          console.log(time)
           video.currentTime = time
+          video.play()
         }
       })
     })
@@ -73,29 +73,48 @@ function convertTag(time){
 }
 tagsList()
 
+function shuffle(array) {
+  let currentIndex = array.length,  randomIndex;
 
- 
- function Questions(){
-   let popUps = PopUpQuestions.getPopUp() 
-   let question = document.querySelector('#questionPopUp')
-   let imagePopUp = document.querySelector('#imagePopUp')
-   let answers = document.querySelector('#answersPopUp')
-   popUps.forEach((popUp) => {
-     let time = convertTag(popUp.tag)
-     if (video.currentTime >= time && video.currentTime <= time + 0.1){
-       console.log('something')
-       question.innerHTML = popUp.question
-       imagePopUp.src = popUp.image
+  // While there remain elements to shuffle.
+  while (currentIndex != 0) {
+
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+}
+
+
+function Questions(){
+  let question = document.querySelector('#questionPopUp')
+  let imagePopUp = document.querySelector('#imagePopUp')
+  let answers = document.querySelector('#answersPopUp')
+  allPopUps.forEach((allPopUp) => {
+     let time = convertTag(allPopUp.tag)
+     if (video.currentTime >= time ){
+       console.log('it runs')
+       question.innerHTML = allPopUp.question
+       imagePopUp.src = allPopUp.image
+       let randomBtns = shuffle(allPopUp.answers)
+       console.log(randomBtns)
        /*
        answers.innerHTML = `
        <div class="row row-cols-2">
-         <div class="col"><button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[0]}" data-bs-dismiss="modal">${popUp.answers[0]}</button></div>
-         <div class="col"><button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[0]}" data-bs-dismiss="modal">${popUp.answers[1]}</button></div>
-         <div class="col"><button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[0]}" data-bs-dismiss="modal">${popUp.answers[2]}</button></div>
-         <div class="col"><button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[0]}" data-bs-dismiss="modal">${popUp.answers[3]}</button></div>
+       <div class="col"><button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[0]}" data-bs-dismiss="modal">${popUp.answers[0]}</button></div>
+       <div class="col"><button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[0]}" data-bs-dismiss="modal">${popUp.answers[1]}</button></div>
+       <div class="col"><button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[0]}" data-bs-dismiss="modal">${popUp.answers[2]}</button></div>
+       <div class="col"><button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[0]}" data-bs-dismiss="modal">${popUp.answers[3]}</button></div>
        </div>
        `
        */
+      
       video.pause();
       OpenBootstrapPopup();
       CorrectAnswer();
@@ -103,6 +122,38 @@ tagsList()
   })
 }
 
+/*
+//funcao que descobre se a resposta esta certa
+function CorrectAnswer(pointsEarned){
+  let answerBtns = document.querySelectorAll('.answerBtn');
+  let popUps = PopUpQuestions.getPopUp()
+  let modal = document.querySelector('#myModal')
+  popUps.forEach((popUp) => {
+    answerBtns.forEach((answerBtn) => {
+      if(answerBtn.id === popUp.correctAnswer){
+        answerBtn.addEventListener('click',()=>{
+          setTimeout(() => {
+            $("#congratsModal").modal('hide');
+            video.play();
+            video.pause()
+            let points = document.querySelector('#pointsEarned')
+            points.innerHTML = `+ ${popUp.pointsEarned}points`
+            let reward = document.querySelector('#reward')
+            reward.src = popUp.reward
+            $("#congratsModal").modal('show');
+            setTimeout(() => {
+              $("#congratsModal").modal('hide');
+              video.play();
+            }, 1500);
+          }, 200);
+        })
+      }
+    })
+  })
+}
+*/
+
+/*
 //funcao que descobre se a resposta esta certa
 function CorrectAnswer(){
   let answerBtns = document.querySelectorAll('.answerBtn');
@@ -141,3 +192,4 @@ function CorrectAnswer(){
     })
   })
 }
+*/

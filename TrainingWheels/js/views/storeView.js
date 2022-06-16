@@ -1,11 +1,8 @@
 import * as User from "../models/userModel.js";
-import * as Progress from "../models/progressModel.js"
 
 User.init()
-Progress.init()
 let user=User.getUserLogged()
-let progress = Progress.getProgress()
-document.querySelector('#pontos').innerHTML=`Pontos: ${progress.points} `
+document.querySelector('#pontos').innerHTML=`Pontos: ${user.points} `
 
 let btns=document.querySelectorAll('.comprar-clues')
 for (let btn of btns) {
@@ -18,10 +15,10 @@ for (let btn of btns) {
        console.log(preco)
        let precoNum = +preco.slice(0,2)
        console.log(precoNum)
-       console.log(progress.points)
+       console.log(user.points)
        const conf=document.querySelector('#confirmar_compra')
        conf.addEventListener('click',function(){
-        if(precoNum<=progress.points){
+        if(precoNum<=user.points){
             let numPista = +nome.slice(0,1)
             console.log(numPista)
             user.clues+=numPista
@@ -46,17 +43,17 @@ for (const btn2 of btns2) {
         console.log(preco)
         let precoNum = +preco.slice(0,2)
         console.log(precoNum)
-        console.log(progress.points)
+        console.log(user.points) 
+        let stickersBuy=[]
+        document.querySelectorAll(".nomeTagVideo").forEach(eldom => NomeTags.push(eldom.value))
         const conf=document.querySelector('#confirmar_compra2')
         conf.addEventListener('click',function(){
-            if(precoNum<=progress.points){
-                // user.stickersBuy.push(getId)
-                // console.log(user.stickersBuy)
-                // progress.points -= precoNum
+            if(precoNum<=user.points){
+                
+                // user.points -= precoNum
             }else{ 
                 alert('Não tem pontos suficientes para fazer esta compra')
                 $("#stickersModal").modal('hide');
-                let getId;
                 // user.stickersBuy.push("hi"); 
                 console.log(user.stickersBuy) 
                 
