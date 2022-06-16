@@ -60,10 +60,10 @@
                 <div>
                   <div class="container">
                   <div class="row">
-                    <div class="col">
-                      <h2 id="title"></h2>
+                    <div class="col-7">
+                      <h2 id="title">Sinalização Luminosa</h2>
                       <div class="divVideo">
-                        <video src="../media/videos/Sinalizacao_Luminosa.mp4" height="300" controls></video>
+                        <video src="../media/videos/Sinalizacao_Luminosa.mp4" height="350 %" controls></video>
                       </div>
                       <i class="heartIcon" data-feather="heart"></i>
                     </div>
@@ -77,21 +77,25 @@
                 </div>
                 </div>
               </div>
-
+              <br><br>
 
               <div class="row">
                 <div>
                   <div class="container">
                   <div class="row">
-                    <div class="col">
+                    <div class="col-8">
                       <img id="comentariosTitle" src="../media/images/comentarios.svg" height="30px">
                       <fieldset class="commentsField">
                         comentssss
                       </fieldset>
                     </div>
                     <div class="col">
-                      <fieldset>
-                        <label>Escrever comentario</label>
+                      <fieldset class="leaveComentField">
+                        <label>Dê a sua opinião!</label>
+                        <div class="form-floating">
+                          <textarea id="commentTextArea" class="form-control" placeholder="Leave a comment here" style="height: 150px; resize: none;"></textarea>
+                          <label for="floatingTextarea2"></label>
+                        </div>
                       </fieldset>
                     </div>
                   </div>
@@ -220,8 +224,8 @@
   <!-----MODALS------------------------------------------>
   <!--Modal Prgunta errada-->
   <div id="wrongModal" class="modal animated slide-up">
-    <div class="modal-dialog">
-      <div>
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
         <div class="modal-body rewardContent">
           <h5>Resposta errada!</h5>
           <img src="../media/images/sadgilf.svg" height="50px">
@@ -232,7 +236,7 @@
 
   <!--Modal Prgunta certa-->
   <div id="congratsModal" class="modal animated slide-up">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-body">
           <h5>Parabéns!</h5>
@@ -278,7 +282,10 @@
   <button id="btnP" class="btn btn-primary" width = 100%>pop ups</button>
 </div>
 
- <script type='module' src="../js/views/atest.js"></script>
+
+
+
+<script type='module' src="../js/views/atest.js"></script>
 <script type='module' src="../js/views/tutorialView.js"></script>
 <script type='module' src="../js/views/navbarView.js"></script>
 <script>
