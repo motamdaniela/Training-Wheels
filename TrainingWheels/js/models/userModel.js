@@ -7,7 +7,7 @@ export function init() {
 
 export function remove(username) {
   let user = users.filter((user) => user.username == username);
-  localStorage.removeItem("user", JSON.stringify(user));
+  localStorage.removeItem(user);
 }
 
 // ADICIONAR UTILIZADOR

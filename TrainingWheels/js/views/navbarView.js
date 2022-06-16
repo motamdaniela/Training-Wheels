@@ -22,7 +22,7 @@ function navbarView() {
       </a>
     </li>
     <li>
-      <a href="#" class="nav-link py-3 " >
+      <a href="html/aboutUs.html" class="nav-link py-3 " >
         <i class="nav-icon" data-feather="info"></i>    
         <span class="nav-text">Sobre nós</span>    
       </a>

@@ -180,34 +180,72 @@ loadPerg.addEventListener("click", (event) =>{
 
 
 function rankTable(){
-    let result = ''
-    let users= User.getUsers()
-    console.log(users)
-    
-    let i=0
-    for (let user of users) {
-        if(user.type == 'user'){
-            i+=1
+  let nomes=rankingOrder()
+  let result = ''
+  let users= User.getUsers()
+  console.log(users)
+  
+  let i=0
+  for (let user of users) {
+      if(user.type == 'user'){
+        let nome = nomes.find(nome => nome.name === user.username);
+          i+=1
+          if(nome.name==user.username ){
             result += `
-            <tr>
-            <th scope="row">${i}</th>
-            <td>${user.username}</td>
-            <td>perguntas</td>
-            <td><button type="button" class="btn btn-danger blockBtn">Bloquear</button>
-            <button type="button" class="btn btn-danger removeUser">Remover</button></td>
-          </tr>`
-        }
-    }
-    
-    document.querySelector('#rankbody').innerHTML += result;
+          <tr>
+          <th scope="row">${i}</th>
+          <td>${user.username}</td>
+          <td><i class="nav-icon" data-feather="check"></i> ${user.ranking[0]}<i class="nav-icon" data-feather="x"></i>${user.ranking[1]}</td>
+          <td><button type="button" class="btn btn-danger blockBtn">Bloquear</button>
+          <button type="button" class="btn btn-danger removeUser">Remover</button></td>
+        </tr>`
+
+          }
+          
+      }
+  }
+  
+  document.querySelector('#rankbody').innerHTML += result;
     
 }
 rankTable()
 
-const removeUserBtns = document.querySelector(".removeuser")
+function rankingOrder(){
+  let array=[]
+  let users=User.getUsers()
+  for(let user of users){
+    let respostasCertas= +user.ranking[0]
+    let respostasErradas= +user.ranking[1]
+    let total=respostasCertas+respostasErradas
+    let conta
+    if(total==0){
+      conta=0
+    }else{
+      conta=respostasCertas/total
+    }
+    let coiso=user.username
+    let idk={
+      name:coiso,
+      rank:conta
+
+    }
+    array.push(idk)
+  }
+  console.log(array)
+  array.sort(function(a, b) { return (b-a);});
+  console.log(array)
+
+  return array
+
+}
+
+const removeUserBtns = document.querySelectorAll(".removeUser")
 for(let removeUserBtn of removeUserBtns){
   removeUserBtn.addEventListener("click", function(){ 
-    username=this.p
+    let username=this.parentNode.previousElementSibling.previousElementSibling.innerHTML
+    console.log(username)
+    User.remove(username)
+    location.reload()
   })
 }
 
@@ -421,4 +459,4 @@ function addNivel(){
 
 }
 addNivel()
-
+feather.replace()

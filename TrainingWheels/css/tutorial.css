@@ -1,13 +1,24 @@
 body{
   background-color: #FFF8F8;
+  display:flex;
+  flex-direction: column;
+  font-family: 'ABC-Regular', sans-serif;
 }
 .theActualBody{
-    background-color: #FEFCFC;
     display:flex;
     font-family: 'ABC-Regular', sans-serif;
     color: #2D2F44;
     justify-content: center;
   }
+  
+video {
+  size: 100%;
+  border-radius: 10px;
+}
+
+#etiquetas{
+  margin-bottom: 20px;
+}
 
 .btn{
   background-color: #4B94BC;
@@ -23,10 +34,6 @@ body{
   padding: 30px;
 }
 
-video {
-  size: 100%;
-}
-
 .list-group{
     width: 360px;
 }
@@ -35,11 +42,6 @@ video {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-}
-
-fieldset{
-  background-color: #E7EDF1;
-  border-radius: 10px;
 }
 
 div>.tag{
@@ -89,10 +91,91 @@ video::-webkit-media-controls-fullscreen-button
   height: 100%;
 }
 
-.wrong{
-  background-color: #F7BAB9;
+
+
+
+
+
+.container{
+  order: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-.right{
-  background: #A8DDDB;
+fieldset{
+  width:95%px;
+  border-radius: 10px;
+}
+
+#fs1{
+  background-color: #9EC2D5;
+}
+.container1{
+  justify-content:center;
+  align-items:center;
+  padding:10px;
+}
+
+#fs2{
+  background-color: #FFFCCB;
+}
+.container2{
+  justify-content:center;
+  align-items:center;
+  padding:80px;
+}
+
+#fs3{
+  background-color: #A8DDDB;
+}
+.container3{
+  justify-content:center;
+  align-items:center;
+  padding:80px;
+}
+
+#fs4{
+  background-color: #F7BAB9;
+}
+.container4{
+  justify-content:center;
+  align-items:center;
+  padding:80px;
+}
+
+#pagina1{
+  background-color: #9EC2D5;
+  border-color: #9EC2D5;
+  width:200px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+#pagina2{
+  background-color: #FFFCCB;
+  border-color: #FFFCCB;
+  width:200px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+#pagina3{
+  background-color: #A8DDDB;
+  border-color: #A8DDDB;
+  width:200px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+#pagina4{
+  background-color: #F7BAB9;
+  border-color: #F7BAB9;
+  width:200px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.dark{
+  filter: brightness(0%);
+  opacity: 50%;
+}
+
+.hide {
+  display: none;
 }

@@ -1,7 +1,9 @@
+import * as User from '../models/userModel.js';
 import * as Levels from '../models/levelModel.js';
 import * as Videos from '../models/videoModel.js';
 import * as Tags from '../models/tagsModel.js';
 import * as PopUpQuestions from '../models/PopUpModel.js';
+User.init()
 Levels.init()
 Videos.init()
 Tags.init()
@@ -13,13 +15,13 @@ let allTags = Tags.getTags();
 let allPopUps = PopUpQuestions.getPopUp();
 
 //const annotations = localStorage.annotations ? JSON.parse(localStorage.annotations) : []
-const video = document.querySelector('video')
-const myModal = document.getElementById('myModal')
-const title = document.querySelector('#title')
+const video = document.querySelector('video');
+const myModal = document.getElementById('myModal');
+const title = document.querySelector('#title');
 
 // PREENCHIMENTO AUTOMATICO DO NOME DO FICHEIRO DE VIDEO
-let videoName = video.src.split('/')[video.src.split('/').length - 1]
-videoName = videoName.substr(0, videoName.indexOf('.')).replaceAll('_',' ')
+let videoName = video.src.split('/')[video.src.split('/').length - 1];
+videoName = videoName.substr(0, videoName.indexOf('.')).replaceAll('_',' ');
 title.innerHTML = videoName
 
 //funcao que abre a modal
@@ -160,43 +162,53 @@ function CorrectAnswer(){
 }
 
 
-/*
-//funcao que descobre se a resposta esta certa
-function CorrectAnswer(){
-  let answerBtns = document.querySelectorAll('.answerBtn');
-  let popUps = PopUpQuestions.getPopUp()
-  popUps.forEach((popUp) => {
-    answerBtns.forEach((answerBtn) => {
-      if(answerBtn.id === popUp.correctAnswer){
-        answerBtn.addEventListener('click',()=>{
-          setTimeout(() => {
-            $("#myModal").modal('hide');
-            video.pause();
-            let points = document.querySelector('#pointsEarned')
-            points.innerHTML = `+ ${popUp.pointsEarned}points`
-            let reward = document.querySelector('#reward')
-            reward.src = popUp.reward
-            $("#congratsModal").modal('show');
-            setTimeout(() => {
-              $("#congratsModal").modal('hide');
-              video.play();
-            }, 1500);
-          }, 200);
-        })
-      }else{
-        answerBtn.addEventListener('click', ()=>{
-          $("#myModal").modal('hide');
-          video.pause()
-          setTimeout(()=>{
-            $("#wrongModal").modal('show');
-            setTimeout(()=>{
-              $("#wrongModal").modal('hide');
-              video.play()
-            }, 1000);
-          }, 200);
-        })
-      }
-    })
-  })
-}
-*/
+
+
+//----------------- js paginas
+let btn1 = document.querySelector('.field1')
+btn1.addEventListener('click', function() {
+    var field1 = document.getElementById("fs1");
+    var field2 = document.getElementById("fs2");
+    var field3 = document.getElementById("fs3");
+    var field4 = document.getElementById("fs4");
+    field1.classList.remove('hide');
+    field2.classList.add('hide') ;
+    field3.classList.add('hide');
+    field4.classList.add('hide');
+})
+
+let btn2 = document.querySelector('.field2')
+btn2.addEventListener('click', function() {
+    var field1 = document.getElementById("fs1");
+    var field2 = document.getElementById("fs2");
+    var field3 = document.getElementById("fs3");
+    var field4 = document.getElementById("fs4");
+    field1.classList.add('hide');
+    field2.classList.remove('hide');
+    field3.classList.add('hide');
+    field4.classList.add('hide');
+})
+
+let btn3 = document.querySelector('.field3')
+btn3.addEventListener('click', function(){
+    var field1 = document.getElementById("fs1");
+    var field2 = document.getElementById("fs2");
+    var field3 = document.getElementById("fs3");
+    var field4 = document.getElementById("fs4");
+    field1.classList.add('hide');
+    field2.classList.add('hide');
+    field3.classList.remove('hide');
+    field4.classList.add('hide');
+})
+
+let btn4 = document.querySelector('.field4')
+btn4.addEventListener('click', function(){
+    var field1 = document.getElementById("fs1");
+    var field2 = document.getElementById("fs2");
+    var field3 = document.getElementById("fs3");
+    var field4 = document.getElementById("fs4");
+    field1.classList.add('hide');
+    field2.classList.add('hide');
+    field3.classList.add('hide');
+    field4.classList.remove('hide');
+})
