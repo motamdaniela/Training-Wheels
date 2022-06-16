@@ -8,7 +8,12 @@ body{
     color: #2D2F44;
     justify-content: center;
   }
-  
+
+.btn{
+  background-color: #4B94BC;
+  color: #252131;
+}
+
 .container {
   align-items: center;
   width: 100%;
@@ -60,4 +65,14 @@ div>.tag:hover{
 video::-webkit-media-controls-fullscreen-button
 {
         display: none !important;
+}
+
+#answersPopUp{
+  margin: 0px;
+  align-items: center;
+}
+.row, .col, .popupbtns{
+  margin:0px;
+  align-items: center;
+  justify-content: center;
 }

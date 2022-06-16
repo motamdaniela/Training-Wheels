@@ -8,9 +8,7 @@ PopUpQuestions.init()
 //const annotations = localStorage.annotations ? JSON.parse(localStorage.annotations) : []
 
 const video = document.querySelector('video')
-const divVideo = document.querySelector('#divVideo')
 const title = document.querySelector('#title')
-const duration = document.querySelector('#duration')
 
 // PREENCHIMENTO AUTOMATICO DO NOME DO FICHEIRO DE VIDEO
 let videoName = video.src.split('/')[video.src.split('/').length - 1]
@@ -37,9 +35,6 @@ function convertTag(time){
     return time
 }
 const myModal = document.getElementById('myModal')
-
-let tagBtns = document.querySelectorAll('#tag')
-tagBtns = Array.from(tagBtns)
 
 
 
@@ -73,7 +68,10 @@ for (const tagBtn of tagBtns){
   */
 
   
-
+ 
+ video.addEventListener('timeupdate', () => {
+   Questions()
+ })
  
  function tagsList(){
    let popUps = PopUpQuestions.getPopUp()
@@ -83,9 +81,16 @@ for (const tagBtn of tagBtns){
     <a class="list-group-item list-group-item-action list-group-item tag">${popUp.tag}</a>
     `
   })
-  console.log(popUps.length)
   document.querySelector(".tagsList").innerHTML = string
+  let tagBtns = document.querySelectorAll('.tag')
+  tagBtns = Array.from(tagBtns)
+  tagBtns.forEach((tagBtn) => {
+    tagBtn.addEventListener('click',()=>{
+      video.currentTime = convertTag(tagBtn.innerHTML)
+    })
+  })
 }
+
 tagsList()
 
 /*
@@ -103,41 +108,39 @@ tagsList()
     });
   })
   */
-
-function Questions(){
-  let popUps = PopUpQuestions.getPopUp() 
-  let question = document.querySelector('#questionPopUp')
-  let imagePopUp = document.querySelector('#imagePopUp')
-  let answers = document.querySelector('#answersPopUp')
-  let timesList = []
-  popUps.forEach((popUp) => {
-    let time = convertTag(popUp.tag)
-    timesList.push(time)
-  console.log(timesList)
-  timesList.forEach((time) =>{
-    if (video.currentTime >= time && video.currentTime <= time + 0.1){
-      console.log('its getting there')
-      question.innerHTML = popUp.question
-      imagePopUp.src = popUp.image
-      answers.innerHTML = `
-      <button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[0]}" data-bs-dismiss="modal">${popUp.answers[0]}</button>
-      <button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[1]}" data-bs-dismiss="modal">${popUp.answers[1]}</button>
-      <button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[2]}" data-bs-dismiss="modal">${popUp.answers[2]}</button>
-      <button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[3]}" data-bs-dismiss="modal">${popUp.answers[3]}</button>
-      `
+ 
+ function Questions(){
+   let popUps = PopUpQuestions.getPopUp() 
+   let question = document.querySelector('#questionPopUp')
+   let imagePopUp = document.querySelector('#imagePopUp')
+   let answers = document.querySelector('#answersPopUp')
+   popUps.forEach((popUp) => {
+     let time = convertTag(popUp.tag)
+     if (video.currentTime >= time && video.currentTime <= time + 0.1){
+       console.log('something')
+       question.innerHTML = popUp.question
+       imagePopUp.src = popUp.image
+       /*
+       answers.innerHTML = `
+       <div class="row row-cols-2">
+         <div class="col"><button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[0]}" data-bs-dismiss="modal">${popUp.answers[0]}</button></div>
+         <div class="col"><button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[0]}" data-bs-dismiss="modal">${popUp.answers[1]}</button></div>
+         <div class="col"><button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[0]}" data-bs-dismiss="modal">${popUp.answers[2]}</button></div>
+         <div class="col"><button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[0]}" data-bs-dismiss="modal">${popUp.answers[3]}</button></div>
+       </div>
+       `
+       */
       video.pause();
       OpenBootstrapPopup();
-      CorrectAnswer(popUp.pointsEarned);
+      CorrectAnswer();
     }
-    })
   })
 }
 
 //funcao que descobre se a resposta esta certa
-function CorrectAnswer(pointsEarned){
+function CorrectAnswer(){
   let answerBtns = document.querySelectorAll('.answerBtn');
   let popUps = PopUpQuestions.getPopUp()
-  let modal = document.querySelector('#myModal')
   popUps.forEach((popUp) => {
     answerBtns.forEach((answerBtn) => {
       if(answerBtn.id === popUp.correctAnswer){
@@ -145,9 +148,9 @@ function CorrectAnswer(pointsEarned){
           setTimeout(() => {
             $("#congratsModal").modal('hide');
             video.play();
-            video.pause()
+            video.pause();
             let points = document.querySelector('#pointsEarned')
-            points.innerHTML = `+ ${pointsEarned}points`
+            points.innerHTML = `+ ${popUp.pointsEarned}points`
             let reward = document.querySelector('#reward')
             reward.src = popUp.reward
             $("#congratsModal").modal('show');
@@ -163,15 +166,11 @@ function CorrectAnswer(pointsEarned){
 }
 
 
-video.addEventListener('timeupdate', () => {
-  Questions()
-})
 
   
   
   
   //-------Perguntas
-  
   
   let perguntas = [
     {
@@ -213,6 +212,7 @@ let btn = document.querySelector('#btn')
 btn.addEventListener('click',()=>{
   perguntas.forEach((pergunta)=>{
     PopUpQuestions.add(pergunta.question, pergunta.image, pergunta.answers, pergunta.correctAnswer, pergunta.reward, pergunta.level, pergunta.video, pergunta.tag, pergunta.pointsEarned)
+  btn.disabled = true
   })
 })
 

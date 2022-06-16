@@ -36,41 +36,46 @@
 <body>
 
   
-  <!----------------------------------------------->
+  <!-----MODALS------------------------------------------>
   <div id="congratsModal" class="modal animated slide-up">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Parabéns!</h5>
-        </div>
         <div class="modal-body">
+          <h5>Parabéns!</h5>
           <div class="rewardContent">
-            <fieldset>
-              <img id="reward" src="" height="200px">
-            </fieldset>
-            <fieldset>
-              <img src="../media/images/point.svg" height="50px">
-              <p id="pointsEarned"></p>
-            </fieldset>
+            <img id="reward" src="" height="200px">
+            <img src="../media/images/point.svg" height="50px">
+            <p id="pointsEarned"></p>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+
+<!--Modal Prgunta pop up-->
   <div id="myModal" class="modal hide" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
-      <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title" id="questionPopUp">Pergunta</h4>
+          <h5 class="modal-title" id="questionPopUp">Pergunta</h5>
+          <div id="inventory">
+            <img src="../media/images/point.svg" height="25px"><p id="pointsN"></p>
+            <img src="../media/stickers/key.svg" height="25px"><p id="cluesN"></p>
+          </div>
         </div>
-        <img id="imagePopUp" src="../media/images/imagem.svg">
-        <div id="answersPopUp" class="btn-group" role="group" aria-label="Basic example">
-          
+        <img id="imagePopUp" src="../media/images/imagem.svg" height="250 %"></img>
+        <div id="answersPopUp" class="container popupbtns" aria-label="Basic example">
+
+            <div class="row row-cols-2">
+              <div class="col"><button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[0]}" data-bs-dismiss="modal">${popUp.answers[0]}</button></div>
+              <div class="col"><button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[0]}" data-bs-dismiss="modal">${popUp.answers[1]}</button></div>
+              <div class="col"><button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[0]}" data-bs-dismiss="modal">${popUp.answers[2]}</button></div>
+              <div class="col"><button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[0]}" data-bs-dismiss="modal">${popUp.answers[3]}</button></div>
+            </div>
+
         </div>
-        
         <div class="modal-footer">
+          <button id="clueBtn" type="button" class="btn btn-primary"> <img src="../media/stickers/key.svg" height="15px"> Dá-me uma pista</button>
         </div>
       </div>
     </div>
