@@ -90,7 +90,7 @@ video::-webkit-media-controls-fullscreen-button
 }
 
 .commentsField{
-  background-color: #FFF8F8;
+  background-color: #A8DDDB;
   padding: 10px;
   margin: 10px;
   width: 100%;
@@ -113,66 +113,19 @@ fieldset{
   border-radius: 0px 10px 10px 10px;
 }
 
-#fs1{
-  background-color: #9EC2D5;
-}
-.container1{
+
+.container1, .container2, .container3, .container4{
   justify-content:center;
   align-items:center;
   padding:10px;
 }
 
-#fs2{
-  background-color: #FFFCCB;
-}
-.container2{
-  justify-content:center;
-  align-items:center;
-  padding:80px;
+#fs1,#fs2,#fs3,#fs4{
+  background-color: #FFFFED;
 }
 
-#fs3{
-  background-color: #A8DDDB;
-}
-.container3{
-  justify-content:center;
-  align-items:center;
-  padding:80px;
-}
-
-#fs4{
-  background-color: #F7BAB9;
-}
-.container4{
-  justify-content:center;
-  align-items:center;
-  padding:80px;
-}
-
-#pagina1{
-  background-color: #9EC2D5;
-  border-color: #9EC2D5;
-  width:200px;
-  border-radius: 10px 10px 0px 0px;
-}
-
-#pagina2{
-  background-color: #FFFCCB;
-  border-color: #FFFCCB;
-  width:200px;
-  border-radius: 10px 10px 0px 0px;
-}
-
-#pagina3{
-  background-color: #A8DDDB;
-  border-color: #A8DDDB;
-  width:200px;
-  border-radius: 10px 10px 0px 0px;
-}
-
-#pagina4{
-  background-color: #F7BAB9;
-  border-color: #F7BAB9;
+#pagina1, #pagina2, #pagina3, #pagina4{
+  background-color: #FFFFED;
   width:200px;
   border-radius: 10px 10px 0px 0px;
 }

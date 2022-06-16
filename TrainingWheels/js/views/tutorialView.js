@@ -17,14 +17,12 @@ let currentUser = User.getUserLogged()
 
 
 //const annotations = localStorage.annotations ? JSON.parse(localStorage.annotations) : []
-const video = document.querySelector('video');
 const myModal = document.getElementById('myModal');
-const title = document.querySelector('#title');
+let video = document.querySelector('video');
+let title = document.querySelector('#title');
+let comments = ''
 
-// PREENCHIMENTO AUTOMATICO DO NOME DO FICHEIRO DE VIDEO
-let videoName = video.src.split('/')[video.src.split('/').length - 1];
-videoName = videoName.substr(0, videoName.indexOf('.')).replaceAll('_',' ');
-title.innerHTML = videoName
+
 
 //funcao que abre a modal
 function OpenBootstrapPopup() {
@@ -55,8 +53,8 @@ function convertTag(time){
  function tagsList(){
   let videoTitle = document.querySelector("#title").innerHTML
   let string = ''
-  console.log(allTags)
   allTags.forEach((allTag)=>{
+    console.log(allTag.video)
     if(allTag.video === videoTitle){
       string += `
       <a class="list-group-item list-group-item-action list-group-item tag">${allTag.name}</a>
@@ -80,25 +78,19 @@ function convertTag(time){
 }
 tagsList()
 
+//-----------funcao que baralha(para as respostas)
 function shuffle(array) {
   let currentIndex = array.length,  randomIndex;
-
-  // While there remain elements to shuffle.
   while (currentIndex != 0) {
-
-    // Pick a remaining element.
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
-
-    // And swap it with the current element.
     [array[currentIndex], array[randomIndex]] = [
       array[randomIndex], array[currentIndex]];
   }
-
   return array;
 }
 
-
+//-------------funcao para abrir a modal de perguntas pop up automaticamente
 function Questions(){
   let question = document.querySelector('#questionPopUp')
   let imagePopUp = document.querySelector('#imagePopUp')

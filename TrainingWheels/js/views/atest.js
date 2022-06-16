@@ -12,7 +12,6 @@ document.querySelector('#btn').addEventListener('click',()=>{
   levelsList.forEach((level) => {
     Levels.add(level)
   });
-  btn.disabled = true
 });
 
 //-----------------------------------videos
@@ -37,7 +36,6 @@ document.querySelector('#btnV').addEventListener('click',()=>{
   videosList.forEach((video) => {
     Videos.add(video.url, video.name, video.level)
   });
-  btn.disabled = true
 });
 
 
@@ -76,14 +74,13 @@ let tagsList = [
     {
       video: 'Marcas Rodoviárias',
       tag: '16:23',
-      name: 'Sinais para transporte coletivo passageiros',
+      name: 'Somethings wrong',
     },
 ];
 document.querySelector('#btnT').addEventListener('click',()=>{
   tagsList.forEach((tag) => {
     Tags.add(tag.video, tag.tag, tag.name)
   });
-  btn.disabled = true
 });
 
 //-----------------------------------tags
@@ -114,5 +111,7 @@ document.querySelector('#btnP').addEventListener('click',()=>{
   popUpsList.forEach((popUp) => {
     PopUpQuestions.add(popUp.question, popUp.image, popUp.answers, popUp.correctAnswer, popUp.reward, popUp.video, popUp.tag, popUp.pointsEarned)
   });
-  btn.disabled = true
 });
+
+
+//btn.disabled = true
