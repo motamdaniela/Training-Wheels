@@ -52,8 +52,21 @@ btn4.addEventListener('click', function(){
 })
 
 function viewStickers () {
+    let allStickers = [];
+    let names = document.getElementsByClassName('sticker')
+    Array.prototype.forEach.call(names, function(name) {
+        allStickers.push(name.id)
+    });    
+    console.log(allStickers)
     
-    console.log(user.stickersBuy)
-    // stickers.indexOf() === -1 ? : ;
+    allStickers.forEach((sticker) => {
+        var something = document.getElementById(sticker)
+        if(user.stickersBuy.indexOf(sticker) === -1){
+            something.classList.add('dark');
+        } else {
+            something.classList.remove('dark');
+        }
+    });
+     
 }
 viewStickers()
