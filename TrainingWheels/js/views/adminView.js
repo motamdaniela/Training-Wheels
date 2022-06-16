@@ -58,6 +58,16 @@ for(let level of levels){
   document.querySelector("#escolheNivel").innerHTML+=resultado
 }
 
+let videos=Video.getVideos()
+let resultadoPopup=''
+for(let video of videos){
+  resultadoPopup=`
+  <option value="${video.name}">${video.name}</option>
+  `
+  document.querySelector("#escolheVideoPopup").innerHTML+=resultadoPopup
+}
+
+
 
   const load = document.querySelector("#load")
   load.addEventListener("click", (event) =>{
@@ -267,14 +277,13 @@ licao.addEventListener("click", (event) =>{
         i+=1
       })
       Video.add(linkCompleto,nome,nomeNivel)
-
+      location.reload()
     }
 })
 function addLesson(){
   let result = ''
   let videos=Video.getVideos()
   let tags=Tag.getTags()
-  let levels=Level.getLevels()
   let i=0
   for (let video of videos) {
     let tag = tags.find(tag => tag.video === video.url);
@@ -282,7 +291,7 @@ function addLesson(){
       result += `
       <tr>
           <th scope="row">${video.level}</th>
-          <td>video -> ${tag.video}</td>
+          <td>video -> ${video.name}</td>
           <td>
           <button  type="button" class="btn btn-danger removeLicao">Remover tag</button></td>
       </tr>
