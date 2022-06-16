@@ -15,8 +15,6 @@ let allTags = Tags.getTags();
 let allPopUps = PopUpQuestions.getPopUp();
 let currentUser = User.getUserLogged()
 
-console.log( User.getUserLogged())
-
 
 //const annotations = localStorage.annotations ? JSON.parse(localStorage.annotations) : []
 const video = document.querySelector('video');
