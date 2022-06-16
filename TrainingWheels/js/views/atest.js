@@ -46,7 +46,7 @@ let tagsList = [
     {
       tag: '0:20',
       name: 'Semaforo',
-      video: 'Sinalizacao Luminosa',
+      video: 'Sinalização Luminosa',
     },
     {
       video: 'Sinalização Luminosa',
@@ -70,6 +70,11 @@ let tagsList = [
     },
     {
       video: 'Sinalização Luminosa',
+      tag: '16:23',
+      name: 'Sinais para transporte coletivo passageiros',
+    },
+    {
+      video: 'Marcas Rodoviárias',
       tag: '16:23',
       name: 'Sinais para transporte coletivo passageiros',
     },
