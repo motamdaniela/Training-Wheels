@@ -64,6 +64,15 @@ for(let level of levels){
   document.querySelector("#escolheNivel").innerHTML+=resultado
 }
 
+let testes=Test.getTests()
+let resultadoTeste=''
+for (let teste of testes) {
+  resultadoTeste=`
+  <option value="${teste.name}">${teste.name}</option>
+  `
+  document.querySelector("#escolherTeste").innerHTML+=resultadoTeste
+}
+
 let videos=Video.getVideos()
 let resultadoPopup=''
 for(let video of videos){
@@ -128,105 +137,53 @@ load.addEventListener("click", (event) =>{
               </div>
       `
       document.querySelector('#formLicoes').innerHTML = result;
-      let loadPergunta = document.querySelector("#loadPergunta")
-      loadPergunta.addEventListener("click", (event) =>{
-        event.preventDefault()
-      let resultPerg = ''
-      
-      const tipoPerg=document.querySelector('#tipoPergunta').value
+    }    
+})
+
+const loadPerg = document.querySelector("#loadPergunta")
+loadPerg.addEventListener("click", (event) =>{
+    let result = ''
+    event.preventDefault()
+    const tipoPerg=document.querySelector('#tipoPergunta').value
       if(tipoPerg=='Escolha Multipla'){
-        resultPerg=`<div class="input-group mb-3">
-        <input type="text" class="form-control perguntaTesteM" placeholder="Pergunta" aria-label="Tag" aria-describedby="basic-addon1">
+        result=`<div class="input-group mb-3">
+        <input type="text" class="form-control" id="perguntaTeste" placeholder="Pergunta" aria-label="Tag" aria-describedby="basic-addon1">
       </div>
       <h4>Imagem</h4>
       <div class="input-group mb-3">
-        <input type="file" class="form-control imgPergM" >            
+        <input type="file" class="form-control " id="imgPerg" >            
       </div>
       <div class="input-group mb-3">
-        <input type="text" class="form-control opcao_certaM" placeholder="Opção certa" aria-label="Link Video" aria-describedby="basic-addon1">  
-        <input type="text" class="form-control opcaoM" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">          
+        <input type="text" class="form-control" id="opcao_certa" placeholder="Opção certa" aria-label="Link Video" aria-describedby="basic-addon1">  
+        <input type="text" class="form-control opcao" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">          
       </div>
       <div class="input-group mb-3">
-        <input type="text" class="form-control opcaoM" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">  
-        <input type="text" class="form-control opcaoM" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">          
+        <input type="text" class="form-control opcao" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">  
+        <input type="text" class="form-control opcao" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">          
       </div>
       <div class="input-group mb-3">
-        <input type="number" class="form-control pontosM" placeholder="Pontos a receber" aria-describedby="basic-addon1">
+        <input type="number" class="form-control" id="pontosTeste" placeholder="Pontos a receber" aria-describedby="basic-addon1">
       </div>
-      <hr>
         `
       }else{
-        resultPerg=`<div class="input-group mb-3">
-        <input type="text" class="form-control perguntaTesteVF" placeholder="Pergunta" aria-label="Tag" aria-describedby="basic-addon1">
+        result=`<div class="input-group mb-3">
+        <input type="text" class="form-control" id="perguntaTeste" placeholder="Pergunta" aria-label="Tag" aria-describedby="basic-addon1">
       </div>
       <h4>Imagem</h4>
       <div class="input-group mb-3">
-        <input type="file" class="form-control imgPergVF">            
+        <input type="file" class="form-control" id="imgPerg">            
       </div>
       <div class="input-group mb-3">
-        <input type="text" class="form-control opcao_certaVF" placeholder="Opção certa" aria-label="Link Video" aria-describedby="basic-addon1">  
-        <input type="text" class="form-control opcaoVF" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">          
+        <input type="text" class="form-control" id="opcao_certaVF" placeholder="Opção certa" aria-label="Link Video" aria-describedby="basic-addon1">  
+        <input type="text" class="form-control" id="opcaoVF" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">          
       </div>
       <div class="input-group mb-3">
-        <input type="number" class="form-control pontosVF" placeholder="Pontos a receber" aria-describedby="basic-addon1">
+        <input type="number" class="form-control " id="pontosTeste" placeholder="Pontos a receber" aria-describedby="basic-addon1">
       </div>
-      <hr>
         `
       }
-      document.querySelector('#formPerguntas').innerHTML += resultPerg;
+      document.querySelector('#formPergunta').innerHTML = result;
 
-      let addPerg = document.querySelector("#addPerg")
-      addPerg.addEventListener("click", (event) =>{
-        event.preventDefault()
-        let maisPerg = ''
-        
-        let tipoPerg2=document.querySelector('#tipoPergunta').value
-        if(tipoPerg2=='Escolha Multipla'){
-          maisPerg=`<div class="input-group mb-3">
-        <input type="text" class="form-control perguntaTesteM" placeholder="Pergunta" aria-label="Tag" aria-describedby="basic-addon1">
-      </div>
-      <h4>Imagem</h4>
-      <div class="input-group mb-3">
-        <input type="file" class="form-control imgPergM">            
-      </div>
-      <div class="input-group mb-3">
-        <input type="text" class="form-control opcao_certaM" placeholder="Opção certa" aria-label="Link Video" aria-describedby="basic-addon1">  
-        <input type="text" class="form-control opcaoM" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">          
-      </div>
-      <div class="input-group mb-3">
-        <input type="text" class="form-control opcaoM" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">  
-        <input type="text" class="form-control opcaoM" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">          
-      </div>
-      <div class="input-group mb-3">
-        <input type="number" class="form-control pontosM" placeholder="Pontos a receber" aria-describedby="basic-addon1">
-      </div>
-      <hr>
-        `
-        }else{
-          maisPerg=`<div class="input-group mb-3">
-        <input type="text" class="form-control perguntaTesteVF" placeholder="Pergunta" aria-label="Tag" aria-describedby="basic-addon1">
-      </div>
-      <h4>Imagem</h4>
-      <div class="input-group mb-3">
-        <input type="file" class="form-control imgPergVF">            
-      </div>
-      <div class="input-group mb-3">
-        <input type="text" class="form-control opcao_certaVF" placeholder="Opção certa" aria-label="Link Video" aria-describedby="basic-addon1">  
-        <input type="text" class="form-control opcaoVF" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">          
-      </div>
-      <div class="input-group mb-3">
-        <input type="number" class="form-control pontosVF" placeholder="Pontos a receber" aria-describedby="basic-addon1">
-      </div>
-      <hr>
-        `
-        }
-
-        document.querySelector('#formPerguntas').innerHTML += maisPerg;
-      })
-
-
-    })
-    }    
 })
 
 
@@ -317,11 +274,13 @@ licao.addEventListener("click", (event) =>{
       location.reload()
     }else{
       let nomeNivel=document.querySelector("#escolheNivel").value;
+      console.log(nomeNivel);
+      console.log(1)
       let titulo=document.querySelector("#titulo").value;
       let sticker=document.querySelector("#linkStickerTest").value;
       let result=sticker.substring(12)
       let linkSticker='../media/stickers/'+result
-      Test.add(titulo,nomeNivel,linkSticker)
+      Test.add(titulo, nomeNivel, linkSticker)
       location.reload()
     }
 })

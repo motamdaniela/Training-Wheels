@@ -88,7 +88,7 @@ class User {
     progress = {}
     clues = 0
     points = 0
-    book = {}
+    book = {} 
     stickersLvl =[]
     stickersBuy =[]
 

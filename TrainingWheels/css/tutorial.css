@@ -71,16 +71,25 @@ video::-webkit-media-controls-fullscreen-button
   margin: 0px;
   align-items: center;
 }
-.row, .col, .popupbtns{
-  margin:0px;
+
+.buttonsPopUp{
+  margin-left:1000px;
   align-items: center;
   justify-content: center;
 }
 
-#wrongModal{
+.zeBtns, .col{
+  color: #252131;
+  margin: -20px;
+  margin-left: -20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrong{
   background-color: #F7BAB9;
 }
 
-#congratsModal{
-  background-color: #A8DDDB;
+.right{
+  background: #A8DDDB;
 }

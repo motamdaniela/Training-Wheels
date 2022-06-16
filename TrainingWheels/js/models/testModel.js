@@ -4,7 +4,7 @@ export function init() {
     testes = localStorage.testes ? JSON.parse(localStorage.testes) : [];
   }
 
-export function add() {
+export function add(name, level, sticker) {
     testes.push(new Test(name, level, sticker));
     localStorage.setItem("testes", JSON.stringify(testes));
 }

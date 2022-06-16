@@ -1,3 +1,7 @@
+import * as User from "../models/userModel.js";
+
+User.init()
+let user=User.getUserLogged()
 
 let btn1 = document.querySelector('.field1')
 btn1.addEventListener('click', function() {
@@ -47,3 +51,8 @@ btn4.addEventListener('click', function(){
     field4.classList.remove('hide');
 })
 
+function viewStickers () {
+    let stickers = user.stickersBuy 
+    console.log(stickers)
+    // stickers.indexOf() === -1 ? stickers.push(getId) : alert("Este sticker já foi comprado");
+}

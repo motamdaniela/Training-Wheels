@@ -89,7 +89,7 @@ fieldset{
     border-radius: 10px 10px 0px 0px;
 }
 
-.bright{
+.dark{
     filter: brightness(0%);
     opacity: 50%;
 }

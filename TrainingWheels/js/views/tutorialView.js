@@ -117,7 +117,7 @@ function Questions(){
       
       video.pause();
       OpenBootstrapPopup();
-      CorrectAnswer();
+      //CorrectAnswer();
     }
   })
 }
