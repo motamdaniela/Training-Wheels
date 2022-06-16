@@ -72,7 +72,6 @@ h3{
 fieldset{
   color:#252131;
   border-radius: 10px;
-  padding: 300px;
 }
 
 .red{
@@ -89,4 +88,18 @@ fieldset{
 
 .blue{
   background-color: #9EC2D5;
+}
+.nav-icon {
+  display: flex;
+  justify-content: center;
+  height: 600px;
+  margin-left: 20px;
+}
+.sizeUp{
+  padding: 30px;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
