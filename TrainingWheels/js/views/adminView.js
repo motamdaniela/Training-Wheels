@@ -14,8 +14,6 @@ PopUp.init()
 Test.init()
 Question.init()
 
-
-
 const newAdminBtn = document.querySelector("#createBtn")
 newAdminBtn.addEventListener("click", (event) =>{
     event.preventDefault()
@@ -81,8 +79,6 @@ for(let video of videos){
   `
   document.querySelector("#escolheVideoPopup").innerHTML+=resultadoPopup
 }
-
-
 
 const load = document.querySelector("#load")
 load.addEventListener("click", (event) =>{
@@ -184,11 +180,10 @@ function rankTable(){
   let result = ''
   let users= User.getUsers()
   console.log(users)
-  
   let i=0
-  for (let user of users) {
-      if(user.type == 'user'){
-        let nome = nomes.find(nome => nome.name === user.username);
+  for (let nome of nomes) {
+        let user = users.find(user => nome.name === user.username);
+        if(user.type == 'user'){
           i+=1
           if(nome.name==user.username ){
             result += `
@@ -232,7 +227,7 @@ function rankingOrder(){
     array.push(idk)
   }
   console.log(array)
-  array.sort(function(a, b) { return (b-a);});
+  array.sort(function(a, b) { return (b.rank-a.rank);});
   console.log(array)
 
   return array
@@ -245,6 +240,16 @@ for(let removeUserBtn of removeUserBtns){
     let username=this.parentNode.previousElementSibling.previousElementSibling.innerHTML
     console.log(username)
     User.remove(username)
+    location.reload()
+  })
+}
+
+const removePergBtns = document.querySelectorAll(".removePergunta")
+for(let removePergBtn of removePergBtns){
+  removePergBtn.addEventListener("click", function(){ 
+    let perg=this.parentNode.previousElementSibling.innerHTML
+    console.log(perg)
+    Question.remove(perg)
     location.reload()
   })
 }
@@ -384,7 +389,7 @@ function addTest(){
         <th scope="row">${teste.level}</th>
         <td>teste -> ${teste.name}</td>
         <td>
-        <button  type="button" class="btn btn-danger removeLicao">Remover teste</button></td>
+        <button  type="button" class="btn btn-danger removeTeste">Remover teste</button></td>
     </tr>
         `
   }
@@ -405,7 +410,7 @@ function addQuestion(){
         <td>${pergunta.test_name}</td>
         <td>${pergunta.question}</td>
         <td>
-        <button  type="button" class="btn btn-danger removeLicao">Remover pergunta</button></td>
+        <button type="button" class="btn btn-danger removePergunta">Remover pergunta</button></td>
     </tr>
         `
 
@@ -429,7 +434,7 @@ function addPopup(){
           <td>${popup.video}</td>
           <td>${popup.tag}</td>
           <td>
-          <button  type="button" class="btn btn-danger removePopup">Remover tag</button></td>
+          <button  type="button" class="btn btn-danger removePopup">Remover popup</button></td>
       </tr>
           `   
     }
@@ -449,11 +454,9 @@ function addNivel(){
           <th scope="row">${i}</th>
           <th>${level.name}</th>
           <td>
-          <button  type="button" class="btn btn-danger removeNivel">Remover lição</button></td>
+          <button  type="button" class="btn btn-danger removeNivel">Remover nivel</button></td>
       </tr>
-          `
-        
-        
+          `  
     }
     document.querySelector('#lessonbody').innerHTML += result;
 

@@ -13,6 +13,10 @@ let allLevels = Levels.getLevels();
 let allVideos = Videos.getVideos();
 let allTags = Tags.getTags();
 let allPopUps = PopUpQuestions.getPopUp();
+let currentUser = User.getUserLogged()
+
+console.log( User.getUserLogged())
+
 
 //const annotations = localStorage.annotations ? JSON.parse(localStorage.annotations) : []
 const video = document.querySelector('video');
@@ -98,14 +102,19 @@ function Questions(){
   let question = document.querySelector('#questionPopUp')
   let imagePopUp = document.querySelector('#imagePopUp')
   let answers = document.querySelector('#answersPopUp')
+  let cluesN = document.querySelector("#cluesN")
+  let pointsN = document.querySelector("#pointsN")
+
+
   allPopUps.forEach((allPopUp) => {
      let time = convertTag(allPopUp.tag)
      if (video.currentTime >= time && video.currentTime <= time + 0.2){
        console.log('it runs')
        question.innerHTML = allPopUp.question
        imagePopUp.src = allPopUp.image
+       cluesN.innerHTML = currentUser.clues
+       pointsN.innerHTML = currentUser.points
        let randomBtns = shuffle(allPopUp.answers)
-       console.log(randomBtns)
        answers.innerHTML = `
        <div class="row row-cols-2">
          <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[0]}" data-bs-dismiss="modal">${randomBtns[0]}</button></div>
@@ -133,7 +142,7 @@ function CorrectAnswer(){
             video.play();
             video.pause();
             let points = document.querySelector('#pointsEarned')
-            points.innerHTML = `+ ${allPopUp.pointsEarned}points`
+            points.innerHTML = `+ ${allPopUp.pointsEarned} pontos`
             let reward = document.querySelector('#reward')
             reward.src = allPopUp.reward
             $("#congratsModal").modal('show');

@@ -81,8 +81,9 @@ function pageView(){
         
         let users=User.getUsers()
         let cont=0;
-        for(let user of users){
-          let nome = nomes.find(nome => nome.name === user.username);
+        for (let nome of nomes) {
+          let user = users.find(user => nome.name === user.username);
+          if(user.type == 'user'){
           console.log(nome)
             cont+=1;
           if(cont<4 && nome.name==user.username ){
@@ -95,6 +96,7 @@ function pageView(){
           
           }
           }
+        }
           
         let reviews=Review.getReviews()
         
@@ -180,9 +182,7 @@ function rankingOrder(){
     }
     array.push(idk)
   }
-  array.sort(function(a, b) {
-    return (b-a);
-  } );
+  array.sort(function(a, b) { return (b.rank-a.rank);});
 
   return array
 

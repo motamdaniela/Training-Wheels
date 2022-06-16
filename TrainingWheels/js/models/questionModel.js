@@ -13,6 +13,11 @@ export function getQuestions() {
     return perguntas;
 }
 
+export function remove(question) {
+    perguntas = perguntas.filter((pergunta) => pergunta.question !== question);
+    localStorage.setItem("perguntas", JSON.stringify(perguntas));
+}
+
 class Question{
     test_name=''
     question=''

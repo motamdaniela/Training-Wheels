@@ -6,8 +6,8 @@ export function init() {
 }
 
 export function remove(username) {
-  let user = users.filter((user) => user.username == username);
-  localStorage.removeItem(user);
+  users = users.filter((user) => user.username !== username);
+  localStorage.setItem("users", JSON.stringify(users));
 }
 
 // ADICIONAR UTILIZADOR
@@ -111,7 +111,6 @@ class User {
         this.progress = progress;
         this.clues = clues;
         this.points = points;
-        this.book = book;
         this.stickersLvl = stickersLvl
         this.stickersBuy = stickersBuy
     }
