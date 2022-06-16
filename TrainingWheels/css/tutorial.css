@@ -76,3 +76,11 @@ video::-webkit-media-controls-fullscreen-button
   align-items: center;
   justify-content: center;
 }
+
+#wrongModal{
+  background-color: #F7BAB9;
+}
+
+#congratsModal{
+  background-color: #A8DDDB;
+}

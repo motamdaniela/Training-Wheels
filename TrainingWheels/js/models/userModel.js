@@ -106,6 +106,6 @@ class User {
         this.clues = clues;
         this.book = book;
         stickersLvl = stickersLvl
-        stickersBuy = stickersBuy
+        this.stickersBuy = stickersBuy
     }
 }

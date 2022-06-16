@@ -48,10 +48,10 @@ class Video{
     url =""
     name =""
     level = ""
-    likes =0
-    comments =[]
+    likes = 0
+    comments = []
 
-    constructor(url, name,level,likes=0, comments=[]) {
+    constructor(url, name ='', level='', likes=0, comments=[]) {
         this.url = url;
         this.name = name;
         this.level = level;

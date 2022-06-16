@@ -1,31 +1,24 @@
-export default class exercise{
-    id=''
-    question=''
+let exercicios
+
+export function init() {
+    exercicios = localStorage.exercicios ? JSON.parse(localStorage.exercicios) : [];
+  }
+
+class Exercise{
+    nome=''
+    question=[]
     answers=[]
     correctAnswer=''
-    level=0
+    level=''
 
-    constructor(id, question, answers, correctAnswer, level) {
-        this.#id = id;
-        this.#question = question;
-        this.#answers = answers;
-        this.#correctAnswer = correctAnswer;
-        this.#level = level;
+    constructor(nome, question, answers, correctAnswer, level) {
+        this.nome = nome;
+        this.question = question;
+        this.answers = answers;
+        this.correctAnswer = correctAnswer;
+        this.level = level;
     }
 
-    get getId () { return this.#id; }
-    set setId (value) { this.#id = value; }
-
-    get getQuestion () { return this.#question; }
-    set setQuestion (value) { this.#question = value; }
-
-    get getAnswers () {return this.#answers;}
-    set setAnswers (value) { this.#answers = value;}
-
-    get getCorrectAnswer () {return this.#correctAnswer}
-    set setCorrectAnswer (value) { this.#correctAnswer = value}
-
-    get getLevel () {return this.#level}
-    set setLevel (value) { this.#level = value}
+    
 
 }

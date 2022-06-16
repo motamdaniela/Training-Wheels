@@ -1,13 +1,20 @@
+import * as Levels from '../models/levelModel.js';
+import * as Videos from '../models/videoModel.js';
+import * as Tags from '../models/tagsModel.js';
 import * as PopUpQuestions from '../models/PopUpModel.js';
-//import * as Videos from '../models/videoModel.js';
-//import * as Tags from '../models/tagModel.js';
+Levels.init()
+Videos.init()
+Tags.init()
 PopUpQuestions.init()
-//Videos.init()
-//Tags.init()
+
+let allLevels = Levels.getLevels();
+let allVideos = Videos.getVideos();
+let allTags = Tags.getTags();
+let allPopUps = PopUpQuestions.getPopUp();
 
 //const annotations = localStorage.annotations ? JSON.parse(localStorage.annotations) : []
-
 const video = document.querySelector('video')
+const myModal = document.getElementById('myModal')
 const title = document.querySelector('#title')
 
 // PREENCHIMENTO AUTOMATICO DO NOME DO FICHEIRO DE VIDEO
@@ -32,82 +39,41 @@ function convertTag(time){
   let minutes = +time.substr(0, time.indexOf(':'))
   let seconds = +time.substr(time.indexOf(':')+1, time.length)
   time = (minutes*60) + seconds
-    return time
+  return time
 }
-const myModal = document.getElementById('myModal')
 
-
-
-/*
-function popUps(){
-  let timesList = [];
-  for(const tag of listTags){
-    let time = listTags[listTags.indexOf(tag)]
-    time =convertTag(time)
-    timesList.push(time)
-  }
-  timesList.forEach((time) =>{
-    if (video.currentTime >= time && video.currentTime <= time + 0.1){
-      video.pause()
-      OpenBootstrapPopup();
-    }
-  })
-}
-*/
-
-/*
-//"links" para as tags no grouplist
-for (const tagBtn of tagBtns){
-  tagBtn.addEventListener('click', () => {
-        let time = listTags[tagBtns.indexOf(tagBtn)]
-        time = convertTag(time)
-        video.currentTime = time;
-        video.play()
-      })
-  }
-  */
-
-  
- 
+//-------------perguntas pop up aparecem automaticamente no tempo associado
  video.addEventListener('timeupdate', () => {
    Questions()
  })
- 
+
+
+//--------------------lista de etiquetas associadas às tags
  function tagsList(){
-   let popUps = PopUpQuestions.getPopUp()
-   let string = ''
-   popUps.forEach((popUp)=>{
-    string += `
-    <a class="list-group-item list-group-item-action list-group-item tag">${popUp.tag}</a>
-    `
+  let string = ''
+  allTags.forEach((tag)=>{
+   string += `
+   <a class="list-group-item list-group-item-action list-group-item tag">${tag.name}</a>
+   `
   })
   document.querySelector(".tagsList").innerHTML = string
   let tagBtns = document.querySelectorAll('.tag')
   tagBtns = Array.from(tagBtns)
   tagBtns.forEach((tagBtn) => {
     tagBtn.addEventListener('click',()=>{
-      video.currentTime = convertTag(tagBtn.innerHTML)
+      allTags.forEach((tag)=>{
+        if(tagBtn.innerHtml === tag.name){
+          console.log('something')
+          time = convertTag(tag.tag)
+          video.currentTime = time
+        }
+      })
     })
   })
 }
-
 tagsList()
 
-/*
-  //--------------------funcao modals corresponde tag
-  video.addEventListener('timeupdate', ()=>{
-    let popUps = PopUpQuestions.getPopUp()
-    popUps.forEach((popUp) => {
-      let time = convertTag(popUp.tag)
-      if (video.currentTime >= time && video.currentTime <= time + 0.1){
-        video.pause()
-        document.querySelector('#imagePopUp').src = popUp.image
-        document.querySelector('#questionPopUp').innerHTML = popUp.question
-        OpenBootstrapPopup();
-      }
-    });
-  })
-  */
+
  
  function Questions(){
    let popUps = PopUpQuestions.getPopUp() 
@@ -146,8 +112,7 @@ function CorrectAnswer(){
       if(answerBtn.id === popUp.correctAnswer){
         answerBtn.addEventListener('click',()=>{
           setTimeout(() => {
-            $("#congratsModal").modal('hide');
-            video.play();
+            $("#myModal").modal('hide');
             video.pause();
             let points = document.querySelector('#pointsEarned')
             points.innerHTML = `+ ${popUp.pointsEarned}points`
@@ -160,60 +125,19 @@ function CorrectAnswer(){
             }, 1500);
           }, 200);
         })
+      }else{
+        answerBtn.addEventListener('click', ()=>{
+          $("#myModal").modal('hide');
+          video.pause()
+          setTimeout(()=>{
+            $("#wrongModal").modal('show');
+            setTimeout(()=>{
+              $("#wrongModal").modal('hide');
+              video.play()
+            }, 1000);
+          }, 200);
+        })
       }
     })
   })
 }
-
-
-
-  
-  
-  
-  //-------Perguntas
-  
-  let perguntas = [
-    {
-      question:"Qual deve ser o comportamento do condutor perante esta situação?",
-      image:"../media/stickers/semaforo.svg",
-      answers:['Parar','Acelerar','Abrandar','Mudar de via'],
-      correctAnswer:"Parar",
-      reward:"../media/stickers/semaforo.svg",
-      level: '',
-      video:"Sinalizacao_Luminosa.mp4",
-      tag:"4:47",
-      pointsEarned:10,
-    },
-    {
-      question:"Pergunta 2 so pq sim",
-      image:"../media/stickers/acidente.svg",
-      answers:['1', '2', '3', '4'],
-      correctAnswer:"1",
-      reward:"../media/stickers/acidente.svg",
-      level: '',
-      video:"Sinalizacao_Luminosa.mp4",
-      tag:"5:01",
-      pointsEarned:15,
-    },
-    {
-      question:"Pergunta 3 vamos ver se da",
-      image:"../media/stickers/carro_mao.svg",
-      answers:['1','2','3','4'],
-      correctAnswer:"1",
-      reward:"../media/stickers/carro_mao.svg",
-      level: '',
-      video:"Sinalizacao_Luminosa.mp4",
-      tag:"18:31",
-      pointsEarned:20,
-    },
-]
-
-let btn = document.querySelector('#btn')
-btn.addEventListener('click',()=>{
-  perguntas.forEach((pergunta)=>{
-    PopUpQuestions.add(pergunta.question, pergunta.image, pergunta.answers, pergunta.correctAnswer, pergunta.reward, pergunta.level, pergunta.video, pergunta.tag, pergunta.pointsEarned)
-  btn.disabled = true
-  })
-})
-
-

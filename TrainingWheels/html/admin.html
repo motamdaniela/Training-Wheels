@@ -142,33 +142,70 @@
             <h4 class="modal-title">Adicionar Popup</h4>
           </div>
           <form>
-            
+            <h4>Video</h4>
             <div class="input-group mb-3">
-              <select class="form-select" id='escolheVideoPopup' aria-label="Default select example">
+              <select class="form-select" id='escolheVideoPopup' >
                 <!-- <option selected value="video">Video</option>
                 <option value="teste">Teste</option> -->
               </select>          
             </div>
             <div id="formPopup">
               <div class="input-group mb-3">
-                <input type="text" id="perguntaPopup" class="form-control" placeholder="Pergunta" aria-label="Tag" aria-describedby="basic-addon1">
+                <input type="text" id="perguntaPopup" class="form-control" placeholder="Pergunta"  aria-describedby="basic-addon1">
               </div>
+              <div class="input-group mb-3">
+                <input type="text" id="tagPopup" class="form-control" placeholder="Tag"  aria-describedby="basic-addon1">
+              </div>
+              <h4>Imagem</h4>
               <div class="input-group mb-3">
                 <input type="file" class="form-control" id="linkImg">            
               </div>
               <div class="input-group mb-3">
-                <input type="text" class="form-control opcao_certa_popup" placeholder="Opção certa" aria-label="Link Video" aria-describedby="basic-addon1">  
+                <input type="text" id="opcao_certa_popup" class="form-control" placeholder="Opção certa" aria-label="Link Video" aria-describedby="basic-addon1">  
                 <input type="text" class="form-control opcao_popup" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">          
               </div>
               <div class="input-group mb-3">
                 <input type="text" class="form-control opcao_popup" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">  
                 <input type="text" class="form-control opcao_popup" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">          
               </div>
+              <h4>Recompensa</h4>
+              <div class="input-group mb-3">
+                <input type="file" class="form-control" id="linkSticker">            
+              </div>
+              <div class="input-group mb-3">
+                <input type="number" id="pontos" class="form-control" placeholder="Pontos a receber" aria-describedby="basic-addon1">
+              </div>
             </div>
             
           </form>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" id="addLicaoNivel" data-bs-dismiss="modal">Adicionar</button>
+            <button type="button" class="btn btn-primary" id="addPopup" data-bs-dismiss="modal">Adicionar</button>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalPergunta" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Adicionar Pergunta</h4>
+          </div>
+          <form>
+            <div class="input-group mb-3">
+              <select class="form-select" id='tipoPergunta' aria-label="Default select example">
+                <option selected>Escolha Multipla</option>
+                <option value="teste">Verdadeiro e Falso</option>
+              </select> 
+              <button id="loadPergunta" type="button" class="btn btn-primary">carregar</button>         
+            </div>
+            <div id="formPergunta">
+
+            </div>
+            
+          </form>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="addPergunta" data-bs-dismiss="modal">Adicionar</button>
           </div>
       </div>
     </div>
@@ -180,6 +217,7 @@
   <div id="sidebar" class="main-menu d-flex flex-column flex-shrink-0 ">   
   </div>
     <div class="container">
+      <h2>Niveis e lições</h2>
       <table class="table">
         <thead>
           <tr>
@@ -197,12 +235,13 @@
       </table>
 
       <!-- tabela popup -->
+      <h2>Perguntas popup</h2>
       <table class="table">
         <thead>
           <tr>
             <th scope="col">Nivel</th>
             <th scope="col">Nome video</th>
-            <th scope="col">Tempo</th>
+            <th scope="col">Tag</th>
             <th scope="col"><button  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalPopup">Add popup</button></th>
           </tr>
         </thead>
@@ -210,21 +249,35 @@
 
         </tbody>
       </table>
+      <h2>Perguntas teste</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nivel</th>
+            <th scope="col">Nome teste</th>
+            <th scope="col">Pergunta</th>
+            <th scope="col"><button  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalPergunta">Add pergunta</button></th>
+          </tr>
+        </thead>
+        <tbody id="perguntaBody">
 
+        </tbody>
+      </table>
 
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Username</th>
-                <th scope="col">Perguntas certas/erradas</th>
-                <th scope="col">Ações</th>
-              </tr>
-            </thead>
-            <tbody id="rankbody">
-            </tbody>
-          </table>
+      <h2>Lista de alunos</h2>
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Username</th>
+              <th scope="col">Perguntas certas/erradas</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody id="rankbody">
+          </tbody>
         </table>
+      </table>
         
     </div>
 
