@@ -55,11 +55,9 @@
         </div>
         <fieldset id="fs1">
           <div class="container1">
-              <div class="row">
-                
 
-                <div class="theActualBody">
-    
+              <div class="row">
+                <div>
                   <div class="container">
                   <div class="row">
                     <div class="col">
@@ -72,38 +70,35 @@
                     <div class="col">
                       <img id="etiquetas" src="../media/images/etiquetas.svg" height="30px">
                       <div class="list-group tagsList">
+
                       </div>
                     </div>
                   </div>
+                </div>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div>
+                  <div class="container">
                   <div class="row">
                     <div class="col">
                       <img id="comentariosTitle" src="../media/images/comentarios.svg" height="30px">
-                      <fieldset></fieldset>
+                      <fieldset class="commentsField">
+                        comentssss
+                      </fieldset>
                     </div>
                     <div class="col">
-                      <fieldset><label>Escrever comentario</label></fieldset>
+                      <fieldset>
+                        <label>Escrever comentario</label>
+                      </fieldset>
                     </div>
                   </div>
                 </div>
                 </div>
-
-
               </div>
-              <br><br><br>
-              <div class="row">
-                <div class="col">
-                  <img id="semaforo" src="../media/stickers/semaforo.svg" height="180px">
-                </div>
-                <div class="col">
-                  <img id="sinal_curva" src="../media/stickers/sinal_curva.svg" height="180px">
-                </div>
-                <div class="col">
-                  <img id="estrada_sinais" src="../media/stickers/estrada_sinais.svg" height="180px">
-                </div>
-                <div class="col">
-                  <img id="semaforo_andar" src="../media/stickers/Semaforo_andar.svg" height="180px">
-                </div>
-              </div>
+
           </div>
           <!-- <img id="semaforo" src="../media/stickers/semaforo.svg" height="200px" class="bright"> -->
         </fieldset> 
@@ -219,46 +214,7 @@
 
 
 
-<!--
 
-    <div class="theActualBody">
-    
-      <div class="container">
-      <div class="row">
-        <div class="col">
-          <h2 id="title"></h2>
-          <div class="divVideo">
-            <video src="../media/videos/Sinalizacao_Luminosa.mp4" height="300" controls></video>
-          </div>
-          <i class="heartIcon" data-feather="heart"></i>
-        </div>
-        <div class="col">
-          <img id="etiquetas" src="../media/images/etiquetas.svg" height="30px">
-          <div class="list-group tagsList">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <img id="comentariosTitle" src="../media/images/comentarios.svg" height="30px">
-          <fieldset></fieldset>
-        </div>
-        <div class="col">
-          <fieldset><label>Escrever comentario</label></fieldset>
-        </div>
-      </div>
-    </div>
-    </div>
--->
-
-<!--
-<div>
-  <button class="btn btn-primary" width = 100%>sdfghjjhgfddfghjhgfdsdfghj</button>
-  <button id="btn" class="btn btn-primary" width = 100%>niveis</button>
-  <button id="btnV" class="btn btn-primary" width = 100%>videos</button>
-  <button id="btnT" class="btn btn-primary" width = 100%>tags</button>
-  <button id="btnP" class="btn btn-primary" width = 100%>pop ups</button>
-</div>-->
 
 
   <!-----MODALS------------------------------------------>
@@ -295,7 +251,7 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="questionPopUp">Pergunta</h5>
+          <h6 class="modal-title" id="questionPopUp">Pergunta</h6>
           <div id="inventory">
             <img src="../media/images/point.svg" height="25px"><p id="pointsN"></p>
             <img src="../media/stickers/key.svg" height="25px"><p id="cluesN"></p>
@@ -306,15 +262,23 @@
 
         </div>
       </div>
-        <div>
+        <div class="modal-footer">
           <button id="clueBtn" type="button" class="btn btn-primary"> <img src="../media/stickers/key.svg" height="15px"> Dá-me uma pista</button>
         </div>
     </div>
   </div>
-  
   <!----------------------------------------------->
 
-<!-- <script type='module' src="../js/views/atest.js"></script> -->
+
+<div>
+  <button class="btn btn-primary" width = 100%>sdfghjjhgfddfghjhgfdsdfghj</button>
+  <button id="btn" class="btn btn-primary" width = 100%>niveis</button>
+  <button id="btnV" class="btn btn-primary" width = 100%>videos</button>
+  <button id="btnT" class="btn btn-primary" width = 100%>tags</button>
+  <button id="btnP" class="btn btn-primary" width = 100%>pop ups</button>
+</div>
+
+ <script type='module' src="../js/views/atest.js"></script>
 <script type='module' src="../js/views/tutorialView.js"></script>
 <script type='module' src="../js/views/navbarView.js"></script>
 <script>

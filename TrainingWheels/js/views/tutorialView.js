@@ -53,11 +53,15 @@ function convertTag(time){
 
 //--------------------lista de etiquetas associadas às tags
  function tagsList(){
+  let videoTitle = document.querySelector("#title").innerHTML
   let string = ''
-  allTags.forEach((tag)=>{
-   string += `
-   <a class="list-group-item list-group-item-action list-group-item tag">${tag.name}</a>
-   `
+  console.log(allTags)
+  allTags.forEach((allTag)=>{
+    if(allTag.video === videoTitle){
+      string += `
+      <a class="list-group-item list-group-item-action list-group-item tag">${allTag.name}</a>
+      `
+    }
   })
   document.querySelector(".tagsList").innerHTML = string
   let tagBtns = document.querySelectorAll('.tag')
@@ -67,7 +71,6 @@ function convertTag(time){
       allTags.forEach((alltag)=>{
         if(alltag.name === tagBtn.innerHTML){
           let time = convertTag(alltag.tag)
-          console.log(time)
           video.currentTime = time
           video.play()
         }
@@ -102,16 +105,14 @@ function Questions(){
   let answers = document.querySelector('#answersPopUp')
   let cluesN = document.querySelector("#cluesN")
   let pointsN = document.querySelector("#pointsN")
-
-
   allPopUps.forEach((allPopUp) => {
      let time = convertTag(allPopUp.tag)
      if (video.currentTime >= time && video.currentTime <= time + 0.2){
        console.log('it runs')
        question.innerHTML = allPopUp.question
        imagePopUp.src = allPopUp.image
-       cluesN.innerHTML = currentUser.clues
-       pointsN.innerHTML = currentUser.points
+       cluesN.innerHTML = currentUser.clues + ' pistas'
+       pointsN.innerHTML = currentUser.points + ' pontos'
        let randomBtns = shuffle(allPopUp.answers)
        answers.innerHTML = `
        <div class="row row-cols-2">

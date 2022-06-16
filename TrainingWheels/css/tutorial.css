@@ -3,13 +3,12 @@ body{
   display:flex;
   flex-direction: column;
   font-family: 'ABC-Regular', sans-serif;
+  display:flex;
+  font-family: 'ABC-Regular', sans-serif;
+  color: #2D2F44;
+  justify-content: center;
 }
-.theActualBody{
-    display:flex;
-    font-family: 'ABC-Regular', sans-serif;
-    color: #2D2F44;
-    justify-content: center;
-  }
+
   
 video {
   size: 100%;
@@ -26,7 +25,6 @@ video {
 }
 
 .container {
-  align-items: center;
   width: 100%;
 }
 .col{
@@ -91,6 +89,14 @@ video::-webkit-media-controls-fullscreen-button
   height: 100%;
 }
 
+.commentsField{
+  background-color: #FFF8F8;
+  padding: 10px;
+  margin: 10px;
+  width: 100%;
+  border-radius: 10px;
+}
+
 
 
 
@@ -104,7 +110,7 @@ video::-webkit-media-controls-fullscreen-button
 
 fieldset{
   width:95%px;
-  border-radius: 10px;
+  border-radius: 0px 10px 10px 10px;
 }
 
 #fs1{

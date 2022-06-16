@@ -95,10 +95,10 @@ let popUpsList = [
   },
   {
     question: "Para quem está destinado o seguinte sinal?",
-    image: "../media/stickers/sinais_peoes.svg",
+    image: "../media/stickers/sinal_peoes.svg",
     answers: ['O condutor','O peão','O peão, numa passagem de nível','Apenas os condutores de veículos ligeiros'],
     correctAnswer: "O condutor",
-    reward: "../media/stickers/sinais_peoes.svg",
+    reward: "../media/stickers/sinal_peoes.svg",
     video: "Sinalização Luminosa",
     tag: "13:10",
     pointsEarned: 20,
