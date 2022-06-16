@@ -98,51 +98,58 @@ function Questions(){
   let answers = document.querySelector('#answersPopUp')
   allPopUps.forEach((allPopUp) => {
      let time = convertTag(allPopUp.tag)
-     if (video.currentTime >= time ){
+     if (video.currentTime >= time && video.currentTime <= time + 0.2){
        console.log('it runs')
        question.innerHTML = allPopUp.question
        imagePopUp.src = allPopUp.image
        let randomBtns = shuffle(allPopUp.answers)
        console.log(randomBtns)
-       /*
        answers.innerHTML = `
        <div class="row row-cols-2">
-       <div class="col"><button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[0]}" data-bs-dismiss="modal">${popUp.answers[0]}</button></div>
-       <div class="col"><button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[0]}" data-bs-dismiss="modal">${popUp.answers[1]}</button></div>
-       <div class="col"><button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[0]}" data-bs-dismiss="modal">${popUp.answers[2]}</button></div>
-       <div class="col"><button type="button" class="btn btn-primary answerBtn" id="${popUp.answers[0]}" data-bs-dismiss="modal">${popUp.answers[3]}</button></div>
+         <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[0]}" data-bs-dismiss="modal">${randomBtns[0]}</button></div>
+         <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[1]}" data-bs-dismiss="modal">${randomBtns[1]}</button></div>
+         <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[2]}" data-bs-dismiss="modal">${randomBtns[2]}</button></div>
+         <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[3]}" data-bs-dismiss="modal">${randomBtns[3]}</button></div>
        </div>
        `
-       */
-      
       video.pause();
       OpenBootstrapPopup();
-      //CorrectAnswer();
+      CorrectAnswer();
     }
   })
 }
 
-/*
-//funcao que descobre se a resposta esta certa
-function CorrectAnswer(pointsEarned){
+//funcao que descobre se a resposta esta certa ou nao
+function CorrectAnswer(){
   let answerBtns = document.querySelectorAll('.answerBtn');
-  let popUps = PopUpQuestions.getPopUp()
-  let modal = document.querySelector('#myModal')
-  popUps.forEach((popUp) => {
+  allPopUps.forEach((allPopUp) => {
     answerBtns.forEach((answerBtn) => {
-      if(answerBtn.id === popUp.correctAnswer){
+      if(answerBtn.id === allPopUp.correctAnswer){
         answerBtn.addEventListener('click',()=>{
           setTimeout(() => {
             $("#congratsModal").modal('hide');
             video.play();
-            video.pause()
+            video.pause();
             let points = document.querySelector('#pointsEarned')
-            points.innerHTML = `+ ${popUp.pointsEarned}points`
+            points.innerHTML = `+ ${allPopUp.pointsEarned}points`
             let reward = document.querySelector('#reward')
-            reward.src = popUp.reward
+            reward.src = allPopUp.reward
             $("#congratsModal").modal('show');
             setTimeout(() => {
               $("#congratsModal").modal('hide');
+              video.play();
+            }, 1500);
+          }, 200);
+        })
+      }else{
+        answerBtn.addEventListener('click',()=>{
+          setTimeout(() => {
+            $("#wrongModal").modal('hide');
+            video.play();
+            video.pause()
+            $("#wrongModal").modal('show');
+            setTimeout(() => {
+              $("#wrongModal").modal('hide');
               video.play();
             }, 1500);
           }, 200);
@@ -151,7 +158,7 @@ function CorrectAnswer(pointsEarned){
     })
   })
 }
-*/
+
 
 /*
 //funcao que descobre se a resposta esta certa

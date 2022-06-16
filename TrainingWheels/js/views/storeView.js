@@ -22,6 +22,7 @@ for (let btn of btns) {
             let numPista = +nome.slice(0,1)
             console.log(numPista)
             user.clues+=numPista
+            user.points -= precoNum
         }else{
             alert('Não tem pontos suficientes para fazer esta compra')
             $("#cluesModal").modal('hide');
@@ -29,6 +30,8 @@ for (let btn of btns) {
        }) 
     })
 }
+let stickers = user.stickersBuy
+console.log(stickers)
 
 const btns2=document.querySelectorAll('.comprar-stickers')
 for (const btn2 of btns2) {
@@ -44,9 +47,6 @@ for (const btn2 of btns2) {
         let precoNum = +preco.slice(0,2)
         console.log(precoNum)
         console.log(user.points) 
-        let stickers = user.stickersBuy = []
-        
-        // document.querySelectorAll(".comprar-stickers").forEach(eldom => stickersBuy.push(eldom.value))
         const conf=document.querySelector('#confirmar_compra2')
         conf.addEventListener('click',function(){
             if(precoNum<=user.points){
@@ -54,6 +54,7 @@ for (const btn2 of btns2) {
                 user.points -= precoNum;
                 $("#stickersModal").modal('hide');
                 alert('A compra foi efetuada')
+                
             }else{ 
                 alert('Não tem pontos suficientes para fazer esta compra')
                 $("#stickersModal").modal('hide'); 

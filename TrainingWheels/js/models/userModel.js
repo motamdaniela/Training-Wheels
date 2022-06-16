@@ -5,6 +5,11 @@ export function init() {
   users = localStorage.users ? JSON.parse(localStorage.users) : [];
 }
 
+export function remove(username) {
+  let user = users.filter((user) => user.username == username);
+  localStorage.removeItem("user", JSON.stringify(user));
+}
+
 // ADICIONAR UTILIZADOR
 export function add(username, type, pass ,name, email, sex, bday) {
   if (users.some((user) => user.username === username)) {
@@ -89,8 +94,8 @@ class User {
     clues = 0
     points = 0
     book = {} 
-    stickersLvl =[]
-    stickersBuy =[]
+    stickersLvl = []
+    stickersBuy = []
 
     constructor(username, type = 'user', password, name, email, sex, bday, place='Portugal', photo = '../media/images/default.svg', ranking = [0, 0], progress={}, clues=0, points=0, stickersLvl =[], stickersBuy =[]){
         this.username = username;

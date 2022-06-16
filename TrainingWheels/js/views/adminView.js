@@ -149,10 +149,6 @@ loadPerg.addEventListener("click", (event) =>{
         result=`<div class="input-group mb-3">
         <input type="text" class="form-control" id="perguntaTeste" placeholder="Pergunta" aria-label="Tag" aria-describedby="basic-addon1">
       </div>
-      <h4>Imagem</h4>
-      <div class="input-group mb-3">
-        <input type="file" class="form-control " id="imgPerg" >            
-      </div>
       <div class="input-group mb-3">
         <input type="text" class="form-control" id="opcao_certa" placeholder="Opção certa" aria-label="Link Video" aria-describedby="basic-addon1">  
         <input type="text" class="form-control opcao" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">          
@@ -169,13 +165,9 @@ loadPerg.addEventListener("click", (event) =>{
         result=`<div class="input-group mb-3">
         <input type="text" class="form-control" id="perguntaTeste" placeholder="Pergunta" aria-label="Tag" aria-describedby="basic-addon1">
       </div>
-      <h4>Imagem</h4>
       <div class="input-group mb-3">
-        <input type="file" class="form-control" id="imgPerg">            
-      </div>
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" id="opcao_certaVF" placeholder="Opção certa" aria-label="Link Video" aria-describedby="basic-addon1">  
-        <input type="text" class="form-control" id="opcaoVF" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">          
+        <input type="text" class="form-control" id="opcao_certa" placeholder="Opção certa" aria-label="Link Video" aria-describedby="basic-addon1">  
+        <input type="text" class="form-control" id="opcao" placeholder="Opção" aria-label="Link Video" aria-describedby="basic-addon1">          
       </div>
       <div class="input-group mb-3">
         <input type="number" class="form-control " id="pontosTeste" placeholder="Pontos a receber" aria-describedby="basic-addon1">
@@ -202,7 +194,7 @@ function rankTable(){
             <td>${user.username}</td>
             <td>perguntas</td>
             <td><button type="button" class="btn btn-danger blockBtn">Bloquear</button>
-            <button type="button" class="btn btn-danger removeBtn">Remover</button></td>
+            <button type="button" class="btn btn-danger removeUser">Remover</button></td>
           </tr>`
         }
     }
@@ -212,6 +204,14 @@ function rankTable(){
 }
 rankTable()
 
+const removeUserBtns = document.querySelector(".removeuser")
+for(let removeUserBtn of removeUserBtns){
+  removeUserBtn.addEventListener("click", function(){ 
+    username=this.p
+  })
+}
+
+
 const nivel = document.querySelector("#addNivel")
 nivel.addEventListener("click", (event) =>{
     event.preventDefault()
@@ -219,7 +219,32 @@ nivel.addEventListener("click", (event) =>{
     let nome=document.querySelector("#levelName").value;
     console.log('olaaaaa')
     Level.add(nome)
-    addNivel(nome)
+    location.reload()
+})
+
+const pergunta = document.querySelector("#addPergunta")
+pergunta.addEventListener("click", (event) =>{
+    event.preventDefault()
+    let testeNome=document.querySelector("#escolherTeste").value;
+    let perg= document.querySelector("#perguntaTeste").value;
+    let opCerta=document.querySelector("#opcao_certa").value;
+    let pontosTeste=document.querySelector("#pontosTeste").value;
+    let tipoPerg=document.querySelector("#tipoPergunta").value;
+    if(tipoPerg=="Escolha Multipla"){
+      let erradas=[]
+      document.querySelectorAll(".opcao").forEach(eldom => erradas.push(eldom.value))
+      let coisa=[]
+      coisa.push(opCerta)
+      let todas=erradas.concat(coisa)
+      Question.add(testeNome,perg,todas,opCerta,pontosTeste)
+    }else{
+      let errada=document.querySelector("#opcao").value;
+      let todas=[]
+      todas.push(errada,opCerta)
+      Question.add(testeNome,perg,todas,opCerta,pontosTeste)
+    }
+    location.reload() 
+    
 })
 
 const popup = document.querySelector("#addPopup")
@@ -238,7 +263,11 @@ popup.addEventListener("click", (event) =>{
     let resultSticker=sticker.substring(12)
     let linkSticker='../media/stickers/'+resultSticker
     let pontos=document.querySelector("#pontos").value;
-    PopUp.add(perg,linkImg,opcoes,op_certa,linkSticker,video,tagPopup,pontos)
+    let coisa=[]
+    coisa.push(op_certa)
+    let todas=opcoes.concat(coisa)
+    console.log(todas)
+    PopUp.add(perg,linkImg,todas,op_certa,linkSticker,video,tagPopup,pontos)
     location.reload()    
 })
 
@@ -320,13 +349,34 @@ function addTest(){
         <button  type="button" class="btn btn-danger removeLicao">Remover teste</button></td>
     </tr>
         `
-
-    
-      
   }
   document.querySelector('#lessonbody').innerHTML += result;
 }
 addTest()
+
+function addQuestion(){
+  let result = ''
+  let perguntas=Question.getQuestions()
+  let testes=Test.getTests()
+  for (let pergunta of perguntas) {
+    let teste = testes.find(teste => teste.name === pergunta.test_name);
+    if(teste.name === pergunta.test_name){
+      result += `
+    <tr>
+        <th scope="row">${teste.level}</th>
+        <td>${pergunta.test_name}</td>
+        <td>${pergunta.question}</td>
+        <td>
+        <button  type="button" class="btn btn-danger removeLicao">Remover pergunta</button></td>
+    </tr>
+        `
+
+    }
+    
+  }
+  document.querySelector('#perguntaBody').innerHTML += result;
+}
+addQuestion()
 
 function addPopup(){
   let result = ''
@@ -350,60 +400,25 @@ function addPopup(){
 }
 addPopup()
 
-function addNivel(nome){
+function addNivel(){
     let result = ''
     let levels=Level.getLevels()
     let i=0
     for (let level of levels) {
         i+=1
-        if(nome==level.name){
-        result += `
-        <tr>
-            <th scope="row">${i}</th>
-            <th>${level.name}</th>
-            <td>
-            <button  type="button" class="btn btn-danger removeNivel">Remover lição</button></td>
-        </tr>
-            `
-        }
+      result += `
+      <tr>
+          <th scope="row">${i}</th>
+          <th>${level.name}</th>
+          <td>
+          <button  type="button" class="btn btn-danger removeNivel">Remover lição</button></td>
+      </tr>
+          `
+        
         
     }
     document.querySelector('#lessonbody').innerHTML += result;
 
 }
+addNivel()
 
-let addBtns=document.querySelectorAll('.addLicao')
-for (let addBtn of addBtns){
-  addBtn.addEventListener('click', (event) =>{
-    event.preventDefault()
-    let idiota= this.parentElement.previousElementSibling.innerHTML;
-    $("#licaoModal").modal('show');
-    
-    console.log(idiota)
-  })
-}
-
-
-function renderNivel() {
-    let result = ''
-    console.log('olaa2')
-    let levels=Level.getLevels()
-    console.log('olaa3')
-    let i=0
-    for (let level of levels) {
-        i+=1
-        result += `
-        <tr>
-            <th scope="row">${i}</th>
-            <th>${level.name}</th>
-            <td>
-            <button  type="button" class="btn btn-danger">Remover lição</button></td>
-        </tr>
-            `
-    }
-
-    document.querySelector('#lessonbody').innerHTML += result;
-    
-}
-
-renderNivel()

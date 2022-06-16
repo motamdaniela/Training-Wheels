@@ -52,7 +52,8 @@ btn4.addEventListener('click', function(){
 })
 
 function viewStickers () {
-    let stickers = user.stickersBuy 
-    console.log(stickers)
-    // stickers.indexOf() === -1 ? stickers.push(getId) : alert("Este sticker já foi comprado");
+    
+    console.log(user.stickersBuy)
+    // stickers.indexOf() === -1 ? : ;
 }
+viewStickers()

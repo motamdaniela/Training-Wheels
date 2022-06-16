@@ -4,7 +4,7 @@ export function init() {
     perguntas = localStorage.perguntas ? JSON.parse(localStorage.perguntas) : [];
   }
 
-export function add() {
+export function add(test_name, question, answers, right_answer,points) {
     perguntas.push(new Question(test_name, question, answers, right_answer,points));
     localStorage.setItem("perguntas", JSON.stringify(perguntas));
 }
