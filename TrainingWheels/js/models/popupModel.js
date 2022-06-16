@@ -12,44 +12,6 @@ export function add(question, image, answers, correctAnswer, reward, level, vide
     localStorage.setItem("popUpQuestions", JSON.stringify(popUpQuestions));
 }
 
-/*
-
-// LOGIN DO UTILIZADOR
-export function login(username, password) {
-  const user = users.find(
-
-    (user) => user.username === username && user.password === password
-  );
-  if (user) {
-    sessionStorage.setItem("loggedUser", JSON.stringify(user));
-    if(user.type === "admin") {
-      setTimeout(() => {
-        location.replace("/html/admin.html");
-      }, 1000);
-    }
-    else{
-      return true;  
-    }
-  } else if(user != true) {
-    return('Username ou password errados');
-  }
-}
-
-// LOGOUT DO UTILIZADOR
-export function logout() {
-  sessionStorage.removeItem("loggedUser");
-}
-
-// VERIFICA EXISTÊNCIA DE ALGUÉM AUTENTICADO
-export function isLogged() {
-  return sessionStorage.getItem("loggedUser") ? true : false;
-}
-
-// DEVOLVE UTILZIADOR AUTENTICADO
-export function getUserLogged() {
-  return JSON.parse(sessionStorage.getItem("loggedUser"));
-}
-*/
 
 // OBTER lista de perguntas 
 export function getPopUp() {

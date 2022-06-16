@@ -1,23 +1,28 @@
+let comments;
+
+export function init() {
+    comments = localStorage.comments ? JSON.parse(localStorage.comments) : [];
+  }
+
+export function add(video) {
+    comments.push(new Progress(video));
+    localStorage.setItem("progress", JSON.stringify(comments));
+  }
+
+export function getProgress() {
+  return comments;
+}
+
 export default class Comments{
-    #usernames =""
-    #txtComments =""
-    #profilePhoto =""
-    #video =""
+    video = ""
+    usernames = []
+    txtComments = []
+    profilePhoto = []
 
-    constructor(usernames, txtComments, profilePhoto, video){
-        this.#usernames = usernames;
-        this.#txtComments = txtComments;
-        this.#profilePhoto = profilePhoto;
-        this.#video = video;
+    constructor(video, usernames = [], txtComments= [], profilePhoto= []){
+        this.video = video;
+        this.usernames = usernames;
+        this.txtComments = txtComments;
+        this.profilePhoto = profilePhoto;
     }
-
-    get getUsernames(){return this.#usernames};
-    get getTxtComments(){return this.#txtComments};
-    get getProfilePhoto(){return this.#profilePhoto};
-    get getVideo(){return this.#video};
-
-    set setUsernames(value){this.#usernames = value};
-    set setTxtComments(value){this.#txtComments = value};
-    set setProfilePhoto(value){this.#profilePhoto = value};
-    set setVideo(value){this.#video = value};
 }

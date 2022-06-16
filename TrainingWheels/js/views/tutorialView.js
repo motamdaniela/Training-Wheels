@@ -105,13 +105,18 @@ tagsList()
   */
 
 function Questions(){
+  let popUps = PopUpQuestions.getPopUp() 
   let question = document.querySelector('#questionPopUp')
   let imagePopUp = document.querySelector('#imagePopUp')
   let answers = document.querySelector('#answersPopUp')
+  let timesList = []
   popUps.forEach((popUp) => {
     let time = convertTag(popUp.tag)
+    timesList.push(time)
+  console.log(timesList)
+  timesList.forEach((time) =>{
     if (video.currentTime >= time && video.currentTime <= time + 0.1){
-      console.log('something')
+      console.log('its getting there')
       question.innerHTML = popUp.question
       imagePopUp.src = popUp.image
       answers.innerHTML = `
@@ -124,6 +129,7 @@ function Questions(){
       OpenBootstrapPopup();
       CorrectAnswer(popUp.pointsEarned);
     }
+    })
   })
 }
 
@@ -141,7 +147,7 @@ function CorrectAnswer(pointsEarned){
             video.play();
             video.pause()
             let points = document.querySelector('#pointsEarned')
-            points.innerHTML = `+ ${popUp.pointsEarned}points`
+            points.innerHTML = `+ ${pointsEarned}points`
             let reward = document.querySelector('#reward')
             reward.src = popUp.reward
             $("#congratsModal").modal('show');

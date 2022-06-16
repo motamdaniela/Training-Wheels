@@ -1,3 +1,18 @@
+let progress;
+
+export function init() {
+    progress = localStorage.progress ? JSON.parse(localStorage.progress) : [];
+  }
+
+export function add(username) {
+      progress.push(new Progress(username));
+      localStorage.setItem("progress", JSON.stringify(progress));
+  }
+
+export function getProgress() {
+  return progress;
+}
+
 class Progress{
     username = ''
     points = 0
