@@ -142,15 +142,16 @@
             <h4 class="modal-title">Adicionar Popup</h4>
           </div>
           <form>
+            
             <div class="input-group mb-3">
-              <select class="form-select" id='escolheVideo' aria-label="Default select example">
+              <select class="form-select" id='escolheVideoPopup' aria-label="Default select example">
                 <!-- <option selected value="video">Video</option>
                 <option value="teste">Teste</option> -->
               </select>          
             </div>
             <div id="formPopup">
               <div class="input-group mb-3">
-                <input type="text" class="form-control perguntaTeste" placeholder="Pergunta" aria-label="Tag" aria-describedby="basic-addon1">
+                <input type="text" id="perguntaPopup" class="form-control" placeholder="Pergunta" aria-label="Tag" aria-describedby="basic-addon1">
               </div>
               <div class="input-group mb-3">
                 <input type="file" class="form-control" id="linkImg">            
@@ -205,7 +206,8 @@
             <th scope="col"><button  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalPopup">Add popup</button></th>
           </tr>
         </thead>
-        <tbody id="rankbody">
+        <tbody id="popupBody">
+
         </tbody>
       </table>
 
