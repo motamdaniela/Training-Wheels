@@ -13,10 +13,6 @@ body*:not(.main-menu){
   justify-content: flex-start;
   align-items: flex-start;
 }
-
-.divPages{
-  font-size: 200px;
-}
   
 video {
   border-radius: 10px;
