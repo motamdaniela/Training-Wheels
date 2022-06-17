@@ -18,6 +18,11 @@ export function getPopUp() {
   return popUpQuestions;
 }
 
+export function remove(popup) {
+    popUpQuestions = popUpQuestions.filter((popupQuestion) => popupQuestion.question !== popup);
+    localStorage.setItem("popUpQuestions", JSON.stringify(popUpQuestions));
+}
+
 class PopUp{
     question =""
     image =""

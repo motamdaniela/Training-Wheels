@@ -234,25 +234,6 @@ function rankingOrder(){
 
 }
 
-const removeUserBtns = document.querySelectorAll(".removeUser")
-for(let removeUserBtn of removeUserBtns){
-  removeUserBtn.addEventListener("click", function(){ 
-    let username=this.parentNode.previousElementSibling.previousElementSibling.innerHTML
-    console.log(username)
-    User.remove(username)
-    location.reload()
-  })
-}
-
-const removePergBtns = document.querySelectorAll(".removePergunta")
-for(let removePergBtn of removePergBtns){
-  removePergBtn.addEventListener("click", function(){ 
-    let perg=this.parentNode.previousElementSibling.innerHTML
-    console.log(perg)
-    Question.remove(perg)
-    location.reload()
-  })
-}
 
 
 const nivel = document.querySelector("#addNivel")
@@ -388,8 +369,7 @@ function addTest(){
     <tr>
         <th scope="row">${teste.level}</th>
         <td>teste -> ${teste.name}</td>
-        <td>
-        <button  type="button" class="btn btn-danger removeTeste">Remover teste</button></td>
+        <td><button  type="button" class="btn btn-danger removeTeste">Remover teste</button></td>
     </tr>
         `
   }
@@ -409,8 +389,7 @@ function addQuestion(){
         <th scope="row">${teste.level}</th>
         <td>${pergunta.test_name}</td>
         <td>${pergunta.question}</td>
-        <td>
-        <button type="button" class="btn btn-danger removePergunta">Remover pergunta</button></td>
+        <td><button type="button" class="btn btn-danger removePergunta">Remover</button></td>
     </tr>
         `
 
@@ -419,6 +398,7 @@ function addQuestion(){
   }
   document.querySelector('#perguntaBody').innerHTML += result;
 }
+
 addQuestion()
 
 function addPopup(){
@@ -430,8 +410,8 @@ function addPopup(){
     if(video.name === popup.video ){
       result += `
       <tr>
-          <th scope="row">${video.level}</th>
-          <td>${popup.video}</td>
+          <th scope="row">${popup.video}</th>
+          <td>${popup.question}</td>
           <td>${popup.tag}</td>
           <td>
           <button  type="button" class="btn btn-danger removePopup">Remover popup</button></td>
@@ -462,4 +442,39 @@ function addNivel(){
 
 }
 addNivel()
+
+const removeUserBtns = document.querySelectorAll(".removeUser")
+console.log(removeUserBtns)
+for(let removeUserBtn of removeUserBtns){
+  removeUserBtn.addEventListener("click", function(){ 
+    let username=this.parentNode.previousElementSibling.previousElementSibling.innerHTML
+    console.log(username)
+    User.remove(username)
+    location.reload()
+  })
+}
+
+const removePergBtns = document.querySelectorAll(".removePergunta")
+console.log(removePergBtns)
+for(let removePergBtn of removePergBtns){
+  removePergBtn.addEventListener("click", function(){ 
+    let perg=this.parentNode.previousElementSibling.innerHTML
+    console.log(perg)
+    Question.remove(perg)
+    location.reload()
+  })
+}
+
+const removePopupBtns = document.querySelectorAll(".removePopup")
+for(let removePopupBtn of removePopupBtns){
+  removePopupBtn.addEventListener("click", function(){ 
+    let pop=this.parentNode.previousElementSibling.previousElementSibling.innerHTML
+    console.log(pop)
+    PopUp.remove(pop)
+    location.reload()
+  })
+}
+
+
+
 feather.replace()
