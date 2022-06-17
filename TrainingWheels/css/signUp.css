@@ -28,26 +28,15 @@ fieldset{
     font-family: 'ABC-Bold', sans-serif;
   }
   
-  #loginBtn{
-    border-color: #4B94BC;
-    color: #ffffff;
-    background-color: #4B94BC;
-    font-size: 20px;
-    border-radius: 10px;
-    width: 110px;
-    height: 45px;
-  }
-
-  #signUpBtn{
-    border-color: #4B94BC;
-    color: #ffffff;
-    background-color: #4B94BC;
-    font-size: 20px;
-    border-radius: 10px;
-    width: 110px;
-    height: 45px;
-  }
-    
+#loginBtn, #signUpBtn{
+  border-color: #4B94BC;
+  color: #ffffff;
+  background-color: #4B94BC;
+  font-size: 20px;
+  border-radius: 10px;
+  width: 110px;
+  height: 45px;
+}    
 
 form{
     display:flex;
@@ -55,6 +44,13 @@ form{
     align-items: flex-end;
     
 }
+
+#pageLink{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 header{
     display:flex;
     flex-direction: column;
