@@ -178,6 +178,8 @@ loadPerg.addEventListener("click", (event) =>{
 function rankTable(){
   let nomes=rankingOrder()
   let result = ''
+  console.log(nomes)
+  console.log(2)
   let users= User.getUsers()
   console.log(users)
   let i=0
@@ -560,27 +562,26 @@ for(let blockBtn of blockBtns){
     let users=User.getUsers();
     let username=this.parentNode.previousElementSibling.previousElementSibling.innerHTML
     console.log(username);
-    if(blockBtn.classList.contains("btn-danger")){
-      blockBtn.classList.remove("btn-danger")
-      blockBtn.classList.add("btn-success") 
-      for(let user of users){
-        console.log(user)
-        if(user.username==username){
+    for(let user of users){
+      if(user.username==username){
+        if(user.state=='unblocked'){
+          blockBtn.classList.remove("btn-danger")
+          blockBtn.classList.add("btn-success") 
           user.state='blocked'
           localStorage.setItem('users', JSON.stringify(user))
-          // User.attUserOnStorage(user)
+          User.attUserOnStorage(user)
           console.log(user.state)
-        }
+        }else{
+          blockBtn.classList.remove("btn-success") 
+          blockBtn.classList.add("btn-danger")
+          user.state='unblocked'
+          localStorage.setItem('users', JSON.stringify(user))
+          User.attUserOnStorage(user)
+          console.log(user.state)
+        }  
       }
-      
-    }else{
-      blockBtn.classList.remove("btn-success") 
-      blockBtn.classList.add("btn-danger")
-    }
-    }
-    
-    
-  )
+    }  
+  })
 }
 
 

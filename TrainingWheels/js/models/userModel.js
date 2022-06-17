@@ -101,9 +101,9 @@ class User {
     book = {} 
     stickersLvl = []
     stickersBuy = []
-    state=''
+    state = ''
 
-    constructor(username, type = 'user', password, name, email, sex, bday, place='Portugal', photo = '../media/images/default.svg', ranking = [0, 0], progress={}, clues=0, points=0, stickersLvl =[], stickersBuy =[], state='unblocked'){
+    constructor(username, type = 'user', password, name, email, sex, bday, place='Portugal', photo = '../media/images/default.svg', ranking = [0, 0], progress={}, clues=0, points=0, stickersLvl =[], stickersBuy =[], state = 'unblocked'){
         this.username = username;
         this.type = type;
         this.name = name;
