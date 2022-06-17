@@ -389,7 +389,7 @@ function addQuestion(){
         <th scope="row">${teste.level}</th>
         <td>${pergunta.test_name}</td>
         <td>${pergunta.question}</td>
-        <td><button type="button" class="btn btn-danger removePergunta">Remover</button></td>
+        <td><button type="button" class="btn btn-danger removePergunta">Remover pergunta</button></td>
     </tr>
         `
 
@@ -401,27 +401,7 @@ function addQuestion(){
 
 addQuestion()
 
-function addPopup(){
-  let result = ''
-  let popups=PopUp.getPopUp()
-  let videos=Video.getVideos()
-  for (let popup of popups) {
-    let video = videos.find(video => video.name === popup.video);
-    if(video.name === popup.video ){
-      result += `
-      <tr>
-          <th scope="row">${popup.video}</th>
-          <td>${popup.question}</td>
-          <td>${popup.tag}</td>
-          <td>
-          <button  type="button" class="btn btn-danger removePopup">Remover popup</button></td>
-      </tr>
-          `   
-    }
-  }
-  document.querySelector('#popupBody').innerHTML += result;
-}
-addPopup()
+
 
 function addNivel(){
     let result = ''
@@ -442,6 +422,30 @@ function addNivel(){
 
 }
 addNivel()
+
+function addPopup(){
+  let result = ''
+  let popups=PopUp.getPopUp()
+  let videos=Video.getVideos()
+  console.log(videos)
+  for (let popup of popups) {
+    let video = videos.find(video => video.name === popup.video);
+    console.log(video)
+    if(video.name === popup.video ){
+      result += `
+      <tr>
+          <th scope="row">${popup.video}</th>
+          <td>${popup.question}</td>
+          <td>${popup.tag}</td>
+          <td>
+          <button  type="button" class="btn btn-danger removePopup">Remover popup</button></td>
+      </tr>
+          `   
+    }
+  }
+  document.querySelector('#popupBody').innerHTML += result;
+}
+addPopup()
 
 const removeUserBtns = document.querySelectorAll(".removeUser")
 console.log(removeUserBtns)
@@ -471,6 +475,45 @@ for(let removePopupBtn of removePopupBtns){
     let pop=this.parentNode.previousElementSibling.previousElementSibling.innerHTML
     console.log(pop)
     PopUp.remove(pop)
+    location.reload()
+  })
+}
+
+const removeLevelBtns = document.querySelectorAll(".removeNivel")
+for(let removeLevelBtn of removeLevelBtns){
+  removeLevelBtn.addEventListener("click", function(){ 
+    let nivel=this.parentNode.previousElementSibling.innerHTML
+    let videos=Video.getVideos()
+    let popups=PopUp.getPopUp()
+    let pergs=Question.getQuestions()
+    let testes=Test.getTests()
+    let tags=Tag.getTags()
+    for (let video of videos) {
+      if (video.level==nivel){
+        for(let tag of tags){
+          if(tag.video==video.name){
+            Tag.removeTag(tag.name)
+          }
+        } 
+        for(let popup of popups){
+          if(popup.video==video.name){
+            PopUp.remove(popup.question)
+          }
+        }
+        Video.removeVideo(video.name)
+      } 
+    }
+    for(let teste of testes){
+      if(teste.level==nivel){
+        for(let perg of  pergs){
+          if(perg.test_name==teste.name){
+            Question.remove(perg.question)
+          }
+        }
+        Test.remove(teste.name)
+      }
+    }
+    Level.remove(nivel)
     location.reload()
   })
 }

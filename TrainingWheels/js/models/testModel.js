@@ -13,6 +13,11 @@ export function getTests() {
     return testes;
 }
 
+export function remove(nome) {
+    testes = testes.filter((teste) => teste.name !== nome);
+    localStorage.setItem("testes", JSON.stringify(testes));
+}
+
 class Test{
     name=''
     level=''
