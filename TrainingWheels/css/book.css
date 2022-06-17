@@ -7,18 +7,15 @@ body*:not(.main-menu){
 }
 
 .container{
-    width: 95%;
+    height: 70%;
     order: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .btn-toolbar{
-    width: 85%;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    align-items: flex-start;
 }
 
 #caderneta{
@@ -29,74 +26,56 @@ body*:not(.main-menu){
 }
 
 fieldset{
-    width:1100px;
-    height:550px;
     border-radius: 0px 10px 10px 10px;
     background-image: url("../media/images/fundo_caderneta.svg");
     background-repeat: no-repeat, repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #fs1{
     background-color: #9EC2D5;
 }
-.container1{
+.container1, .container2, .container3, .container4{
     justify-content:center;
     align-items:center;
-    padding:80px;
+    padding: 60px;
 }
 
 #fs2{
     background-color: #FFFCCB;
 }
-.container2{
-    justify-content:center;
-    align-items:center;
-    padding:80px;
-}
 
 #fs3{
     background-color: #A8DDDB;
-}
-.container3{
-    justify-content:center;
-    align-items:center;
-    padding:80px;
 }
 
 #fs4{
     background-color: #F7BAB9;
 }
-.container4{
-    justify-content:center;
-    align-items:center;
-    padding:80px;
-}
 
 #pagina1{
     background-color: #9EC2D5;
     border-color: #9EC2D5;
-    width:200px;
     border-radius: 10px 10px 0px 0px;
 }
 
 #pagina2{
     background-color: #FFFCCB;
     border-color: #FFFCCB;
-    width:200px;
     border-radius: 10px 10px 0px 0px;
 }
 
 #pagina3{
     background-color: #A8DDDB;
     border-color: #A8DDDB;
-    width:200px;
     border-radius: 10px 10px 0px 0px;
 }
 
 #pagina4{
     background-color: #F7BAB9;
     border-color: #F7BAB9;
-    width:200px;
     border-radius: 10px 10px 0px 0px;
 }
 
