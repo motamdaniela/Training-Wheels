@@ -22,7 +22,7 @@ export function add(username, type, pass ,name, email, sex, bday) {
     localStorage.setItem("users", JSON.stringify(users));
     if (users.some((user) => user.type === "user")){
       setTimeout(() => {
-        location.replace("../index.html");
+        location.replace("index.html");
       }, 1000);
       sessionStorage.setItem("loggedUser", JSON.stringify(user));
     }
