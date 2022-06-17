@@ -554,4 +554,30 @@ for(let removeTesteBtn of removeTesteBtns){
   })
 }
 
+const blockBtns = document.querySelectorAll(".blockBtn")
+for(let blockBtn of blockBtns){
+  blockBtn.addEventListener("click", function(){ 
+    let users=User.getUsers();
+    let username=this.parentNode.previousElementSibling.innerHTML
+    if(blockBtn.classList.contains("btn-danger")){
+      blockBtn.classList.remove("btn-danger")
+      for(let user of users){
+        if(user.username==username){
+          console.log(user)
+          console.log(username)
+        }
+      }
+      blockBtn.classList.add("btn-success") 
+    }else{
+      blockBtn.classList.remove("btn-success") 
+      blockBtn.classList.add("btn-danger")
+    }
+    }
+    
+    
+  )
+}
+
+
+
 feather.replace()
