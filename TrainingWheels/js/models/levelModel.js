@@ -13,6 +13,11 @@ export function add(name) {
     }
   }
 
+export function remove(nome) {
+  niveis = niveis.filter((nivel) => nivel.name !== nome);
+  localStorage.setItem("niveis", JSON.stringify(niveis));
+}
+
 export function getLevels() {
     return niveis;
   }

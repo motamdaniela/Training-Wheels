@@ -13,6 +13,11 @@ export function add(video, tag, name) {
     }
   }
 
+export function remove(nome) {
+  tags = tags.filter((tag) => tag.name !== nome);
+  localStorage.setItem("tags", JSON.stringify(tags));
+}
+
 export function getTags() {
   return tags;
 }
