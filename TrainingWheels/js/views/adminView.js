@@ -347,10 +347,10 @@ function addLesson(){
     if(tag.video === video.url ){
       result += `
       <tr>
-          <th scope="row">${video.level}</th>
-          <td>video -> ${video.name}</td>
+          <th scope="row">${video.level}    video--></th>
+          <td>${video.name}</td>
           <td>
-          <button  type="button" class="btn btn-danger removeLicao">Remover video</button></td>
+          <button  type="button" class="btn btn-danger removeVideo">Remover video</button></td>
       </tr>
           `
 
@@ -367,8 +367,8 @@ function addTest(){
   for (let teste of testes) {
     result += `
     <tr>
-        <th scope="row">${teste.level}</th>
-        <td>teste -> ${teste.name}</td>
+        <th scope="row">${teste.level}   teste --> </th>
+        <td>${teste.name}</td>
         <td><button  type="button" class="btn btn-danger removeTeste">Remover teste</button></td>
     </tr>
         `
@@ -514,6 +514,42 @@ for(let removeLevelBtn of removeLevelBtns){
       }
     }
     Level.remove(nivel)
+    location.reload()
+  })
+}
+
+const removeVideoBtns = document.querySelectorAll(".removeVideo")
+for(let removeVideoBtn of removeVideoBtns){
+  removeVideoBtn.addEventListener("click", function(){ 
+    let video=this.parentNode.previousElementSibling.innerHTML
+    let popups=PopUp.getPopUp()
+    let tags=Tag.getTags()
+    for(let tag of tags){
+      if(tag.video==video.name){
+        Tag.removeTag(tag.name)
+      }
+    } 
+    for(let popup of popups){
+      if(popup.video==video.name){
+        PopUp.remove(popup.question)
+      }
+    }
+    Video.removeVideo(video.name)
+    location.reload()
+  })
+}
+
+const removeTesteBtns = document.querySelectorAll(".removeTeste")
+for(let removeTesteBtn of removeTesteBtns){
+  removeTesteBtn.addEventListener("click", function(){ 
+    let teste=this.parentNode.previousElementSibling.innerHTML
+    let pergs=Question.getQuestions()
+    for(let perg of  pergs){
+      if(perg.test_name==teste.name){
+        Question.remove(perg.question)
+      }
+    }
+    Test.remove(teste.name)
     location.reload()
   })
 }
