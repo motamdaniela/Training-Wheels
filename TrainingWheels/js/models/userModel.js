@@ -20,7 +20,7 @@ export function add(username, type, pass ,name, email, sex, bday) {
   }else {
     users.push(new User(username, type, pass, name, email, sex, bday));
     localStorage.setItem("users", JSON.stringify(users));
-    if (user.type === "user"){
+    if (users.some((user) => user.type === "user")){
       setTimeout(() => {
         location.replace("../index.html");
       }, 1000);
@@ -36,14 +36,19 @@ export function login(username, password) {
     (user) => user.username === username && user.password === password
   );
   if (user) {
-    sessionStorage.setItem("loggedUser", JSON.stringify(user));
     if(user.type === "admin") {
       setTimeout(() => {
         location.replace("/html/admin.html");
       }, 1000);
     }
     else{
-      return true;  
+      if(user.state==="unblocked") {
+        sessionStorage.setItem("loggedUser", JSON.stringify(user));
+        return true; 
+      }else{
+        return('User bloqueado!');
+      }
+       
     }
   } else if(user != true) {
     return('Username ou password errados');
@@ -96,8 +101,9 @@ class User {
     book = {} 
     stickersLvl = []
     stickersBuy = []
+    state=''
 
-    constructor(username, type = 'user', password, name, email, sex, bday, place='Portugal', photo = '../media/images/default.svg', ranking = [0, 0], progress={}, clues=0, points=0, stickersLvl =[], stickersBuy =[]){
+    constructor(username, type = 'user', password, name, email, sex, bday, place='Portugal', photo = '../media/images/default.svg', ranking = [0, 0], progress={}, clues=0, points=0, stickersLvl =[], stickersBuy =[], state='unblocked'){
         this.username = username;
         this.type = type;
         this.name = name;
@@ -111,7 +117,8 @@ class User {
         this.progress = progress;
         this.clues = clues;
         this.points = points;
-        this.stickersLvl = stickersLvl
-        this.stickersBuy = stickersBuy
+        this.stickersLvl = stickersLvl;
+        this.stickersBuy = stickersBuy;
+        this.state=state;
     }
 }
