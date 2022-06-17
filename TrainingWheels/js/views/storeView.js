@@ -23,6 +23,8 @@ for (let btn of btns) {
             console.log(numPista)
             user.clues+=numPista
             user.points -= precoNum
+            alert('A compra foi efetuada')
+            $("#cluesModal").modal('hide');
         }else{
             alert('Não tem pontos suficientes para fazer esta compra')
             $("#cluesModal").modal('hide');
@@ -48,11 +50,16 @@ for (const btn2 of btns2) {
         const conf=document.querySelector('#confirmar_compra2')
         conf.addEventListener('click',function(){
             if(precoNum<=user.points){
-                user.stickersBuy.indexOf(getId) === -1 ? user.stickersBuy.push(getId) : alert("Este sticker já foi comprado");
-                user.points -= precoNum;
-                $("#stickersModal").modal('hide');
-                alert('A compra foi efetuada')
-                console.log(user.stickersBuy);
+                if(user.stickersBuy.indexOf(getId) === -1){
+                    user.stickersBuy.push(getId);
+                    user.points -= precoNum;
+                    $("#stickersModal").modal('hide');
+                    alert('A compra foi efetuada')
+                    console.log(user.stickersBuy);
+                } else {
+                    alert("Este sticker já foi comprado");
+                    $("#stickersModal").modal('hide');
+                }
                 
             }else{ 
                 alert('Não tem pontos suficientes para fazer esta compra')
