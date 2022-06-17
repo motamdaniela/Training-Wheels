@@ -27,7 +27,7 @@ function pageView(){
     let result2=''
     let result3=''
     if (User.isLogged()){
-      document.querySelector('#divfundo').innerHTML =`<img id="fundo2" src="./media/images/fundojalog.svg">`
+      document.querySelector('#divfundo').innerHTML =`<img id="fundo2" src="./media/images/fundojalog.svg"><img id="fundo3" src="./media/images/fundo_logado.svg">`;
         
         result=`<fieldset class="titulo">
         <h2>Quadro de líderes</h2>
