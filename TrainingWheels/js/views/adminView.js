@@ -567,23 +567,19 @@ for(let blockBtn of blockBtns){
         if(user.state=='unblocked'){
           blockBtn.classList.remove("btn-danger")
           blockBtn.classList.add("btn-success") 
-          user.state='blocked'
-          localStorage.setItem('users', JSON.stringify(user))
-          User.attUserOnStorage(user)
-          console.log(user.state)
+          blockBtn.innerHTML="Bloquear"
+          user.state='unblocked'
         }else{
           blockBtn.classList.remove("btn-success") 
           blockBtn.classList.add("btn-danger")
-          user.state='unblocked'
-          localStorage.setItem('users', JSON.stringify(user))
-          User.attUserOnStorage(user)
-          console.log(user.state)
+          blockBtn.innerHTML="Desbloquear"
+          user.state='blocked'
         }  
       }
-    }  
+      User.attUserOnStorage(user)
+      console.log(user.state)
+    }   
   })
 }
-
-
 
 feather.replace()
