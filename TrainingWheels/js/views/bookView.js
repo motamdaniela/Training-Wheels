@@ -67,6 +67,13 @@ function viewStickers () {
             something.classList.remove('dark');
         }
     });
-     
+    allStickers.forEach((sticker) => {
+        var something = document.getElementById(sticker)
+        if(user.stickersLvl.indexOf(sticker) === -1){
+            something.classList.add('dark');
+        } else {
+            something.classList.remove('dark');
+        }
+    });
 }
 viewStickers()

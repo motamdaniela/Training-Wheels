@@ -56,6 +56,7 @@ for (const btn2 of btns2) {
                     $("#stickersModal").modal('hide');
                     alert('A compra foi efetuada')
                     console.log(user.stickersBuy);
+
                 } else {
                     alert("Este sticker já foi comprado");
                     $("#stickersModal").modal('hide');
