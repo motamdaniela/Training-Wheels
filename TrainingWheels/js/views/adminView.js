@@ -558,16 +558,21 @@ const blockBtns = document.querySelectorAll(".blockBtn")
 for(let blockBtn of blockBtns){
   blockBtn.addEventListener("click", function(){ 
     let users=User.getUsers();
-    let username=this.parentNode.previousElementSibling.innerHTML
+    let username=this.parentNode.previousElementSibling.previousElementSibling.innerHTML
+    console.log(username);
     if(blockBtn.classList.contains("btn-danger")){
       blockBtn.classList.remove("btn-danger")
+      blockBtn.classList.add("btn-success") 
       for(let user of users){
+        console.log(user)
         if(user.username==username){
-          console.log(user)
-          console.log(username)
+          user.state='blocked'
+          localStorage.setItem('users', JSON.stringify(user))
+          // User.attUserOnStorage(user)
+          console.log(user.state)
         }
       }
-      blockBtn.classList.add("btn-success") 
+      
     }else{
       blockBtn.classList.remove("btn-success") 
       blockBtn.classList.add("btn-danger")
