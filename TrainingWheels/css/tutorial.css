@@ -1,4 +1,4 @@
-body{
+body *:not(.main-menu > *){
   background-color: #FFF8F8;
   flex-direction: column;
   font-family: 'ABC-Regular', sans-serif;
@@ -18,8 +18,10 @@ video {
 }
 
 .btn{
-  background-color: #4B94BC;
-  color: #252131;
+    border-color: #4B94BC;
+    color: #ffffff;
+    background-color: #4B94BC;
+    border-radius: 10px;
 }
 
 .container {
