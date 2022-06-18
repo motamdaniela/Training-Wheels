@@ -13,11 +13,6 @@ export function getProgress() {
   return progress;
 }
 
-// devolve nivel em que user clicou(currentLvl)
-export function getcurrentLvl() {
-  return JSON.parse(sessionStorage.getItem("currentLvl"));
-}
-
 export function attProgressOnStorage(attProgress){
   let progress = JSON.parse(localStorage.getItem('progress'))
   progress.forEach((progres,i) => {

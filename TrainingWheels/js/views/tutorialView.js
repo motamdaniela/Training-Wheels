@@ -25,6 +25,57 @@ let title = document.querySelector('#title');
 let comments = ''
 
 
+function renderPage(){
+  let lvlTitle = document.querySelector('#lvlTitle')
+  let progress = Progress.getProgress()
+  
+  progress.forEach((progres) => {
+    if(currentUser.username === progres.username){
+      let currentLvl = progres.currentLvl
+      lvlTitle.innerHTML = currentLvl
+      
+      let listVideos = []
+      allVideos.forEach((video) => {
+        if(video.level === currentLvl){
+          listVideos.push(video);
+        }
+      })
+
+      let divPages = document.querySelector(".divPages")
+      let string = ''
+      listVideos.forEach((listVideo) => {
+        string += `
+        <button type="button" id="${listVideo.name}" class="btn btn BtnUp"> <b>${listVideo.name}</b> </button>
+        `
+      })
+      divPages.innerHTML = string
+
+    }
+  })
+}
+renderPage()
+
+function renderTab(){
+
+}
+
+/*
+let btn3 = document.querySelector('.field3')
+btn3.addEventListener('click', function(){
+    var field1 = document.getElementById("fs1");
+    var field2 = document.getElementById("fs2");
+    var field3 = document.getElementById("fs3");
+    var field4 = document.getElementById("fs4");
+    field1.classList.add('hide');
+    field2.classList.add('hide');
+    field3.classList.remove('hide');
+    field4.classList.add('hide');
+})
+*/
+
+
+
+
 
 //funcao que abre a modal
 function OpenBootstrapPopup() {
