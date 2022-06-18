@@ -5,6 +5,7 @@ Level.init()
 User.init()
 Progress.init()
 
+let currentUser = User.getUserLogged()
 
 function rankTable(){
     let result = ''
@@ -44,7 +45,7 @@ function rankTable(){
         `
         
       }
-      document.querySelector('#menuNiveis').innerHTML += result;
+      document.querySelector('#menuNiveis').innerHTML = result;
       feather.replace()
       lvlPage()
     }
@@ -57,8 +58,18 @@ function lvlPage(){
   goBtns.forEach((goBtn)=>{
     goBtn.addEventListener('click',()=>{
 
-      redirect(goBtn.id)
+      let progress = Progress.getProgress()
+      progress.forEach((progres)=>{
+        if (currentUser.username === progres.username){
 
+          progres.currentLvl = goBtn.id
+          sessionStorage.setItem('currentLvl', JSON.stringify(progres.currentLvl))
+          Progress.attProgressOnStorage(progres)
+
+        }
+      })
+      
+      redirect(goBtn.id)
     })
   })
 }

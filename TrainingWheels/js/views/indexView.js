@@ -16,7 +16,6 @@ function pageView(){
       </a>
       
     </div>
-
     
     
     <div class="tutorial" >
@@ -48,7 +47,6 @@ function pageView(){
           </tbody>
         </table>
       </div>
-
       <div id="avalDiv" class="divInicio">
         <fieldset class="titulo">
           <h2>Avaliações</h2>
@@ -193,6 +191,3 @@ function rankingOrder(){
   return array
 
 }
-
-
-
