@@ -11,8 +11,16 @@
         position: fixed;
     }
     #profile{
-        height: 40px;
+        height: 35px;
         border-radius: 50%;
+    }
+
+    .nav-icon{
+        color: #2D2F44;
+    }
+
+    .nav-text{
+        color: #2D2F44;
     }
 
 }

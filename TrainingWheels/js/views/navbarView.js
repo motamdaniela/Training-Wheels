@@ -141,7 +141,7 @@ function navbarView() {
            <ul id="icon-lado" class="nav nav-pills nav-flush flex-column mb-auto d-sm-none">
              <li>
                 <a href="profile.html" class="nav-link py-3 " >
-                <img class="nav-icon" id="profile" src="${user.photo}">   
+                <img id="profile" src="${user.photo}">   
                 </a>
              </li>
            </ul>
@@ -185,7 +185,7 @@ function navbarView() {
                <span class="nav-text">Sobre nós</span>    
              </a>
            </li>
-                 </ul>
+          </ul>
            </div>
            </nav>
           
