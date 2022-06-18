@@ -16,6 +16,7 @@ let allVideos = Videos.getVideos();
 let allTags = Tags.getTags();
 let allPopUps = PopUpQuestions.getPopUp();
 let currentUser = User.getUserLogged()
+let progress = Progress.getProgress()
 
 
 
@@ -28,7 +29,6 @@ let currentUser = User.getUserLogged()
 //funcao que cria a pagina
 function renderPage(){
   let lvlTitle = document.querySelector('#lvlTitle')
-  let progress = Progress.getProgress()
   
   progress.forEach((progres) => {
     if(currentUser.username === progres.username){
@@ -229,8 +229,10 @@ function Questions(){
       if (video.currentTime >= time && video.currentTime <= time + 0.2){
         question.innerHTML = allPopUp.question
         imagePopUp.src = allPopUp.image
-        cluesN.innerHTML = currentUser.clues + ' pistas'
-        pointsN.innerHTML = currentUser.points + ' pontos'
+        
+        cluesN.innerHTML = currentUser.clues
+        pointsN.innerHTML = currentUser.points
+
         let randomBtns = shuffle(allPopUp.answers)
         answers.innerHTML = `
         <div class="row row-cols-2">
@@ -254,6 +256,9 @@ function CorrectAnswer(gotAnswer, gotPoints, Reward){
   let answerBtns = document.querySelectorAll('.answerBtn');
   allPopUps.forEach((allPopUp) => {
     answerBtns.forEach((answerBtn) => {
+
+      answerQuestion()
+
       if(answerBtn.id === gotAnswer){
         answerBtn.addEventListener('click',()=>{
           setTimeout(() => {
@@ -297,23 +302,59 @@ function CorrectAnswer(gotAnswer, gotPoints, Reward){
   })
 }
 
-
-
-//funcao que atualiza o progresso a medida que o utilizador vai avancando no tutorial
-function updateProgress() {
-  let progress = Progress.getProgress()
+function answerQuestion(){
   progress.forEach((progres) => {
-    console.log(progres)
     if(progres.username === currentUser.username){
-      while(video.paused == true){
-        progres.currentVideo = title.innerHTML
-        progres.currentTag = video.currentTime
+      let doneQuestions = Array.from(progres.questionsDone)
+      let question = document.querySelector('#questionPopUp').innerHTML
+      if(doneQuestions.includes(question)){
+
+      }else{
+        doneQuestions.push(question)
+        progres.questionsDone = doneQuestions
+    
         sessionStorage.setItem('progress', JSON.stringify(progres))
-        Progress.attUserOnStorage(progres)
+        Progress.attProgressOnStorage(progres)
       }
     }
   })
 }
+
+
+
+//funcao que atualiza o progresso a medida que o utilizador vai avancando no tutorial
+function updateProgress() {
+  progress.forEach((progres) => {
+    if(progres.username === currentUser.username){
+      if(video.paused){
+        progres.currentVideo = title.innerHTML
+        progres.currentTag = video.currentTime
+
+        sessionStorage.setItem('progress', JSON.stringify(progres))
+        Progress.attProgressOnStorage(progres)
+
+      }else if(video.currentTime >= video.duration - 40){
+        let doneVideos = Array.from(progres.videosDone)
+        if(doneVideos.includes(title.innerHTML)){
+
+        }else{
+          doneVideos.push(title.innerHTML)
+          progres.videosDone = doneVideos
+          console.log(progress)
+  
+          sessionStorage.setItem('progress', JSON.stringify(progres))
+          Progress.attProgressOnStorage(progres)
+        }
+      }
+    }
+  })
+}
+
+/*
+    questionsDone = []
+    questionsCorrect = []
+    likedVideos = []
+*/
 
 video.addEventListener("timeupdate", () => {
   Questions()

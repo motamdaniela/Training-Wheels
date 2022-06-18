@@ -43,7 +43,7 @@ video {
 }
 
 .list-group{
-    width: 360px;
+    width: 70%;
 }
 .rewardContent{
   display: flex;
@@ -136,4 +136,24 @@ fieldset{
 
 .hide {
   display: none;
+}
+
+.inventory{
+  display: flex;
+  flex:wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.inventoryItem{
+  display: flex;
+  flex:wrap;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+#pointsN, #cluesN{
+  margin-left: 8px;
+  margin-right: 5px;
 }
