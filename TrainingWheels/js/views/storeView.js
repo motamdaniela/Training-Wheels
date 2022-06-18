@@ -25,6 +25,8 @@ for (let btn of btns) {
             user.points -= precoNum
             alert('A compra foi efetuada')
             $("#cluesModal").modal('hide');
+            sessionStorage.setItem('loggedUser', JSON.stringify(user))
+            User.attUserOnStorage(user)
         }else{
             alert('Não tem pontos suficientes para fazer esta compra')
             $("#cluesModal").modal('hide');
@@ -56,6 +58,8 @@ for (const btn2 of btns2) {
                     $("#stickersModal").modal('hide');
                     alert('A compra foi efetuada')
                     console.log(user.stickersBuy);
+                    sessionStorage.setItem('loggedUser', JSON.stringify(user))
+                    User.attUserOnStorage(user)
 
                 } else {
                     alert("Este sticker já foi comprado");

@@ -61,19 +61,13 @@ function viewStickers () {
     
     allStickers.forEach((sticker) => {
         var something = document.getElementById(sticker)
-        if(user.stickersBuy.indexOf(sticker) === -1){
+        if(user.stickersBuy.indexOf(sticker) === -1 && user.stickersLvl.indexOf(sticker) === -1){
             something.classList.add('dark');
         } else {
             something.classList.remove('dark');
         }
     });
-    allStickers.forEach((sticker) => {
-        var something = document.getElementById(sticker)
-        if(user.stickersLvl.indexOf(sticker) === -1){
-            something.classList.add('dark');
-        } else {
-            something.classList.remove('dark');
-        }
-    });
+    
 }
 viewStickers()
+
