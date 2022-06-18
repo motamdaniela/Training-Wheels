@@ -354,6 +354,11 @@ function updateProgress() {
     questionsDone = []
     questionsCorrect = []
     likedVideos = []
+
+    to not repeat questions correct
+    not gain points from questions done
+
+    like videos(maybe unlike)
 */
 
 video.addEventListener("timeupdate", () => {

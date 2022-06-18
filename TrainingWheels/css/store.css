@@ -77,3 +77,19 @@ body{
     margin-left: 30px;
     margin-bottom: 20px;
 }
+
+#loja{
+    margin-left: 8%;
+}
+.inventoryItem{
+    display: flex;
+    flex:wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-end;
+    margin-right: 5%;
+  }
+  #pointsN, #cluesN{
+    margin-left: 8px;
+    margin-right: 5px;
+  }
