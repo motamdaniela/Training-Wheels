@@ -28,159 +28,167 @@ body{
   justify-content: center;
 }
 
+@media screen and (max-width: 575px) {
 
-/* pagina nao logada */
-#videoDiv{
-  display: flex;
-  justify-content: center;
-}
-
-
-.divInicio{
-  height: 700px;
-  display: grid;
-  align-items: center;
-  width: 600px;
-}
-
-.tutorial>p{
-  margin-bottom: 40px;
-  text-align: center;
-  color: #2D2F44;
-  font-family: 'ABC-Bold', sans-serif;
-  font-size: 40px;
-}
-
-.tutorial>img{
-  width:1000px;
-}
-
-.buttons{
-  font-family: 'ABC-Bold', sans-serif;
-}
-
-#entrar{
-  border-color: #488baf;
-  color: #488baf;
-  background-color: #FCF7F7;
-  font-size: 22px;
-  border-radius: 10px;
-  width: 180px;
-  height: 61.52px;
-  left: 265px;
-  top: 350px;
-  position: absolute;
-  border-width: 3px;
-}
-
-#registar{
-  border-color: #488baf;
-  background-color: #488baf;
-  color: #FCF7F7;
-  font-size: 22px;
-  border-radius: 10px;
-  width: 180px;
-  height: 61.52px;
-  left: 500.13px;
-  top: 350px;
-  position: absolute;
-}
-
-#video{
-  align-self: center;
-  margin-top: 80px;
-  width:800px;
-}
-
-
-/* pagina logada */
-
-.titulo{
-  background-color: #FBE2E2;
-  border-radius: 50px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 2%;
-  font-family: 'ABC-Bold', sans-serif;
-  color: #2D2F44;
-  margin-top: 60px;
-}
-
-#ranking{
-  background-color: #E7EDF1;
-  border-radius: 10px;
-  width: 100%;
-  color: #2D2F44;
-  margin-bottom: 120px;
-  height: 300px;
-  padding: 30px;
-}
-
-#ranking img{
-  border-radius: 50%;
-  width:50px;
-}
-
-.respostas{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#reviews{
-  width: 400px;
-  background-color: #E7EDF1;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-#avaliacoes{
-  margin-top: 20px;
-  display: flex;
-  flex-direction: row;
-}
-
-#avaliar{
-  margin-left: 150px;
-  background-color: #54C5C1;
-  border-color: #54C5C1;
 }
 
 
 
-#comentarios{
-  background-color: #E7EDF1;
-  border-radius: 10px;
-  width: 510px;
-  padding: 20px;
-  height: 310px;
-} 
+@media screen and (min-width: 575px) {
+  
+  /* pagina nao logada */
+  #videoDiv{
+    display: flex;
+    justify-content: center;
+  }
+  
+  
+  .divInicio{
+    height: 700px;
+    display: grid;
+    align-items: center;
+    width: 600px;
+  }
+  
+  .tutorial>p{
+    margin-bottom: 40px;
+    text-align: center;
+    color: #2D2F44;
+    font-family: 'ABC-Bold', sans-serif;
+    font-size: 40px;
+  }
+  
+  .tutorial>img{
+    width:1000px;
+  }
+  
+  .buttons{
+    font-family: 'ABC-Bold', sans-serif;
+  }
+  
+  #entrar{
+    border-color: #488baf;
+    color: #488baf;
+    background-color: #FCF7F7;
+    font-size: 22px;
+    border-radius: 10px;
+    width: 180px;
+    height: 61.52px;
+    left: 265px;
+    top: 350px;
+    position: absolute;
+    border-width: 3px;
+  }
+  
+  #registar{
+    border-color: #488baf;
+    background-color: #488baf;
+    color: #FCF7F7;
+    font-size: 22px;
+    border-radius: 10px;
+    width: 180px;
+    height: 61.52px;
+    left: 500.13px;
+    top: 350px;
+    position: absolute;
+  }
+  
+  #video{
+    align-self: center;
+    margin-top: 80px;
+    width:800px;
+  }
+  
+  
+  /* pagina logada */
+  
+  .titulo{
+    background-color: #FBE2E2;
+    border-radius: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+    font-family: 'ABC-Bold', sans-serif;
+    color: #2D2F44;
+    margin-top: 60px;
+  }
+  
+  #ranking{
+    background-color: #E7EDF1;
+    border-radius: 10px;
+    width: 100%;
+    color: #2D2F44;
+    margin-bottom: 120px;
+    height: 300px;
+    padding: 30px;
+  }
+  
+  #ranking img{
+    border-radius: 50%;
+    width:50px;
+  }
+  
+  .respostas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #reviews{
+    width: 400px;
+    background-color: #E7EDF1;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  #avaliacoes{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  #avaliar{
+    margin-left: 150px;
+    background-color: #54C5C1;
+    border-color: #54C5C1;
+  }
+  
+  
+  
+  #comentarios{
+    background-color: #E7EDF1;
+    border-radius: 10px;
+    width: 510px;
+    padding: 20px;
+    height: 310px;
+  } 
+  
+  #perfilCom{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%
+  }
+  
+  #comentarios>div{
+    display: flex;
+    flex-direction: row;
+  }
+  
+  #comentario{
+    background-color: #FEFCFC;
+    border-radius: 10px;
+    height: 200px;
+    padding: 10px;
+  }
+  
+  #num{
+    width: 120px;
+  } 
 
-#perfilCom{
-  width: 50px;
-  height: 50px;
-  border-radius: 50%
 }
-
-#comentarios>div{
-  display: flex;
-  flex-direction: row;
-}
-
-#comentario{
-  background-color: #FEFCFC;
-  border-radius: 10px;
-  height: 200px;
-  padding: 10px;
-}
-
-#num{
-  width: 120px;
-} 
-
 
 
 
