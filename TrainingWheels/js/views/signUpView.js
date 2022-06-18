@@ -31,7 +31,7 @@ signUpBtn.addEventListener("click",(event)=>{
       Progress.add(username)
       User.login(username,pass)
          setTimeout(() => {
-           location.replace("../index.html");
+           location.replace("./index.html");
          }, 1000);
     }
   }else{
