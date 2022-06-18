@@ -2,7 +2,10 @@ import * as User from "../models/userModel.js";
 
 User.init()
 let user=User.getUserLogged()
-document.querySelector('#pontos').innerHTML=`Pontos: ${user.points} `
+let cluesN = document.querySelector("#cluesN")
+let pointsN = document.querySelector("#pointsN")
+cluesN.innerHTML = user.clues
+pointsN.innerHTML = user.points
 
 let btns=document.querySelectorAll('.comprar-clues')
 for (let btn of btns) {
