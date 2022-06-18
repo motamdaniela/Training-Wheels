@@ -36,6 +36,7 @@ fieldset{
 
 #fs1{
     background-color: #9EC2D5;
+
 }
 .container1, .container2, .container3, .container4{
     justify-content:center;
@@ -59,24 +60,28 @@ fieldset{
     background-color: #9EC2D5;
     border-color: #9EC2D5;
     border-radius: 10px 10px 0px 0px;
+    width: 150px;
 }
 
 #pagina2{
     background-color: #FFFCCB;
     border-color: #FFFCCB;
     border-radius: 10px 10px 0px 0px;
+    width: 150px;
 }
 
 #pagina3{
     background-color: #A8DDDB;
     border-color: #A8DDDB;
     border-radius: 10px 10px 0px 0px;
+    width: 150px;
 }
 
 #pagina4{
     background-color: #F7BAB9;
     border-color: #F7BAB9;
     border-radius: 10px 10px 0px 0px;
+    width: 150px;
 }
 
 .dark{
