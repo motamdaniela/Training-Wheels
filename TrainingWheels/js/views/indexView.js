@@ -27,7 +27,7 @@ function pageView(){
     let result2=''
     let result3=''
     if (User.isLogged()){
-      document.querySelector('#divfundo').innerHTML =`<img id="fundo2" src="../media/images/fundojalog.svg">`;
+      document.querySelector('#fundo').src ="../media/images/fundojalog.svg";
         
         result=`<div id="topo"> 
           <h3 id="bemVindo">Bem vindo!</h3>
@@ -36,7 +36,7 @@ function pageView(){
             <fieldset id="continuar">
               <p>nivel</p>
               <button id="continuarBtn">
-                <i class="nav-icon" data-feather="play"></i>
+                <i data-feather="play"></i>
               </button>
             </fieldset>
           </div>
