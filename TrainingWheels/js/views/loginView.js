@@ -18,11 +18,11 @@ loginBtn.addEventListener("click", (event) =>{
         if(logIn==true){
           if(User.login(username, password) == "admin"){
             setTimeout(() => {
-              location.replace("../admin.html");
+              location.replace("./admin.html");
             }, 1000);
           }
           setTimeout(() => {
-            location.replace("../index.html");
+            location.replace("./index.html");
           }, 1000);
         }
         else{

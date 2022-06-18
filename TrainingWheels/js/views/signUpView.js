@@ -1,5 +1,7 @@
 import * as User from "../models/userModel.js";
+import * as Progress from "../models/progressModel.js";
 User.init()
+Progress.init()
 
 const signUpBtn = document.querySelector("#signUpBtn");
 
@@ -26,9 +28,10 @@ signUpBtn.addEventListener("click",(event)=>{
       // }, 1000);
     }catch(e) {
       User.add(username, type, pass, name, email, sex, bday);
+      Progress.add(username)
       User.login(username,pass)
          setTimeout(() => {
-           location.replace("../index.html");
+           location.replace("./index.html");
          }, 1000);
     }
   }else{
