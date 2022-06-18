@@ -102,3 +102,28 @@ fieldset{
   justify-content: center;
   text-align: center;
 }
+.goBtn{
+  display: flex;
+  flex:wrap;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.toPad{
+  padding: 20px;
+  font-size: 20px;
+}
+.goIcon{
+  width: 50px;
+  height: 50px;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.goIcon:hover{
+  stroke: #FFF8F8;
+}
+
+.lvlTitle{
+  margin-top: 40px;
+}
