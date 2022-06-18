@@ -22,11 +22,6 @@ export function getLevels() {
     return niveis;
   }
 
-// devolve nivel em que user clicou(currentLvl)
-export function getcurrentLvl() {
-  return JSON.parse(sessionStorage.getItem("currentLvl"));
-}
-
 class Level{
     name=''
   
