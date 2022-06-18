@@ -97,7 +97,6 @@ class User {
     ranking = []
     clues = 0
     points = 0
-    book = {} 
     stickersLvl = []
     stickersBuy = []
     state = ''

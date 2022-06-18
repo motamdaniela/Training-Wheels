@@ -26,13 +26,13 @@ class Progress{
     questionsDone = []
     questionsCorrect = []
     levelsDone = []
-    currentVideo = {}
+    currentVideo = ''
     currentTag = ''
     likedVideos = []
     currentLvl = ''
     videosDone = []
 
-    constructor(username, questionsDone = [], questionsCorrect = [], levelsDone = [], currentVideo = {}, currentTag = '', likedVideos = [], currentLvl = '', videosDone = []) {
+    constructor(username, questionsDone = [], questionsCorrect = [], levelsDone = [], currentVideo = '', currentTag = '', likedVideos = [], currentLvl = '', videosDone = []) {
         this.username = username
         this.questionsDone = questionsDone
         this.questionsCorrect = questionsCorrect
