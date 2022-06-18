@@ -23,6 +23,7 @@ loginBtn.addEventListener("click", (event) =>{
           }
           setTimeout(() => {
             location.replace("index.html");
+
           }, 1000);
         }
         else{

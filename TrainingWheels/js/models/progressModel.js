@@ -13,6 +13,14 @@ export function getProgress() {
   return progress;
 }
 
+export function attProgressOnStorage(attProgress){
+  let progress = JSON.parse(localStorage.getItem('progress'))
+  progress.forEach((progres,i) => {
+      if (progres.username === attProgress.username) progress[i] = attProgress
+  })
+  localStorage.setItem('progress', JSON.stringify(progress))
+}
+
 class Progress{
     username = ''
     questionsDone = []
@@ -21,8 +29,9 @@ class Progress{
     currentVideo = {}
     currentTag = ''
     likedVideos = []
+    currentLvl = ''
 
-    constructor(username, questionsDone = [], questionsCorrect = [], levelsDone = [], currentVideo = {}, currentTag = '', likedVideos = []) {
+    constructor(username, questionsDone = [], questionsCorrect = [], levelsDone = [], currentVideo = {}, currentTag = '', likedVideos = [], currentLvl = '') {
         this.username = username
         this.questionsDone = questionsDone
         this.questionsCorrect = questionsCorrect
@@ -30,5 +39,6 @@ class Progress{
         this.currentVideo = currentVideo
         this.currentTag = currentTag
         this.likedVideos = likedVideos
+        currentLvl = currentLvl
     }
 }

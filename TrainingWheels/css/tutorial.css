@@ -1,10 +1,13 @@
 body*:not(.main-menu){
-  background-color: #FEFCFC;
+  background-color: #4B94BC;
   display:flex;
   font-family: 'ABC-Regular', sans-serif;
   flex-direction: column;
   justify-content: center;
   color: #2D2F44;
+}
+.wholeBody{
+  background-color: #9EC2D5;
 }
 
 .btn-toolbar{
@@ -16,6 +19,7 @@ body*:not(.main-menu){
   
 video {
   border-radius: 10px;
+  width: 100%;
 }
 
 #etiquetas{
@@ -35,7 +39,7 @@ video {
 }
 
 .col{
-  width: 50%;
+  width: 100%;
   padding: 30px;
 }
 
@@ -115,6 +119,8 @@ video::-webkit-media-controls-fullscreen-button
 fieldset{
   width:95%;
   border-radius: 0px 10px 10px 10px;
+  background-color: #FFF8F8;
+  padding: 20px;
 }
 
 
@@ -124,13 +130,9 @@ fieldset{
   padding:10px;
 }
 
-#fs1,#fs2,#fs3,#fs4{
-  background-color: #fdfdde;
-  padding: 20px;
-}
 
 #pagina1, #pagina2, #pagina3, #pagina4{
-  background-color: #fdfdde;
+  background-color: #FFF8F8;
   border-radius: 10px 10px 0px 0px;
 }
 
