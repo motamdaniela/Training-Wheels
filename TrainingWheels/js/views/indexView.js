@@ -29,7 +29,18 @@ function pageView(){
     if (User.isLogged()){
       document.querySelector('#divfundo').innerHTML =`<img id="fundo2" src="../media/images/fundojalog.svg">`;
         
-        result=`<div id="quadroLideres" class="divInicio">
+        result=`<h3>Bem vindo!</h3>
+        <div id="progresso">
+          <img src="../media/images/linha.svg">
+          <fieldset id="continuar">
+            <p>nivel</p>
+            <button id="continuarBtn">
+              <i class="nav-icon" data-feather="play"></i>
+            </button>
+          </fieldset>
+        </div>
+        
+        <div id="quadroLideres" class="divInicio">
           <fieldset class="titulo">
           <h2>Quadro de líderes</h2>
           <i class="nav-icon" data-feather="bar-chart"></i>
@@ -50,11 +61,13 @@ function pageView(){
       <div id="avalDiv" class="divInicio">
         <fieldset class="titulo">
           <h2>Avaliações</h2>
-          <i class="star" data-feather="star"></i>
-          <i class="star" data-feather="star"></i>
-          <i class="star" data-feather="star"></i>
-          <i class="star" data-feather="star"></i>
-          <i class="star" data-feather="star"></i>
+          <div>
+            <i class="star" data-feather="star"></i>
+            <i class="star" data-feather="star"></i>
+            <i class="star" data-feather="star"></i>
+            <i class="star" data-feather="star"></i>
+            <i class="star" data-feather="star"></i>
+          </div>
         </fieldset>
         <div id="comentDiv">
           

@@ -28,11 +28,163 @@ body{
   justify-content: center;
 }
 
-@media screen and (max-width: 575px) {
-
+.tutorial>p{
+  text-align: center;
+  color: #2D2F44;
+  font-family: 'ABC-Bold', sans-serif;
 }
 
+.respostas{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+#ranking{
+  background-color: #E7EDF1;
+  border-radius: 10px;
+  color: #2D2F44;
+}
+
+#ranking img{
+  border-radius: 50%;
+}
+
+#reviews{
+  background-color: #E7EDF1;
+  border-radius: 10px;
+}
+
+#avaliacoes{
+  display: flex;
+  flex-direction: row;
+}
+
+#avaliar{
+  background-color: #54C5C1;
+  border-color: #54C5C1;
+}
+
+.titulo{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: 'ABC-Bold', sans-serif;
+  color: #2D2F44;
+}
+
+#comentarios{
+  background-color: #E7EDF1;
+  border-radius: 10px;
+} 
+
+#perfilCom{
+  border-radius: 50%
+}
+
+#comentarios>div{
+  display: flex;
+  flex-direction: row;
+}
+
+#comentario{
+  background-color: #FEFCFC;
+  border-radius: 10px;
+}
+
+#continuar{
+  background-color: #E7EDF1;
+  border-radius: 10px;
+}
+
+#num{
+  width: 120px;
+} 
+
+#progresso{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+}
+
+#continuarBtn{
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 575px) {
+  #content>div{
+    margin-top: 60px;
+    width:310px;
+  }
+
+  #progresso>img{
+    width: 300px;
+  }
+
+  #continuar{
+    width: 250px;
+    height: 100px;
+    margin-top: 40px;
+    padding: 10px;
+  }
+
+  #continuarBtn{
+    width:40px;
+    height:40px;
+  }
+
+  #content{
+    padding-top: 100px;
+  }
+
+  .titulo>h2{
+    font-size: 20px;
+  }
+
+  .titulo{
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  #ranking img{
+    width: 30px;
+  }
+
+  #ranking{
+    height: 240px;
+  }
+
+  #reviews{
+    padding: 10px;
+  }
+
+  #perfilCom{
+    width: 30px;
+    height: 30px;
+  }
+
+  #comentarios{
+    padding: 20px;
+    height: 235px;
+  }
+
+  #avaliacoes{
+    margin-top: 20px;
+  }
+
+  #comentario{
+    height: 130px;
+    padding: 10px;
+  }
+
+  #fundo2{
+    display: none;
+  }
+
+}
 
 @media screen and (min-width: 575px) {
   
@@ -42,20 +194,11 @@ body{
     justify-content: center;
   }
   
-  
   .divInicio{
     height: 700px;
     display: grid;
     align-items: center;
     width: 600px;
-  }
-  
-  .tutorial>p{
-    margin-bottom: 40px;
-    text-align: center;
-    color: #2D2F44;
-    font-family: 'ABC-Bold', sans-serif;
-    font-size: 40px;
   }
   
   .tutorial>img{
@@ -101,92 +244,57 @@ body{
   
   
   /* pagina logada */
-  
   .titulo{
     background-color: #FBE2E2;
     border-radius: 50px;
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
     padding: 2%;
-    font-family: 'ABC-Bold', sans-serif;
-    color: #2D2F44;
     margin-top: 60px;
   }
-  
+
+  .tutorial>p{
+    margin-bottom: 40px;
+    font-size: 40px;
+  }
+
   #ranking{
-    background-color: #E7EDF1;
-    border-radius: 10px;
     width: 100%;
-    color: #2D2F44;
     margin-bottom: 120px;
     height: 300px;
     padding: 30px;
   }
-  
-  #ranking img{
-    border-radius: 50%;
-    width:50px;
-  }
-  
-  .respostas{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #reviews{
-    width: 400px;
-    background-color: #E7EDF1;
-    padding: 20px;
-    border-radius: 10px;
-  }
-  
-  #avaliacoes{
-    margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-  }
-  
-  #avaliar{
-    margin-left: 150px;
-    background-color: #54C5C1;
-    border-color: #54C5C1;
-  }
-  
-  
-  
-  #comentarios{
-    background-color: #E7EDF1;
-    border-radius: 10px;
-    width: 510px;
-    padding: 20px;
-    height: 310px;
-  } 
-  
-  #perfilCom{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%
-  }
-  
-  #comentarios>div{
-    display: flex;
-    flex-direction: row;
-  }
-  
+
   #comentario{
-    background-color: #FEFCFC;
-    border-radius: 10px;
     height: 200px;
     padding: 10px;
   }
+
+  #perfilCom{
+    width: 50px;
+    height: 50px;
+  }
+
+  #comentarios{
+    width: 510px;
+    padding: 20px;
+    height: 310px;
+  }
+
+  #avaliacoes{
+    margin-top: 20px;
+  }
+
+  #reviews{
+    width: 400px;
+    padding: 20px;
+  }
+
+  #ranking img{
+    width:50px;
+  }
   
-  #num{
-    width: 120px;
-  } 
+  
+
 
 }
 
