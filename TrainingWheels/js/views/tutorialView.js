@@ -52,7 +52,7 @@ function renderPage(){
         `
       })
       divPages.innerHTML = string
-      generateTable(listVideos)
+      generateTable()
 
       let allBtns = document.querySelectorAll('.BtnUp')
       allBtns = Array.from(allBtns)
@@ -77,10 +77,10 @@ function renderPage(){
 renderPage()
 
 //funcao que gera um fieldset(tab) para cada video
-function generateTable(listVideos) {
+function generateTable() {
   let divTabs = document.querySelector('#divTabs')
   let string = ''
-  listVideos.forEach((listVideo) => {
+
     string += `
     <fieldset id="${listVideo.name}" class="aTab hide">
               <div class="row">
@@ -129,9 +129,8 @@ function generateTable(listVideos) {
           </div>
         </fieldset>
     `
-  })
+    tagsList(listVideo.name)
   divTabs.innerHTML = string
-
 }
 
 function defaultTab() {
@@ -140,11 +139,7 @@ function defaultTab() {
   allTabs[0].classList.remove('hide')
 }
 defaultTab()
-
-
-
-
-
+let currentTab = ''
 
 
 
@@ -177,17 +172,27 @@ function convertTag(time){
 }
 
 //--------------------lista de etiquetas associadas às tags
- function tagsList(){
-  let videoTitle = document.querySelector("#title").innerHTML
+ function tagsList(videoName){
+  let allTabs = document.querySelectorAll('.aTab')
+  allTabs = Array.from(allTabs)
+  allTabs.forEach((allTab)=>{
+    if (allTab.classList.contains('hide')){
+    }else{ currentTab = allTab}
+  })
+
+  let anId =  currentTab.id.replace(' ', '_')
+  anId = anId + 'tags'
+  console.log(anId)
   let string = ''
   allTags.forEach((allTag)=>{
-    if(allTag.video === videoTitle){
+    if(allTag.video === videoName){
       string += `
       <a class="list-group-item list-group-item-action list-group-item tag">${allTag.name}</a>
       `
     }
   })
-  document.querySelector(".tagsList").innerHTML = string
+  anId = "#" + anId
+  //document.querySelector(anId).innerHTML = string
   let tagBtns = document.querySelectorAll('.tag')
   tagBtns = Array.from(tagBtns)
   tagBtns.forEach((tagBtn) => {
@@ -202,7 +207,7 @@ function convertTag(time){
     })
   })
 }
-tagsList()
+
 
 //-----------funcao que baralha(para as respostas)
 function shuffle(array) {
