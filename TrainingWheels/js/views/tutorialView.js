@@ -22,7 +22,6 @@ let currentUser = User.getUserLogged()
 const myModal = document.getElementById('myModal');
 let video = document.querySelector('video');
 let title = document.querySelector('#title');
-let comments = ''
 
 
 //funcao que abre a modal
@@ -172,6 +171,13 @@ function CorrectAnswer(gotAnswer, gotPoints, Reward){
   })
 }
 
+//funcao que atualiza o progresso a medida que o utilizador vai avancando no tutorial
+function saveProgress() {
+
+}
+
+
+//funcao que cria a pagina
 function renderPage(){
   let lvlTitle = document.querySelector('#lvlTitle')
   let progress = Progress.getProgress()
@@ -222,6 +228,8 @@ function renderPage(){
 }
 renderPage()
 
+
+//funcao que gera um fieldset(tab) para cada video
 function generateTable(listVideos) {
   let divTabs = document.querySelector('#divTabs')
   let string = ''
@@ -287,54 +295,3 @@ function defaultTab() {
 defaultTab()
 
 
-/*
-<fieldset id="fs1">
-          <div class="container1">
-              <div class="row">
-                <div>
-                  <div class="container">
-                  <div class="row">
-                    <div class="col-7">
-                      <h2 id="title">Sinalização Luminosa</h2>
-                      <div class="divVideo">
-                        <video src="../media/videos/Sinalizacao_Luminosa.mp4" controls></video>
-                      </div>
-                      <i class="heartIcon" data-feather="heart"></i>
-                    </div>
-                    <div class="col">
-                      <img id="etiquetas" src="../media/images/etiquetas.svg" height="30px">
-                      <div class="list-group tagsList">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                </div>
-              </div>
-              <br><br>
-              <div class="row">
-                <div>
-                  <div class="container">
-                  <div class="row">
-                    <div class="col-8">
-                      <img id="comentariosTitle" src="../media/images/comentarios.svg" height="30px">
-                      <fieldset class="commentsField">
-                        comentssss
-                      </fieldset>
-                    </div>
-                    <div class="col">
-                      <fieldset class="leaveComentField">
-                        <label>Dê a sua opinião!</label>
-                        <div class="form-floating">
-                          <textarea id="commentTextArea" class="form-control" placeholder="Leave a comment here" style="height: 150px; resize: none;"></textarea>
-                          <label for="floatingTextarea2"></label>
-                        </div>
-                      </fieldset>
-                    </div>
-                  </div>
-                </div>
-                </div>
-              </div>
-          </div>
-        </fieldset>
-
-*/

@@ -90,16 +90,16 @@ function checkVideo(){
   let progress = Progress.getProgress()
   let listOfVideos = document.querySelectorAll('.aVideo')
   listOfVideos = Array.from(listOfVideos)
-  let doneVideos = []
   
   progress.forEach((progres) => {
     if(progres.username === currentUser.username){
-      console.log(progres.videosDone)
-      doneVideos = progres.videosDone
+      let doneVideos = progres.videosDone
       listOfVideos.forEach((listOfVideo) => {
         let video = listOfVideo.innerHTML
         console.log(doneVideos,)
         if(doneVideos.includes(video)){
+          let string = `<i data-feature="check"></i>`
+          listOfVideo.innerHTML += string
         }
       })
     }
