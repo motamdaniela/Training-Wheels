@@ -8,10 +8,10 @@ function pageView(){
   
     let result=`<img id="video" src="https://www.hypeness.com.br/1/2019/05/azul-ou-verde-teste-1.jpg">
     <div class="buttons">
-      <a  href="html/login.html">
+      <a  href="login.html">
         <button type="button" id="entrar" class="btn btn-outline ">Entrar</button>
       </a>
-      <a  href="html/signUp.html">
+      <a  href="signUp.html">
         <button type="button" id="registar" class="btn btn">Registar</button>
       </a>
       
@@ -21,60 +21,66 @@ function pageView(){
     
     <div class="tutorial" >
       <p>Como usar Training Wheels</p>
-      <img src="media/images/inicio_tutorial.svg">
+      <img src="../media/images/inicio_tutorial.svg">
     </div>
     `
+    // <img id="fundo3" src="../media/images/fundo_logado.svg">
     let result2=''
     let result3=''
     if (User.isLogged()){
-      document.querySelector('#divfundo').innerHTML =`<img id="fundo2" src="./media/images/fundojalog.svg"><img id="fundo3" src="./media/images/fundo_logado.svg">`;
+      document.querySelector('#divfundo').innerHTML =`<img id="fundo2" src="../media/images/fundojalog.svg">`;
         
-        result=`<fieldset class="titulo">
-        <h2>Quadro de líderes</h2>
-        <i class="nav-icon" data-feather="bar-chart"></i>
-      </fieldset>
-        <table class="table table-borderless" id="ranking">
-        <thead>
-          <tr>
-            <th scope="col">Top 3</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Respostas</th>
-          </tr>
-        </thead>
-        <tbody id='body_rank'>
+        result=`<div id="quadroLideres" class="divInicio">
+          <fieldset class="titulo">
+          <h2>Quadro de líderes</h2>
+          <i class="nav-icon" data-feather="bar-chart"></i>
+        </fieldset>
+          <table class="table table-borderless" id="ranking">
+          <thead>
+            <tr>
+              <th scope="col">Top 3</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Respostas</th>
+            </tr>
+          </thead>
+          <tbody id='body_rank'>
+            
+          </tbody>
+        </table>
+      </div>
+
+      <div id="avalDiv" class="divInicio">
+        <fieldset class="titulo">
+          <h2>Avaliações</h2>
+          <i class="star" data-feather="star"></i>
+          <i class="star" data-feather="star"></i>
+          <i class="star" data-feather="star"></i>
+          <i class="star" data-feather="star"></i>
+          <i class="star" data-feather="star"></i>
+        </fieldset>
+        <div id="comentDiv">
           
-        </tbody>
-      </table>
-      <fieldset class="titulo">
-        <h2>Avaliações</h2>
-        <i class="star" data-feather="star"></i>
-        <i class="star" data-feather="star"></i>
-        <i class="star" data-feather="star"></i>
-        <i class="star" data-feather="star"></i>
-        <i class="star" data-feather="star"></i>
-      </fieldset>
-      <div id="comentDiv">
-        
+        </div>
       </div>
       
-      <fieldset class="titulo">
-        <h2>Avalia-nos!</h2>
-      </fieldset>
-    
-      <fieldset id="reviews">
-        <div class="form-floating">
-          <textarea class="form-control" placeholder="Leave a comment here" style="height: 150px" id="commentReview"></textarea>
-        </div>
-        <div id="avaliacoes">
-          <div class="input-group flex-nowrap" id="num">
-            <span class="input-group-text" id="addon-wrapping"><i class="fa-regular fa-star"></i></span>
-            <input type="number" class="form-control" min="1" max="5" placeholder="ex: 5" aria-describedby="addon-wrapping" id="starReview">
-          </div>  
-          <button type="button" id="avaliar" class="btn btn-primary">Avaliar</button>
-        </div>
-        
-        
-      </fieldset>
+      <div id="reviewsDiv" class="divInicio">
+        <fieldset class="titulo">
+          <h2>Avalia-nos!</h2>
+        </fieldset>
+        <fieldset id="reviews">
+          <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" style="height: 150px" id="commentReview"></textarea>
+          </div>
+          <div id="avaliacoes">
+            <div class="input-group flex-nowrap" id="num">
+              <span class="input-group-text" id="addon-wrapping"><i class="fa-regular fa-star"></i></span>
+              <input type="number" class="form-control" min="1" max="5" placeholder="ex: 5" aria-describedby="addon-wrapping" id="starReview">
+            </div>  
+            <button type="button" id="avaliar" class="btn btn-primary">Avaliar</button>
+          </div>
+        </fieldset>
+      </div>
+      
         `
         let nomes=rankingOrder()
         console.log(nomes)
@@ -88,9 +94,9 @@ function pageView(){
             cont+=1;
           if(cont<4 && nome.name==user.username ){
             result2+=`<tr>
-          <th scope="row"><img src=${user.photo}</th>
+          <th scope="row"><img src=${user.photo}></th>
           <td>${user.name}</td>
-          <td><i class="nav-icon" data-feather="check"></i> ${user.ranking[0]}<i class="nav-icon" data-feather="x"></i>${user.ranking[1]}</td>
+          <td class="respostas"><i class="nav-icon" data-feather="check"></i> ${user.ranking[0]}<i class="nav-icon" data-feather="x"></i>${user.ranking[1]}</td>
         </tr>
           `
           
@@ -103,7 +109,7 @@ function pageView(){
         if(reviews.lenght==0){
           result3+=`<fieldset id="comentarios">
           <div>
-            <img id="perfilCom" src="media/images/default.svg">
+            <img id="perfilCom" src="../media/images/default.svg">
             <div>
               <p><strong></strong></p>
               <i class="star" data-feather="star"></i>
@@ -121,7 +127,7 @@ function pageView(){
             for(let review of reviews){
               result3+=`<fieldset id="comentarios">
             <div>
-              <img id="perfilCom" src="media/images/default.svg">
+              <img id="perfilCom" src="../media/images/default.svg">
               <div>
                 <p><strong>${review.username}</strong></p>
                 <i class="star" data-feather="star"></i>

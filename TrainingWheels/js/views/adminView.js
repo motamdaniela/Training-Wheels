@@ -322,7 +322,7 @@ licao.addEventListener("click", (event) =>{
       console.log(nomeNivel)
       let i=0
       Tags.forEach(tag=>{
-        Tag.add(linkCompleto,tag,NomeTags[i])
+        Tag.add(nome,tag,NomeTags[i])
         i+=1
       })
       Video.add(linkCompleto,nome,nomeNivel)
@@ -342,11 +342,10 @@ licao.addEventListener("click", (event) =>{
 function addLesson(){
   let result = ''
   let videos=Video.getVideos()
-  let tags=Tag.getTags()
-  let i=0
+  // let tags=Tag.getTags()
   for (let video of videos) {
-    let tag = tags.find(tag => tag.video === video.url);
-    if(tag.video === video.url ){
+    // let tag = tags.find(tag => tag.video === video.url);
+    // if(tag.video === video.url ){
       result += `
       <tr>
           <th scope="row">${video.level}    video--></th>
@@ -358,7 +357,7 @@ function addLesson(){
 
     }
       
-  }
+  // }
   document.querySelector('#lessonbody').innerHTML += result;
 }
 addLesson()
@@ -524,20 +523,23 @@ const removeVideoBtns = document.querySelectorAll(".removeVideo")
 for(let removeVideoBtn of removeVideoBtns){
   removeVideoBtn.addEventListener("click", function(){ 
     let video=this.parentNode.previousElementSibling.innerHTML
+    console.log(video)
     let popups=PopUp.getPopUp()
     let tags=Tag.getTags()
     for(let tag of tags){
-      if(tag.video==video.name){
-        Tag.removeTag(tag.name)
+      if(tag.video==video){
+        console.log(tag.name)
+        Tag.remove(tag.name)
       }
     } 
     for(let popup of popups){
-      if(popup.video==video.name){
+      if(popup.video==video){
+        console.log(popup.question)
         PopUp.remove(popup.question)
       }
     }
-    Video.removeVideo(video.name)
-    location.reload()
+    Video.removeVideo(video)
+    //location.reload()
   })
 }
 
@@ -547,11 +549,11 @@ for(let removeTesteBtn of removeTesteBtns){
     let teste=this.parentNode.previousElementSibling.innerHTML
     let pergs=Question.getQuestions()
     for(let perg of  pergs){
-      if(perg.test_name==teste.name){
+      if(perg.test_name==teste){
         Question.remove(perg.question)
       }
     }
-    Test.remove(teste.name)
+    Test.remove(teste)
     location.reload()
   })
 }
@@ -567,23 +569,19 @@ for(let blockBtn of blockBtns){
         if(user.state=='unblocked'){
           blockBtn.classList.remove("btn-danger")
           blockBtn.classList.add("btn-success") 
+          blockBtn.innerHTML="Desbloquear"
           user.state='blocked'
-          localStorage.setItem('users', JSON.stringify(user))
-          User.attUserOnStorage(user)
-          console.log(user.state)
         }else{
           blockBtn.classList.remove("btn-success") 
           blockBtn.classList.add("btn-danger")
+          blockBtn.innerHTML="Bloquear"
           user.state='unblocked'
-          localStorage.setItem('users', JSON.stringify(user))
-          User.attUserOnStorage(user)
-          console.log(user.state)
         }  
       }
-    }  
+      User.attUserOnStorage(user)
+      console.log(user.state)
+    }   
   })
 }
-
-
 
 feather.replace()

@@ -137,11 +137,14 @@ function CorrectAnswer(gotAnswer, gotPoints, Reward){
             let points = document.querySelector('#pointsEarned')
             points.innerHTML = `+ ${allPopUp.pointsEarned} pontos`
             let reward = document.querySelector('#reward')
-            reward.src = allPopUp.reward
 
+            reward.src = allPopUp.reward
             currentUser.points += gotPoints
             currentUser.stickersLvl.push(Reward)
-            console.log(currentUser.username, currentUser.stickersLvl, gotPoints, Reward)
+
+            sessionStorage.setItem('loggedUser', JSON.stringify(currentUser))
+            User.attUserOnStorage(currentUser)
+
 
             $("#congratsModal").modal('show');
             setTimeout(() => {
