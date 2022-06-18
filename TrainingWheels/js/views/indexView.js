@@ -29,15 +29,17 @@ function pageView(){
     if (User.isLogged()){
       document.querySelector('#divfundo').innerHTML =`<img id="fundo2" src="../media/images/fundojalog.svg">`;
         
-        result=`<h3>Bem vindo!</h3>
-        <div id="progresso">
-          <img src="../media/images/linha.svg">
-          <fieldset id="continuar">
-            <p>nivel</p>
-            <button id="continuarBtn">
-              <i class="nav-icon" data-feather="play"></i>
-            </button>
-          </fieldset>
+        result=`<div id="topo"> 
+          <h3 id="bemVindo">Bem vindo!</h3>
+          <div id="progresso">
+            <img src="../media/images/linha.svg">
+            <fieldset id="continuar">
+              <p>nivel</p>
+              <button id="continuarBtn">
+                <i class="nav-icon" data-feather="play"></i>
+              </button>
+            </fieldset>
+          </div>
         </div>
         
         <div id="quadroLideres" class="divInicio">
