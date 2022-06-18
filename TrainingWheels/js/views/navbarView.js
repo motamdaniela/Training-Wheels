@@ -46,8 +46,8 @@ function navbarView() {
       <li class="nav-item">
         
         <a href="index.html"  class="nav-link  py-3 " aria-current="page"">
-          <i id="active" class="nav-icon" data-feather="home"></i>  
-          <span id="active2" class="nav-text">Home</span>      
+          <i  class="nav-icon" data-feather="home"></i>  
+          <span  class="nav-text">Home</span>      
         </a>
       </li>
       <li>

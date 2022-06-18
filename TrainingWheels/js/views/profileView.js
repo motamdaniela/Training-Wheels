@@ -25,7 +25,7 @@ function show(){
     sexo='não especificado'
   }
 
-  result+=`<img src="${user.username}" id="profilepic">
+  result+=`<img src="${user.photo}" id="profilepic">
   <h4>${user.name}</h4>
   <fieldset id="campos">
     <h5>username</h5>
