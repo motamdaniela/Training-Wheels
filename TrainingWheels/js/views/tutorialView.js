@@ -188,11 +188,13 @@ function renderPage(){
         }
       })
 
-      let divPages = document.querySelector(".divPages")
+      let divPages = document.querySelector(".allpagebtns")
       let string = ''
       listVideos.forEach((listVideo) => {
         string += `
-        <button type="button" id="${listVideo.name}" class="btn btn BtnUp"> <b>${listVideo.name}</b> </button>
+        <div class="btn-group divPages" role="group" aria-label="First group">
+          <button type="button" id="${listVideo.name}" class="btn btn BtnUp"> <b>${listVideo.name}</b> </button>
+        </div>
         `
       })
       divPages.innerHTML = string
@@ -226,7 +228,6 @@ function generateTable(listVideos) {
   listVideos.forEach((listVideo) => {
     string += `
     <fieldset id="${listVideo.name}" class="aTab hide">
-          <div class="container1">
               <div class="row">
                 <div>
                   <div class="container">
@@ -244,7 +245,6 @@ function generateTable(listVideos) {
                       </div>
                     </div>
                   </div>
-                </div>
                 </div>
               </div>
               <br><br>

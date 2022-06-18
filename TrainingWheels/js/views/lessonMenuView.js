@@ -1,55 +1,63 @@
 import * as Level from "../models/levelModel.js";
 import * as User from "../models/userModel.js";
 import * as Progress from "../models/progressModel.js";
+import * as Videos from "../models/videoModel.js";
+import * as PopUpQuestions from "../models/popupModel.js";
 Level.init()
 User.init()
 Progress.init()
+Videos.init()
+PopUpQuestions.init()
 
 let currentUser = User.getUserLogged()
 
 function rankTable(){
-    let result = ''
     let levels= Level.getLevels()
+    let videos = Videos.getVideos()
+    let listVideos = []
+    let result = ''
+
     let i=0
     for (let level of levels) {
         i+=1
+
+        videos.forEach((video) => {
+          if(video.level === level.name){
+            listVideos.push(video)
+          }
+        })
+
+
         result +=
         `
         <div class="title4 lvlTitle">
           <i class="nav-icon4" data-feather="circle"></i> 
           <h3>${level.name}</h3>
         </div>
-
-        
         <fieldset class="accordion blue">
           <div class="row toPad" id="subLevels">
             <div class="col">
-              <p>
-                video
-            
-                <i data-feather="check"></i>
+        `
 
-              </p>
-              <p>
-                video
-              </p>
-              <p>
-                video
-              </p>
-            </div>
+        listVideos.forEach((listVideo) => {
+          result += `<p class="aVideo">${listVideo.name}</p>`
+        })
+
+        result += `
+        </div>
             <div class="col goBtn">
               <i data-feather="arrow-right-circle" class="goIcon" id="${level.name}"></i>
             </div>
           </div>
         </fieldset>
         `
-        
+        listVideos = []
       }
-      document.querySelector('#menuNiveis').innerHTML = result;
+      document.querySelector('#menuNiveis').innerHTML += result;
+
       feather.replace()
       lvlPage()
     }
-
 rankTable()
 
 function lvlPage(){
@@ -69,16 +77,33 @@ function lvlPage(){
         }
       })
       
-      redirect(goBtn.id)
+      setTimeout(() => {
+        location.replace("./tutorial.html");
+      }, 1000);
     })
   })
 }
 
-function redirect(lvlName){
+// funcao que verifica se um video ja foi visto ou nao
 
-
-  console.log(lvlName)
-  setTimeout(() => {
-    location.replace("./tutorial.html");
-  }, 1000);
+function checkVideo(){
+  let progress = Progress.getProgress()
+  let listOfVideos = document.querySelectorAll('.aVideo')
+  listOfVideos = Array.from(listOfVideos)
+  let doneVideos = []
+  
+  progress.forEach((progres) => {
+    if(progres.username === currentUser.username){
+      console.log(progres.videosDone)
+      doneVideos = progres.videosDone
+      listOfVideos.forEach((listOfVideo) => {
+        let video = listOfVideo.innerHTML
+        console.log(doneVideos,)
+        if(doneVideos.includes(video)){
+        }
+      })
+    }
+  })
 }
+
+checkVideo()

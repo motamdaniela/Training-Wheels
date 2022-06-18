@@ -7,7 +7,7 @@ User.init()
 logout.addEventListener("click", () =>{
     User.logout();
     setTimeout(() => {
-      location.replace("../index.html");
+      location.replace("./index.html");
     }, 1000);
 
 })
