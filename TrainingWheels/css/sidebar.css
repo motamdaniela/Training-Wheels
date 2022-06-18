@@ -33,6 +33,7 @@
     .logo-icon{
         height: 35px; 
         margin-left: 5px;
+        margin-top: 10px;
     
     }
     
@@ -41,7 +42,7 @@
     }
     
     ul#perfil{
-        margin-top: 200px;
+        margin-top: 190px;
     }
     
     
@@ -110,7 +111,7 @@
         position:relative;
         display:table-cell;
         vertical-align:middle;
-        width:180px;
+        width:200px;
     }
 
     .nav-text{
