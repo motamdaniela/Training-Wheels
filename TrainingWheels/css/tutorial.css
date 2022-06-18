@@ -16,6 +16,7 @@ body*:not(.main-menu){
   
 video {
   border-radius: 10px;
+  width: 100%;
 }
 
 #etiquetas{
@@ -35,7 +36,7 @@ video {
 }
 
 .col{
-  width: 50%;
+  width: 100%;
   padding: 30px;
 }
 

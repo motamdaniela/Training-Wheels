@@ -16,7 +16,6 @@ h3{
 }
 
 .nav-icon1, .nav-icon2, .nav-icon3, .nav-icon4, .nav-icon5{
-  
   width: 16px;
   height: 16px;
   stroke-width: 2;
@@ -56,8 +55,8 @@ h3{
 }
 
 .accordion{
-  margin-left:100px;
-  margin-right:100px;
+  margin-left:5%;
+  margin-right:5%;
 }
 
 .title1, .title2, .title3, .title4, .title5{
