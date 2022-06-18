@@ -1,107 +1,126 @@
-#sidebar{
-    position: fixed;
-}
-#logo{
-    margin-left: 5px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-  
-.logo-icon{
-    height: 35px; 
+@media screen and (max-width: 575px) {
+    nav{
+        background-color: #f8f4f4;
+    }
+    #icons a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #hum{
+        position: fixed;
+    }
+    #profile{
+        height: 40px;
+        border-radius: 50%;
+    }
 
 }
 
-ul#icon-fundo{
-    margin-top: 400px;
-}
-
-ul#perfil{
-    margin-top: 200px;
-}
-
-
-#login{
-    height: 35px;
-}
-
-.nav-icon {
-    display: table-cell;
-    height: 35px;
-    margin-left: 20px;
-}
-
-#profile{
-    height: 30px;
-    border-radius: 50%;
-}
-
-
-.main-menu:hover,nav.main-menu.expanded {
-    background-color:#f8f4f4;
-    width:250px;
-    overflow:visible;
-}
-
-.main-menu {
-    height: 100%;
-    display: flex;
-    width:80px;
-    overflow:hidden;
-    transition:width .05s linear;
-    z-index:1000;
-    flex-direction: column;
-}
-
-.main-menu li {
-    position:relative;
-    display:block;
-    width:250px;
-}
-
-
-.main-menu li>a{
-    position:relative;
-    display:table;
-    border-collapse:collapse;
-    border-spacing:0;
-    color:#2D2F44;
-    font-size: 20px;
-    transition:all .1s linear;
-    margin-bottom: 30px;
+@media screen and (min-width: 575px) {
+    #sidebar{
+        position: fixed;
+    }
+      
+    .logo-icon{
+        height: 35px; 
+        margin-left: 5px;
     
-}
+    }
+    
+    ul#icon-fundo{
+        margin-top: 390px;
+    }
+    
+    ul#perfil{
+        margin-top: 200px;
+    }
+    
+    
+    #login{
+        height: 35px;
+    }
+    
+    .nav-icon {
+        display: table-cell;
+        height: 35px;
+        margin-left: 20px;
+    }
+    
+    #profile{
+        height: 30px;
+        border-radius: 50%;
+    }
+    
+    
+    .main-menu:hover,nav.main-menu.expanded {
+        background-color:#f8f4f4;
+        width:250px;
+        overflow:visible;
+    }
+    
+    .main-menu {
+        height: 100%;
+        display: flex;
+        width:90px;
+        overflow:hidden;
+        transition:width .05s linear;
+        z-index:1000;
+        flex-direction: column;
+    }
+    
+    .main-menu li {
+        position:relative;
+        display:block;
+        width:250px;
+    }
+    
+    
+    .main-menu li>a{
+        position:relative;
+        display:table;
+        border-collapse:collapse;
+        border-spacing:0;
+        color:#2D2F44;
+        font-size: 20px;
+        transition:all .1s linear;
+        margin-bottom: 30px;
+        
+    }
+    
+    
+    .main-menu .nav-icon {
+        position:relative;
+        display:table-cell;
+        width:30px;
+        text-align:center;
+        vertical-align:middle;
+        font-size:18px;
+    }
+    
+    .main-menu .nav-text {
+        position:relative;
+        display:table-cell;
+        vertical-align:middle;
+        width:180px;
+    }
 
-.main-menu li>a #active,.main-menu li>a #active2{
-    color: #488baf;
-}
+    .nav-text{
+        padding-left: 40px;
+    }
+    
+    .no-touch .scrollable.hover {
+        overflow-y:hidden;
+    }
+    
+    .no-touch .scrollable.hover:hover {
+        overflow-y:auto;
+        overflow:visible;
+    }
+    
+    .main-menu li:hover>a #active ,.main-menu li:hover>a #active2, .main-menu li:hover>a,nav.main-menu li.active>a,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a ,.dashboard-page nav.dashboard-menu ul li.active a {
+        color:#f8f4f4;
+        background-color:#488baf;
+    }
 
-.main-menu .nav-icon {
-    position:relative;
-    display:table-cell;
-    width:30px;
-    text-align:center;
-    vertical-align:middle;
-    font-size:18px;
-}
-
-.main-menu .nav-text {
-    position:relative;
-    display:table-cell;
-    vertical-align:middle;
-    width:190px;
-}
-
-.no-touch .scrollable.hover {
-    overflow-y:hidden;
-}
-
-.no-touch .scrollable.hover:hover {
-    overflow-y:auto;
-    overflow:visible;
-}
-
-.main-menu li:hover>a #active ,.main-menu li:hover>a #active2, .main-menu li:hover>a,nav.main-menu li.active>a,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a ,.dashboard-page nav.dashboard-menu ul li.active a {
-    color:#f8f4f4;
-    background-color:#488baf;
-}
+} 
