@@ -119,6 +119,8 @@ video::-webkit-media-controls-fullscreen-button
 fieldset{
   width:95%;
   border-radius: 0px 10px 10px 10px;
+  background-color: #FFF8F8;
+  padding: 20px;
 }
 
 
@@ -128,10 +130,6 @@ fieldset{
   padding:10px;
 }
 
-#fs1,#fs2,#fs3,#fs4{
-  background-color: #FFF8F8;
-  padding: 20px;
-}
 
 #pagina1, #pagina2, #pagina3, #pagina4{
   background-color: #FFF8F8;

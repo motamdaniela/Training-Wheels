@@ -25,58 +25,6 @@ let title = document.querySelector('#title');
 let comments = ''
 
 
-function renderPage(){
-  let lvlTitle = document.querySelector('#lvlTitle')
-  let progress = Progress.getProgress()
-  
-  progress.forEach((progres) => {
-    if(currentUser.username === progres.username){
-      let currentLvl = progres.currentLvl
-      lvlTitle.innerHTML = currentLvl
-      
-      let listVideos = []
-      allVideos.forEach((video) => {
-        if(video.level === currentLvl){
-          listVideos.push(video);
-        }
-      })
-
-      let divPages = document.querySelector(".divPages")
-      let string = ''
-      listVideos.forEach((listVideo) => {
-        string += `
-        <button type="button" id="${listVideo.name}" class="btn btn BtnUp"> <b>${listVideo.name}</b> </button>
-        `
-      })
-      divPages.innerHTML = string
-
-    }
-  })
-}
-renderPage()
-
-function renderTab(){
-
-}
-
-/*
-let btn3 = document.querySelector('.field3')
-btn3.addEventListener('click', function(){
-    var field1 = document.getElementById("fs1");
-    var field2 = document.getElementById("fs2");
-    var field3 = document.getElementById("fs3");
-    var field4 = document.getElementById("fs4");
-    field1.classList.add('hide');
-    field2.classList.add('hide');
-    field3.classList.remove('hide');
-    field4.classList.add('hide');
-})
-*/
-
-
-
-
-
 //funcao que abre a modal
 function OpenBootstrapPopup() {
   $('#myModal').modal({
@@ -224,54 +172,169 @@ function CorrectAnswer(gotAnswer, gotPoints, Reward){
   })
 }
 
+function renderPage(){
+  let lvlTitle = document.querySelector('#lvlTitle')
+  let progress = Progress.getProgress()
+  
+  progress.forEach((progres) => {
+    if(currentUser.username === progres.username){
+      let currentLvl = progres.currentLvl
+      lvlTitle.innerHTML = currentLvl
+      
+      let listVideos = []
+      allVideos.forEach((video) => {
+        if(video.level === currentLvl){
+          listVideos.push(video);
+        }
+      })
+
+      let divPages = document.querySelector(".divPages")
+      let string = ''
+      listVideos.forEach((listVideo) => {
+        string += `
+        <button type="button" id="${listVideo.name}" class="btn btn BtnUp"> <b>${listVideo.name}</b> </button>
+        `
+      })
+      divPages.innerHTML = string
+      generateTable(listVideos)
+
+      let allBtns = document.querySelectorAll('.BtnUp')
+      allBtns = Array.from(allBtns)
+      let allTabs = document.querySelectorAll('.aTab')
+      allTabs = Array.from(allTabs)
+      allBtns.forEach((allBtn) => {
+        allBtn.addEventListener('click',()=>{
+
+          allTabs.forEach((allTab) =>{
+            if(allBtn.id === allTab.id){
+              allTab.classList.remove('hide');
+            }else{
+              allTab.classList.add('hide');
+            }
+          })
+        })
+      })
+
+    }
+  })
+}
+renderPage()
+
+function generateTable(listVideos) {
+  let divTabs = document.querySelector('#divTabs')
+  let string = ''
+  listVideos.forEach((listVideo) => {
+    string += `
+    <fieldset id="${listVideo.name}" class="aTab hide">
+          <div class="container1">
+              <div class="row">
+                <div>
+                  <div class="container">
+                  <div class="row">
+                    <div class="col-7">
+                      <h2 id="title">${listVideo.name}</h2>
+                      <div class="divVideo">
+                        <video src="${listVideo.url}" controls></video>
+                      </div>
+                      <i class="heartIcon" data-feather="heart"></i>
+                    </div>
+                    <div class="col">
+                      <img id="etiquetas" src="../media/images/etiquetas.svg" height="30px">
+                      <div class="list-group tagsList">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+              <br><br>
+              <div class="row">
+                <div>
+                  <div class="container">
+                  <div class="row">
+                    <div class="col-8">
+                      <img id="comentariosTitle" src="../media/images/comentarios.svg" height="30px">
+                      <fieldset class="commentsField">
+                        comentssss
+                      </fieldset>
+                    </div>
+                    <div class="col">
+                      <fieldset class="leaveComentField">
+                        <label>Dê a sua opinião!</label>
+                        <div class="form-floating">
+                          <textarea id="commentTextArea" class="form-control" placeholder="Leave a comment here" style="height: 150px; resize: none;"></textarea>
+                          
+                        </div>
+                      </fieldset>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+          </div>
+        </fieldset>
+    `
+  })
+  divTabs.innerHTML = string
+
+}
+
+function defaultTab() {
+  let allTabs = document.querySelectorAll('.aTab')
+  allTabs = Array.from(allTabs)
+  allTabs[0].classList.remove('hide')
+}
+defaultTab()
 
 
+/*
+<fieldset id="fs1">
+          <div class="container1">
+              <div class="row">
+                <div>
+                  <div class="container">
+                  <div class="row">
+                    <div class="col-7">
+                      <h2 id="title">Sinalização Luminosa</h2>
+                      <div class="divVideo">
+                        <video src="../media/videos/Sinalizacao_Luminosa.mp4" controls></video>
+                      </div>
+                      <i class="heartIcon" data-feather="heart"></i>
+                    </div>
+                    <div class="col">
+                      <img id="etiquetas" src="../media/images/etiquetas.svg" height="30px">
+                      <div class="list-group tagsList">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+              <br><br>
+              <div class="row">
+                <div>
+                  <div class="container">
+                  <div class="row">
+                    <div class="col-8">
+                      <img id="comentariosTitle" src="../media/images/comentarios.svg" height="30px">
+                      <fieldset class="commentsField">
+                        comentssss
+                      </fieldset>
+                    </div>
+                    <div class="col">
+                      <fieldset class="leaveComentField">
+                        <label>Dê a sua opinião!</label>
+                        <div class="form-floating">
+                          <textarea id="commentTextArea" class="form-control" placeholder="Leave a comment here" style="height: 150px; resize: none;"></textarea>
+                          <label for="floatingTextarea2"></label>
+                        </div>
+                      </fieldset>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+          </div>
+        </fieldset>
 
-//----------------- js paginas
-let btn1 = document.querySelector('.field1')
-btn1.addEventListener('click', function() {
-    var field1 = document.getElementById("fs1");
-    var field2 = document.getElementById("fs2");
-    var field3 = document.getElementById("fs3");
-    var field4 = document.getElementById("fs4");
-    field1.classList.remove('hide');
-    field2.classList.add('hide') ;
-    field3.classList.add('hide');
-    field4.classList.add('hide');
-})
-
-let btn2 = document.querySelector('.field2')
-btn2.addEventListener('click', function() {
-    var field1 = document.getElementById("fs1");
-    var field2 = document.getElementById("fs2");
-    var field3 = document.getElementById("fs3");
-    var field4 = document.getElementById("fs4");
-    field1.classList.add('hide');
-    field2.classList.remove('hide');
-    field3.classList.add('hide');
-    field4.classList.add('hide');
-})
-
-let btn3 = document.querySelector('.field3')
-btn3.addEventListener('click', function(){
-    var field1 = document.getElementById("fs1");
-    var field2 = document.getElementById("fs2");
-    var field3 = document.getElementById("fs3");
-    var field4 = document.getElementById("fs4");
-    field1.classList.add('hide');
-    field2.classList.add('hide');
-    field3.classList.remove('hide');
-    field4.classList.add('hide');
-})
-
-let btn4 = document.querySelector('.field4')
-btn4.addEventListener('click', function(){
-    var field1 = document.getElementById("fs1");
-    var field2 = document.getElementById("fs2");
-    var field3 = document.getElementById("fs3");
-    var field4 = document.getElementById("fs4");
-    field1.classList.add('hide');
-    field2.classList.add('hide');
-    field3.classList.add('hide');
-    field4.classList.remove('hide');
-})
+*/
