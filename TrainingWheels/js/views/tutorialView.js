@@ -3,11 +3,13 @@ import * as Levels from '../models/levelModel.js';
 import * as Videos from '../models/videoModel.js';
 import * as Tags from '../models/tagsModel.js';
 import * as PopUpQuestions from '../models/PopUpModel.js';
+import * as Progress from '../models/progressModel.js';
 User.init()
 Levels.init()
 Videos.init()
 Tags.init()
 PopUpQuestions.init()
+Progress.init()
 
 let allLevels = Levels.getLevels();
 let allVideos = Videos.getVideos();

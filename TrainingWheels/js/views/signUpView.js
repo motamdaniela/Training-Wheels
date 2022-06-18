@@ -41,15 +41,3 @@ function displayMessage(message) {
   const errorMessage = document.querySelector("#errorSlot");
   errorMessage.innerHTML = `<div class="alert alert-danger" role="alert" id="errorSlot">${message}</div>`;
 }
-
-
-/*
-
-// Wait 1 second before reloading, so the user can see the login success message
-      setTimeout(() => {
-        location.replace(".../index.html");
-      }, 1000);
-
-
-
-    */

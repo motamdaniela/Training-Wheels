@@ -1,11 +1,14 @@
 import * as Level from "../models/levelModel.js";
+import * as User from "../models/userModel.js";
+import * as Progress from "../models/progressModel.js";
 Level.init()
+User.init()
+Progress.init()
 
 
 function rankTable(){
     let result = ''
     let levels= Level.getLevels()
-    console.log(levels)
     let i=0
     for (let level of levels) {
         i+=1
@@ -40,13 +43,31 @@ function rankTable(){
         </fieldset>
         `
         
-        }
-        document.querySelector('#menuNiveis').innerHTML += result;
-        feather.replace()
+      }
+      document.querySelector('#menuNiveis').innerHTML += result;
+      feather.replace()
+      lvlPage()
     }
 
 rankTable()
 
 function lvlPage(){
-  
+  let goBtns = document.querySelectorAll('.goIcon');
+  goBtns = Array.from(goBtns)
+  goBtns.forEach((goBtn)=>{
+    goBtn.addEventListener('click',()=>{
+
+      redirect(goBtn.id)
+
+    })
+  })
+}
+
+function redirect(lvlName){
+
+
+  console.log(lvlName)
+  setTimeout(() => {
+    location.replace("./tutorial.html");
+  }, 1000);
 }
