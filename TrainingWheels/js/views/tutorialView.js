@@ -224,6 +224,7 @@ function Questions(){
        video.pause();
        OpenBootstrapPopup();
        CorrectAnswer(allPopUp.correctAnswer, allPopUp.pointsEarned, allPopUp.reward);
+       console.log(allPopUp.correctAnswer,allPopUp.pointsEarned, allPopUp.reward);
      }
     }
   })
@@ -248,7 +249,7 @@ function CorrectAnswer(gotAnswer, gotPoints, Reward){
             points.innerHTML = `+ ${allPopUp.pointsEarned} pontos`
             let reward = document.querySelector('#reward')
 
-            reward.src = allPopUp.reward
+            reward.src = Reward
             currentUser.points += gotPoints
             currentUser.stickersLvl.push(Reward)
 
