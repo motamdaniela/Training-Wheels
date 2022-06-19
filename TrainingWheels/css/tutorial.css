@@ -158,6 +158,5 @@ fieldset{
   justify-content: flex-end;
 }
 #pointsN, #cluesN{
-  margin-left: 8px;
-  margin-right: 5px;
+  margin-right: 8px;
 }
