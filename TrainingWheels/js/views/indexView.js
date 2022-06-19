@@ -27,17 +27,23 @@ function pageView(){
     let result2=''
     let result3=''
     if (User.isLogged()){
-      document.querySelector('#fundo').src ="../media/images/fundojalog.svg";
+      let coisoo=document.querySelector('#fundo')
+      coisoo.src ="../media/images/fundojalog.svg";
+      // coisoo.innerHTML+=`<img id="fundo3" src="../media/images/fundo_logado.svg"></img>`
         
         result=`<div id="topo"> 
-          <h3 id="bemVindo">Bem vindo!</h3>
-          <div id="progresso">
-            <img src="../media/images/linha.svg">
-            <fieldset id="continuar">
-              <p>nivel</p>
-              <button id="continuarBtn">
-                <i data-feather="play"></i>
-              </button>
+        <img src="../media/images/bemvindo.svg">
+          <div id="coisas">
+            <div id="progresso">
+              <img src="../media/images/linha.svg">
+              <fieldset id="continuar">
+                <p>nivel</p>
+                <button id="continuarBtn">
+                  <i data-feather="play"></i>
+                </button>
+              </fieldset>
+            </div>
+            <fieldset id="nextSticker">
             </fieldset>
           </div>
         </div>
