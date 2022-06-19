@@ -138,6 +138,18 @@ fieldset{
   background-color:#4B94BC;
 }
 
+#commentBtn{
+  border-color: #4B94BC;
+  color: #4B94BC;
+  background-color: #FFF8F8;
+  margin-top: 10px;
+}
+#commentBtn:hover{
+  border-color: #4B94BC;
+  color: #FFF8F8;
+  background-color: #4B94BC;
+}
+
 .hide {
   display: none;
 }
@@ -159,4 +171,11 @@ fieldset{
 }
 #pointsN, #cluesN{
   margin-right: 8px;
+}
+.prflPhoto{
+  width: 16px;
+  height: 16px;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }

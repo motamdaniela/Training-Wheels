@@ -21,7 +21,6 @@ h3{
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  margin-left:100px;
 }
 
 .nav-icon1, .nav-icon5{
@@ -126,4 +125,8 @@ fieldset{
 
 .lvlTitle{
   margin-top: 40px;
+}
+.check{
+  fill: #FFF8F8;
+  stroke: #56C4C0;
 }

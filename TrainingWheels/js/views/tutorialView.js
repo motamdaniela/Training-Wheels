@@ -48,6 +48,7 @@ function renderPage(){
       })
       divPages.innerHTML = string
 
+      defaultTab(listVideos) 
       let allBtns = document.querySelectorAll('.BtnUp')
       allBtns = Array.from(allBtns)
       allBtns.forEach((allBtn) => {
@@ -103,11 +104,12 @@ function generateTab(videoObj) {
                     </div>
                     <div class="col">
                       <fieldset class="leaveComentField">
-                        <label>Dê a sua opinião!</label>
+                        <label>Deixe um comentário!</label>
                         <div class="form-floating">
                           <textarea id="commentTextArea" class="form-control" placeholder="Leave a comment here" style="height: 150px; resize: none;"></textarea>
                           
                         </div>
+                        <button type="button" class="btn btn-primary" id="commentBtn" data-bs-dismiss="modal">Comentar</button>
                       </fieldset>
                     </div>
                   </div>
@@ -128,11 +130,26 @@ function generateTab(videoObj) {
     })
 }
 
-function defaultTab() {
-  //generateTab(videoObj)
-}
-defaultTab()
+//funcao que gera um tab por default do ultimo vídeo que o utilizador estava a ver(caso seja deste nível)
+function defaultTab(listVideos) {
+  let currentProgres = ''
+  progress.forEach((progres)=>{
+    if (progres.username === currentUser.username){
+      currentProgres = progres
+    }
+  })
+  console.log(currentProgres)
+  listVideos.forEach((listVideo)=>{
+    if(currentProgres.currentVideo === listVideo.name){
+      generateTab(listVideo)
+      video.currentTime = currentProgres.currentTag
+    }
+    else{
+      generateTab(listVideos[0])
+    }
 
+  })
+}
 
 
 //funcao que abre a modal
@@ -195,6 +212,14 @@ function shuffle(array) {
   return array;
 }
 
+let currentProgress = ''
+for (let progres of progress){
+  if (progres.username === currentUser.username){
+    currentProgress = progres
+    break;
+  }
+}
+
 //-------------funcao para abrir a modal de perguntas pop up automaticamente
 function Questions(){
   let question = document.querySelector('#questionPopUp')
@@ -204,70 +229,111 @@ function Questions(){
   let pointsN = document.querySelector("#pointsN")
   allPopUps.forEach((allPopUp) => {
     if(allPopUp.video === title.innerHTML){
+
       let time = convertTag(allPopUp.tag)
       if (video.currentTime >= time && video.currentTime <= time + 0.2){
-        question.innerHTML = allPopUp.question
-        imagePopUp.src = allPopUp.image
-        
-        cluesN.innerHTML = currentUser.clues
-        pointsN.innerHTML = currentUser.points
 
-        let randomBtns = shuffle(allPopUp.answers)
-        answers.innerHTML = `
-        <div class="row row-cols-2">
-          <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[0]}" data-bs-dismiss="modal">${randomBtns[0]}</button></div>
-          <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[1]}" data-bs-dismiss="modal">${randomBtns[1]}</button></div>
-          <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[2]}" data-bs-dismiss="modal">${randomBtns[2]}</button></div>
-          <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[3]}" data-bs-dismiss="modal">${randomBtns[3]}</button></div>
-        </div>
-        `
-       video.pause();
-       OpenBootstrapPopup();
-       CorrectAnswer(allPopUp.correctAnswer, allPopUp.pointsEarned, allPopUp.reward);
-       console.log(allPopUp.correctAnswer,allPopUp.pointsEarned, allPopUp.reward);
-     }
+        //if(currentProgress.questionsCorrect.includes(allPopUp.question)){
+
+        //}else{
+          question.innerHTML = allPopUp.question
+          imagePopUp.src = allPopUp.image
+          
+          cluesN.innerHTML = currentUser.clues
+          pointsN.innerHTML = currentUser.points
+  
+          let randomBtns = shuffle(allPopUp.answers)
+          answers.innerHTML = `
+          <div class="row row-cols-2">
+            <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[0]}" data-bs-dismiss="modal">${randomBtns[0]}</button></div>
+            <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[1]}" data-bs-dismiss="modal">${randomBtns[1]}</button></div>
+            <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[2]}" data-bs-dismiss="modal">${randomBtns[2]}</button></div>
+            <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[3]}" data-bs-dismiss="modal">${randomBtns[3]}</button></div>
+          </div>
+          `
+        video.pause();
+        OpenBootstrapPopup();
+        CorrectAnswer(allPopUp.question,allPopUp.correctAnswer, allPopUp.pointsEarned, allPopUp.reward);
+        //}
+
     }
-  })
+  }
+})
+}
+
+function gerRewards(){
+  let idk = 'idk'
 }
 
 
 //funcao que descobre se a resposta esta certa ou nao
-function CorrectAnswer(gotAnswer, gotPoints, Reward){
+function CorrectAnswer(Question, gotAnswer, gotPoints, Reward){
   let answerBtns = document.querySelectorAll('.answerBtn');
-  allPopUps.forEach((allPopUp) => {
-    answerBtns.forEach((answerBtn) => {
-
+  answerBtns = Array.from(answerBtns)
+  for(let allPopUp of allPopUps){
+    for(let answerBtn of answerBtns){
+      
       answerQuestion()
-
+  
       if(answerBtn.id === gotAnswer){
         answerBtn.addEventListener('click',()=>{
-          setTimeout(() => {
-            $("#congratsModal").modal('hide');
-            video.play();
-            video.pause();
-            let points = document.querySelector('#pointsEarned')
-            points.innerHTML = `+ ${allPopUp.pointsEarned} pontos`
-            let reward = document.querySelector('#reward')
-
+          let points = document.querySelector('#pointsEarned')
+          points.innerHTML = `+ ${allPopUp.pointsEarned} pontos`
+          let reward = document.querySelector('#reward')
+          
+          let pointsContent = document.querySelector('.forPoints')
+          
+          if (currentProgress.questionsDone.includes(Question) == true){
+            pointsContent.classList.add('hide');
             reward.src = Reward
-            currentUser.points += gotPoints
             currentUser.stickersLvl.push(Reward)
-
+            
             sessionStorage.setItem('loggedUser', JSON.stringify(currentUser))
             User.attUserOnStorage(currentUser)
+            currentProgress.questionsCorrect.push(Question)
+            sessionStorage.setItem('progress', JSON.stringify(currentProgress))
+            Progress.attProgressOnStorage(currentProgress)
 
-
-            $("#congratsModal").modal('show');
             setTimeout(() => {
-              $("#congratsModal").modal('hide');
-              video.play();
-            }, 1500);
-          }, 200);
+              $("#myModal").modal('hide');
+              video.pause();
+              $("#congratsModal").modal('show');
+              setTimeout(() => {
+                $("#congratsModal").modal('hide');
+                video.play();
+              }, 1500);
+            }, 200);
+          }else{
+            console.log(Question)
+            console.log(currentProgress.questionsDone)
+            console.log(currentProgress.username)
+            currentUser.points += gotPoints
+            reward.src = Reward
+            currentUser.stickersLvl.push(Reward)
+  
+            sessionStorage.setItem('loggedUser', JSON.stringify(currentUser))
+            User.attUserOnStorage(currentUser)
+            currentProgress.questionsCorrect.push(Question)
+            sessionStorage.setItem('progress', JSON.stringify(currentProgress))
+            Progress.attProgressOnStorage(currentProgress)
+            
+            setTimeout(() => {
+              $("#myModal").modal('hide');
+              video.pause();
+              $("#congratsModal").modal('show');
+              setTimeout(() => {
+                $("#congratsModal").modal('hide');
+                video.play();
+              }, 1500);
+            }, 200);
+          }
+                    
         })
+      break;
       }else{
         answerBtn.addEventListener('click',()=>{
           setTimeout(() => {
-            $("#wrongModal").modal('hide');
+            $("#myModal").modal('hide');
             video.play();
             video.pause()
             $("#wrongModal").modal('show');
@@ -277,11 +343,14 @@ function CorrectAnswer(gotAnswer, gotPoints, Reward){
             }, 1500);
           }, 200);
         })
+      break;
       }
-    })
-  })
+
+    }    
+  break;}
 }
 
+//funcao que coloca a pergunta na lista do progresso como pergunta ja feita
 function answerQuestion(){
   progress.forEach((progres) => {
     if(progres.username === currentUser.username){
@@ -298,6 +367,41 @@ function answerQuestion(){
       }
     }
   })
+}
+
+//chama funcao useClue com o botao associado
+$('#myModal').on('shown.bs.modal', function () {
+  let clueBtn = document.querySelector('#clueBtn')
+  allPopUps.forEach((allPopUp) => {
+    if (allPopUp.question == document.querySelector('#questionPopUp').innerHTML){
+      clueBtn.addEventListener('click', () =>{
+        useClue(allPopUp)
+        return false
+      })
+    }
+  })
+});
+
+//funcao para usar pistas
+function useClue(popUpObj){
+    if(!!currentUser.clues == !!true){
+      let wrongQuestions = Array.from(popUpObj.answers)
+      wrongQuestions = wrongQuestions.filter((i) => i !== popUpObj.correctAnswer)
+      wrongQuestions = shuffle(wrongQuestions)
+
+      let wrongBtn = document.getElementById(wrongQuestions[0])
+      wrongQuestions = []
+      wrongBtn.disabled = true
+      clueBtn.disabled = true
+
+      currentUser.clues -= 1
+      sessionStorage.setItem('loggedUser', JSON.stringify(currentUser))
+      User.attUserOnStorage(currentUser)
+
+      document.querySelector('#cluesN').innerHTML = currentUser.clues
+    }else if(!!currentUser.clues == !!false){
+      alert('Nao tens nenhuma pista!')
+    }
 }
 
 
@@ -330,15 +434,20 @@ function updateProgress() {
   })
 }
 
+function renderComments(videoName){
+
+}
+
 /*
     questionsDone = []
     questionsCorrect = []
     likedVideos = []
 
-    check questions function
-    to not repeat questions correct
     not gain points from questions done
 
     like videos(maybe unlike)
     comments
+
+    next sticker
+    choose profile photo
 */

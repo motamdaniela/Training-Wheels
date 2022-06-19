@@ -46,7 +46,7 @@ function rankTable(){
         result += `
         </div>
             <div class="col goBtn">
-              <i data-feather="arrow-right-circle" class="goIcon" id="${level.name}"></i>
+              <i data-feather="play-circle" class="goIcon" id="${level.name}"></i>
             </div>
           </div>
         </fieldset>
@@ -79,7 +79,7 @@ function lvlPage(){
       
       setTimeout(() => {
         location.replace("./tutorial.html");
-      }, 1000);
+      }, 500);
     })
   })
 }
@@ -97,7 +97,7 @@ function checkVideo(){
       listOfVideos.forEach((listOfVideo) => {
         let video = listOfVideo
         if(doneVideos.includes(video.innerHTML)){
-          let string = ` <i data-feather="check"></i>`
+          let string = ` <i data-feather="check-circle" class="check"></i>`
           video.innerHTML += string
         }
       })
