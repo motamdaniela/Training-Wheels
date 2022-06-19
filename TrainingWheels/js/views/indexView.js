@@ -47,7 +47,7 @@ function pageView(){
             </fieldset>
           </div>
         </div>
-        
+        <div id="baixo">
         <div id="quadroLideres" class="divInicio">
           <fieldset class="titulo">
           <h2>Quadro de líderes</h2>
@@ -99,6 +99,7 @@ function pageView(){
           </div>
         </fieldset>
       </div>
+      </div>
       
         `
         let nomes=rankingOrder()
@@ -115,7 +116,7 @@ function pageView(){
             result2+=`<tr>
           <th scope="row"><img src=${user.photo}></th>
           <td>${user.name}</td>
-          <td class="respostas"><i class="nav-icon" data-feather="check"></i> ${user.ranking[0]}<i class="nav-icon" data-feather="x"></i>${user.ranking[1]}</td>
+          <td class="respostas"><i class="certo" data-feather="check"></i> ${user.ranking[0]}<i class="errado" data-feather="x"></i>${user.ranking[1]}</td>
         </tr>
           `
           

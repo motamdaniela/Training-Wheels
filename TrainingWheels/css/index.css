@@ -21,20 +21,26 @@ body{
   height:5000px;
 }
 
+.certo{
+  color: #54C5C1;
+}
+
+.errado{
+  color: #DD5E5C;
+}
+
 .buttons{
   font-family: 'ABC-Bold', sans-serif;
 } 
 
 #content{
-  /* background-image: url("../media/images/fundo_logado.svg"); */
-  background-repeat: no-repeat, repeat;
-  background-size:100%;
   width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
-  
 }
+
+
 
 .tutorial>p{
   text-align: center;
@@ -122,7 +128,7 @@ body{
 
 
 @media screen and (max-width: 575px) {
-  #content>div{
+  #content>div>div{
     margin-top: 100px;
     width: 310px;
   }
@@ -197,8 +203,8 @@ body{
 @media screen and (min-width: 575px) {
   
   /* pagina nao logada */
-  #content>div.divInicio{
-    margin-top: 60px;
+  #content div.divInicio{
+    margin-top: 90px;
     width:500px;
   }
 
@@ -294,11 +300,23 @@ body{
   
   
   /* pagina logada */
+
+  #baixo{
+    background-image: url("../media/images/fundo_logado.svg");
+    /* background-position-y: 80%; */
+    background-repeat: no-repeat, repeat;
+    background-size:100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+  }
   .titulo{
     background-color: #FBE2E2;
     border-radius: 50px;
-    width: 100%;
-    padding: 2%;
+    width: 600px;
+    padding: 10px;
     margin-top: 60px;
     margin-bottom: 40px;
   }
@@ -309,7 +327,7 @@ body{
   }
 
   #ranking{
-    width: 100%;
+    width: 510px;
     height: 300px;
     padding: 30px;
   }
@@ -337,6 +355,11 @@ body{
 
   #ranking img{
     width:50px;
+  }
+  .divInicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
 }
