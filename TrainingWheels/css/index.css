@@ -8,7 +8,7 @@ body{
 #fundo{
   width:100%;
   height:auto;
-  margin-top: 155px;
+  
 }
 /* #fundo2{
   margin-top: 155px;
@@ -40,6 +40,37 @@ body{
   flex-direction: column;
 }
 
+.carousel{
+  margin-top: 50px;
+  width: 700px;
+  height: 250px;
+}
+.carousel-inner{
+  height: 500px;
+}
+.carousel-caption{
+  color: #fff;
+  top: 50%;
+  height: 500px;
+}
+
+.carousel-control-prev{
+  color: #2D2F44;
+}
+
+.carousel-control-next{
+  color: #2D2F44;
+}
+
+.carousel-control-prev:hover{
+  color: #2D2F44;
+}
+
+.carousel-control-next:hover{
+  color: #2D2F44;
+}
+
+
 
 
 .tutorial>p{
@@ -59,6 +90,28 @@ body{
   border-radius: 10px;
   color: #2D2F44;
 }
+
+#ranking tr{
+  text-align: center;
+}
+
+.nomeStar{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.nomeStar strong{
+  color: #2D2F44;
+}
+
+.star{
+  color: #2D2F44;
+}
+
+
 
 #ranking img{
   border-radius: 50%;
@@ -88,23 +141,24 @@ body{
   color: #2D2F44;
 }
 
-#comentarios{
+.comentarios{
   background-color: #E7EDF1;
   border-radius: 10px;
 } 
 
-#perfilCom{
+.perfilCom{
   border-radius: 50%
 }
 
-#comentarios>div{
+.comentarios>div{
   display: flex;
   flex-direction: row;
 }
 
-#comentario{
+.comentario{
   background-color: #FEFCFC;
   border-radius: 10px;
+  color: #2D2F44;
 }
 
 #continuar{
@@ -126,16 +180,71 @@ body{
   border-radius: 50%;
 }
 
+#entrar{
+  border-color: #488baf;
+  color: #488baf;
+  background-color: #FCF7F7;
+  border-radius: 10px;
+  
+  border-width: 3px;
+}
+
+#registar{
+  border-color: #488baf;
+  background-color: #488baf;
+  color: #FCF7F7;
+  border-radius: 10px;
+}
+
+.comentario{
+  text-align: left;
+}
 
 @media screen and (max-width: 575px) {
-  #content>div>div{
-    margin-top: 100px;
-    width: 310px;
-  }
-
   #progresso>img{
     width: 300px;
   }
+
+  #video{
+    margin-top: 60px;
+    width: 350px;
+  }
+
+  #fundo{
+    content:url("../media/images/mobileFundo.svg");
+    margin-top: 70px;
+  }
+
+  .tutorial{
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+
+  #imgTutorial{
+    content:url("../media/images/tutorialMobile.svg");
+  }
+
+  #tituloTutorial{
+    font-size: 24px;
+  }
+
+  .buttons{
+    margin-top: 40px;
+  }
+
+  #entrar{
+    font-size: 22px;
+    width: 145px;
+    height: 45px;
+    margin-right: 20px;
+  }
+  
+  #registar{
+    font-size: 22px;
+    width: 145px;
+    height: 45px;
+  }
+
 
   #continuar{
     width: 250px;
@@ -171,12 +280,12 @@ body{
     padding: 10px;
   }
 
-  #perfilCom{
+  .perfilCom{
     width: 30px;
     height: 30px;
   }
 
-  #comentarios{
+  .comentarios{
     padding: 20px;
     height: 235px;
   }
@@ -185,14 +294,14 @@ body{
     margin-top: 20px;
   }
 
-  #comentario{
+  .comentario{
     height: 130px;
     padding: 10px;
   }
 
-  #fundo{
+  /* #fundo{
     display: none;
-  }
+  } */
 
   #bemVindo{
     margin-bottom: 40px;
@@ -212,10 +321,10 @@ body{
     position: relative;
   } */
 
-  #videoDiv{
-    display: flex;
-    justify-content: center;
+  #fundo{
+    margin-top: 155px;
   }
+ 
 
   #topo{
     position: absolute;
@@ -266,25 +375,16 @@ body{
   }
 
   #entrar{
-    border-color: #488baf;
-    color: #488baf;
-    background-color: #FCF7F7;
     font-size: 22px;
-    border-radius: 10px;
     width: 180px;
     height: 61.52px;
     left: 265px;
     top: 350px;
     position: absolute;
-    border-width: 3px;
   }
   
   #registar{
-    border-color: #488baf;
-    background-color: #488baf;
-    color: #FCF7F7;
     font-size: 22px;
-    border-radius: 10px;
     width: 180px;
     height: 61.52px;
     left: 500.13px;
@@ -294,7 +394,8 @@ body{
   
   #video{
     align-self: center;
-    margin-top: 80px;
+    margin-top: 132px;
+    margin-bottom: 132px;
     width:800px;
   }
   
@@ -326,23 +427,34 @@ body{
     font-size: 40px;
   }
 
+  .tutorial{
+    background-color: #FBF6F3;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
   #ranking{
     width: 510px;
     height: 300px;
-    padding: 30px;
   }
+  
 
-  #comentario{
+  .comentario{
     height: 200px;
     padding: 10px;
   }
 
-  #perfilCom{
+  .perfilCom{
     width: 50px;
     height: 50px;
   }
 
-  #comentarios{
+  .comentarios{
     width: 510px;
     padding: 20px;
     height: 310px;

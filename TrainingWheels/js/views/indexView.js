@@ -6,7 +6,7 @@ Review.init()
 
 function pageView(){
   
-    let result=`<img id="video" src="https://www.hypeness.com.br/1/2019/05/azul-ou-verde-teste-1.jpg">
+    let result=`
     <div class="buttons">
       <a  href="login.html">
         <button type="button" id="entrar" class="btn btn-outline ">Entrar</button>
@@ -16,11 +16,12 @@ function pageView(){
       </a>
       
     </div>
+    <img id="video" src="https://www.hypeness.com.br/1/2019/05/azul-ou-verde-teste-1.jpg">
     
     
     <div class="tutorial" >
-      <p>Como usar Training Wheels</p>
-      <img src="../media/images/inicio_tutorial.svg">
+      <p id="tituloTutorial">Como usar Training Wheels</p>
+      <img id="imgTutorial" src="../media/images/inicio_tutorial.svg">
     </div>
     `
     // <img id="fundo3" src="../media/images/fundo_logado.svg">
@@ -56,9 +57,9 @@ function pageView(){
           <table class="table table-borderless" id="ranking">
           <thead>
             <tr>
-              <th scope="col">Top 3</th>
-              <th scope="col">Nome</th>
-              <th scope="col">Respostas</th>
+              <th id="top3" scope="col">Top 3</th>
+              <th id="nometop3" scope="col">Nome</th>
+              <th id="respostastop3" scope="col">Respostas</th>
             </tr>
           </thead>
           <tbody id='body_rank'>
@@ -77,9 +78,16 @@ function pageView(){
             <i class="star" data-feather="star"></i>
           </div>
         </fieldset>
-        <div id="comentDiv">
+        <div id="comentDiv" class="carousel slide" data-ride="carousel">
+          <div id="reviewsCom" class="carousel-inner">
           
-        </div>
+          </div>
+          <a class="carousel-control-prev" href="#comentDiv" role="button" data-slide="prev">
+            <i data-feather="chevron-left"></i>
+          </a>
+          <a class="carousel-control-next" href="#comentDiv" role="button" data-slide="next">
+            <i data-feather="chevron-right"></i>
+          </a>
       </div>
       
       <div id="reviewsDiv" class="divInicio">
@@ -114,7 +122,7 @@ function pageView(){
             cont+=1;
           if(cont<4 && nome.name==user.username ){
             result2+=`<tr>
-          <th scope="row"><img src=${user.photo}></th>
+          <td scope="row"><img src=${user.photo}></td>
           <td>${user.name}</td>
           <td class="respostas"><i class="certo" data-feather="check"></i> ${user.ranking[0]}<i class="errado" data-feather="x"></i>${user.ranking[1]}</td>
         </tr>
@@ -145,20 +153,27 @@ function pageView(){
             
           }else{
             for(let review of reviews){
-              result3+=`<fieldset id="comentarios">
-            <div>
-              <img id="perfilCom" src="../media/images/default.svg">
-              <div>
-                <p><strong>${review.username}</strong></p>
-                <i class="star" data-feather="star"></i>
-                <i class="star" data-feather="star"></i>
-                <i class="star" data-feather="star"></i>
-                <i class="star" data-feather="star"></i>
-                <i class="star" data-feather="star"></i>
+              result3+=`
+              <div class="carousel-item">
+                <div class="carousel-caption">
+                  <fieldset class="comentarios">
+                    <div class="topo">
+                      <img class="perfilCom" src="../media/images/default.svg">
+                      <div class="nomeStar">
+                        <p><strong>${review.username}</strong></p>
+                        <div>
+                          <i class="star" data-feather="star"></i>
+                          <i class="star" data-feather="star"></i>
+                          <i class="star" data-feather="star"></i>
+                          <i class="star" data-feather="star"></i>
+                          <i class="star" data-feather="star"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="comentario">${review.txtReview}</p>
+                  </fieldset>
+                </div>
               </div>
-            </div>
-            <p id="comentario">${review.txtReview}</p>
-          </fieldset>
             `}
           }  
         }
@@ -167,9 +182,14 @@ function pageView(){
   
     document.querySelector('#content').innerHTML += result;
     document.querySelector('#body_rank').innerHTML = result2;
-    document.querySelector('#comentDiv').innerHTML = result3;
+    document.querySelector('#reviewsCom').innerHTML = result3;
+    let item=document.querySelector('.carousel-item')
+    item.classList.add('active');
     
 }
+
+
+
 pageView()
 feather.replace()
 
@@ -213,3 +233,4 @@ function rankingOrder(){
   return array
 
 }
+feather.replace()
