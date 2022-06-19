@@ -59,7 +59,7 @@ function viewStickers () {
         allStickers.push(name.attributes.src.nodeValue)
         allStickers.forEach((sticker) => {
             var something = document.getElementById(name.id)
-            if(user.stickersBuy.includes(sticker) === false && user.stickersLvl.includes(sticker) === false){
+            if(user.stickersBuy.includes(sticker.toLowerCase()) === false && user.stickersLvl.includes(sticker.toLowerCase()) === false){
                 something.classList.add('dark');
             } else {
                 something.classList.remove('dark');
