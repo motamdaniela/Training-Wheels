@@ -140,11 +140,16 @@ fieldset{
 
 @media screen and (max-width: 575px) {
   #faq{
-    width:250px;
+    width:225px;
     margin-top: 95px;
     margin-left: 25px;
   }
   .nav-icon1, .nav-icon2, .nav-icon3, .nav-icon4, .nav-icon5{
+    margin-left: 25px;
+  }
+  #sobrenos{
+    width: 350px;
+    margin-top: 95px;
     margin-left: 25px;
   }
 }
