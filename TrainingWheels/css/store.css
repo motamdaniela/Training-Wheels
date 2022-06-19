@@ -7,7 +7,12 @@ body{
 
 .container{
     order: 1;
+}
 
+#hum{
+    position: fixed;
+    z-index:2;
+    top: 0;    
 }
 
 #pontos{
@@ -94,3 +99,14 @@ body{
   #pointsN, #cluesN{
     margin-right: 8px;
   }
+
+@media screen and (max-width: 575px) {
+    #fieldset{
+        width: 90%;
+        margin: auto;
+    }
+    #loja{
+        margin-top: 40px;
+        width: 250px;
+    }
+}
