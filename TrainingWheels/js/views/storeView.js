@@ -52,8 +52,8 @@ for (const btn2 of btns2) {
         const conf=document.querySelector('#confirmar_compra2')
         conf.addEventListener('click',function(){
             if(precoNum<=user.points){
-                if(user.stickersBuy.indexOf(getId) === -1){
-                    user.stickersBuy.push(getId);
+                if(user.stickersBuy.indexOf(`../media/stickers/${getId}.svg`) === -1){
+                    user.stickersBuy.push(`../media/stickers/${getId}.svg`);
                     user.points -= precoNum;
                     $("#stickersModal").modal('hide');
                     alert('A compra foi efetuada')
