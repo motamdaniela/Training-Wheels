@@ -10,11 +10,9 @@ body{
   height:auto;
   
 }
-/* #fundo2{
-  margin-top: 155px;
+#fundo2{
   width:100%;
-  height:auto;
-} */
+} 
 
 #fundo3{
   width:100%;
@@ -113,8 +111,6 @@ body{
   color: #2D2F44;
 }
 
-
-
 #ranking img{
   border-radius: 50%;
 }
@@ -132,13 +128,14 @@ body{
 #avaliar{
   background-color: #54C5C1;
   border-color: #54C5C1;
+  margin-left:165px ;
 }
 
 .titulo{
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  
   font-family: 'ABC-Bold', sans-serif;
   color: #2D2F44;
 }
@@ -203,8 +200,28 @@ body{
 }
 
 @media screen and (max-width: 575px) {
+  #content div.divInicio{
+    margin-top: 90px;
+    width:400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #bemVindo{
+    margin-top: 120px;
+    width: 250px;
+    margin-bottom: 40px;
+  }
+
   #progresso>img{
     width: 300px;
+  }
+
+  .carousel{
+    margin-top: 0px;
+    z-index: -1;
+    width: 480px;
   }
 
   #video{
@@ -217,9 +234,12 @@ body{
     margin-top: 70px;
   }
 
+  #fundo2{
+    display: none;
+  }
+
   .tutorial{
     margin-top: 60px;
-    margin-bottom: 60px;
   }
 
   #imgTutorial{
@@ -327,6 +347,12 @@ body{
   #fundo{
     margin-top: 155px;
   }
+
+  #fundo2{
+    margin-top: 155px;
+  }
+
+  
  
 
   #topo{

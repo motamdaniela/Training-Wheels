@@ -7,6 +7,7 @@ Review.init()
 function pageView(){
   
     let result=`
+    <img id="fundo" src="../media/images/imagem.svg">
     <div class="buttons">
       <a  href="login.html">
         <button type="button" id="entrar" class="btn btn-outline ">Entrar</button>
@@ -28,12 +29,13 @@ function pageView(){
     let result2=''
     let result3=''
     if (User.isLogged()){
-      let coisoo=document.querySelector('#fundo')
-      coisoo.src ="../media/images/fundojalog.svg";
+      // let coisoo=document.querySelector('#fundo')
+      // coisoo.src ="../media/images/fundojalog.svg";
       // coisoo.innerHTML+=`<img id="fundo3" src="../media/images/fundo_logado.svg"></img>`
         
-        result=`<div id="topo"> 
-        <img src="../media/images/bemvindo.svg">
+        result=`<img id="fundo2" src="../media/images/fundojalog.svg">
+        <div id="topo"> 
+        <img id="bemVindo" src="../media/images/bemvindo.svg">
           <div id="coisas">
             <div id="progresso">
               <img src="../media/images/linha.svg">
@@ -78,8 +80,8 @@ function pageView(){
             <i class="star" data-feather="star"></i>
           </div>
         </fieldset>
-        <div id="comentDiv" class="carousel slide" data-ride="carousel">
-          <div id="reviewsCom" class="carousel-inner">
+        <div id="commentDiv" class="carousel slide " data-ride="carousel">
+          <div id="reviewsCom" class="carousel-inner ">
           
           </div>
           <a class="carousel-control-prev" href="#comentDiv" role="button" data-slide="prev">
@@ -88,15 +90,16 @@ function pageView(){
           <a class="carousel-control-next" href="#comentDiv" role="button" data-slide="next">
             <i data-feather="chevron-right"></i>
           </a>
-      </div>
+        </div>
+        </div>
       
       <div id="reviewsDiv" class="divInicio">
         <fieldset class="titulo">
           <h2>Avalia-nos!</h2>
         </fieldset>
         <fieldset id="reviews">
-          <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" style="height: 150px" id="commentReview"></textarea>
+          <div class="form">
+            <textarea class="form-control" placeholder="Deixe aqui a sua avaliação!" style="height: 150px" id="commentReview"></textarea>
           </div>
           <div id="avaliacoes">
             <div class="input-group flex-nowrap" id="num">
@@ -107,7 +110,7 @@ function pageView(){
           </div>
         </fieldset>
       </div>
-      </div>
+      
       
         `
         let nomes=rankingOrder()
