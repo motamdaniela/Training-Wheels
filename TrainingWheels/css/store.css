@@ -88,8 +88,8 @@ body{
     align-items: flex-start;
     justify-content: flex-end;
     margin-right: 5%;
+    margin-top: -10px;
   }
   #pointsN, #cluesN{
-    margin-left: 8px;
-    margin-right: 5px;
+    margin-right: 8px;
   }
