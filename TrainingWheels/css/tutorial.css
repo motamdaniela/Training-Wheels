@@ -104,7 +104,7 @@ video::-webkit-media-controls-fullscreen-button
 }
 
 .commentsField{
-  background-color:  #FFF8F8;
+  background-color:  #A8DDDB;
   padding: 10px;
   margin: 10px;
   width: 100%;
@@ -137,6 +137,7 @@ fieldset{
 .divPages:hover{
   background-color:#4B94BC;
 }
+
 
 #commentBtn{
   border-color: #4B94BC;
@@ -173,9 +174,18 @@ fieldset{
   margin-right: 8px;
 }
 .prflPhoto{
-  width: 16px;
-  height: 16px;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  width: 30px;
+  height: 30px;
+  border-radius:50%;
+}
+
+.fldComment{
+  border-radius: 10px 10px 10px 10px;
+  background-color: #FFF8F8;
+  padding: 10px;
+  margin-left: 10px;
+}
+.aComment{
+  width: 80%;
+  margin-right: 20px;
 }

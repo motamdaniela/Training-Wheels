@@ -3,23 +3,32 @@ import * as Videos from '../models/videoModel.js';
 import * as Tags from '../models/tagsModel.js';
 import * as PopUpQuestions from '../models/PopUpModel.js';
 import * as Progress from '../models/progressModel.js';
+import * as Comments from '../models/commentsModel.js';
 User.init()
 Videos.init()
 Tags.init()
 PopUpQuestions.init()
 Progress.init()
+Comments.init()
 
 let allVideos = Videos.getVideos();
 let allTags = Tags.getTags();
 let allPopUps = PopUpQuestions.getPopUp();
 let currentUser = User.getUserLogged()
 let progress = Progress.getProgress()
+let comments = Comments.getComments();
 
 let video = ''
 let title = ''
 
+let currentProgress = ''
+for (let progres of progress){
+  if (progres.username === currentUser.username){
+    currentProgress = progres
+    break;
+  }
+}
 const myModal = document.getElementById('myModal');
-
 
 //funcao que cria a pagina
 function renderPage(){
@@ -65,6 +74,7 @@ function renderPage(){
 }
 renderPage()
 
+
 //funcao que gera um fieldset(tab) para cada video
 function generateTab(videoObj) {
   let divTabs = document.querySelector('#divTabs')
@@ -98,8 +108,8 @@ function generateTab(videoObj) {
                   <div class="row">
                     <div class="col-8">
                       <img id="comentariosTitle" src="../media/images/comentarios.svg" height="30px">
-                      <fieldset class="commentsField">
-                        comentssss
+                      <fieldset id="commentsField">
+                        Este vídeo ainda não tem comentários.
                       </fieldset>
                     </div>
                     <div class="col">
@@ -128,21 +138,16 @@ function generateTab(videoObj) {
       Questions()
       updateProgress()
     })
-}
+  }
+  
 
 //funcao que gera um tab por default do ultimo vídeo que o utilizador estava a ver(caso seja deste nível)
 function defaultTab(listVideos) {
-  let currentProgres = ''
-  progress.forEach((progres)=>{
-    if (progres.username === currentUser.username){
-      currentProgres = progres
-    }
-  })
-  console.log(currentProgres)
   listVideos.forEach((listVideo)=>{
-    if(currentProgres.currentVideo === listVideo.name){
+    if(currentProgress.currentVideo === listVideo.name){
       generateTab(listVideo)
-      video.currentTime = currentProgres.currentTag
+      video = document.querySelector('video');
+      video.currentTime = currentProgress.currentTag
     }
     else{
       generateTab(listVideos[0])
@@ -212,13 +217,6 @@ function shuffle(array) {
   return array;
 }
 
-let currentProgress = ''
-for (let progres of progress){
-  if (progres.username === currentUser.username){
-    currentProgress = progres
-    break;
-  }
-}
 
 //-------------funcao para abrir a modal de perguntas pop up automaticamente
 function Questions(){
@@ -228,10 +226,9 @@ function Questions(){
   let cluesN = document.querySelector("#cluesN")
   let pointsN = document.querySelector("#pointsN")
   allPopUps.forEach((allPopUp) => {
-    if(allPopUp.video === title.innerHTML){
-
+    if(allPopUp.video === title){
       let time = convertTag(allPopUp.tag)
-      if (video.currentTime >= time && video.currentTime <= time + 0.2){
+      if (video.currentTime >= time && video.currentTime <= time + 0.3){
 
         //if(currentProgress.questionsCorrect.includes(allPopUp.question)){
 
@@ -261,10 +258,58 @@ function Questions(){
 })
 }
 
-function gerRewards(){
-  let idk = 'idk'
-}
 
+/*
+function CorrectAnswer(gotAnswer, gotPoints, Reward){
+  let answerBtns = document.querySelectorAll('.answerBtn');
+  allPopUps.forEach((allPopUp) => {
+    answerBtns.forEach((answerBtn) => {
+
+      answerQuestion()
+
+      if(answerBtn.id === gotAnswer){
+        answerBtn.addEventListener('click',()=>{
+          setTimeout(() => {
+            $("#congratsModal").modal('hide');
+            video.play();
+            video.pause();
+            let points = document.querySelector('#pointsEarned')
+            points.innerHTML = `+ ${allPopUp.pointsEarned} pontos`
+            let reward = document.querySelector('#reward')
+
+            reward.src = allPopUp.reward
+            currentUser.points += gotPoints
+            currentUser.stickersLvl.push(Reward)
+
+            sessionStorage.setItem('loggedUser', JSON.stringify(currentUser))
+            User.attUserOnStorage(currentUser)
+
+
+            $("#congratsModal").modal('show');
+            setTimeout(() => {
+              $("#congratsModal").modal('hide');
+              video.play();
+            }, 1500);
+          }, 200);
+        })
+      }else{
+        answerBtn.addEventListener('click',()=>{
+          setTimeout(() => {
+            $("#wrongModal").modal('hide');
+            video.play();
+            video.pause()
+            $("#wrongModal").modal('show');
+            setTimeout(() => {
+              $("#wrongModal").modal('hide');
+              video.play();
+            }, 1500);
+          }, 200);
+        })
+      }
+    })
+  })
+}
+*/
 
 //funcao que descobre se a resposta esta certa ou nao
 function CorrectAnswer(Question, gotAnswer, gotPoints, Reward){
@@ -273,8 +318,7 @@ function CorrectAnswer(Question, gotAnswer, gotPoints, Reward){
   for(let allPopUp of allPopUps){
     for(let answerBtn of answerBtns){
       
-      answerQuestion()
-  
+      
       if(answerBtn.id === gotAnswer){
         answerBtn.addEventListener('click',()=>{
           let points = document.querySelector('#pointsEarned')
@@ -293,7 +337,7 @@ function CorrectAnswer(Question, gotAnswer, gotPoints, Reward){
             currentProgress.questionsCorrect.push(Question)
             sessionStorage.setItem('progress', JSON.stringify(currentProgress))
             Progress.attProgressOnStorage(currentProgress)
-
+            
             setTimeout(() => {
               $("#myModal").modal('hide');
               video.pause();
@@ -330,38 +374,39 @@ function CorrectAnswer(Question, gotAnswer, gotPoints, Reward){
                     
         })
       break;
-      }else{
-        answerBtn.addEventListener('click',()=>{
+    }else{
+      answerBtn.addEventListener('click',()=>{
+        setTimeout(() => {
+          $("#myModal").modal('hide');
+          video.play();
+          video.pause()
+          $("#wrongModal").modal('show');
           setTimeout(() => {
-            $("#myModal").modal('hide');
+            $("#wrongModal").modal('hide');
             video.play();
-            video.pause()
-            $("#wrongModal").modal('show');
-            setTimeout(() => {
-              $("#wrongModal").modal('hide');
-              video.play();
             }, 1500);
           }, 200);
         })
-      break;
+        break;
       }
-
+      
     }    
-  break;}
-}
-
-//funcao que coloca a pergunta na lista do progresso como pergunta ja feita
-function answerQuestion(){
-  progress.forEach((progres) => {
+    answerQuestion()
+    break;}
+  }
+  
+  //funcao que coloca a pergunta na lista do progresso como pergunta ja feita
+  function answerQuestion(){
+    progress.forEach((progres) => {
     if(progres.username === currentUser.username){
       let doneQuestions = Array.from(progres.questionsDone)
       let question = document.querySelector('#questionPopUp').innerHTML
       if(doneQuestions.includes(question)){
-
+        
       }else{
         doneQuestions.push(question)
         progres.questionsDone = doneQuestions
-    
+        
         sessionStorage.setItem('progress', JSON.stringify(progres))
         Progress.attProgressOnStorage(progres)
       }
@@ -434,13 +479,96 @@ function updateProgress() {
   })
 }
 
-function renderComments(videoName){
+//funcao para comentar
+function leaveComment(){
+  title = document.querySelector('#title').innerHTML;
+  let commentTxt = document.querySelector('#commentTextArea').value
+  let commentUser = currentUser.username
+  let commentPhoto = currentUser.photo
 
+  if (comments.length <= 0){
+    Comments.add(title);
+  }else{
+    comments.forEach((comment) => {
+      
+      if(comment.video == title){
+        
+        comment.txtComments.push(commentTxt)
+        comment.usernames.push(currentUser.username)
+        comment.profilePhoto.push(currentUser.photo)
+
+        sessionStorage.setItem('newcomment', JSON.stringify(comment))
+        Comments.attCommentsOnStorage(comment)
+        commentTxt = ''
+        
+      }else{
+        Comments.add(title);
+
+        console.log(comment.video)
+        comment.txtComments.push(commentTxt)
+        comment.usernames.push(currentUser.username)
+        comment.profilePhoto.push(currentUser.photo)
+        
+        sessionStorage.setItem('comments', JSON.stringify(comment))
+        Comments.attCommentsOnStorage(comment)
+        commentTxt = ''
+      }
+    })
+  }
 }
+let btn = document.querySelector('#commentBtn')
+btn.addEventListener('click', () =>{
+  leaveComment()
+})
+
+//funcao para atualizar os comentarios
+function renderComments(){
+  title = document.querySelector('#title').innerHTML;
+  let string = ''
+  comments.forEach((comment)=>{
+    if(comment.video == title){
+      comment.usernames.forEach((username)=>{
+        string += `
+        <div class="aComment">
+          <div class="row">
+
+            <div class="col-2">
+              <img class="nav-icon" id="profile" src="${comment.profilePhoto[indexOf(username)]}">
+            </div>
+            <div class="col-5">
+              <p>${comment.usernames[indexOf(username)]}</p>
+            </div>
+          </div>    
+            <fieldset class ="fldComment">
+              <p>${comment.txtComments[indexOf(username)]}</p>
+            </fieldset>
+        </div>
+        `
+      })
+      document.querySelector('#commentsField').innerHTML = string
+    }
+  })
+}
+renderComments()
 
 /*
+<div class="aComment">
+    <div class="row">
+
+      <div class="col-2">
+        <img class="nav-icon" id="profile" src="../media/images/default.svg">
+      </div>
+      <div class="col-5">
+        <p>username</p>
+      </div>
+    </div>    
+      <fieldset class ="fldComment">
+        <p>comment</p>
+      </fieldset>
+  </div>
+
+
     questionsDone = []
-    questionsCorrect = []
     likedVideos = []
 
     not gain points from questions done
