@@ -12,6 +12,13 @@ body*:not(.main-menu){
     width:90%;
 }
 
+#hum{
+    position: fixed;
+    z-index:2;
+    top: 0;
+    
+  }
+
 .col{
     margin:25px;
 }
@@ -97,6 +104,13 @@ fieldset{
     }
     .sticker{
         height:85px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .container>img{
+        margin-top: 70px;
+        margin-left: 20px;
     }
 }
 

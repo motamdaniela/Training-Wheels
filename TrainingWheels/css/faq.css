@@ -15,7 +15,6 @@ body{
   position: fixed;
   z-index:2;
   top: 0;
-  
 }
 
 h3{
@@ -137,4 +136,15 @@ fieldset{
 .check{
   fill: #FFF8F8;
   stroke: #56C4C0;
+}
+
+@media screen and (max-width: 575px) {
+  #faq{
+    width:250px;
+    margin-top: 95px;
+    margin-left: 25px;
+  }
+  .nav-icon1, .nav-icon2, .nav-icon3, .nav-icon4, .nav-icon5{
+    margin-left: 25px;
+  }
 }
