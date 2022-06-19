@@ -16,6 +16,10 @@ let currentUser = User.getUserLogged()
 let progress = Progress.getProgress()
 
 let video = ''
+let title = ''
+
+const myModal = document.getElementById('myModal');
+
 
 //funcao que cria a pagina
 function renderPage(){
@@ -115,19 +119,20 @@ function generateTab(videoObj) {
     `
     divTabs.innerHTML = string
     feather.replace()
+    title = document.querySelector('#title');
     video = document.querySelector('video');
     tagsList(videoObj.name)
+    video.addEventListener("timeupdate", () => {
+      Questions()
+      updateProgress()
+    })
 }
-
-video = document.querySelector('video');
 
 function defaultTab() {
   //generateTab(videoObj)
 }
 defaultTab()
 
-const myModal = document.getElementById('myModal');
-let title = document.querySelector('#title');
 
 
 //funcao que abre a modal
@@ -334,8 +339,3 @@ function updateProgress() {
 
     like videos(maybe unlike)
 */
-
-video.addEventListener("timeupdate", () => {
-  Questions()
-  updateProgress()
-})
