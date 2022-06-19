@@ -259,7 +259,7 @@ function Questions(){
 }
 
 
-/*
+
 function CorrectAnswer(gotAnswer, gotPoints, Reward){
   let answerBtns = document.querySelectorAll('.answerBtn');
   allPopUps.forEach((allPopUp) => {
@@ -309,8 +309,9 @@ function CorrectAnswer(gotAnswer, gotPoints, Reward){
     })
   })
 }
-*/
 
+
+/*
 //funcao que descobre se a resposta esta certa ou nao
 function CorrectAnswer(Question, gotAnswer, gotPoints, Reward){
   let answerBtns = document.querySelectorAll('.answerBtn');
@@ -394,6 +395,7 @@ function CorrectAnswer(Question, gotAnswer, gotPoints, Reward){
     answerQuestion()
     break;}
   }
+*/
   
   //funcao que coloca a pergunta na lista do progresso como pergunta ja feita
   function answerQuestion(){
@@ -483,64 +485,50 @@ function updateProgress() {
 function leaveComment(){
   title = document.querySelector('#title').innerHTML;
   let commentTxt = document.querySelector('#commentTextArea').value
-  let commentUser = currentUser.username
-  let commentPhoto = currentUser.photo
 
-  if (comments.length <= 0){
-    Comments.add(title);
-  }else{
-    comments.forEach((comment) => {
-      
-      if(comment.video == title){
-        
-        comment.txtComments.push(commentTxt)
-        comment.usernames.push(currentUser.username)
-        comment.profilePhoto.push(currentUser.photo)
+  comments.forEach((comment)=>{
+    if(comment.video == title){
+      comment.usernames.push = currentUser.username
+      comment.profilePhoto.push(currentUser.photo)
+      comment.txtComments.push(commentTxt)
 
-        sessionStorage.setItem('newcomment', JSON.stringify(comment))
-        Comments.attCommentsOnStorage(comment)
-        commentTxt = ''
-        
-      }else{
-        Comments.add(title);
+      sessionStorage.setItem('comments', JSON.stringify(comment))
+      Comments.attCommentsOnStorage(comment)
+      commentTxt = ''
+    }
+  })
 
-        console.log(comment.video)
-        comment.txtComments.push(commentTxt)
-        comment.usernames.push(currentUser.username)
-        comment.profilePhoto.push(currentUser.photo)
-        
-        sessionStorage.setItem('comments', JSON.stringify(comment))
-        Comments.attCommentsOnStorage(comment)
-        commentTxt = ''
-      }
-    })
-  }
 }
 let btn = document.querySelector('#commentBtn')
 btn.addEventListener('click', () =>{
   leaveComment()
 })
 
-//funcao para atualizar os comentarios
+//funcao para mostrar os comentarios
 function renderComments(){
   title = document.querySelector('#title').innerHTML;
   let string = ''
+  if (comments.length <= 0){
+    Comments.add(title)
+  }
+
   comments.forEach((comment)=>{
     if(comment.video == title){
       comment.usernames.forEach((username)=>{
+        let index = comment.usernames.indexOf(username)
         string += `
         <div class="aComment">
           <div class="row">
 
             <div class="col-2">
-              <img class="nav-icon" id="profile" src="${comment.profilePhoto[indexOf(username)]}">
+              <img class="nav-icon" id="profile" src="${comment.profilePhoto[index]}">
             </div>
             <div class="col-5">
-              <p>${comment.usernames[indexOf(username)]}</p>
+              <p>${comment.usernames[index]}</p>
             </div>
           </div>    
             <fieldset class ="fldComment">
-              <p>${comment.txtComments[indexOf(username)]}</p>
+              <p>${comment.txtComments[index]}</p>
             </fieldset>
         </div>
         `
@@ -549,7 +537,6 @@ function renderComments(){
     }
   })
 }
-renderComments()
 
 /*
 <div class="aComment">
@@ -571,6 +558,7 @@ renderComments()
     questionsDone = []
     likedVideos = []
 
+    timestamp/video current progress
     not gain points from questions done
 
     like videos(maybe unlike)
@@ -578,4 +566,5 @@ renderComments()
 
     next sticker
     choose profile photo
+    loading page
 */
