@@ -70,7 +70,7 @@ body{
 
 
 #imgTutorial{
-  width:130%;
+  width:1000px;
 }
 
 .tutorial>p{
@@ -352,9 +352,6 @@ body{
     margin-top: 155px;
   }
 
-  
- 
-
   #topo{
     position: absolute;
     margin-top: 50px;
@@ -400,7 +397,7 @@ body{
   }
   
   .tutorial>img{
-    width:1000px;
+    width:100px;
   }
 
   #entrar{
