@@ -5,15 +5,23 @@ export function init() {
   }
 
 export function add(video) {
-    comments.push(new Progress(video));
-    localStorage.setItem("progress", JSON.stringify(comments));
+    comments.push(new Comments(video));
+    localStorage.setItem("comments", JSON.stringify(comments));
   }
 
-export function getProgress() {
+export function getComments() {
   return comments;
 }
 
-export default class Comments{
+export function attCommentsOnStorage(attComment){
+  let comments = JSON.parse(localStorage.getItem('comments'))
+  comments.forEach((comment,i) => {
+      if (comment.video === attComment.video) comment[i] = attComment
+  })
+  localStorage.setItem('comments', JSON.stringify(comments))
+}
+
+class Comments{
     video = ""
     usernames = []
     txtComments = []
