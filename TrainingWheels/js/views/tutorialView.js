@@ -221,18 +221,17 @@ function Questions(){
           <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[3]}" data-bs-dismiss="modal">${randomBtns[3]}</button></div>
         </div>
         `
-       video.pause();
-       OpenBootstrapPopup();
-       CorrectAnswer(allPopUp.correctAnswer, allPopUp.pointsEarned, allPopUp.reward);
-       console.log(allPopUp.correctAnswer,allPopUp.pointsEarned, allPopUp.reward);
-     }
+      video.pause();
+      OpenBootstrapPopup();
+      CorrectAnswer(allPopUp.question,allPopUp.correctAnswer, allPopUp.pointsEarned, allPopUp.reward);
     }
-  })
+  }
+})
 }
 
 
 //funcao que descobre se a resposta esta certa ou nao
-function CorrectAnswer(gotAnswer, gotPoints, Reward){
+function CorrectAnswer(Question, gotAnswer, gotPoints, Reward){
   let answerBtns = document.querySelectorAll('.answerBtn');
   allPopUps.forEach((allPopUp) => {
     answerBtns.forEach((answerBtn) => {
@@ -242,32 +241,46 @@ function CorrectAnswer(gotAnswer, gotPoints, Reward){
       if(answerBtn.id === gotAnswer){
         answerBtn.addEventListener('click',()=>{
           setTimeout(() => {
-            $("#congratsModal").modal('hide');
-            video.play();
-            video.pause();
             let points = document.querySelector('#pointsEarned')
             points.innerHTML = `+ ${allPopUp.pointsEarned} pontos`
             let reward = document.querySelector('#reward')
 
-            reward.src = Reward
-            currentUser.points += gotPoints
-            currentUser.stickersLvl.push(Reward)
+            progress.forEach((progres)=>{
+              if (progres.username === currentUser.username){
+                progres.questionsCorrect.push(Question)
+                sessionStorage.setItem('progress', JSON.stringify(progres))
+                Progress.attProgressOnStorage(progres)
 
-            sessionStorage.setItem('loggedUser', JSON.stringify(currentUser))
-            User.attUserOnStorage(currentUser)
+                if (progres.questionsDone.includes(Question)){
+                  let pointsContent = document.querySelector('.forPoints')
+                  pointsContent.ClassList.add('hide')
+                }else{
+                  currentUser.points += gotPoints
+                }
 
-
+                reward.src = Reward
+                currentUser.stickersLvl.push(Reward)
+                
+                sessionStorage.setItem('loggedUser', JSON.stringify(currentUser))
+                User.attUserOnStorage(currentUser)
+              }
+            })
+            
+            $("#myModal").modal('hide');
+            video.pause();
             $("#congratsModal").modal('show');
             setTimeout(() => {
               $("#congratsModal").modal('hide');
               video.play();
             }, 1500);
           }, 200);
+
+
         })
       }else{
         answerBtn.addEventListener('click',()=>{
           setTimeout(() => {
-            $("#wrongModal").modal('hide');
+            $("#myModal").modal('hide');
             video.play();
             video.pause()
             $("#wrongModal").modal('show');
@@ -282,6 +295,7 @@ function CorrectAnswer(gotAnswer, gotPoints, Reward){
   })
 }
 
+//funcao que coloca a pergunta na lista do progresso como pergunta ja feita
 function answerQuestion(){
   progress.forEach((progres) => {
     if(progres.username === currentUser.username){
@@ -298,6 +312,41 @@ function answerQuestion(){
       }
     }
   })
+}
+
+//chama funcao useClue com o botao associado
+$('#myModal').on('shown.bs.modal', function () {
+  let clueBtn = document.querySelector('#clueBtn')
+  allPopUps.forEach((allPopUp) => {
+    if (allPopUp.question == document.querySelector('#questionPopUp').innerHTML){
+      clueBtn.addEventListener('click', () =>{
+        useClue(allPopUp)
+        return false
+      })
+    }
+  })
+});
+
+//funcao para usar pistas
+function useClue(popUpObj){
+    if(!!currentUser.clues == !!true){
+      let wrongQuestions = Array.from(popUpObj.answers)
+      wrongQuestions = wrongQuestions.filter((i) => i !== popUpObj.correctAnswer)
+      wrongQuestions = shuffle(wrongQuestions)
+
+      let wrongBtn = document.getElementById(wrongQuestions[0])
+      wrongQuestions = []
+      wrongBtn.disabled = true
+      clueBtn.disabled = true
+
+      currentUser.clues -= 1
+      sessionStorage.setItem('loggedUser', JSON.stringify(currentUser))
+      User.attUserOnStorage(currentUser)
+
+      document.querySelector('#cluesN').innerHTML = currentUser.clues
+    }else if(!!currentUser.clues == !!false){
+      alert('Nao tens nenhuma pista!')
+    }
 }
 
 
@@ -335,7 +384,6 @@ function updateProgress() {
     questionsCorrect = []
     likedVideos = []
 
-    check questions function
     to not repeat questions correct
     not gain points from questions done
 

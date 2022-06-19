@@ -127,3 +127,7 @@ fieldset{
 .lvlTitle{
   margin-top: 40px;
 }
+.check{
+  fill: #FFF8F8;
+  stroke: #56C4C0;
+}

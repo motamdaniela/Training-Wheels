@@ -30,6 +30,8 @@ for (let btn of btns) {
             $("#cluesModal").modal('hide');
             sessionStorage.setItem('loggedUser', JSON.stringify(user))
             User.attUserOnStorage(user)
+            document.querySelector('#cluesN').innerHTML = user.clues
+            document.querySelector('#pointsN').innerHTML = user.points
         }else{
             alert('Não tem pontos suficientes para fazer esta compra')
             $("#cluesModal").modal('hide');
