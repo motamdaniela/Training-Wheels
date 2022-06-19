@@ -54,19 +54,19 @@ btn4.addEventListener('click', function(){
 function viewStickers () {
     let allStickers = [];
     let names = document.getElementsByClassName('sticker')
+    console.log(names)
     Array.prototype.forEach.call(names, function(name) {
-        allStickers.push(name.id)
+        allStickers.push(name.attributes.src.nodeValue)
+        allStickers.forEach((sticker) => {
+            var something = document.getElementById(name.id)
+            if(user.stickersBuy.indexOf(sticker) === -1 && user.stickersLvl.indexOf(sticker) === -1){
+                something.classList.add('dark');
+            } else {
+                something.classList.remove('dark');
+            }
+        });
     });    
     console.log(allStickers)
-    
-    allStickers.forEach((sticker) => {
-        var something = document.getElementById(sticker)
-        if(user.stickersBuy.indexOf(sticker) === -1 && user.stickersLvl.indexOf(sticker) === -1){
-            something.classList.add('dark');
-        } else {
-            something.classList.remove('dark');
-        }
-    });
     
 }
 viewStickers()
