@@ -8,6 +8,7 @@ body{
 #fundo{
   width:100%;
   height:auto;
+  margin-top: 155px;
 }
 /* #fundo2{
   margin-top: 155px;
@@ -17,7 +18,7 @@ body{
 
 #fundo3{
   width:100%;
-  height:auto;
+  height:5000px;
 }
 
 .buttons{
@@ -101,7 +102,6 @@ body{
 }
 
 #continuar{
-  background-color: #E7EDF1;
   border-radius: 10px;
 }
 
@@ -124,7 +124,7 @@ body{
 @media screen and (max-width: 575px) {
   #content>div{
     margin-top: 100px;
-    width:310px;
+    width: 310px;
   }
 
   #progresso>img{
@@ -136,6 +136,7 @@ body{
     height: 100px;
     margin-top: 40px;
     padding: 10px;
+    background-color: #E7EDF1;
   }
 
   #continuarBtn{
@@ -196,7 +197,7 @@ body{
 @media screen and (min-width: 575px) {
   
   /* pagina nao logada */
-  #content>div{
+  #content>div.divInicio{
     margin-top: 60px;
     width:500px;
   }
@@ -205,8 +206,6 @@ body{
     position: relative;
   } */
 
-  
-
   #videoDiv{
     display: flex;
     justify-content: center;
@@ -214,17 +213,41 @@ body{
 
   #topo{
     position: absolute;
+    margin-top: 50px;
+  }
+  #coisas{
+    display: flex;
+  }
+
+  #progresso{
+    margin-top: 60px;
+    margin-right: 200px;
+
+  }
+
+  #bemVindo2{
+    margin-left: 100px;
+  }
+
+  #nextSticker{
+    background-color: #C9D6D6;
+    height: 300px;
+    width: 260px;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-right: 100px;
   }
 
   #progresso>img{
-    width: 300px;
+    width: 600px;
   }
 
   #continuar{
-    width: 250px;
-    height: 100px;
+    width: 350px;
+    height: 150px;
     margin-top: 40px;
     padding: 10px;
+    background-color: #FAF5AC;
   }
 
   #continuarBtn{
@@ -277,6 +300,7 @@ body{
     width: 100%;
     padding: 2%;
     margin-top: 60px;
+    margin-bottom: 40px;
   }
 
   .tutorial>p{
@@ -286,7 +310,6 @@ body{
 
   #ranking{
     width: 100%;
-    margin-bottom: 120px;
     height: 300px;
     padding: 30px;
   }
@@ -305,10 +328,6 @@ body{
     width: 510px;
     padding: 20px;
     height: 310px;
-  }
-
-  #avaliacoes{
-    margin-top: 20px;
   }
 
   #reviews{

@@ -5,7 +5,7 @@ let user=User.getUserLogged()
 function navbarView() {
     let result = `   
     <div id="sidebar" class="main-menu flex-shrink-0 d-sm-block">
-     <div class="col-3 d-none d-sm-block p-0  p-3 min-vh-100">
+     <div class="col-3 d-none d-sm-block  min-vh-100">
         <a href="#" id="logo" class="d-block link-dark text-decoration-none ">
           <img class="logo-icon" src="../media/images/logo.svg">
         </a>
@@ -80,7 +80,7 @@ function navbarView() {
  </div>`
     if (User.isLogged()) {
       result = `<div id="sidebar" class="main-menu flex-shrink-0 d-sm-block">
-      <div class="col-3 d-none d-sm-block p-0  p-3 min-vh-100">
+      <div class="col-3 d-none d-sm-block  min-vh-100">
          <a href="#" id="logo" class="d-block link-dark text-decoration-none ">
            <img class="logo-icon" src="../media/images/logo.svg">
          </a>

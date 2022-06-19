@@ -1,29 +1,24 @@
 import * as User from '../models/userModel.js';
-import * as Levels from '../models/levelModel.js';
 import * as Videos from '../models/videoModel.js';
 import * as Tags from '../models/tagsModel.js';
 import * as PopUpQuestions from '../models/PopUpModel.js';
 import * as Progress from '../models/progressModel.js';
 User.init()
-Levels.init()
 Videos.init()
 Tags.init()
 PopUpQuestions.init()
 Progress.init()
 
-let allLevels = Levels.getLevels();
 let allVideos = Videos.getVideos();
 let allTags = Tags.getTags();
 let allPopUps = PopUpQuestions.getPopUp();
 let currentUser = User.getUserLogged()
 let progress = Progress.getProgress()
 
+let video = ''
+let title = ''
 
-
-
-
-
-
+const myModal = document.getElementById('myModal');
 
 
 //funcao que cria a pagina
@@ -52,45 +47,38 @@ function renderPage(){
         `
       })
       divPages.innerHTML = string
-      generateTable(listVideos)
 
       let allBtns = document.querySelectorAll('.BtnUp')
       allBtns = Array.from(allBtns)
-      let allTabs = document.querySelectorAll('.aTab')
-      allTabs = Array.from(allTabs)
       allBtns.forEach((allBtn) => {
         allBtn.addEventListener('click',()=>{
-
-          allTabs.forEach((allTab) =>{
-            if(allBtn.id === allTab.id){
-              allTab.classList.remove('hide');
-            }else{
-              allTab.classList.add('hide');
+          listVideos.forEach((listVideo) => {
+            if(allBtn.id === listVideo.name){
+              generateTab(listVideo)
             }
           })
         })
       })
-
     }
   })
 }
 renderPage()
 
 //funcao que gera um fieldset(tab) para cada video
-function generateTable(listVideos) {
+function generateTab(videoObj) {
   let divTabs = document.querySelector('#divTabs')
   let string = ''
-  listVideos.forEach((listVideo) => {
-    string += `
-    <fieldset id="${listVideo.name}" class="aTab hide">
+
+    string = `
+    <fieldset id="${videoObj.name}" class="aTab">
               <div class="row">
                 <div>
                   <div class="container">
                   <div class="row">
                     <div class="col-7">
-                      <h2 id="title">${listVideo.name}</h2>
+                      <h2 id="title">${videoObj.name}</h2>
                       <div class="divVideo">
-                        <video src="${listVideo.url}" controls></video>
+                        <video src="${videoObj.url}" controls></video>
                       </div>
                       <i class="heartIcon" data-feather="heart"></i>
                     </div>
@@ -129,31 +117,22 @@ function generateTable(listVideos) {
           </div>
         </fieldset>
     `
-  })
-  divTabs.innerHTML = string
-
+    divTabs.innerHTML = string
+    feather.replace()
+    title = document.querySelector('#title');
+    video = document.querySelector('video');
+    tagsList(videoObj.name)
+    video.addEventListener("timeupdate", () => {
+      Questions()
+      updateProgress()
+    })
 }
 
 function defaultTab() {
-  let allTabs = document.querySelectorAll('.aTab')
-  allTabs = Array.from(allTabs)
-  allTabs[0].classList.remove('hide')
+  //generateTab(videoObj)
 }
 defaultTab()
 
-
-
-
-
-
-
-
-
-
-//const annotations = localStorage.annotations ? JSON.parse(localStorage.annotations) : []
-const myModal = document.getElementById('myModal');
-const video = document.querySelector('video');
-let title = document.querySelector('#title');
 
 
 //funcao que abre a modal
@@ -177,24 +156,24 @@ function convertTag(time){
 }
 
 //--------------------lista de etiquetas associadas às tags
- function tagsList(){
-  let videoTitle = document.querySelector("#title").innerHTML
+ function tagsList(videoName){
+
   let string = ''
   allTags.forEach((allTag)=>{
-    if(allTag.video === videoTitle){
+    if(allTag.video === videoName){
       string += `
       <a class="list-group-item list-group-item-action list-group-item tag">${allTag.name}</a>
       `
     }
   })
-  document.querySelector(".tagsList").innerHTML = string
+  document.querySelector('.tagsList').innerHTML = string
   let tagBtns = document.querySelectorAll('.tag')
   tagBtns = Array.from(tagBtns)
   tagBtns.forEach((tagBtn) => {
     tagBtn.addEventListener('click',()=>{
-      allTags.forEach((alltag)=>{
-        if(alltag.name === tagBtn.innerHTML){
-          let time = convertTag(alltag.tag)
+      allTags.forEach((allTag)=>{
+        if(allTag.name === tagBtn.innerHTML){
+          let time = convertTag(allTag.tag)
           video.currentTime = time
           video.play()
         }
@@ -202,7 +181,7 @@ function convertTag(time){
     })
   })
 }
-tagsList()
+
 
 //-----------funcao que baralha(para as respostas)
 function shuffle(array) {
@@ -354,9 +333,11 @@ function updateProgress() {
     questionsDone = []
     questionsCorrect = []
     likedVideos = []
-*/
 
-video.addEventListener("timeupdate", () => {
-  Questions()
-  updateProgress()
-})
+    check questions function
+    to not repeat questions correct
+    not gain points from questions done
+
+    like videos(maybe unlike)
+    comments
+*/

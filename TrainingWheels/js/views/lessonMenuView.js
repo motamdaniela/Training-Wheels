@@ -95,15 +95,15 @@ function checkVideo(){
     if(progres.username === currentUser.username){
       let doneVideos = progres.videosDone
       listOfVideos.forEach((listOfVideo) => {
-        let video = listOfVideo.innerHTML
-        console.log(doneVideos,)
-        if(doneVideos.includes(video)){
-          let string = `<i data-feature="check"></i>`
-          listOfVideo.innerHTML += string
+        let video = listOfVideo
+        if(doneVideos.includes(video.innerHTML)){
+          let string = ` <i data-feather="check"></i>`
+          video.innerHTML += string
         }
       })
     }
   })
+  feather.replace()
 }
 
 checkVideo()
