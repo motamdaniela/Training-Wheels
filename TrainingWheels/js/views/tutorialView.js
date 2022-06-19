@@ -48,6 +48,7 @@ function renderPage(){
       })
       divPages.innerHTML = string
 
+      defaultTab(listVideos) 
       let allBtns = document.querySelectorAll('.BtnUp')
       allBtns = Array.from(allBtns)
       allBtns.forEach((allBtn) => {
@@ -128,11 +129,26 @@ function generateTab(videoObj) {
     })
 }
 
-function defaultTab() {
-  //generateTab(videoObj)
-}
-defaultTab()
+//funcao que gera um tab por default do ultimo vídeo que o utilizador estava a ver(caso seja deste nível)
+function defaultTab(listVideos) {
+  let currentProgres = ''
+  progress.forEach((progres)=>{
+    if (progres.username === currentUser.username){
+      currentProgres = progres
+    }
+  })
+  console.log(currentProgres)
+  listVideos.forEach((listVideo)=>{
+    if(currentProgres.currentVideo === listVideo.name){
+      generateTab(listVideo)
+      video.currentTime = currentProgres.currentTag
+    }
+    else{
+      generateTab(listVideos[0])
+    }
 
+  })
+}
 
 
 //funcao que abre a modal
@@ -233,38 +249,48 @@ function Questions(){
 //funcao que descobre se a resposta esta certa ou nao
 function CorrectAnswer(Question, gotAnswer, gotPoints, Reward){
   let answerBtns = document.querySelectorAll('.answerBtn');
-  allPopUps.forEach((allPopUp) => {
-    answerBtns.forEach((answerBtn) => {
-
+  answerBtns = Array.from(answerBtns)
+  for(let allPopUp of allPopUps){
+    for(let answerBtn of answerBtns){
+      
       answerQuestion()
-
+  
       if(answerBtn.id === gotAnswer){
         answerBtn.addEventListener('click',()=>{
           setTimeout(() => {
             let points = document.querySelector('#pointsEarned')
             points.innerHTML = `+ ${allPopUp.pointsEarned} pontos`
             let reward = document.querySelector('#reward')
-
-            progress.forEach((progres)=>{
+  
+            let currentProgres = ''
+            
+            for (let progres of progress){
               if (progres.username === currentUser.username){
-                progres.questionsCorrect.push(Question)
-                sessionStorage.setItem('progress', JSON.stringify(progres))
-                Progress.attProgressOnStorage(progres)
+                currentProgres = progres
+                break;
+              }
+            }
+                currentProgres.questionsCorrect.push(Question)
+                sessionStorage.setItem('progress', JSON.stringify(currentProgres))
+                Progress.attProgressOnStorage(currentProgres)
+                let pointsContent = document.querySelector('.forPoints')
+  
+                if (currentProgres.questionsDone.includes(Question) == true){
+                  pointsContent.classList.add('hide');
 
-                if (progres.questionsDone.includes(Question)){
-                  let pointsContent = document.querySelector('.forPoints')
-                  pointsContent.ClassList.add('hide')
                 }else{
+                  console.log(Question)
+                  console.log(currentProgres.questionsDone)
+                  console.log(currentProgres.username)
                   currentUser.points += gotPoints
+                  pointsContent.classList.remove('hide');
                 }
-
+  
                 reward.src = Reward
                 currentUser.stickersLvl.push(Reward)
                 
                 sessionStorage.setItem('loggedUser', JSON.stringify(currentUser))
                 User.attUserOnStorage(currentUser)
-              }
-            })
             
             $("#myModal").modal('hide');
             video.pause();
@@ -274,9 +300,10 @@ function CorrectAnswer(Question, gotAnswer, gotPoints, Reward){
               video.play();
             }, 1500);
           }, 200);
-
-
+  
+  
         })
+      break;
       }else{
         answerBtn.addEventListener('click',()=>{
           setTimeout(() => {
@@ -290,9 +317,11 @@ function CorrectAnswer(Question, gotAnswer, gotPoints, Reward){
             }, 1500);
           }, 200);
         })
+      break;
       }
-    })
-  })
+
+    }    
+  break;}
 }
 
 //funcao que coloca a pergunta na lista do progresso como pergunta ja feita
@@ -384,8 +413,9 @@ function updateProgress() {
     questionsCorrect = []
     likedVideos = []
 
-    to not repeat questions correct
     not gain points from questions done
+    to not repeat questions correct
+    defaultTab with current video/tag
 
     like videos(maybe unlike)
     comments
