@@ -71,7 +71,9 @@ body{
 }
 
 
-
+#imgTutorial{
+  width:130%;
+}
 
 .tutorial>p{
   text-align: center;
@@ -222,6 +224,7 @@ body{
 
   #imgTutorial{
     content:url("../media/images/tutorialMobile.svg");
+    width: 90%;
   }
 
   #tituloTutorial{
