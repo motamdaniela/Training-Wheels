@@ -334,8 +334,10 @@ function updateProgress() {
     questionsCorrect = []
     likedVideos = []
 
+    check questions function
     to not repeat questions correct
     not gain points from questions done
 
     like videos(maybe unlike)
+    comments
 */
