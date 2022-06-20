@@ -71,7 +71,7 @@ function lvlPage(){
         if (currentUser.username === progres.username){
 
           progres.currentLvl = goBtn.id
-          sessionStorage.setItem('currentLvl', JSON.stringify(progres.currentLvl))
+          // sessionStorage.setItem('currentLvl', JSON.stringify(progres.currentLvl))
           Progress.attProgressOnStorage(progres)
 
         }

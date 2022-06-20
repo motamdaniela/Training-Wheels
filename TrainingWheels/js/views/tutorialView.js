@@ -103,7 +103,6 @@ function generateTab(videoObj) {
                     <div class="col">
                       <img id="etiquetas" src="../media/images/etiquetas.svg" height="30px">
                       <div class="list-group tagsList">
-
                       </div>
                     </div>
                   </div>
@@ -231,12 +230,18 @@ function commentShow(){
 function likesShow(){
   console.log('00')
   let result2=''
-  result2=`<button class="caralho"><i id="heartIcon" data-feather="heart"></i></button><p id="likesN"></p>`
-  let ot=document.querySelector('.divLikes')
-  console.log(ot)
-  ot.innerHTML=result2
-  console.log(result2)
-  console.log('olaaaa')
+  title=document.querySelector('#title').innerHTML
+  allVideos.forEach(function(video){ 
+    if(video.name==title){
+      result2=`<button class="caralho"><i id="heartIcon" data-feather="heart"></i></button><p id="likesN">${video.likes}</p>`
+      let ot=document.querySelector('.divLikes')
+      console.log(ot)
+      ot.innerHTML=result2
+      console.log(result2)
+      console.log('olaaaa')
+    }
+   })
+  
 }
 
 //-----------funcao que baralha(para as respostas)
@@ -471,6 +476,14 @@ function updateProgress() {
 
 
 function renderLikes(){
+  progress.forEach((progres) =>{
+    if(progres.username==currentUser.username){
+      console.log("slay")
+      let arrayVids=progres.likedVideos
+      if(arrayVids.includes(title)){
+        $('#heartIcon').attr("class", "heartLiked")
+      }}
+    })
   let likesN = document.querySelector('#likesN')
   console.log(likesN)
   allVideos.forEach((allVideo) =>{
@@ -480,8 +493,8 @@ function renderLikes(){
   })
 
 }
-likesShow()
-renderLikes()
+// likesShow()
+// y
 
 
 //funcao para comentar
@@ -550,23 +563,34 @@ function addLike(){
     console.log(title)
     allVideos.forEach(function(allVideo){
       if(allVideo.name == title){
-        console.log(2)
         allVideo.likes += 1
-        console.log(allVideo.likes)
-        console.log(3)
-        // sessionStorage.setItem('videos', JSON.stringify(allVideo)
         $('#heartIcon').attr("class", "heartLiked")
-        // heart.ClassList.add('heartLiked')
+        let ok =document.querySelector("#likesN").innerHTML
+        let ok2 =+ok
+        ok2+=1
+        document.querySelector("#likesN").innerHTML=ok2
+        console.log("slay")
+        progress.forEach((progres) =>{
+          console.log("slay")
+          if(progres.username==currentUser.username){
+            console.log("slay")
+            let arrayVids=progres.likedVideos
+            if(arrayVids.includes(title)){
+              progres.likedVideos.filter(item => item != title)
+              Progress.attProgressOnStorage(progres)
+            }else{
+              progres.likedVideos.push(title)
+              Progress.attProgressOnStorage(progres)
+            }
+            
+          } 
+        })
       }
       Videos.attVideosOnStorage(allVideo)
       console.log(allVideo.likes)
     })
-    // allVideos.forEach((allVideo) =>{ 
-    // })
   }
-
 }
-addLike()
 
 
 
