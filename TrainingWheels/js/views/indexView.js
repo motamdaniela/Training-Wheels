@@ -25,7 +25,7 @@ function pageView(){
       </a>
       
     </div>
-    <img id="video" src="https://www.hypeness.com.br/1/2019/05/azul-ou-verde-teste-1.jpg">
+    <video id="video" src="../media/videos/VideoPromocional.mp4" controls></video>
     
     
     <div class="tutorial" >
