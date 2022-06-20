@@ -91,7 +91,7 @@ function generateTab(videoObj) {
                       <div class="divVideo">
                         <video src="${videoObj.url}" controls></video>
                       </div>
-                      <i class="heartIcon" data-feather="heart"></i>
+                      <div><i id="heartIcon" data-feather="heart"></i><p id="likesN"></p></div>
                     </div>
                     <div class="col">
                       <img id="etiquetas" src="../media/images/etiquetas.svg" height="30px">
@@ -134,6 +134,7 @@ function generateTab(videoObj) {
     title = document.querySelector('#title');
     video = document.querySelector('video');
     tagsList(videoObj.name)
+    renderComments()
     video.addEventListener("timeupdate", () => {
       Questions()
       updateProgress()
@@ -259,7 +260,7 @@ function Questions(){
 }
 
 
-
+/*
 function CorrectAnswer(gotAnswer, gotPoints, Reward){
   let answerBtns = document.querySelectorAll('.answerBtn');
   allPopUps.forEach((allPopUp) => {
@@ -309,9 +310,9 @@ function CorrectAnswer(gotAnswer, gotPoints, Reward){
     })
   })
 }
+*/
 
 
-/*
 //funcao que descobre se a resposta esta certa ou nao
 function CorrectAnswer(Question, gotAnswer, gotPoints, Reward){
   let answerBtns = document.querySelectorAll('.answerBtn');
@@ -374,6 +375,7 @@ function CorrectAnswer(Question, gotAnswer, gotPoints, Reward){
           }
                     
         })
+        answerQuestion()
       break;
     }else{
       answerBtn.addEventListener('click',()=>{
@@ -388,14 +390,13 @@ function CorrectAnswer(Question, gotAnswer, gotPoints, Reward){
             }, 1500);
           }, 200);
         })
+        answerQuestion()
         break;
       }
       
     }    
-    answerQuestion()
     break;}
   }
-*/
   
   //funcao que coloca a pergunta na lista do progresso como pergunta ja feita
   function answerQuestion(){
@@ -481,27 +482,58 @@ function updateProgress() {
   })
 }
 
+//funcao para gostar video
+document.querySelector('#heartIcon').addEventListener('click',()=>{
+  allVideos.forEach((allVideo) =>{
+    if(allVideo.name === title){
+      allVideo.likes += 1
+      console.log(allVideo)
+      sessionStorage.setItem('videos', JSON.stringify(allVideo))
+      Videos.attVideosOnStorage(allVideo)
+
+      let heart = document.querySelector('#heartIcon')
+      console.log(heart)
+      heart.ClassList.add('heartLiked')
+    }
+  })
+
+})
+
+function renderLikes(){
+  let likesN = document.querySelector('#likesN')
+  allVideos.forEach((allVideo) =>{
+    if(allVideo.name === title){
+      likesN.innerHTML = allVideo.likes
+    }
+  })
+
+}
+
+
 //funcao para comentar
 function leaveComment(){
   title = document.querySelector('#title').innerHTML;
   let commentTxt = document.querySelector('#commentTextArea').value
 
-  comments.forEach((comment)=>{
+  for (let comment of comments){
     if(comment.video == title){
+      console.log('4')
       comment.usernames.push = currentUser.username
       comment.profilePhoto.push(currentUser.photo)
       comment.txtComments.push(commentTxt)
-
+  
       sessionStorage.setItem('comments', JSON.stringify(comment))
       Comments.attCommentsOnStorage(comment)
       commentTxt = ''
+      break;
     }
-  })
+  }
 
 }
 let btn = document.querySelector('#commentBtn')
 btn.addEventListener('click', () =>{
   leaveComment()
+  renderComments()
 })
 
 //funcao para mostrar os comentarios
@@ -553,18 +585,4 @@ function renderComments(){
         <p>comment</p>
       </fieldset>
   </div>
-
-
-    questionsDone = []
-    likedVideos = []
-
-    timestamp/video current progress
-    not gain points from questions done
-
-    like videos(maybe unlike)
-    comments
-
-    next sticker
-    choose profile photo
-    loading page
 */

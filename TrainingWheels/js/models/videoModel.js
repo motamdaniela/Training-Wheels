@@ -44,6 +44,14 @@ export function getVideos() {
   return videos;
 }
 
+export function attVideosOnStorage(attVideo){
+  let videos = JSON.parse(localStorage.getItem('videos'))
+  videos.forEach((video,i) => {
+      if (video.name === attVideo.name) videos[i] = attVideo
+  })
+  localStorage.setItem('videos', JSON.stringify(videos))
+}
+
 class Video{
     url =""
     name =""
