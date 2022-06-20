@@ -3,12 +3,14 @@ import * as Review from "../models/reviewsModel.js";
 import * as Progress from "../models/progressModel.js";
 import * as Levels from "../models/levelModel.js";
 import * as Videos from "../models/videoModel.js";
+import * as PopUps from "../models/popupModel.js";
 
 User.init()
 Review.init()
 Progress.init()
 Levels.init()
 Videos.init()
+PopUps.init()
 
 function pageView(){
   
@@ -56,8 +58,10 @@ function pageView(){
             </div>
 
               <fieldset id="continuar">
-                <p id="lvlNameInput">nivel</p>
-                  <i data-feather="play-circle" class="goIcon"></i>
+              <div class="row continuar">
+                <div class="col-9"><p id="lvlNameInput">nivel</p></div>
+                <div class="col"><i data-feather="play-circle" class="goIcon"></i></div>
+              </div>
               </fieldset>
 
             </div>
@@ -307,7 +311,7 @@ function currentLevel(){
   let videos = Videos.getVideos()
 
   videos.forEach((video)=>{
-    if(currentProgress.currentLevel === video.name){
+    if(currentProgress.currentLvl === video.level){
       document.querySelector('#lvlNameInput').innerHTML = video.level
     }else{
       document.querySelector('#lvlNameInput').innerHTML = videos[0].level
@@ -316,11 +320,23 @@ function currentLevel(){
 }
 currentLevel()
 
-/*
-<fieldset id="continuar">
-  <p>nivel</p>
-  <button id="continuarBtn">
-    <i data-feather="play-circle" class="goIcon"></i>
-  </button>
-</fieldset>
-*/
+
+function nextSticker(){
+  let popUps = PopUps.getPopUp()
+  let currentVideo = currentProgress.currentVideo
+  let stickerFld = document.querySelector('#nextSticker')
+  let nextSticker = '../media/stickers/semaforo.svg'
+
+  popUps.forEach((popUp) => {
+    if(popUp.video === currentVideo){
+      if(currentProgress.questionsDone.inclues(popUp.question)){
+      }else{
+        nextSticker = popUp.reward
+      }
+    }
+  })
+
+  stickerFld.innerHTML = `<img src="../media/images/proximosticker.svg" width="70%"><img src="${nextSticker}" class="dark height="50px"">`
+}
+nextSticker()
+
