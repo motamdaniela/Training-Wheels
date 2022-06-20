@@ -303,12 +303,11 @@ function Questions(){
 
 //funcao que descobre se a resposta esta certa ou nao
 function CorrectAnswer(Question, gotAnswer, gotPoints, Reward){
+  console.log(gotPoints)
   let answerBtns = document.querySelectorAll('.answerBtn');
   answerBtns = Array.from(answerBtns)
   for(let allPopUp of allPopUps){
     for(let answerBtn of answerBtns){
-      
-      
       if(answerBtn.id === gotAnswer){
         answerBtn.addEventListener('click',()=>{
           let points = document.querySelector('#pointsEarned')
@@ -325,7 +324,7 @@ function CorrectAnswer(Question, gotAnswer, gotPoints, Reward){
             sessionStorage.setItem('loggedUser', JSON.stringify(currentUser))
             User.attUserOnStorage(currentUser)
             currentProgress.questionsCorrect.push(Question)
-            sessionStorage.setItem('progress', JSON.stringify(currentProgress))
+            
             Progress.attProgressOnStorage(currentProgress)
             
             setTimeout(() => {
@@ -341,14 +340,19 @@ function CorrectAnswer(Question, gotAnswer, gotPoints, Reward){
             console.log(Question)
             console.log(currentProgress.questionsDone)
             console.log(currentProgress.username)
-            currentUser.points += gotPoints
+            console.log(gotPoints)
+            let pontosGanhos=currentUser.points 
+            console.log(pontosGanhos)
+            pontosGanhos+= gotPoints
+            console.log(pontosGanhos)
+            currentUser.points = pontosGanhos
+            console.log(currentUser.points)
             reward.src = Reward
             currentUser.stickersLvl.push(Reward)
   
             sessionStorage.setItem('loggedUser', JSON.stringify(currentUser))
             User.attUserOnStorage(currentUser)
             currentProgress.questionsCorrect.push(Question)
-            sessionStorage.setItem('progress', JSON.stringify(currentProgress))
             Progress.attProgressOnStorage(currentProgress)
             
             setTimeout(() => {
