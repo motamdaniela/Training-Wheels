@@ -74,7 +74,7 @@ body{
 
 
 #imgTutorial{
-  width: 100px;;
+  width: 70%;
 }
 
 .tutorial>p{
@@ -203,6 +203,10 @@ body{
   text-align: left;
 }
 
+#video{
+  width: 90%;
+}
+
 @media screen and (max-width: 575px) {
   #content div.divInicio{
     margin-top: 90px;
@@ -218,7 +222,7 @@ body{
     margin-bottom: 40px;
   }
 
-  #progresso>img{
+  #progresso{
     width: 300px;
   }
 
@@ -230,7 +234,7 @@ body{
 
   #video{
     margin-top: 60px;
-    width: 350px;
+    width: 70%;
   }
 
   #fundo{
@@ -423,7 +427,7 @@ body{
     align-self: center;
     margin-top: 132px;
     margin-bottom: 132px;
-    width:800px;
+    width:80%;
   }
   
   
@@ -583,7 +587,7 @@ body{
   margin-left: 10%;
 }
 
-/* de 1050 para cima*/
+
 @media screen and (max-width: 1050px) {
 #nextSticker{
   display: none;
@@ -604,12 +608,30 @@ body{
     display: none;
   }
   
-  .container_bar{
-    margin-left: 5%;
-    width: 60%;
+  #progresso{
+    padding: -20px;
+    margin-top: -10%;
   }
-  .layer1{
-    height: 10%;
+
+  .container_bar{
+    margin-top: 10%;
+    margin-bottom: -10%;
+  }
+  
+  #barra{
+    margin-left: 6.5%;
+    width: 86.5%;
+    height: 100%;
+  }
+  .aLvl{
+    width: 15%;
+    height: 15%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 11%
+  }
+  body{
+    margin-right: -15%;
   }
   
   }

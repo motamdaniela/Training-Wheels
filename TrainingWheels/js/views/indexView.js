@@ -50,7 +50,7 @@ function pageView(){
 
             <div class="container_bar">
                 <div class="layer1">
-                  <img src="../media/images/linha.svg">
+                  <img id="barra" src="../media/images/linha.svg">
                 </div>
                 <div class="layer2">
                     
