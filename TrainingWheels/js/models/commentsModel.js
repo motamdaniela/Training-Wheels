@@ -4,8 +4,8 @@ export function init() {
     comments = localStorage.comments ? JSON.parse(localStorage.comments) : [];
   }
 
-export function add(video) {
-    comments.push(new Comments(video));
+export function add(video,username,txtComments,profilePhoto) {
+    comments.push(new Comments(video,username,txtComments,profilePhoto));
     localStorage.setItem("comments", JSON.stringify(comments));
   }
 
@@ -13,13 +13,13 @@ export function getComments() {
   return comments;
 }
 
-export function attCommentsOnStorage(attComment){
-  let comments = JSON.parse(localStorage.getItem('comments'))
-  comments.forEach((comment,i) => {
-      if (comment.video === attComment.video) comment[i] = attComment
-  })
-  localStorage.setItem('comments', JSON.stringify(comments))
-}
+// export function attCommentsOnStorage(attComment){
+//   let comments = JSON.parse(localStorage.getItem('comments'))
+//   comments.forEach((comment,i) => {
+//       if (comment.video === attComment.video) comment[i] = attComment
+//   })
+//   localStorage.setItem('comments', JSON.stringify(comments))
+// }
 
 class Comments{
     video = ""
