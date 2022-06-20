@@ -71,7 +71,12 @@ function lvlPage(){
         if (currentUser.username === progres.username){
 
           progres.currentLvl = goBtn.id
-          // sessionStorage.setItem('currentLvl', JSON.stringify(progres.currentLvl))
+
+          if(progres.levelsStarted.includes(goBtn.id) == false){
+            progres.levelsStarted.push(goBtn.id)
+          }
+
+          sessionStorage.setItem('currentLvl', JSON.stringify(progres.currentLvl))
           Progress.attProgressOnStorage(progres)
 
         }
@@ -85,7 +90,6 @@ function lvlPage(){
 }
 
 // funcao que verifica se um video ja foi visto ou nao
-
 function checkVideo(){
   let progress = Progress.getProgress()
   let listOfVideos = document.querySelectorAll('.aVideo')
@@ -105,5 +109,53 @@ function checkVideo(){
   })
   feather.replace()
 }
-
 checkVideo()
+
+
+//funcao que verifica se um nível ja foi feitos ou so comecados
+function checkLevel() {
+  let progress = Progress.getProgress()
+  let videos = Videos.getVideos()
+  let levels = Level.getLevels()
+  
+  
+  progress.forEach((progres) => {
+    if(progres.username === currentUser.username){
+      let currentProgress = progres
+
+      
+      let videosDone = currentProgress.videosDone
+      
+      levels.forEach((level) => {
+        let listVideos = [];
+        videos.forEach((video)=>{
+          if(video.level === level.name){
+            listVideos.push(video.name)
+          }
+        })
+
+        
+        let containsAll = listVideos.every(element => {
+          return videosDone.includes(element);
+        });
+        if(containsAll){
+          currentProgress.levelsDone.push(level.name)
+    
+          sessionStorage.setItem('currentProgress', JSON.stringify(currentProgress))
+          Progress.attProgressOnStorage(currentProgress)
+        }
+    
+      })
+
+    }
+  })
+  
+
+}
+checkLevel()
+
+/*
+=> todos videos de um nivel
+=> todos os videos feitos
+se todos nivel estao nos feitos => nivel passa para done
+*/

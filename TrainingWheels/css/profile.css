@@ -52,3 +52,12 @@ body{
     margin-left: 15px;
 
 }
+
+@media screen and (max-width: 575px) {
+    #profilepic{
+        margin-top: 100px;
+    }
+    #campos{
+        width: 450px;
+    }
+}
