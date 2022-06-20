@@ -623,15 +623,12 @@ body{
     width: 86.5%;
     height: 100%;
   }
-  .aLvl{
+  .aLvl, .green, .yellow{
     width: 15%;
     height: 15%;
     margin-left: 1%;
     margin-right: 1%;
     margin-top: 11%
-  }
-  body{
-    margin-right: -15%;
   }
   
   }

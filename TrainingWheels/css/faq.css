@@ -133,6 +133,17 @@ fieldset{
   stroke: #FFF8F8;
 }
 
+.menospx{
+  font-size: 18px;
+}
+
+#profile{
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  height: 100px;
+  width: 100px;
+}
+
 @media screen and (max-width: 575px) {
   #faq{
     width:225px;
