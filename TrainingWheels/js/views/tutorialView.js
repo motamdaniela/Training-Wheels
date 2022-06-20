@@ -316,7 +316,7 @@ function CorrectAnswer(Question, gotAnswer, gotPoints, Reward){
           
           let pointsContent = document.querySelector('.forPoints')
           
-          if (currentProgress.questionsDone.includes(Question) == true){
+          if (currentProgress.questionsDone.includes(Question)==true){
             pointsContent.classList.add('hide');
             reward.src = Reward
             currentUser.stickersLvl.push(Reward)
@@ -340,12 +340,12 @@ function CorrectAnswer(Question, gotAnswer, gotPoints, Reward){
             console.log(Question)
             console.log(currentProgress.questionsDone)
             console.log(currentProgress.username)
-            console.log(gotPoints)
-            let pontosGanhos=currentUser.points 
-            console.log(pontosGanhos)
-            pontosGanhos+= gotPoints
-            console.log(pontosGanhos)
-            currentUser.points = pontosGanhos
+            // console.log(gotPoints)
+            // let pontosGanhos=currentUser.points 
+            // console.log(pontosGanhos)
+            // pontosGanhos+= gotPoints
+            // console.log(pontosGanhos)
+            currentUser.points += gotPoints
             console.log(currentUser.points)
             reward.src = Reward
             currentUser.stickersLvl.push(Reward)
