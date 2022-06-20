@@ -41,7 +41,7 @@ function navbarView() {
      <div id="hum" class="col-12 col-sm-9 p-0">
         <nav class="navbar navbar-expand-sm navbar-dark d-sm-none">
           <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#conteudo" aria-controls="conteudo" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="text-dark" class="navbar-toggler-icon" data-feather="menu"></i> 
+            <i class="text-dark" class="navbar-toggler-icon" data-feather="menu" data-toggle="collapse"></i> 
           </button>
           <img src="../media/images/logo.svg" width="70" class="d-sm-none">
           <ul id="icon-lado" class="nav nav-pills nav-flush flex-column mb-auto d-sm-none">
