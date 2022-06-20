@@ -137,6 +137,12 @@ fieldset{
   font-size: 18px;
 }
 
+#pic{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
 @media screen and (max-width: 575px) {
   #faq{
     width:225px;

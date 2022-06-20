@@ -204,7 +204,7 @@ body{
 }
 
 #video{
-  width: 90%;
+  width: 80%;
 }
 
 @media screen and (max-width: 575px) {
@@ -234,7 +234,7 @@ body{
 
   #video{
     margin-top: 60px;
-    width: 70%;
+    width: 60%;
   }
 
   #fundo{
@@ -427,7 +427,7 @@ body{
     align-self: center;
     margin-top: 132px;
     margin-bottom: 132px;
-    width:80%;
+    width:70%;
   }
   
   
