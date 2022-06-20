@@ -174,6 +174,7 @@ function pageView(){
             
           }else{
             for(let review of reviews){
+              console.log('oquee')
               result3+=`
               <div class="carousel-item">
                 <div class="carousel-caption">
@@ -205,7 +206,7 @@ function pageView(){
     document.querySelector('#body_rank').innerHTML = result2;
     document.querySelector('#reviewsCom').innerHTML = result3;
     let item=document.querySelector('.carousel-item')
-    //item.classList.add('active');
+    item.classList.add('active');
     
 }
 pageView()
