@@ -134,14 +134,12 @@ function pageView(){
       
         `
         let nomes=rankingOrder()
-        console.log(nomes)
         
         let users=User.getUsers()
         let cont=0;
         for (let nome of nomes) {
           let user = users.find(user => nome.name === user.username);
           if(user.type == 'user'){
-          console.log(nome)
             cont+=1;
           if(cont<4 && nome.name==user.username ){
             result2+=`<tr>
@@ -216,11 +214,8 @@ feather.replace()
 
 let avaliarBtn=document.querySelector('#avaliar');
 avaliarBtn.addEventListener("click",()=>{
-  console.log(1)
   let comment=document.querySelector('#commentReview').value;
-  console.log(2)
   let stars=document.querySelector('#starReview').value;
-  console.log(3)
   let userLog=User.getUserLogged().username
   Review.add(userLog, comment, stars)
   window.location.reload()
@@ -270,73 +265,92 @@ function ProgressBar(){
 ProgressBar()
 
 
-let progress = Progress.getProgress()
 let currentUser = User.getUserLogged()
-let currentProgress = ''
-  progress.forEach((progres) => {
-    if(progres.username === currentUser.username){
-      currentProgress = progres
-    }
-  })
+
 
 
 //funcao que verifica se o utilizador tem algum nivel feito ou a meio
 function lvlsDone() {
-  let levels = Levels.getLevels()
+  let progress = Progress.getProgress()
   
   let listLevels = document.querySelectorAll('.aLvl')
   listLevels = Array.from(listLevels)
+  
+  progress.forEach((progres) => {
+    if(progres.username === currentUser.username){
+      let currentProgress = progres
+      let levelsDone = currentProgress.levelsDone
+      let levelsStarted = currentProgress.levelsStarted
 
-  currentProgress.levelsDone.forEach((levelDone) => {
-    listLevels.forEach((listLevel)=>{
-      if(levelDone === listLevel.id){
-       $(listLevel).attr("class", "");
-       $(listLevel).attr("class", "green");
-      }
-    })
+      console.log(levelsDone)
+      
+
+      listLevels.forEach((listLevel)=>{
+        if(levelsStarted.includes(listLevel.id)){
+         $(listLevel).attr("class", "");
+         $(listLevel).attr("class", "yellow");
+        }
+      })
+
+      listLevels.forEach((listLevel)=>{
+        if(levelsDone.includes(listLevel.id)){
+         $(listLevel).attr("class", "");
+         $(listLevel).attr("class", "green");
+        }
+      })
+      
+    }
   })
-  currentProgress.levelsStarted.forEach((levelStarted) => {
-    listLevels.forEach((listLevel)=>{
-      if(levelStarted === listLevel.id){
-        $(listLevel).attr("class", "");
-        $(listLevel).attr("class", "yellow");
-      }
-    })
-  })
-}
+ }
 lvlsDone()
 
 //funcao para a barra que aparece de baixo da barra de progresso
 function currentLevel(){
   let videos = Videos.getVideos()
+  let progress = Progress.getProgress()
 
-  videos.forEach((video)=>{
-    if(currentProgress.currentLvl === video.level){
-      document.querySelector('#lvlNameInput').innerHTML = video.level
-    }else{
-      document.querySelector('#lvlNameInput').innerHTML = videos[0].level
-    }
+  document.querySelector('.goIcon').addEventListener('click',()=>{
+    setTimeout(() => {
+      location.replace("./tutorial.html");
+    }, 500);
   })
+
+  progress.forEach((progres) => {
+    let currentProgress = progres
+
+    videos.forEach((video)=>{
+      if(currentProgress.currentLvl === video.level){
+        document.querySelector('#lvlNameInput').innerHTML = video.level
+      }else{
+        document.querySelector('#lvlNameInput').innerHTML = videos[0].level
+      }
+    })
+  })
+
 }
 currentLevel()
 
 
 function nextSticker(){
   let popUps = PopUps.getPopUp()
-  let currentVideo = currentProgress.currentVideo
   let stickerFld = document.querySelector('#nextSticker')
-  let nextSticker = '../media/stickers/semaforo.svg'
-
-  popUps.forEach((popUp) => {
-    if(popUp.video === currentVideo){
-      if(currentProgress.questionsDone.inclues(popUp.question)){
-      }else{
-        nextSticker = popUp.reward
+  let progress = Progress.getProgress()
+  
+  stickerFld.innerHTML = `<img src="../media/images/proximosticker.svg" width="70%"><img src="../media/stickers/semaforo.svg" class="dark height="50px"">`
+  
+  progress.forEach((progres) => {
+    let currentProgress = progres
+    let currentVideo = currentProgress.currentVideo
+  
+    popUps.forEach((popUp) => {
+      if(popUp.video === currentVideo){
+        if(currentProgress.questionsDone.inclues(popUp.question)){
+        }else{
+          document.querySelector('.dark').src = popUp.reward
+        }
       }
-    }
+    })
   })
-
-  stickerFld.innerHTML = `<img src="../media/images/proximosticker.svg" width="70%"><img src="${nextSticker}" class="dark height="50px"">`
 }
 nextSticker()
 
