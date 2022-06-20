@@ -484,19 +484,24 @@ function updateProgress() {
 
 //funcao para gostar video
 document.querySelector('#heartIcon').addEventListener('click',()=>{
-  allVideos.forEach((allVideo) =>{
-    if(allVideo.name === title){
+  
+  let title=document.querySelector('#title').innerHTML
+  console.log(title)
+  allVideos.forEach(function(allVideo){
+    if(allVideo.name == title){
+      console.log(2)
       allVideo.likes += 1
-      console.log(allVideo)
-      sessionStorage.setItem('videos', JSON.stringify(allVideo))
-      Videos.attVideosOnStorage(allVideo)
-
-      let heart = document.querySelector('#heartIcon')
-      console.log(heart)
-      heart.ClassList.add('heartLiked')
+      console.log(allVideo.likes)
+      console.log(3)
+      // sessionStorage.setItem('videos', JSON.stringify(allVideo)
+      $('#heartIcon').attr("class", "heartLiked")
+      // heart.ClassList.add('heartLiked')
     }
+    Videos.attVideosOnStorage(allVideo)
+    console.log(allVideo.likes)
   })
-
+  // allVideos.forEach((allVideo) =>{ 
+  // })
 })
 
 function renderLikes(){
@@ -508,26 +513,18 @@ function renderLikes(){
   })
 
 }
+renderLikes()
 
 
 //funcao para comentar
 function leaveComment(){
-  title = document.querySelector('#title').innerHTML;
+  let title = document.querySelector('#title').innerHTML;
   let commentTxt = document.querySelector('#commentTextArea').value
+  let username=currentUser.username
+  let photo=currentUser.photo
+  Comments.add(title,username,commentTxt,photo)
 
-  for (let comment of comments){
-    if(comment.video == title){
-      console.log('4')
-      comment.usernames.push = currentUser.username
-      comment.profilePhoto.push(currentUser.photo)
-      comment.txtComments.push(commentTxt)
-  
-      sessionStorage.setItem('comments', JSON.stringify(comment))
-      Comments.attCommentsOnStorage(comment)
-      commentTxt = ''
-      break;
-    }
-  }
+
 
 }
 let btn = document.querySelector('#commentBtn')
@@ -538,33 +535,33 @@ btn.addEventListener('click', () =>{
 
 //funcao para mostrar os comentarios
 function renderComments(){
-  title = document.querySelector('#title').innerHTML;
+  let title = document.querySelector('#title').innerHTML;
   let string = ''
-  if (comments.length <= 0){
-    Comments.add(title)
-  }
+  // if (comments.length <= 0){
+  //   Comments.add(title)
+  // }
 
-  comments.forEach((comment)=>{
+  comments.forEach(function(comment){
     if(comment.video == title){
-      comment.usernames.forEach((username)=>{
-        let index = comment.usernames.indexOf(username)
+      // comment.usernames.forEach((username)=>{
+      //   let index = comment.usernames.indexOf(username)
         string += `
         <div class="aComment">
           <div class="row">
 
             <div class="col-2">
-              <img class="nav-icon" id="profile" src="${comment.profilePhoto[index]}">
+              <img class="nav-icon" id="profile" src="${comment.profilePhoto}">
             </div>
             <div class="col-5">
-              <p>${comment.usernames[index]}</p>
+              <p>${comment.usernames}</p>
             </div>
           </div>    
             <fieldset class ="fldComment">
-              <p>${comment.txtComments[index]}</p>
+              <p>${comment.txtComments}</p>
             </fieldset>
         </div>
         `
-      })
+      // })
       document.querySelector('#commentsField').innerHTML = string
     }
   })
