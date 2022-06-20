@@ -503,10 +503,48 @@ body{
 }
 
 
+.container_bar{
+  display: grid;
+}
+
+.layer1, .layer2{
+  grid-column: 1;
+  grid-row: 1;
+}
+.layer2{
+  display: flex;
+  flex: wrap;
+  justify-content: space-between;
+}
 
 
+.red{
+  stroke: #DD5E5C;
+  fill: #DD5E5C;
+  height:  32px;
+  width: 32px;
+}
 
-  
+.green{
+  stroke: #56C4C0;
+  fill: #56C4C0;
+  height:  32px;
+  width: 32px;
+}
+
+.yellow{
+  stroke: #FAF5AC;
+  fill: #FAF5AC;
+  height:  32px;
+  width: 32px;
+}
+
+.blue{
+  stroke: #4B94BC;
+  fill: #4B94BC;
+  height:  32px;
+  width: 32px;
+} 
  
 
   
