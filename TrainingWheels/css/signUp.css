@@ -22,6 +22,8 @@ fieldset{
     height:70%;
     margin-right: 50px;
     margin-top: 20px;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
     
 }
 .buttons{
@@ -29,13 +31,16 @@ fieldset{
   }
   
 #loginBtn, #signUpBtn{
-  border-color: #4B94BC;
-  color: #ffffff;
-  background-color: #4B94BC;
-  font-size: 20px;
-  border-radius: 10px;
-  width: 110px;
-  height: 45px;
+    border-color: #4B94BC;
+    color: #ffffff;
+    background-color: #4B94BC;
+    font-size: 20px;
+    border-radius: 10px;
+    width: 110px;
+    height: 45px;
+    display: block;
+    margin: 1.0em auto;
+    text-align: center;
 }    
 
 form{
@@ -58,9 +63,35 @@ header{
 }
 
 #entrar{
-    margin-left:950px;
+    margin-left:63%;
 }
 
 #registar{
-    margin-left:950px;
+    margin-left:63%;
+}
+
+@media screen and (max-width: 1130px) {
+    body{
+        background-image: none;
+    }
+    fieldset{
+        width: 70%;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+    #registar{
+        margin-left: 30%;
+    }
+    #entrar{
+        margin-left: 30%;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    #registar{
+        margin-left: 8%;
+    }
+    #entrar{
+        margin-left: 9%;
+    }
 }
