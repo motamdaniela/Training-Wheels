@@ -1,8 +1,14 @@
 import * as User from "../models/userModel.js";
 import * as Review from "../models/reviewsModel.js";
+import * as Progress from "../models/progressModel.js";
+import * as Levels from "../models/levelModel.js";
+import * as Videos from "../models/videoModel.js";
 
 User.init()
 Review.init()
+Progress.init()
+Levels.init()
+Videos.init()
 
 function pageView(){
   
@@ -36,19 +42,29 @@ function pageView(){
         result=`<img id="fundo2" src="../media/images/fundojalog.svg">
         <div id="topo"> 
         <img id="bemVindo" src="../media/images/bemvindo.svg">
+
           <div id="coisas">
             <div id="progresso">
-              <img src="../media/images/linha.svg">
+
+            <div class="container_bar">
+                <div class="layer1">
+                  <img src="../media/images/linha.svg">
+                </div>
+                <div class="layer2">
+                    
+                </div>
+            </div>
+
               <fieldset id="continuar">
-                <p>nivel</p>
-                <button id="continuarBtn">
-                  <i data-feather="play"></i>
-                </button>
+                <p id="lvlNameInput">nivel</p>
+                  <i data-feather="play-circle" class="goIcon"></i>
               </fieldset>
+
             </div>
             <fieldset id="nextSticker">
             </fieldset>
           </div>
+
         </div>
         <div id="baixo">
         <div id="quadroLideres" class="divInicio">
@@ -187,12 +203,9 @@ function pageView(){
     document.querySelector('#body_rank').innerHTML = result2;
     document.querySelector('#reviewsCom').innerHTML = result3;
     let item=document.querySelector('.carousel-item')
-    item.classList.add('active');
+    //item.classList.add('active');
     
 }
-
-
-
 pageView()
 feather.replace()
 
@@ -237,3 +250,77 @@ function rankingOrder(){
 
 }
 feather.replace()
+
+
+function ProgressBar(){
+  let layer2 = document.querySelector('.layer2')
+  let levels = Levels.getLevels()
+  let string = ''
+
+  levels.forEach((level) => {
+    string += `<i id="${level.name}" class="aLvl red" data-feather="circle"></i>`
+  })
+  layer2.innerHTML = string
+  feather.replace()
+}
+ProgressBar()
+
+
+let progress = Progress.getProgress()
+let currentUser = User.getUserLogged()
+let currentProgress = ''
+  progress.forEach((progres) => {
+    if(progres.username === currentUser.username){
+      currentProgress = progres
+    }
+  })
+
+
+//funcao que verifica se o utilizador tem algum nivel feito ou a meio
+function lvlsDone() {
+  let levels = Levels.getLevels()
+  
+  let listLevels = document.querySelectorAll('.aLvl')
+  listLevels = Array.from(listLevels)
+
+  currentProgress.levelsDone.forEach((levelDone) => {
+    listLevels.forEach((listLevel)=>{
+      if(levelDone === listLevel.id){
+       $(listLevel).attr("class", "");
+       $(listLevel).attr("class", "green");
+      }
+    })
+  })
+  currentProgress.levelsStarted.forEach((levelStarted) => {
+    listLevels.forEach((listLevel)=>{
+      if(levelStarted === listLevel.id){
+        $(listLevel).attr("class", "");
+        $(listLevel).attr("class", "yellow");
+      }
+    })
+  })
+}
+lvlsDone()
+
+//funcao para a barra que aparece de baixo da barra de progresso
+function currentLevel(){
+  let videos = Videos.getVideos()
+
+  videos.forEach((video)=>{
+    if(currentProgress.currentLevel === video.name){
+      document.querySelector('#lvlNameInput').innerHTML = video.level
+    }else{
+      document.querySelector('#lvlNameInput').innerHTML = videos[0].level
+    }
+  })
+}
+currentLevel()
+
+/*
+<fieldset id="continuar">
+  <p>nivel</p>
+  <button id="continuarBtn">
+    <i data-feather="play-circle" class="goIcon"></i>
+  </button>
+</fieldset>
+*/

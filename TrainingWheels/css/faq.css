@@ -134,8 +134,7 @@ fieldset{
   margin-top: 40px;
 }
 .check{
-  fill: #FFF8F8;
-  stroke: #56C4C0;
+  stroke: #A8DDDB;
 }
 
 @media screen and (max-width: 575px) {
