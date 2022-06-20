@@ -142,11 +142,15 @@ function generateTab(videoObj) {
     commentShow()
     likesShow()
     renderLikes()
+    addLike()
     video.addEventListener("timeupdate", () => {
       Questions()
       updateProgress()
     })
     feather.replace()
+    addLike()
+    comentarButao()
+    renderLikes()
   }
   
 
@@ -215,8 +219,6 @@ function convertTag(time){
 
 function commentShow(){
   let result=''
-  title = document.querySelector('#title').innerHTML;
-  let nomeNoEspaco=title.replace(' ','_')
   result=`<label>Deixe um comentário!</label>
   <div class="form-floating">
     <textarea id="commentTextArea" class="form-control" placeholder="Leave a comment here" style="height: 150px; resize: none;"></textarea>
@@ -229,9 +231,7 @@ function commentShow(){
 function likesShow(){
   console.log('00')
   let result2=''
-  title = document.querySelector('#title').innerHTML;
-  let nomeNoEspaco=title.replace(' ','_')
-  result2=`<button id="caralho"><i id="heartIcon" data-feather="heart"></i></button><p id="likesN"></p>`
+  result2=`<button class="caralho"><i id="heartIcon" data-feather="heart"></i></button><p id="likesN"></p>`
   let ot=document.querySelector('.divLikes')
   console.log(ot)
   ot.innerHTML=result2
@@ -472,6 +472,7 @@ function updateProgress() {
 
 function renderLikes(){
   let likesN = document.querySelector('#likesN')
+  console.log(likesN)
   allVideos.forEach((allVideo) =>{
     if(allVideo.name === title){
       likesN.innerHTML = allVideo.likes
@@ -493,12 +494,16 @@ function leaveComment(){
   let photo=currentUser.photo
   Comments.add(title,username,commentTxt,photo)
 }
-let btn = document.querySelector('#commentBtn')
-btn.addEventListener('click', () =>{
-  console.log(btn)
-  leaveComment()
-  renderComments()
-})
+function comentarButao(){
+  let btn = document.querySelector('#commentBtn')
+  btn.addEventListener('click', () =>{
+    console.log(btn)
+    leaveComment()
+    renderComments()
+  })
+
+}
+
 
 //funcao para mostrar os comentarios
 function renderComments(){
@@ -534,30 +539,36 @@ function renderComments(){
     }
   })
 }
-
-let filhe=document.querySelector('#heartIcon')
-console.log(filhe)
-filhe.onclick = () => {
-  console.log('ok')
-  title=document.querySelector('#title').innerHTML
-  console.log(title)
-  console.log(title)
-  allVideos.forEach(function(allVideo){
-    if(allVideo.name == title){
-      console.log(2)
-      allVideo.likes += 1
+function addLike(){
+  let filhe=document.querySelector('.caralho')
+  console.log(filhe)
+  console.log('okk')
+  filhe.onclick = () => {
+    console.log('ok')
+    title=document.querySelector('#title').innerHTML
+    console.log(title)
+    console.log(title)
+    allVideos.forEach(function(allVideo){
+      if(allVideo.name == title){
+        console.log(2)
+        allVideo.likes += 1
+        console.log(allVideo.likes)
+        console.log(3)
+        // sessionStorage.setItem('videos', JSON.stringify(allVideo)
+        $('#heartIcon').attr("class", "heartLiked")
+        // heart.ClassList.add('heartLiked')
+      }
+      Videos.attVideosOnStorage(allVideo)
       console.log(allVideo.likes)
-      console.log(3)
-      // sessionStorage.setItem('videos', JSON.stringify(allVideo)
-      $('#heartIcon').attr("class", "heartLiked")
-      // heart.ClassList.add('heartLiked')
-    }
-    Videos.attVideosOnStorage(allVideo)
-    console.log(allVideo.likes)
-  })
-  // allVideos.forEach((allVideo) =>{ 
-  // })
+    })
+    // allVideos.forEach((allVideo) =>{ 
+    // })
+  }
+
 }
+addLike()
+
+
 
 /*
 <div class="aComment">
