@@ -1,7 +1,45 @@
 footer{
     background-color: #488baf;
-    height: 100px;
+    height: 10%;
     order:2;
     margin-top: 60px;
     width: 100%;
   }
+
+footer>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#social{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#social>a{
+  padding:1em ;
+  color: white;
+}
+
+#instagram:hover{
+  color:rgb(141, 34, 255);
+}
+
+#twitter:hover{
+  color:rgb(83, 141, 249);
+}
+
+#twitch:hover{
+  color:rgb(204, 0, 255);
+}
+
+#facebook:hover{
+  color:rgb(0, 4, 247);
+}
+
+#youtube:hover{
+  color:rgb(251, 0, 0);
+}
