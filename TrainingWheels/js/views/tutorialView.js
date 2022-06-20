@@ -554,31 +554,33 @@ function renderComments(){
 }
 function addLike(){
   let filhe=document.querySelector('.caralho')
-  console.log(filhe)
-  console.log('okk')
   filhe.onclick = () => {
     console.log('ok')
     title=document.querySelector('#title').innerHTML
-    console.log(title)
-    console.log(title)
     allVideos.forEach(function(allVideo){
       if(allVideo.name == title){
-        allVideo.likes += 1
-        $('#heartIcon').attr("class", "heartLiked")
-        let ok =document.querySelector("#likesN").innerHTML
-        let ok2 =+ok
-        ok2+=1
-        document.querySelector("#likesN").innerHTML=ok2
-        console.log("slay")
         progress.forEach((progres) =>{
-          console.log("slay")
           if(progres.username==currentUser.username){
-            console.log("slay")
             let arrayVids=progres.likedVideos
             if(arrayVids.includes(title)){
-              progres.likedVideos.filter(item => item != title)
+              allVideo.likes -= 1
+              $('#heartIcon').attr("class", "")
+              let ok =document.querySelector("#likesN").innerHTML
+              let ok2 =+ok
+              ok2-=1
+              document.querySelector("#likesN").innerHTML=ok2
+              let ola=progres.likedVideos.filter(function(value){ return value !== title;})
+              console.log(progres.likedVideos)
+              console.log(ola)
+              progres.likedVideos=ola
               Progress.attProgressOnStorage(progres)
             }else{
+              allVideo.likes += 1
+              $('#heartIcon').attr("class", "heartLiked")
+              let ok =document.querySelector("#likesN").innerHTML
+              let ok2 =+ok
+              ok2+=1
+              document.querySelector("#likesN").innerHTML=ok2
               progres.likedVideos.push(title)
               Progress.attProgressOnStorage(progres)
             }
