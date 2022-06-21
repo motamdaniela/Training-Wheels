@@ -302,6 +302,54 @@ function Questions(){
 
 
 //funcao que descobre se a resposta esta certa ou nao
+function CorrectAnswer(gotAnswer, gotPoints, Reward){
+  let answerBtns = document.querySelectorAll('.answerBtn');
+  allPopUps.forEach((allPopUp) => {
+    answerBtns.forEach((answerBtn) => {
+      if(answerBtn.id === gotAnswer){
+        answerBtn.addEventListener('click',()=>{
+          setTimeout(() => {
+            $("#congratsModal").modal('hide');
+            video.play();
+            video.pause();
+            let points = document.querySelector('#pointsEarned')
+            points.innerHTML = `+ ${allPopUp.pointsEarned} pontos`
+            let reward = document.querySelector('#reward')
+
+            reward.src = allPopUp.reward
+            currentUser.points += gotPoints
+            currentUser.stickersLvl.push(Reward)
+
+            sessionStorage.setItem('loggedUser', JSON.stringify(currentUser))
+            User.attUserOnStorage(currentUser)
+
+
+            $("#congratsModal").modal('show');
+            setTimeout(() => {
+              $("#congratsModal").modal('hide');
+              video.play();
+            }, 1500);
+          }, 200);
+        })
+      }else{
+        answerBtn.addEventListener('click',()=>{
+          setTimeout(() => {
+            $("#wrongModal").modal('hide');
+            video.play();
+            video.pause()
+            $("#wrongModal").modal('show');
+            setTimeout(() => {
+              $("#wrongModal").modal('hide');
+              video.play();
+            }, 1500);
+          }, 200);
+        })
+      }
+    })
+  })
+}
+
+/*
 function CorrectAnswer(Question, gotAnswer, gotPoints, Reward){
   console.log(gotPoints)
   let answerBtns = document.querySelectorAll('.answerBtn');
@@ -408,6 +456,7 @@ function CorrectAnswer(Question, gotAnswer, gotPoints, Reward){
     }
   })
 }
+*/
 
 //chama funcao useClue com o botao associado
 $('#myModal').on('shown.bs.modal', function () {
