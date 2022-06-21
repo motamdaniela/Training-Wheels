@@ -281,8 +281,6 @@ function lvlsDone() {
       let currentProgress = progres
       let levelsDone = currentProgress.levelsDone
       let levelsStarted = currentProgress.levelsStarted
-
-      console.log(levelsDone)
       
 
       listLevels.forEach((listLevel)=>{

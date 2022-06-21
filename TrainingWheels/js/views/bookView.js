@@ -54,7 +54,7 @@ btn4.addEventListener('click', function(){
 function viewStickers () {
     let allStickers = [];
     let names = document.getElementsByClassName('sticker')
-    console.log(names)
+    
     Array.prototype.forEach.call(names, function(name) {
         allStickers.push(name.attributes.src.nodeValue)
         allStickers.forEach((sticker) => {
@@ -66,7 +66,7 @@ function viewStickers () {
             }
         });
     });    
-    console.log(allStickers)
+    
     
 }
 viewStickers()

@@ -10,7 +10,6 @@ export function init() {
   }
 
 export function getReviews() {
-    console.log(reviews)
     return reviews;
 }
 

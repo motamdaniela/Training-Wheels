@@ -178,10 +178,7 @@ loadPerg.addEventListener("click", (event) =>{
 function rankTable(){
   let nomes=rankingOrder()
   let result = ''
-  console.log(nomes)
-  console.log(2)
   let users= User.getUsers()
-  console.log(users)
   let i=0
   for (let nome of nomes) {
         let user = users.find(user => nome.name === user.username);
@@ -228,9 +225,7 @@ function rankingOrder(){
     }
     array.push(idk)
   }
-  console.log(array)
   array.sort(function(a, b) { return (b.rank-a.rank);});
-  console.log(array)
 
   return array
 
@@ -241,9 +236,7 @@ function rankingOrder(){
 const nivel = document.querySelector("#addNivel")
 nivel.addEventListener("click", (event) =>{
     event.preventDefault()
-    console.log('olaa')
     let nome=document.querySelector("#levelName").value;
-    console.log('olaaaaa')
     Level.add(nome)
     location.reload()
 })
@@ -292,7 +285,6 @@ popup.addEventListener("click", (event) =>{
     let coisa=[]
     coisa.push(op_certa)
     let todas=opcoes.concat(coisa)
-    console.log(todas)
     PopUp.add(perg,linkImg,todas,op_certa,linkSticker,video,tagPopup,pontos)
     location.reload()    
 })
@@ -308,18 +300,12 @@ licao.addEventListener("click", (event) =>{
       let link=document.querySelector("#linkVideo").value;
       let nomeNivel=document.querySelector("#escolheNivel").value;
       let result=link.substring(12)
-      console.log(result)
       //C:\fakepath\
       let linkCompleto='../media/videos/'+result
-      console.log(linkCompleto)
       let NomeTags=[]
       document.querySelectorAll(".nomeTagVideo").forEach(eldom => NomeTags.push(eldom.value))
-      console.log(NomeTags)
       let Tags=[]
       document.querySelectorAll(".tagVideo").forEach(eldom => Tags.push(eldom.value))
-      console.log(Tags)
-      console.log(nome)
-      console.log(nomeNivel)
       let i=0
       Tags.forEach(tag=>{
         Tag.add(nome,tag,NomeTags[i])
@@ -329,8 +315,6 @@ licao.addEventListener("click", (event) =>{
       location.reload()
     }else{
       let nomeNivel=document.querySelector("#escolheNivel").value;
-      console.log(nomeNivel);
-      console.log(1)
       let titulo=document.querySelector("#titulo").value;
       let sticker=document.querySelector("#linkStickerTest").value;
       let result=sticker.substring(12)
@@ -428,10 +412,8 @@ function addPopup(){
   let result = ''
   let popups=PopUp.getPopUp()
   let videos=Video.getVideos()
-  console.log(videos)
   for (let popup of popups) {
     let video = videos.find(video => video.name === popup.video);
-    console.log(video)
     if(video.name === popup.video ){
       result += `
       <tr>
@@ -449,22 +431,18 @@ function addPopup(){
 addPopup()
 
 const removeUserBtns = document.querySelectorAll(".removeUser")
-console.log(removeUserBtns)
 for(let removeUserBtn of removeUserBtns){
   removeUserBtn.addEventListener("click", function(){ 
     let username=this.parentNode.previousElementSibling.previousElementSibling.innerHTML
-    console.log(username)
     User.remove(username)
     location.reload()
   })
 }
 
 const removePergBtns = document.querySelectorAll(".removePergunta")
-console.log(removePergBtns)
 for(let removePergBtn of removePergBtns){
   removePergBtn.addEventListener("click", function(){ 
     let perg=this.parentNode.previousElementSibling.innerHTML
-    console.log(perg)
     Question.remove(perg)
     location.reload()
   })
@@ -474,7 +452,7 @@ const removePopupBtns = document.querySelectorAll(".removePopup")
 for(let removePopupBtn of removePopupBtns){
   removePopupBtn.addEventListener("click", function(){ 
     let pop=this.parentNode.previousElementSibling.previousElementSibling.innerHTML
-    console.log(pop)
+    
     PopUp.remove(pop)
     location.reload()
   })
@@ -523,18 +501,18 @@ const removeVideoBtns = document.querySelectorAll(".removeVideo")
 for(let removeVideoBtn of removeVideoBtns){
   removeVideoBtn.addEventListener("click", function(){ 
     let video=this.parentNode.previousElementSibling.innerHTML
-    console.log(video)
+    
     let popups=PopUp.getPopUp()
     let tags=Tag.getTags()
     for(let tag of tags){
       if(tag.video==video){
-        console.log(tag.name)
+        
         Tag.remove(tag.name)
       }
     } 
     for(let popup of popups){
       if(popup.video==video){
-        console.log(popup.question)
+        
         PopUp.remove(popup.question)
       }
     }
@@ -563,7 +541,7 @@ for(let blockBtn of blockBtns){
   blockBtn.addEventListener("click", function(){ 
     let users=User.getUsers();
     let username=this.parentNode.previousElementSibling.previousElementSibling.innerHTML
-    console.log(username);
+    
     for(let user of users){
       if(user.username==username){
         if(user.state=='unblocked'){
@@ -579,7 +557,7 @@ for(let blockBtn of blockBtns){
         }  
       }
       User.attUserOnStorage(user)
-      console.log(user.state)
+      
     }   
   })
 }

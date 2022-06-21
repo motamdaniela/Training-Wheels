@@ -15,7 +15,7 @@ logout.addEventListener("click", () =>{
 function show(){
   let result = ''
   let user= User.getUserLogged()
-  console.log(user)
+  
   let sexo=''
   if(user.sex=='f'){
     sexo='feminino'

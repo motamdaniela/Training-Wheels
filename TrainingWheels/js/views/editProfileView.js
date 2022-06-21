@@ -5,7 +5,7 @@ let user= User.getUserLogged()
 
 function show(){
     let result = ''
-    console.log(user)
+    
     let sexo=''
     if(user.sex=='f'){
       sexo='feminino'
