@@ -1,6 +1,6 @@
 body{
   background-color: #FEFCFC;
-  font-family: 'ABC-Regular', sans-serif;
+  font-family: 'ABC-Regular', sans-serif !important;
   color: #2D2F44;
   position: relative;
 }
