@@ -84,7 +84,7 @@ function renderPage(){
       if(answerBtn.innerHTML === questionObj.right_answer){
         console.log(questionObj.right_answer, answerBtn.innerHTML)
           
-        currentUser.points += questionObj.points
+        currentUser.points += +questionObj.points
         sessionStorage.setItem('loggedUser', JSON.stringify(currentUser))
         User.attUserOnStorage(currentUser)
         
@@ -156,6 +156,12 @@ function renderPage(){
               $("#wrongModal").modal('show');
     
           }
+          progress.forEach((progres) => {
+            if(progres.user == currentUser.username){
+              progres.videosDone.push(lvlTitle)            
+              Progress.attProgressOnStorage(progres)
+            }
+          })
           setTimeout(() => {
             location.replace("./lessonMenu.html");
           }, 1000);

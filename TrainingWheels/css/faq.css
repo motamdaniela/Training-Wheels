@@ -199,3 +199,9 @@ fieldset{
 #finish:hover{
   stroke: #56C4C0;
 }
+
+.modal-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
