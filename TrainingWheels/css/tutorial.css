@@ -14,6 +14,11 @@ body*:not(.main-menu){
   top: 0;
   position: fixed;
 }
+
+#icons{
+  margin-left: 70px;
+}
+
 .wholeBody{
   background-color: #9EC2D5;
   color: #252131;
