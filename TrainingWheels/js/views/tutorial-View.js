@@ -79,9 +79,10 @@ renderPage()
 function generateTab(videoObj) {
   let divTabs = document.querySelector('#divTabs')
   let string = ''
+  let nomeVid=videoObj.name.replace(' ','_')
 
     string = `
-    <fieldset id="${videoObj.name}" class="aTab">
+    <fieldset id="${nomeVid}" class="aTab">
               <div class="row">
                 <div>
                   <div class="container">
@@ -91,7 +92,9 @@ function generateTab(videoObj) {
                       <div class="divVideo">
                         <video src="${videoObj.url}" controls></video>
                       </div>
-                      <div><i id="heartIcon" data-feather="heart"></i><p id="likesN"></p></div>
+                      <div class="divLikes">
+                      
+                      </div>
                     </div>
                     <div class="col">
                       <img id="etiquetas" src="../media/images/etiquetas.svg" height="30px">
@@ -114,12 +117,7 @@ function generateTab(videoObj) {
                     </div>
                     <div class="col">
                       <fieldset class="leaveComentField">
-                        <label>Deixe um comentário!</label>
-                        <div class="form-floating">
-                          <textarea id="commentTextArea" class="form-control" placeholder="Leave a comment here" style="height: 150px; resize: none;"></textarea>
-                          
-                        </div>
-                        <button type="button" class="btn btn-primary" id="commentBtn" data-bs-dismiss="modal">Comentar</button>
+                        
                       </fieldset>
                     </div>
                   </div>
@@ -132,6 +130,7 @@ function generateTab(videoObj) {
     divTabs.innerHTML = string
     feather.replace()
     title = document.querySelector('#title');
+    
     video = document.querySelector('video');
     tagsList(videoObj.name)
     renderComments()
@@ -143,6 +142,10 @@ function generateTab(videoObj) {
       Questions()
       updateProgress()
     })
+    feather.replace()
+    addLike()
+    comentarButao()
+    renderLikes()
   }
   
 
@@ -209,6 +212,31 @@ function convertTag(time){
   })
 }
 
+function commentShow(){
+  let result=''
+  result=`<label>Deixe um comentário!</label>
+  <div class="form-floating">
+    <textarea id="commentTextArea" class="form-control" placeholder="Leave a comment here" style="height: 150px; resize: none;"></textarea>
+    
+  </div>
+  <button type="button" class="btn btn-primary" id="commentBtn" data-bs-dismiss="modal">Comentar</button>`
+  document.querySelector('.leaveComentField').innerHTML=result
+}
+
+function likesShow(){
+  
+  let result2=''
+  title=document.querySelector('#title').innerHTML
+  allVideos.forEach(function(video){ 
+    if(video.name==title){
+      result2=`<button class="caralho"><i id="heartIcon" data-feather="heart"></i></button><p id="likesN">${video.likes}</p>`
+      let ot=document.querySelector('.divLikes')
+      
+      ot.innerHTML=result2
+    }
+   })
+  
+}
 
 //-----------funcao que baralha(para as respostas)
 function shuffle(array) {
@@ -264,18 +292,20 @@ function Questions(){
 }
 
 
-/*
+//funcao que descobre se a resposta esta certa ou nao
 function CorrectAnswer(gotAnswer, gotPoints, Reward){
   let answerBtns = document.querySelectorAll('.answerBtn');
   allPopUps.forEach((allPopUp) => {
     answerBtns.forEach((answerBtn) => {
+      console.log(answerBtn.id, gotAnswer)
 
       answerQuestion()
 
       if(answerBtn.id === gotAnswer){
+
+
         answerBtn.addEventListener('click',()=>{
           setTimeout(() => {
-            $("#congratsModal").modal('hide');
             video.play();
             video.pause();
             let points = document.querySelector('#pointsEarned')
@@ -286,6 +316,7 @@ function CorrectAnswer(gotAnswer, gotPoints, Reward){
             currentUser.points += gotPoints
             currentUser.stickersLvl.push(Reward)
 
+            currentUser.ranking[0] += 1
             sessionStorage.setItem('loggedUser', JSON.stringify(currentUser))
             User.attUserOnStorage(currentUser)
 
@@ -300,13 +331,15 @@ function CorrectAnswer(gotAnswer, gotPoints, Reward){
       }else{
         answerBtn.addEventListener('click',()=>{
           setTimeout(() => {
-            $("#wrongModal").modal('hide');
             video.play();
             video.pause()
             $("#wrongModal").modal('show');
             setTimeout(() => {
               $("#wrongModal").modal('hide');
               video.play();
+              currentUser.ranking[1] += 1
+              sessionStorage.setItem('loggedUser', JSON.stringify(currentUser))
+              User.attUserOnStorage(currentUser)
             }, 1500);
           }, 200);
         })
@@ -314,17 +347,14 @@ function CorrectAnswer(gotAnswer, gotPoints, Reward){
     })
   })
 }
-*/
 
-
-//funcao que descobre se a resposta esta certa ou nao
+/*
 function CorrectAnswer(Question, gotAnswer, gotPoints, Reward){
+  console.log(gotPoints)
   let answerBtns = document.querySelectorAll('.answerBtn');
   answerBtns = Array.from(answerBtns)
   for(let allPopUp of allPopUps){
     for(let answerBtn of answerBtns){
-      
-      
       if(answerBtn.id === gotAnswer){
         answerBtn.addEventListener('click',()=>{
           let points = document.querySelector('#pointsEarned')
@@ -333,7 +363,7 @@ function CorrectAnswer(Question, gotAnswer, gotPoints, Reward){
           
           let pointsContent = document.querySelector('.forPoints')
           
-          if (currentProgress.questionsDone.includes(Question) == true){
+          if (currentProgress.questionsDone.includes(Question)==true){
             pointsContent.classList.add('hide');
             reward.src = Reward
             currentUser.stickersLvl.push(Reward)
@@ -341,7 +371,7 @@ function CorrectAnswer(Question, gotAnswer, gotPoints, Reward){
             sessionStorage.setItem('loggedUser', JSON.stringify(currentUser))
             User.attUserOnStorage(currentUser)
             currentProgress.questionsCorrect.push(Question)
-            sessionStorage.setItem('progress', JSON.stringify(currentProgress))
+            
             Progress.attProgressOnStorage(currentProgress)
             
             setTimeout(() => {
@@ -357,14 +387,19 @@ function CorrectAnswer(Question, gotAnswer, gotPoints, Reward){
             console.log(Question)
             console.log(currentProgress.questionsDone)
             console.log(currentProgress.username)
+            // console.log(gotPoints)
+            // let pontosGanhos=currentUser.points 
+            // console.log(pontosGanhos)
+            // pontosGanhos+= gotPoints
+            // console.log(pontosGanhos)
             currentUser.points += gotPoints
+            console.log(currentUser.points)
             reward.src = Reward
             currentUser.stickersLvl.push(Reward)
   
             sessionStorage.setItem('loggedUser', JSON.stringify(currentUser))
             User.attUserOnStorage(currentUser)
             currentProgress.questionsCorrect.push(Question)
-            sessionStorage.setItem('progress', JSON.stringify(currentProgress))
             Progress.attProgressOnStorage(currentProgress)
             
             setTimeout(() => {
@@ -401,6 +436,7 @@ function CorrectAnswer(Question, gotAnswer, gotPoints, Reward){
     }    
     break;}
   }
+  */
   
   //funcao que coloca a pergunta na lista do progresso como pergunta ja feita
   function answerQuestion(){
@@ -476,7 +512,6 @@ function updateProgress() {
         }else{
           doneVideos.push(title.innerHTML)
           progres.videosDone = doneVideos
-          console.log(progress)
   
           sessionStorage.setItem('progress', JSON.stringify(progres))
           Progress.attProgressOnStorage(progres)
@@ -486,25 +521,22 @@ function updateProgress() {
   })
 }
 
+
+
 //funcao para gostar video
-document.querySelector('#heartIcon').addEventListener('click',()=>{
-  allVideos.forEach((allVideo) =>{
-    if(allVideo.name === title){
-      allVideo.likes += 1
-      console.log(allVideo)
-      sessionStorage.setItem('videos', JSON.stringify(allVideo))
-      Videos.attVideosOnStorage(allVideo)
 
-      let heart = document.querySelector('#heartIcon')
-      console.log(heart)
-      heart.ClassList.add('heartLiked')
-    }
-  })
-
-})
 
 function renderLikes(){
+  progress.forEach((progres) =>{
+    if(progres.username==currentUser.username){
+      
+      let arrayVids=progres.likedVideos
+      if(arrayVids.includes(title)){
+        $('#heartIcon').attr("class", "heartLiked")
+      }}
+    })
   let likesN = document.querySelector('#likesN')
+  
   allVideos.forEach((allVideo) =>{
     if(allVideo.name === title){
       likesN.innerHTML = allVideo.likes
@@ -512,31 +544,8 @@ function renderLikes(){
   })
 
 }
-function commentShow(){
-  let result=''
-  result=`<label>Deixe um comentário!</label>
-  <div class="form-floating">
-    <textarea id="commentTextArea" class="form-control" placeholder="Leave a comment here" style="height: 150px; resize: none;"></textarea>
-    
-  </div>
-  <button type="button" class="btn btn-primary" id="commentBtn" data-bs-dismiss="modal">Comentar</button>`
-  document.querySelector('.leaveComentField').innerHTML=result
-}
-
-function likesShow(){
-  
-  let result2=''
-  title=document.querySelector('#title').innerHTML
-  allVideos.forEach(function(video){ 
-    if(video.name==title){
-      result2=`<button class="caralho"><i id="heartIcon" data-feather="heart"></i></button><p id="likesN">${video.likes}</p>`
-      let ot=document.querySelector('.divLikes')
-      
-      ot.innerHTML=result2
-    }
-   })
-  
-}
+// likesShow()
+// y
 
 
 //funcao para comentar
@@ -558,6 +567,7 @@ function comentarButao(){
   })
 
 }
+
 
 //funcao para mostrar os comentarios
 function renderComments(){
@@ -633,7 +643,8 @@ function addLike(){
     })
   }
 }
-feather.replace()
+
+
 
 /*
 <div class="aComment">
@@ -650,4 +661,57 @@ feather.replace()
         <p>comment</p>
       </fieldset>
   </div>
+*/
+feather.replace()
+
+/*
+function CorrectAnswer(gotAnswer, gotPoints, Reward){
+  let answerBtns = document.querySelectorAll('.answerBtn');
+  allPopUps.forEach((allPopUp) => {
+    answerBtns.forEach((answerBtn) => {
+
+      answerQuestion()
+
+      if(answerBtn.id === gotAnswer){
+        answerBtn.addEventListener('click',()=>{
+          setTimeout(() => {
+            $("#congratsModal").modal('hide');
+            video.play();
+            video.pause();
+            let points = document.querySelector('#pointsEarned')
+            points.innerHTML = `+ ${allPopUp.pointsEarned} pontos`
+            let reward = document.querySelector('#reward')
+
+            reward.src = allPopUp.reward
+            currentUser.points += gotPoints
+            currentUser.stickersLvl.push(Reward)
+
+            sessionStorage.setItem('loggedUser', JSON.stringify(currentUser))
+            User.attUserOnStorage(currentUser)
+
+
+            $("#congratsModal").modal('show');
+            setTimeout(() => {
+              $("#congratsModal").modal('hide');
+              video.play();
+            }, 1500);
+          }, 200);
+        })
+      }else{
+        answerBtn.addEventListener('click',()=>{
+          setTimeout(() => {
+            $("#wrongModal").modal('hide');
+            video.play();
+            video.pause()
+            $("#wrongModal").modal('show');
+            setTimeout(() => {
+              $("#wrongModal").modal('hide');
+              video.play();
+            }, 1500);
+          }, 200);
+        })
+      }
+    })
+  })
+}
 */

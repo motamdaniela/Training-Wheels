@@ -122,13 +122,6 @@ video::-webkit-media-controls-fullscreen-button
   height: 100%;
 }
 
-.commentsField{
-  background-color:  #A8DDDB;
-  padding: 10px;
-  margin: 10px;
-  width: 100%;
-  border-radius: 10px;
-}
 .leaveComentField{
   background-color:  #A8DDDB;
   padding: 10px;
@@ -144,6 +137,7 @@ fieldset{
   background-color: #FFF8F8;
   padding: 20px;
 }
+
 
 .allpagebtns{
   margin-right: -20000000 px;
@@ -164,6 +158,7 @@ fieldset{
   background-color: #FFF8F8;
   margin-top: 10px;
 }
+
 #commentBtn:hover{
   border-color: #4B94BC;
   color: #FFF8F8;
@@ -200,11 +195,18 @@ fieldset{
 
 .fldComment{
   border-radius: 10px 10px 10px 10px;
-  background-color: #FFF8F8;
+  background-color: #A8DDDB;
   padding: 10px;
   margin-left: 10px;
 }
+.commentsField{
+  background-color:  #A8DDDB;
+  padding: 10px;
+  margin: 10px;
+  width: 100%;
+  border-radius: 10px;
+}
 .aComment{
   width: 80%;
-  margin-right: 20px;
+  margin-top: 20px;
 }

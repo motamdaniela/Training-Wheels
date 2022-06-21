@@ -104,12 +104,6 @@ function pageView(){
           <div id="reviewsCom" class="carousel-inner ">
           
           </div>
-          <a class="carousel-control-prev" href="#comentDiv" role="button" data-slide="prev">
-            <i data-feather="chevron-left"></i>
-          </a>
-          <a class="carousel-control-next" href="#comentDiv" role="button" data-slide="next">
-            <i data-feather="chevron-right"></i>
-          </a>
         </div>
         </div>
       
