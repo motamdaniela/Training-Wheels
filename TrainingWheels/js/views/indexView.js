@@ -292,9 +292,11 @@ function ProgressBar(){
     tests.forEach((test)=>{
       if(test.level === level.name){
         string += `<label title="${level.name}"><i id="${level.name}" class="aTest red" data-feather="circle"></i></label>`
+      }else{
+
+        string += `<label title="${level.name}"><i id="${level.name}" class="aLvl red" data-feather="circle"></i></label>`
       }
     })
-    string += `<label title="${level.name}"><i id="${level.name}" class="aLvl red" data-feather="circle"></i></label>`
   })
   layer2.innerHTML = string
   feather.replace()
