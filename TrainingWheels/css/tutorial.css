@@ -14,14 +14,10 @@ body*:not(.main-menu){
   top: 0;
   position: fixed;
 }
-@media screen and (max-width: 575px) {
-  #icons{
-    margin-left: 70px;
-  }
 
+#icons{
+  margin-left: 70px;
 }
-
-
 
 .wholeBody{
   background-color: #9EC2D5;
@@ -242,4 +238,11 @@ fieldset{
 .aComment{
   width: 80%;
   margin-top: 20px;
+}
+
+@media screen and (max-width: 725px) {
+  .row{
+    display: flex;
+    flex-direction: column;
+  }
 }
