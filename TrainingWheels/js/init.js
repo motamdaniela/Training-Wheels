@@ -27,37 +27,44 @@ function initdata() {
       {
         url: "../media/videos/Sinalizacao_Luminosa.mp4",
         name:"Sinalização Luminosa",
-        level:"Main Street"
+        level:"Main Street",
+        likes: 0
       },
       {
         nurl: "../media/videos/Marcas_Rodoviarias.mp4",
         name:"Marcas Rodoviárias",
-        level:"Main Street"
+        level:"Main Street",
+        likes: 0
       },
       {
         url: "../media/videos/Sinalizacao_Vertical.mp4",
         name:"Sinalização Vertical",
-        level:"Complicated Lane"
+        level:"Complicated Lane",
+        likes: 0
       },
       {
         url: "../media/videos/Paragem_e_Estacionamento.mp4",
         name:"Paragem e Estacionamento",
-        level:"Parking Lot Avenue"
+        level:"Parking Lot Avenue",
+        likes: 0
       },
       {
         url: "../media/videos/Cedencia_de_passagem.mp4",
         name:"Cedência de Passagem",
-        level:"Parking Lot Avenue"
+        level:"Parking Lot Avenue",
+        likes: 0
       },
       {
         url: "../media/videos/Velocidades.mp4",
         name:"Velocidades",
-        level:"Speedy Road"
+        level:"Speedy Road",
+        likes: 0
       },
       {
         url: "../media/videos/Vias_de_Transito.mp4",
         name:"Vias de Trânsito",
-        level:"Speedy Road"
+        level:"Speedy Road",
+        likes: 0
       },
     ];
     
