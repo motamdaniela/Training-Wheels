@@ -76,6 +76,14 @@ div>.tag:hover{
   background: none;
 }
 
+.divLikes{
+  display: flex;
+}
+
+#likesN{
+  margin-top: 15px;
+}
+
 #heartIcon:hover{
   stroke: #DD5E5C;
   fill: #DD5E5C;
