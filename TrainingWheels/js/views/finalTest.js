@@ -82,7 +82,6 @@ function renderPage(){
   function correctAnswer(questionObj, theFld, answerBtn){
       
       if(answerBtn.innerHTML === questionObj.right_answer){
-        console.log(questionObj.right_answer, answerBtn.innerHTML)
           
         currentUser.points += +questionObj.points
         sessionStorage.setItem('loggedUser', JSON.stringify(currentUser))
@@ -111,7 +110,6 @@ function renderPage(){
           perguntas.forEach((pergunta)=>{
             if(pergunta.question === fld.id){
 
-              console.log(fld)
               correctAnswer(pergunta, fld, answerBtn)
             }
   
