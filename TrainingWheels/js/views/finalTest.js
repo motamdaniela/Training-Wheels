@@ -124,6 +124,7 @@ function renderPage(){
   }
 
   function finishTest(){
+    let progress = Progress.getProgress()
     let lvlTitle = document.getElementById('theTitle').innerHTML
     testes.forEach((teste) => {
       if(teste.name === lvlTitle){
@@ -157,14 +158,14 @@ function renderPage(){
     
           }
           progress.forEach((progres) => {
-            if(progres.user == currentUser.username){
+            if(progres.username == currentUser.username){
               progres.videosDone.push(lvlTitle)            
               Progress.attProgressOnStorage(progres)
             }
           })
           setTimeout(() => {
             location.replace("./lessonMenu.html");
-          }, 1000);
+          }, 1500);
           
         })
 

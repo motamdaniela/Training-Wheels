@@ -161,9 +161,12 @@ function checkVideo(){
   let progress = Progress.getProgress()
   let listOfVideos = document.querySelectorAll('.aVideo')
   listOfVideos = Array.from(listOfVideos)
+  let listOfTests = document.querySelectorAll('.aTeste')
+  listOfTests = Array.from(listOfTests)
   
   progress.forEach((progres) => {
     if(progres.username === currentUser.username){
+      let currentProgress = progres
       let doneVideos = progres.videosDone
       listOfVideos.forEach((listOfVideo) => {
         let video = listOfVideo
@@ -172,11 +175,20 @@ function checkVideo(){
           video.innerHTML += string
         }
       })
+      listOfTests.forEach((listOfTest) => {
+        if(currentProgress.videosDone.includes(listOfTest.innerHTML)){
+          let string = ` <i data-feather="check-circle" class="check"></i>`
+          listOfTest.innerHTML += string
+        }
+      })
+
+
     }
   })
   feather.replace()
 }
 checkVideo()
+feather.replace()
 
 
 //funcao que verifica se um nível ja foi feitos ou so comecados
