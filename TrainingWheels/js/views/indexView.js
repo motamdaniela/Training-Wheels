@@ -334,10 +334,15 @@ function nextSticker(){
   progress.forEach((progres) => {
     let currentProgress = progres
     let currentVideo = currentProgress.currentVideo
+
+    console.log(currentProgress)
   
     popUps.forEach((popUp) => {
       if(popUp.video === currentVideo){
+        console.log("works")
+        console.log(popUp.video, currentVideo)
         if(currentProgress.questionsDone.inclues(popUp.question)){
+
         }else{
           document.querySelector('.dark').src = popUp.reward
         }
