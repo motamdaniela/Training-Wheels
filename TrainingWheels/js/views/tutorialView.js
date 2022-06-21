@@ -158,7 +158,7 @@ function defaultTab(listVideos) {
           video.currentTime = currentProgress.currentTag
         }
         else{
-          createTab(listVideo)
+          createTab(listVideos[0])
         }
     
       })
@@ -264,37 +264,43 @@ function Questions(){
   let answers = document.querySelector('#answersPopUp')
   let cluesN = document.querySelector("#cluesN")
   let pointsN = document.querySelector("#pointsN")
-  allPopUps.forEach((allPopUp) => {
-    if(allPopUp.video === title){
-      let time = convertTag(allPopUp.tag)
-      if (video.currentTime >= time && video.currentTime <= time + 0.3){
+  progress.forEach((progres) => {
+    if(currentUser.username === progres.username){
+      let currentProgress = progres
 
-        if(currentProgress.questionsCorrect.includes(allPopUp.question)){
-
-        }else{
-          question.innerHTML = allPopUp.question
-          imagePopUp.src = allPopUp.image
-          
-          cluesN.innerHTML = currentUser.clues
-          pointsN.innerHTML = currentUser.points
-  
-          let randomBtns = shuffle(allPopUp.answers)
-          answers.innerHTML = `
-          <div class="row row-cols-2">
-            <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[0]}" data-bs-dismiss="modal">${randomBtns[0]}</button></div>
-            <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[1]}" data-bs-dismiss="modal">${randomBtns[1]}</button></div>
-            <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[2]}" data-bs-dismiss="modal">${randomBtns[2]}</button></div>
-            <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[3]}" data-bs-dismiss="modal">${randomBtns[3]}</button></div>
-          </div>
-          `
-        video.pause();
-        OpenBootstrapPopup();
-        CorrectAnswer(allPopUp.question,allPopUp.correctAnswer, allPopUp.pointsEarned, allPopUp.reward);
+      allPopUps.forEach((allPopUp) => {
+        if(allPopUp.video === title){
+          let time = convertTag(allPopUp.tag)
+          if (video.currentTime >= time && video.currentTime <= time + 0.3){
+    
+            if(currentProgress.questionsCorrect.includes(allPopUp.question)){
+    
+            }else{
+              question.innerHTML = allPopUp.question
+              imagePopUp.src = allPopUp.image
+              
+              cluesN.innerHTML = currentUser.clues
+              pointsN.innerHTML = currentUser.points
+      
+              let randomBtns = shuffle(allPopUp.answers)
+              answers.innerHTML = `
+              <div class="row row-cols-2">
+                <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[0]}" data-bs-dismiss="modal">${randomBtns[0]}</button></div>
+                <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[1]}" data-bs-dismiss="modal">${randomBtns[1]}</button></div>
+                <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[2]}" data-bs-dismiss="modal">${randomBtns[2]}</button></div>
+                <div class="col zeBtns"><button type="button" class="btn btn-primary answerBtn zeBtns" id="${randomBtns[3]}" data-bs-dismiss="modal">${randomBtns[3]}</button></div>
+              </div>
+              `
+            video.pause();
+            OpenBootstrapPopup();
+            CorrectAnswer(allPopUp.question,allPopUp.correctAnswer, allPopUp.pointsEarned, allPopUp.reward);
+            }
+    
         }
-
+      }
+    })
     }
-  }
-})
+  })
 }
 
 
