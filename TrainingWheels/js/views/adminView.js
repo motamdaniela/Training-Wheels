@@ -562,4 +562,14 @@ for(let blockBtn of blockBtns){
   })
 }
 
+let logout = document.querySelector("#log-out");
+
+logout.addEventListener("click", () =>{
+    User.logout();
+    setTimeout(() => {
+      location.replace("index.html");
+    }, 1000);
+
+})
+
 feather.replace()
