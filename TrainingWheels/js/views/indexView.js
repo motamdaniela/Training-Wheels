@@ -92,12 +92,15 @@ function pageView(){
       <div id="avalDiv" class="divInicio">
         <fieldset class="titulo">
           <h2>Avaliações</h2>
-          <div>
-            <i class="star" data-feather="star"></i>
-            <i class="star" data-feather="star"></i>
-            <i class="star" data-feather="star"></i>
-            <i class="star" data-feather="star"></i>
-            <i class="star" data-feather="star"></i>
+          <div>`
+          for (let i=0; i< media(); i++){
+            result+=`<i class="star starFilled" data-feather="star"></i>`
+          }
+          for(let i=media(); i< 5; i++){
+            result+=`<i class="star" data-feather="star"></i>`
+          }
+
+          result+=`
           </div>
         </fieldset>
         <div id="commentDiv" class="carousel slide " data-ride="carousel">
@@ -208,6 +211,21 @@ function pageView(){
 }
 pageView()
 feather.replace()
+
+function media(){
+  let reviews = Review.getReviews()
+  let allRatings = []
+  reviews.forEach((review) => {
+    allRatings.push(+review.rating)
+  })
+  console.log(allRatings)
+
+  let media = allRatings.reduce((a, b) => a + b, 0) / allRatings.length;
+  media = Math.round(media)
+
+  return media
+}
+
 
 
 let avaliarBtn=document.querySelector('#avaliar');
