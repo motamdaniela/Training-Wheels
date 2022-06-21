@@ -36,7 +36,6 @@ function rankTable(){
           }
         })
         if (listVideos.some(e => e.level === level.name)) {
-          console.log(level.name)
           
         }
         
@@ -62,7 +61,6 @@ function rankTable(){
         })
 
         if (listVideos.some(e => e.level === level.name)) {
-          console.log(level.name)
           result += `
         </div>
             <div class="col goBtn">

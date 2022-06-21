@@ -150,7 +150,6 @@ function defaultTab(listVideos) {
     
       listVideos.forEach((listVideo)=>{
 
-        console.log(currentProgress.username,currentProgress.currentVideo, listVideo.name)
 
         if(currentProgress.currentVideo === listVideo.name){
           generateTab(listVideo)

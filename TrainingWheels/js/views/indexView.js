@@ -218,7 +218,6 @@ function media(){
   reviews.forEach((review) => {
     allRatings.push(+review.rating)
   })
-  console.log(allRatings)
 
   let media = allRatings.reduce((a, b) => a + b, 0) / allRatings.length;
   media = Math.round(media)
@@ -394,12 +393,9 @@ function nextSticker(){
     let currentProgress = progres
     let currentVideo = currentProgress.currentVideo
 
-    console.log(currentProgress, currentVideo)
   
     popUps.forEach((popUp) => {
       if(popUp.video === currentVideo){
-        console.log("works")
-        console.log(popUp.video, currentVideo)
         if(currentProgress.questionsDone.includes(popUp.question)){
 
         }else{
