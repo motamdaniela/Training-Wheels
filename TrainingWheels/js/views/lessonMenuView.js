@@ -88,7 +88,6 @@ function lvlPage(){
             progres.levelsStarted.push(goBtn.id)
           }
 
-          // sessionStorage.setItem('currentLvl', JSON.stringify(progres.currentLvl))
           Progress.attProgressOnStorage(progres)
 
         }
