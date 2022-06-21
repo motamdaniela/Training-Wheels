@@ -176,7 +176,7 @@ function pageView(){
                 <div class="carousel-caption">
                   <fieldset class="comentarios">
                     <div class="topo">
-                      <img class="perfilCom" src="../media/images/default.svg">
+                      <img class="perfilCom" src="${review.photo}">
                       <div class="nomeStar">
                         <p><strong>${review.username}</strong></p>
                         <div>`
@@ -233,7 +233,8 @@ avaliarBtn.addEventListener("click",()=>{
   let comment=document.querySelector('#commentReview').value;
   let starsN=document.querySelector('#starReview').value;
   let userLog=User.getUserLogged().username
-  Review.add(userLog, comment, starsN)
+  let userPhoto=User.getUserLogged().photo
+  Review.add(userLog, comment, starsN, userPhoto)
   window.location.reload()
 
 
