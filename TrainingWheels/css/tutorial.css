@@ -15,8 +15,13 @@ body*:not(.main-menu){
   position: fixed;
 }
 
-#icons{
-  margin-left: 70px;
+
+
+@media screen and (max-width: 575px) {
+  #icons{
+    margin-left: 70px;
+  }
+
 }
 
 .wholeBody{
