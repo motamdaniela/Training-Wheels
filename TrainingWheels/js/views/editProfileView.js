@@ -59,11 +59,11 @@ function show(){
     let src=foto.src
     let result=src.substring(36)
     let result2='..'+result
-    console.log(result2)
+    
     if(result2==user.photo){
-      console.log(foto.src)
+      
       foto.classList.add('pfpSelected')
-      console.log(foto)
+      
     }
     foto.addEventListener("click",function(){
       let pic= document.querySelector(".pfpSelected")

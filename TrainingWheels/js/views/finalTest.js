@@ -82,9 +82,8 @@ function renderPage(){
   function correctAnswer(questionObj, theFld, answerBtn){
       
       if(answerBtn.innerHTML === questionObj.right_answer){
-        console.log(questionObj.right_answer, answerBtn.innerHTML)
           
-        currentUser.points += questionObj.points
+        currentUser.points += +questionObj.points
         sessionStorage.setItem('loggedUser', JSON.stringify(currentUser))
         User.attUserOnStorage(currentUser)
         
@@ -111,7 +110,6 @@ function renderPage(){
           perguntas.forEach((pergunta)=>{
             if(pergunta.question === fld.id){
 
-              console.log(fld)
               correctAnswer(pergunta, fld, answerBtn)
             }
   
@@ -124,6 +122,7 @@ function renderPage(){
   }
 
   function finishTest(){
+    let progress = Progress.getProgress()
     let lvlTitle = document.getElementById('theTitle').innerHTML
     testes.forEach((teste) => {
       if(teste.name === lvlTitle){
@@ -156,9 +155,15 @@ function renderPage(){
               $("#wrongModal").modal('show');
     
           }
+          progress.forEach((progres) => {
+            if(progres.username == currentUser.username){
+              progres.videosDone.push(lvlTitle)            
+              Progress.attProgressOnStorage(progres)
+            }
+          })
           setTimeout(() => {
             location.replace("./lessonMenu.html");
-          }, 1000);
+          }, 1500);
           
         })
 
