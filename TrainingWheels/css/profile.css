@@ -62,15 +62,17 @@ body{
     }
 }
 
-#edit, #log-out{
-    border-color: #4B94BC;
-    color: #FFF8F8;
-    background-color: #4B94BC;
+#edit, #log-out, #save{
+    stroke: #252131;
 }
 
 
-#edit, #log-out:hover{
-    border-color: #4B94BC;
-    color: #FFF8F8;
-    background-color: #4B94BC;
+#edit:hover, #log-out:hover, #save:hover{
+    stroke: #4B94BC;
+}
+
+.btns{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
 }
