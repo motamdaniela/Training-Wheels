@@ -9,6 +9,11 @@ export function init() {
     localStorage.setItem("reviews", JSON.stringify(reviews));
   }
 
+export function remove(username) {
+  reviews = reviews.filter((review) => review.username !== username);
+  localStorage.setItem("reviews", JSON.stringify(reviews));
+}
+
 export function getReviews() {
     return reviews;
 }

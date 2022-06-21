@@ -21,6 +21,11 @@ export function attProgressOnStorage(attProgress){
   localStorage.setItem('progress', JSON.stringify(progress))
 }
 
+export function remove(username) {
+  progress = progress.filter((progres) => progres.username !== username);
+  localStorage.setItem("progress", JSON.stringify(progress));
+}
+
 class Progress{
     username = ''
     questionsDone = []

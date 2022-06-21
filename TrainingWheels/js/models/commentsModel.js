@@ -13,6 +13,11 @@ export function getComments() {
   return comments;
 }
 
+export function remove(username) {
+  comments = comments.filter((comment) => comment.usernames !== username);
+  localStorage.setItem("comments", JSON.stringify(comments));
+}
+
 // export function attCommentsOnStorage(attComment){
 //   let comments = JSON.parse(localStorage.getItem('comments'))
 //   comments.forEach((comment,i) => {

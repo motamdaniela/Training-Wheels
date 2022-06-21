@@ -5,6 +5,9 @@ import * as Tag from "../models/tagsModel.js";
 import * as PopUp from "../models/popupModel.js";
 import * as Test from "../models/testModel.js";
 import * as Question from "../models/questionModel.js";
+import * as Progress from "../models/progressModel.js";
+import * as Comments from "../models/commentsModel.js";
+import * as Review from "../models/reviewsModel.js";
 
 User.init()
 Video.init()
@@ -13,6 +16,9 @@ Tag.init()
 PopUp.init()
 Test.init()
 Question.init()
+Progress.init()
+Comments.init()
+Review.init()
 
 const newAdminBtn = document.querySelector("#createBtn")
 newAdminBtn.addEventListener("click", (event) =>{
@@ -182,7 +188,7 @@ function rankTable(){
   let i=0
   for (let nome of nomes) {
         let user = users.find(user => nome.name === user.username);
-        if(user.type == 'user'){
+        if(user.type == 'user' && user.state== "unblocked"){
           i+=1
           if(nome.name==user.username ){
             result += `
@@ -196,10 +202,26 @@ function rankTable(){
 
           }
           
+      }else if(user.type=="user" && user.state=="blocked"){
+        i+=1
+          if(nome.name==user.username ){
+            result += `
+          <tr>
+          <th scope="row">${i}</th>
+          <td>${user.username}</td>
+          <td><i class="nav-icon" data-feather="check"></i> ${user.ranking[0]}<i class="nav-icon" data-feather="x"></i>${user.ranking[1]}</td>
+          <td><button type="button" class="btn btn-success blockBtn">Desbloquear</button>
+          <button type="button" class="btn btn-danger removeUser">Remover</button></td>
+        </tr>`
+
+          }
+
       }
+      
   }
-  
   document.querySelector('#rankbody').innerHTML += result;
+  
+  
     
 }
 rankTable()
@@ -435,6 +457,9 @@ for(let removeUserBtn of removeUserBtns){
   removeUserBtn.addEventListener("click", function(){ 
     let username=this.parentNode.previousElementSibling.previousElementSibling.innerHTML
     User.remove(username)
+    Review.remove(username)
+    Comments.remove(username)
+    Progress.remove(username)
     location.reload()
   })
 }
