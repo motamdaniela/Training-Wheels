@@ -6,6 +6,7 @@ body{
   }
 
 .container{
+  
   order: 1;
   margin-left:100px;
   margin-right:100px;
@@ -166,6 +167,10 @@ fieldset{
     width: 350px;
     margin-top: 95px;
     margin-left: 25px;
+  }
+  
+  .container{
+    margin-top: 40px;
   }
 }
 
