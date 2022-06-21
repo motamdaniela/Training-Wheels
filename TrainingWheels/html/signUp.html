@@ -43,27 +43,27 @@
     <div>
 
         <img id="registar" src="../media/images/registar.svg">
-    <form class="formSignUp">
+    <form class="formSignUp" role="form" action="#" method="GET" novalidate>
         <fieldset id="Info">
             <!-- nomme -->
             <div class="mb-3">
                 <!-- div vazia que conterá uma mensagem de erro caso registo sem sucesso -->
                 <div id="errorSlot"></div>
                 <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="name" aria-describedby="emailHelp" required>
+                <input type="text" class="form-control" id="name" aria-describedby="emailHelp"  required >
             </div>
             <!-- user -->
             <div class="col-12">
                 <label class="visually-hidden" for="username">Username</label>
                 <div class="input-group">
                   <div class="input-group-text">@</div>
-                  <input type="text" class="form-control" id="username" placeholder="Username" required>
+                  <input type="text" class="form-control" id="username" placeholder="Username" :required>
                 </div>
               </div>
             <!-- email -->
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required="required">
             </div>
             
             <!-- bday -->
@@ -79,10 +79,10 @@
             </select>
             <!-- pass -->
             <label for="pass" class="form-label">Password</label>
-            <input type="password" id="pass" class="form-control" aria-describedby="passwordHelpBlock">
+            <input type="password" id="pass" class="form-control" aria-describedby="passwordHelpBlock" required="required">
             <!-- confirmar pass -->
             <label for="passCheck" class="form-label">Confirmar Password</label>
-            <input type="password" id="passCheck" class="form-control" aria-describedby="passwordHelpBlock">
+            <input type="password" id="passCheck" class="form-control" aria-describedby="passwordHelpBlock" required="required">
             
             <!-- butao submit -->
             <button type="submit" class="btn btn" id="signUpBtn">Registar</button>
