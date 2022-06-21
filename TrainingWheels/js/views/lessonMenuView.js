@@ -21,9 +21,9 @@ function rankTable(){
     let listTestes=[]
     let result = ''
 
-    let i=0
+    
     for (let level of levels) {
-        i+=1
+        
 
         videos.forEach((video) => {
           if(video.level === level.name){
@@ -35,9 +35,12 @@ function rankTable(){
             listTestes.push(teste)
           }
         })
-
-
-        result +=
+        if (listVideos.some(e => e.level === level.name)) {
+          console.log(level.name)
+          
+        }
+        
+          result +=
         `
         <div class="title4 lvlTitle">
           <i class="nav-icon4" data-feather="circle"></i> 
@@ -48,14 +51,19 @@ function rankTable(){
             <div class="col">
         `
 
+       
+        
+
         listVideos.forEach((listVideo) => {
           result += `<p class="aVideo">${listVideo.name}</p>`
         })
         listTestes.forEach((listTeste) => {
-          result += `<p class="aVideo">${listTeste.name}</p>`
+          result += `<p class="aTeste">${listTeste.name}</p>`
         })
 
-        result += `
+        if (listVideos.some(e => e.level === level.name)) {
+          console.log(level.name)
+          result += `
         </div>
             <div class="col goBtn">
               <i data-feather="play-circle" class="goIcon" id="${level.name}"></i>
@@ -63,6 +71,26 @@ function rankTable(){
           </div>
         </fieldset>
         `
+          
+        }else if (listTestes.some(e => e.level === level.name)){
+          result += `
+        </div>
+            <div class="col goBtn">
+              <i data-feather="clipboard" class="goTeste" id="${level.name}"></i>
+            </div>
+          </div>
+        </fieldset>
+        `
+        }else{
+          result += `
+        </div>
+              <p>Nenhuma lição disponível de momento</p>
+          </div>
+        </fieldset>
+        `
+
+        }
+
         listVideos = []
       }
       document.querySelector('#menuNiveis').innerHTML += result;
@@ -98,6 +126,34 @@ function lvlPage(){
       }, 500);
     })
   })
+  let goTesteBtns = document.querySelectorAll('.goTeste');
+  goTesteBtns = Array.from(goTesteBtns)
+  goTesteBtns.forEach((goTesteBtn)=>{
+    goTesteBtn.addEventListener('click',()=>{
+
+      let progress = Progress.getProgress()
+      progress.forEach((progres)=>{
+        if (currentUser.username === progres.username){
+
+          progres.currentLvl = goTesteBtn.id
+
+          if(progres.levelsStarted.includes(goTesteBtn.id) == false){
+            progres.levelsStarted.push(goTesteBtn.id)
+          }
+
+          // sessionStorage.setItem('currentLvl', JSON.stringify(progres.currentLvl))
+          Progress.attProgressOnStorage(progres)
+
+        }
+      })
+      
+      setTimeout(() => {
+        location.replace("./finalTest.html");
+      }, 500);
+    })
+  })
+
+
 }
 
 // funcao que verifica se um video ja foi visto ou nao
