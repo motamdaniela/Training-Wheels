@@ -189,3 +189,13 @@ fieldset{
   margin-bottom: 40px;
   padding: 20px;
 }
+#finish{
+  height: 50px;
+  width: 50px;
+  margin-bottom: 40px;
+  margin-top: -100px;
+}
+
+#finish:hover{
+  stroke: #56C4C0;
+}

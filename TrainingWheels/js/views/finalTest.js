@@ -17,7 +17,6 @@ let perguntas=Question.getQuestions()
 
 
 function renderPage(){
-  let lvlTitle = document.querySelector('#lvlTitle')
   let theTitle = document.querySelector('#theTitle')
   let string = ''
   
@@ -69,6 +68,7 @@ function renderPage(){
               })
 
             })
+            finishTest()
             
             break;
           }
@@ -123,5 +123,49 @@ function renderPage(){
 
   }
 
-  feather.replace()
+  function finishTest(){
+    let lvlTitle = document.getElementById('theTitle').innerHTML
+    testes.forEach((teste) => {
+      if(teste.name === lvlTitle){
+        let sticker = teste.sticker
+
+
+        let finishBtn = document.querySelector('#finish')
+    
+        finishBtn.addEventListener('click',()=>{
+          let right = document.querySelectorAll('.green').length
+          let wrong = document.querySelectorAll('.red').length
+          let all = document.querySelectorAll('.fldfld').length
+    
+          if(right + wrong == 0){
+            alert('Não deixes o teste for fazer!')
+          }else if (((+right *100) / +all) >= 80){
+
+    
+            let reward = document.querySelector('#reward')
+            reward.src = sticker
+
+            currentUser.stickersLvl.push(sticker)            
+            sessionStorage.setItem('loggedUser', JSON.stringify(currentUser))
+            User.attUserOnStorage(currentUser)
+
+              $("#congratsModal").modal('show');
+    
+          }else{
+            
+              $("#wrongModal").modal('show');
+    
+          }
+          setTimeout(() => {
+            location.replace("./lessonMenu.html");
+          }, 1000);
+          
+        })
+
+
+      }
+    })
+    
+  }
   
+  feather.replace()
