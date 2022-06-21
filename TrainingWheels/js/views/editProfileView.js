@@ -42,12 +42,6 @@ function show(){
       <h5>cidade</h5>
       <input type="text" class="form-control" id="place" placeholder="name@example.com" value="${user.place}">
       </fieldset>`
-      // let sex = document.querySelector("#sex")
-      // for(var i, j = 0; i = sex.options[j]; j++) {
-      //   if(i.value == user.sex) {
-      //       sex.selectedIndex = j;
-      //       break;
-      //   }}
     document.querySelector('#coisasPerfil').innerHTML = result;
     
   }
@@ -57,24 +51,20 @@ function show(){
   fotos=Array.from(fotos)
   fotos.forEach(function(foto) {
     let src=foto.src
-    let result=src.substring(36)
-    let result2='..'+result
-    
-    if(result2==user.photo){
-      
+    let myArray = src.split("TrainingWheels");
+    let result=myArray[1]
+    let resul2=".."+result
+    if(resul2==user.photo){
       foto.classList.add('pfpSelected')
-      
     }
     foto.addEventListener("click",function(){
-      let pic= document.querySelector(".pfpSelected")
+      let pic = document.querySelector(".pfpSelected")
       pic.classList.remove("pfpSelected")
      if(this.classList.contains("pfpSelected")){
         this.classList.remove("pfpSelected")
      }else{
       this.classList.add("pfpSelected")
-      
      }
-
     })
   })
 
@@ -88,9 +78,9 @@ function show(){
     let bday = document.querySelector("#bday").value;
     let place = document.querySelector("#place").value;
     let photo=document.querySelector(".pfpSelected").src
-    let src=photo
-    let result=src.substring(36)
-    let result2='..'+result
+    let myArray = photo.split("TrainingWheels");
+    let result=myArray[1]
+    let result2=".."+result
 
     user.email = email
     user.name = nome

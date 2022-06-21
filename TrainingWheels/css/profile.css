@@ -2,7 +2,7 @@ body{
     background-color: #FEFCFC;
     display:flex;
     flex-direction: column;
-    font-family: 'ABC-Regular', sans-serif;
+    font-family: 'ABC-Regular', sans-serif !important;
 }
 
 .choosepfp{
@@ -49,6 +49,7 @@ body{
     align-items:center;
     justify-content: center;
     padding: 10px;
+    
 }
 
 #campos>p{
@@ -73,6 +74,9 @@ body{
     }
     #campos{
         width: 450px;
+    }
+    #campos>p{
+        width: 400px;
     }
 }
 

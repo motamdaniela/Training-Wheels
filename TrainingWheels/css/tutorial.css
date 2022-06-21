@@ -1,6 +1,6 @@
 body*:not(.main-menu){
   display:flex;
-  font-family: 'ABC-Regular', sans-serif;
+  font-family: 'ABC-Regular', sans-serif !important;
   flex-direction: column;
   justify-content: center;
 }
