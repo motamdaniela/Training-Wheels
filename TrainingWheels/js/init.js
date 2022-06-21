@@ -19,7 +19,7 @@ function initdata() {
         name: "Conquerors Square"
       },
     ];
-    console.log("inject");
+    
     localStorage.setItem("niveis", JSON.stringify(niveis));
   }
   if (!localStorage.videos) {
@@ -60,7 +60,7 @@ function initdata() {
         level:"Speedy Road"
       },
     ];
-    console.log("inject");
+    
     localStorage.setItem("videos", JSON.stringify(videos));
   }
   if (!localStorage.tags) {
@@ -139,6 +139,11 @@ function initdata() {
         tag: "2:19",
         video: "Sinalização Vertical",
         name: "Sinais de indicação",
+      },
+      {
+        tag: "0:38",
+        video: "Paragem e Estacionamento",
+        name: "Diferença entre paragem e estacionamento",
       },
       {
         tag: "5:41",
@@ -232,7 +237,7 @@ function initdata() {
       },
       
     ];
-    console.log("inject");
+    
     localStorage.setItem("tags", JSON.stringify(tags));
   }
   if (!localStorage.popUpQuestions) {
@@ -297,12 +302,145 @@ function initdata() {
         tag: "11:27",
         pointsEarned: 5,
       },
-      
+      {
+        question: "Este carro está parado ou estacionado?",
+        image: "../media/images/carro_estacionado.svg",
+        answers: ['Estacionado','Parado','Avariado, uma vez que se encontra na berma da estrada','Parado, porque tem as luzes desligadas'],
+        correctAnswer: "Estacionado",
+        reward: "../media/stickers/parking.svg",
+        video: "Paragem e estacionamento",
+        tag: "1:58",
+        pointsEarned: 20,
+      },
+      {
+        question: "O condutor deste veículo comete uma contraordenação ao estacioná-lo neste local?",
+        image: "../media/images/estacionado_2fila.svg",
+        answers: ['Sim, pois está estacionado em 2a fila','Não','Sim, apenas se houver trânsito no sentido contrário','Não, pois está dentro de uma localidade'],
+        correctAnswer: "Sim, pois está estacionado em 2a fila",
+        reward: "../media/stickers/wheel_clamp.svg",
+        video: "Paragem e estacionamento",
+        tag: "27:01",
+        pointsEarned: 10,
+      },
+      {
+        question: "Qual é a ordem de correta de passagem destes veículos?",
+        image: "../media/images/situacao_3d.png",
+        answers: ['Motociclo','Automóvel pesado','Automóvel ligeiro','Motociclo e automóvel pesado em simultâneo e automóvel ligeiro de seguida'],
+        correctAnswer: "Motociclo",
+        reward: "../media/stickers/cruzamento.svg",
+        video: "Cedência de Passagem",
+        tag: "4:55",
+        pointsEarned: 15,
+      },
+      {
+        question: "Qual a velocidade máxima que este veículo pode circular nesta via?",
+        image: "../media/images/camiao_porto.svg",
+        answers: ['50 km/h','90 km/h','30 km/h','120 km/h'],
+        correctAnswer: "50 km/h",
+        reward: "../media/stickers/acidente.svg",
+        video: "Velocidades",
+        tag: "19:06",
+        pointsEarned: 25,
+      },
+      {
+        question: "Qual a velocidade máxima nesta via de trânsito?",
+        image: "../media/images/cartaxo.svg",
+        answers: ['50 km/h','90 km/h','30 km/h','120 km/h'],
+        correctAnswer: "90 km/h",
+        reward: "../media/stickers/racecar.svg",
+        video: "Vias de Trânsito",
+        tag: "8:24",
+        pointsEarned: 20,
+      },
       
     ];
-    console.log("inject");
+    
     localStorage.setItem("popUpQuestions", JSON.stringify(popUpQuestions));
   }
-
+  if (!localStorage.testes) {
+    const testes = [
+      {
+        level: "Conquerors Square",
+        name: "Finish line",
+        sticker: "../media/stickers/green_gilf.svg",
+      },
+    ];
+    localStorage.setItem("testes", JSON.stringify(testes));
+  }
+  if (!localStorage.perguntas) {
+    const perguntas = [
+      {
+        test_name: 'Finish line',
+        question: 'Quando a sinalização luminosa muda para a cor verde…',
+        answers: ['Sou obrigado a avançar','Estou autorizado a avançar, porém apenas devo fazê-lo nas condições certas','Devo parar, desde que consiga fazê-lo em condições de segurança','Devo parar obrigatóriamente'],
+        right_answer: 'Estou autorizado a avançar, porém apenas devo fazê-lo nas condições certas',
+        points: 5,
+      },
+      {
+        test_name: 'Finish line',
+        question: 'Qual das seguintes é uma consequência da fadiga?',
+        answers: ['Aumento do tempo de travagem','Diminuição do tempo de reacção','Aumento da atenção do condutor','Sonolência'],
+        right_answer: 'Sonolência',
+        points: 10,
+      },
+      {
+        test_name: 'Finish line',
+        question: 'Após a ingestão de bebidas alcoólicas, quando se começam a manifestar os efeitos do álcool?',
+        answers: ['Depois de 3 horas','Durante a 2ª hora','No dia seguinte','Muito rapidamente'],
+        right_answer: 'Muito rapidamente',
+        points: 5,
+      },
+      {
+        test_name: 'Finish line',
+        question: 'Em situação de perigo iminente posso utilizar os sinais sonoros?',
+        answers: ['Sim','Não'],
+        right_answer: 'Sim',
+        points: 10,
+      },
+      {
+        test_name: 'Finish line',
+        question: 'Que tipo de veículo pode conduzir um titular da carta de condução de automóveis ligeiros?',
+        answers: ['Peso bruto até 500kg','Lotação máxima de 9 lugares','Lotação de 6 lugares e peso bruto de 3500kg','Lotação de 6 lugares e peso bruto de 5000kg'],
+        right_answer: 'Lotação de 6 lugares e peso bruto de 3500kg',
+        points: 20,
+      },
+      {
+        test_name: 'Finish line',
+        question: 'Fora das localidades é proibido estacionar nas faixas de rodagem. Esta afirmação é verdadeira?',
+        answers: ['Não','Sim'],
+        right_answer: 'Sim',
+        points: 15,
+      },
+      {
+        test_name: 'Finish line',
+        question: 'A que distância de uma curva de visibilidade reduzida é proibido parar?',
+        answers: ['150 metros','50 metros','80 metros','30 metros'],
+        right_answer: '30 metros',
+        points: 20,
+      },
+      {
+        test_name: 'Finish line',
+        question: 'O que implica a prática de uma condução defensiva?',
+        answers: ['Que o condutor abdique dos seus direitos a fim de evitar um acidente','Que o condutor se foque no seu destino, ignorando a sinalização, se for necessário','Que o condutor não ceda a passagem, porque tem sempre o direito de avançar','Que o condutor aumente a velocidade para ser o primeiro a avançar'],
+        right_answer: 'Que o condutor abdique dos seus direitos a fim de evitar um acidente',
+        points: 5,
+      },
+      {
+        test_name: 'Finish line',
+        question: 'Quais as luzes  que devo utilizar dentro de um túnel?',
+        answers: ['Luzes de nevoeiro','Luzes mínimas','Luzes de cruzamento','Luzes de estrada'],
+        right_answer: 'Luzes de cruzamento',
+        points: 10,
+      },
+      {
+        test_name: 'Finish line',
+        question: 'Sempre que a iluminação de um local não é suficiente, posso utilizar as luzes de estrada?',
+        answers: ['Sim','Não'],
+        right_answer: 'Não',
+        points: 20,
+      },
+    ];
+    localStorage.setItem("perguntas", JSON.stringify(perguntas));
+  }
     
 }

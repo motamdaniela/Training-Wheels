@@ -4,6 +4,7 @@ import * as Progress from "../models/progressModel.js";
 import * as Levels from "../models/levelModel.js";
 import * as Videos from "../models/videoModel.js";
 import * as PopUps from "../models/popupModel.js";
+import * as Tests from "../models/testModel.js"
 
 User.init()
 Review.init()
@@ -11,6 +12,7 @@ Progress.init()
 Levels.init()
 Videos.init()
 PopUps.init()
+Tests.init()
 
 function pageView(){
   
@@ -205,8 +207,10 @@ function pageView(){
     document.querySelector('#content').innerHTML += result;
     document.querySelector('#body_rank').innerHTML = result2;
     document.querySelector('#reviewsCom').innerHTML = result3;
-    let item=document.querySelector('.carousel-item')
-    item.classList.add('active');
+    let item=document.getElementsByClassName('carousel-item')
+    if(item.length != 0){
+      item[0].classList.add('active');
+    }
     
 }
 pageView()
@@ -279,11 +283,17 @@ feather.replace()
 let currentUser = User.getUserLogged()
 
 function ProgressBar(){
+  let tests = Tests.getTests()
   let layer2 = document.querySelector('.layer2')
   let levels = Levels.getLevels()
   let string = ''
 
   levels.forEach((level) => {
+    tests.forEach((test)=>{
+      if(test.level === level.name){
+        string += `<label title="${level.name}"><i id="${level.name}" class="aTest red" data-feather="circle"></i></label>`
+      }
+    })
     string += `<label title="${level.name}"><i id="${level.name}" class="aLvl red" data-feather="circle"></i></label>`
   })
   layer2.innerHTML = string
@@ -326,15 +336,19 @@ ProgressBar()
 //funcao que verifica se o utilizador tem algum nivel feito ou a meio
 function lvlsDone() {
   let progress = Progress.getProgress()
+  let tests = Tests.getTests()
   
   let listLevels = document.querySelectorAll('.aLvl')
   listLevels = Array.from(listLevels)
+  let listTests = document.querySelectorAll('.aTest')
+  listTests = Array.from(listTests)
   
   progress.forEach((progres) => {
     if(progres.username === currentUser.username){
       let currentProgress = progres
       let levelsDone = currentProgress.levelsDone
       let levelsStarted = currentProgress.levelsStarted
+      let videosDone = currentProgress.videosDone
       
 
       listLevels.forEach((listLevel)=>{
@@ -348,6 +362,13 @@ function lvlsDone() {
         if(levelsDone.includes(listLevel.id)){
          $(listLevel).attr("class", "");
          $(listLevel).attr("class", "green");
+        }
+      })
+
+      listTests.forEach((listTest)=>{
+        if(videosDone.includes(listTest.id)){
+         $(listTest).attr("class", "");
+         $(listTest).attr("class", "green");
         }
       })
       
