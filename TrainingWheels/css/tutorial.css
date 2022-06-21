@@ -9,6 +9,18 @@ body*:not(.main-menu){
   color: #252131;
 }
 
+button{
+  border-color: #4B94BC;
+  color: #252131;
+  background-color: #4B94BC;
+}
+
+button:hover{
+  border-color: #4B94BC;
+  color: #4B94BC;
+  background-color: #FFF8F8;
+}
+
 .btn-toolbar{
   display: flex;
   flex-wrap: wrap;
