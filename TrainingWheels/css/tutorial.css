@@ -1,9 +1,24 @@
+body{
+  display:flex;
+  flex-direction: column;
+  font-family: 'ABC-Regular', sans-serif !important;
+}
 body*:not(.main-menu){
   display:flex;
   font-family: 'ABC-Regular', sans-serif !important;
   flex-direction: column;
   justify-content: center;
 }
+#hum{
+  z-index: 2;
+  top: 0;
+  position: fixed;
+}
+
+#icons{
+  margin-left: 70px;
+}
+
 .wholeBody{
   background-color: #9EC2D5;
   color: #252131;
@@ -43,6 +58,8 @@ video {
     background-color: #4B94BC;
     border-radius: 10px;
 }
+
+
 
 .container {
   height: 70%;
