@@ -168,3 +168,24 @@ fieldset{
     margin-left: 25px;
   }
 }
+
+#divPages{
+  width: 90%;
+  margin-bottom: 10%;
+}
+.answerBtn{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #FFF8F8;
+  border-color: #4B94BC;
+}
+.answerBtn:hover{
+  background-color: #4B94BC;
+  border-color: #4B94BC;
+  color: #FFF8F8;
+}
+.fldfld{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
