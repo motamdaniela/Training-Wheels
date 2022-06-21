@@ -16,6 +16,15 @@ function show(){
     }
   
     result+=`<img src="${user.photo}" id="profilepic">
+    <div id="imgSelect">
+      <img src="../media/images/default.svg" id="photoD" class="choosepfp">
+      <img src="../media/images/photo1.svg" id="photo1" class="choosepfp">
+      <img src="../media/images/photo2.svg" id="photo2" class="choosepfp">
+      <img src="../media/images/photo3.svg" id="photo3" class="choosepfp">
+      <img src="../media/images/photo4.svg" id="photo4" class="choosepfp">
+      <img src="../media/images/photo5.svg" id="photo5" class="choosepfp">
+      <img src="../media/images/photo6.svg" id="photo6" class="choosepfp">
+    </div>
     <input type="text" class="form-control" id="name" placeholder="name@example.com" value="${user.name}">
     <fieldset id="campos">
       <h5>username</h5>
@@ -44,6 +53,31 @@ function show(){
   }
   show()
 
+  let fotos=document.querySelectorAll(".choosepfp")
+  fotos=Array.from(fotos)
+  fotos.forEach(function(foto) {
+    let src=foto.src
+    let result=src.substring(36)
+    let result2='..'+result
+    console.log(result2)
+    if(result2==user.photo){
+      console.log(foto.src)
+      foto.classList.add('pfpSelected')
+      console.log(foto)
+    }
+    foto.addEventListener("click",function(){
+      let pic= document.querySelector(".pfpSelected")
+      pic.classList.remove("pfpSelected")
+     if(this.classList.contains("pfpSelected")){
+        this.classList.remove("pfpSelected")
+     }else{
+      this.classList.add("pfpSelected")
+      
+     }
+
+    })
+  })
+
   let guardar = document.querySelector("#save");
 
   guardar.addEventListener('click',function(){
@@ -53,6 +87,10 @@ function show(){
     let sex = document.querySelector("#sex").value
     let bday = document.querySelector("#bday").value;
     let place = document.querySelector("#place").value;
+    let photo=document.querySelector(".pfpSelected").src
+    let src=photo
+    let result=src.substring(36)
+    let result2='..'+result
 
     user.email = email
     user.name = nome
@@ -60,6 +98,7 @@ function show(){
     user.sex = sex
     user.bday = bday
     user.place = place
+    user.photo=result2
 
     sessionStorage.setItem('loggedUser', JSON.stringify(user))
 

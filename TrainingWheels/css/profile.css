@@ -5,6 +5,20 @@ body{
     font-family: 'ABC-Regular', sans-serif;
 }
 
+.choosepfp{
+    width:45px;
+    border-radius: 50%;
+}
+
+#imgSelect{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.pfpSelected{
+    border: 3px solid #4B94BC;
+}
+
 .container{
     order: 1;
     display: flex;
