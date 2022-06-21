@@ -3,18 +3,22 @@ import * as User from "../models/userModel.js";
 import * as Progress from "../models/progressModel.js";
 import * as Videos from "../models/videoModel.js";
 import * as PopUpQuestions from "../models/popupModel.js";
+import * as Test from "../models/testModel.js";
 Level.init()
 User.init()
 Progress.init()
 Videos.init()
 PopUpQuestions.init()
+Test.init()
 
 let currentUser = User.getUserLogged()
 
 function rankTable(){
     let levels= Level.getLevels()
     let videos = Videos.getVideos()
+    let testes= Test.getTests()
     let listVideos = []
+    let listTestes=[]
     let result = ''
 
     let i=0
@@ -24,6 +28,11 @@ function rankTable(){
         videos.forEach((video) => {
           if(video.level === level.name){
             listVideos.push(video)
+          }
+        })
+        testes.forEach((teste) => {
+          if(teste.level === level.name){
+            listTestes.push(teste)
           }
         })
 
@@ -41,6 +50,9 @@ function rankTable(){
 
         listVideos.forEach((listVideo) => {
           result += `<p class="aVideo">${listVideo.name}</p>`
+        })
+        listTestes.forEach((listTeste) => {
+          result += `<p class="aVideo">${listTeste.name}</p>`
         })
 
         result += `
@@ -76,7 +88,7 @@ function lvlPage(){
             progres.levelsStarted.push(goBtn.id)
           }
 
-          sessionStorage.setItem('currentLvl', JSON.stringify(progres.currentLvl))
+          // sessionStorage.setItem('currentLvl', JSON.stringify(progres.currentLvl))
           Progress.attProgressOnStorage(progres)
 
         }
