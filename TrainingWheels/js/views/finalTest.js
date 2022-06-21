@@ -15,19 +15,36 @@ let progress = Progress.getProgress()
 let testes=Test.getTests()
 let perguntas=Question.getQuestions()
 
-let test = ''
-let title = ''
 
-let currentProgress = ''
-for (let progres of progress){
-  if (progres.username === currentUser.username){
-    currentProgress = progres
-    break;
+function renderPage(){
+  let lvlTitle = document.querySelector('#lvlTitle')
+  let theTitle = document.querySelector('#theTitle')
+  
+  for (let progres of progress){
+    if (progres.username === currentUser.username){
+      let currentProgress = progres
+      lvlTitle.innerHTML = currentProgress.currentLvl
+      
+      testes.forEach((teste)=>{
+        if (teste.level === lvlTitle.innerHTML){
+
+          theTitle.innerHTML = teste.name
+
+        }
+      })
+
+      document.querySelector()
+
+      break;
+    }
   }
 }
 
+
+
 function pageView(){
-  let lvlTitle = document.querySelector('#lvlTitle')
+
+
   progress.forEach((progres) => {
     if(currentUser.username === progres.username){
       let currentLvl = progres.currentLvl
