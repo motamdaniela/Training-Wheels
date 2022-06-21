@@ -92,12 +92,15 @@ function pageView(){
       <div id="avalDiv" class="divInicio">
         <fieldset class="titulo">
           <h2>Avaliações</h2>
-          <div>
-            <i class="star" data-feather="star"></i>
-            <i class="star" data-feather="star"></i>
-            <i class="star" data-feather="star"></i>
-            <i class="star" data-feather="star"></i>
-            <i class="star" data-feather="star"></i>
+          <div>`
+          for (let i=0; i< media(); i++){
+            result+=`<i class="star starFilled" data-feather="star"></i>`
+          }
+          for(let i=media(); i< 5; i++){
+            result+=`<i class="star" data-feather="star"></i>`
+          }
+
+          result+=`
           </div>
         </fieldset>
         <div id="commentDiv" class="carousel slide " data-ride="carousel">
@@ -168,7 +171,6 @@ function pageView(){
             
           }else{
             for(let review of reviews){
-              console.log('oquee')
               result3+=`
               <div class="carousel-item">
                 <div class="carousel-caption">
@@ -177,12 +179,16 @@ function pageView(){
                       <img class="perfilCom" src="../media/images/default.svg">
                       <div class="nomeStar">
                         <p><strong>${review.username}</strong></p>
-                        <div>
-                          <i class="star" data-feather="star"></i>
-                          <i class="star" data-feather="star"></i>
-                          <i class="star" data-feather="star"></i>
-                          <i class="star" data-feather="star"></i>
-                          <i class="star" data-feather="star"></i>
+                        <div>`
+
+                        for (let i=0; i< review.rating; i++){
+                          result3+=`<i class="star starFilled" data-feather="star"></i>`
+                        }
+                        for(let i=review.rating; i< 5; i++){
+                          result3+=`<i class="star" data-feather="star"></i>`
+                        }
+
+                        result3+=`
                         </div>
                       </div>
                     </div>
@@ -206,14 +212,39 @@ function pageView(){
 pageView()
 feather.replace()
 
+function media(){
+  let reviews = Review.getReviews()
+  let allRatings = []
+  reviews.forEach((review) => {
+    allRatings.push(+review.rating)
+  })
+  console.log(allRatings)
+
+  let media = allRatings.reduce((a, b) => a + b, 0) / allRatings.length;
+  media = Math.round(media)
+
+  return media
+}
+
+
 
 let avaliarBtn=document.querySelector('#avaliar');
 avaliarBtn.addEventListener("click",()=>{
   let comment=document.querySelector('#commentReview').value;
-  let stars=document.querySelector('#starReview').value;
+  let starsN=document.querySelector('#starReview').value;
   let userLog=User.getUserLogged().username
-  Review.add(userLog, comment, stars)
+  Review.add(userLog, comment, starsN)
   window.location.reload()
+
+
+  let allStars = document.querySelectorAll('.star')
+  allStars = Array.from(allStars)
+  for (let i=0; i< starsN; i++){
+    allStars[i].addClass('starFilled')
+  }
+
+
+
 
 })
 
@@ -245,6 +276,7 @@ function rankingOrder(){
 }
 feather.replace()
 
+let currentUser = User.getUserLogged()
 
 function ProgressBar(){
   let layer2 = document.querySelector('.layer2')
@@ -252,15 +284,42 @@ function ProgressBar(){
   let string = ''
 
   levels.forEach((level) => {
-    string += `<i id="${level.name}" class="aLvl red" data-feather="circle"></i>`
+    string += `<label title="${level.name}"><i id="${level.name}" class="aLvl red" data-feather="circle"></i></label>`
   })
   layer2.innerHTML = string
   feather.replace()
+
+  
+    let goBtns = document.querySelectorAll('.aLvl');
+    goBtns = Array.from(goBtns)
+    goBtns.forEach((goBtn)=>{
+      goBtn.addEventListener('click',()=>{
+  
+        let progress = Progress.getProgress()
+        progress.forEach((progres)=>{
+          if (currentUser.username === progres.username){
+  
+            progres.currentLvl = goBtn.id
+  
+            if(progres.levelsStarted.includes(goBtn.id) == false){
+              progres.levelsStarted.push(goBtn.id)
+            }
+  
+            Progress.attProgressOnStorage(progres)
+  
+          }
+        })
+        
+        setTimeout(() => {
+          location.replace("./tutorial.html");
+        }, 500);
+      })
+    })
+
+
 }
 ProgressBar()
 
-
-let currentUser = User.getUserLogged()
 
 
 
@@ -323,7 +382,6 @@ function currentLevel(){
 }
 currentLevel()
 
-
 function nextSticker(){
   let popUps = PopUps.getPopUp()
   let stickerFld = document.querySelector('#nextSticker')
@@ -334,10 +392,15 @@ function nextSticker(){
   progress.forEach((progres) => {
     let currentProgress = progres
     let currentVideo = currentProgress.currentVideo
+
+    console.log(currentProgress, currentVideo)
   
     popUps.forEach((popUp) => {
       if(popUp.video === currentVideo){
-        if(currentProgress.questionsDone.inclues(popUp.question)){
+        console.log("works")
+        console.log(popUp.video, currentVideo)
+        if(currentProgress.questionsDone.includes(popUp.question)){
+
         }else{
           document.querySelector('.dark').src = popUp.reward
         }
