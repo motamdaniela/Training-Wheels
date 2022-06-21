@@ -14,10 +14,14 @@ body*:not(.main-menu){
   top: 0;
   position: fixed;
 }
+@media screen and (max-width: 575px) {
+  #icons{
+    margin-left: 70px;
+  }
 
-#icons{
-  margin-left: 70px;
 }
+
+
 
 .wholeBody{
   background-color: #9EC2D5;
