@@ -49,6 +49,7 @@ body{
     align-items:center;
     justify-content: center;
     padding: 10px;
+    
 }
 
 #campos>p{
@@ -73,6 +74,9 @@ body{
     }
     #campos{
         width: 450px;
+    }
+    #campos>p{
+        width: 400px;
     }
 }
 

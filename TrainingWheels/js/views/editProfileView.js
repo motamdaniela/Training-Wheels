@@ -42,12 +42,6 @@ function show(){
       <h5>cidade</h5>
       <input type="text" class="form-control" id="place" placeholder="name@example.com" value="${user.place}">
       </fieldset>`
-      // let sex = document.querySelector("#sex")
-      // for(var i, j = 0; i = sex.options[j]; j++) {
-      //   if(i.value == user.sex) {
-      //       sex.selectedIndex = j;
-      //       break;
-      //   }}
     document.querySelector('#coisasPerfil').innerHTML = result;
     
   }
